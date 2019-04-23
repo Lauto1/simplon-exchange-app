@@ -1,0 +1,1 @@
+export default THIS_IS_AN_EXAMPLE = 'THIS_IS_AN_EXAMPLE';

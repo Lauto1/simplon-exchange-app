@@ -1,3 +1,5 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 
-export default combineReducers({/**importer les reducers ici */});
+export default combineReducers({
+  /**importer les reducers ici */
+});
