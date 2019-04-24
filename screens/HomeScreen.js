@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text,ScrollView,StyleSheet } from 'react-native';
-import HomeContainer from "../containers/HomeContainer"
+import gHomeContainer from "../containers/HomeContainer"
 class HomeScreen extends React.Component {
     constructor(props) {
         super(props)
