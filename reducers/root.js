@@ -1,3 +1,7 @@
 import { combineReducers } from "redux";
-import {example} from "./example";
-export default combineReducers({example});
+import { userVotes } from './userVotes';
+
+export default combineReducers({
+  /**importer les reducers ici */
+  userVotes
+});
