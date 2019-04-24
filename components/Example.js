@@ -1,9 +1,12 @@
 import React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, Text } from "react-native";
 
 const Example = props => {
     return (
-        <ScrollView>This is an example !</ScrollView>
+        <ScrollView>
+            <Text>"Je suis le texte"</Text>
+            <Text>"Je suis le texte"</Text>
+        </ScrollView>
     )
 }
 
