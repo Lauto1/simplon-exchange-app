@@ -1,5 +1,3 @@
 import { combineReducers } from "redux";
-
-export default combineReducers({
-  /**importer les reducers ici */
-});
+import {example} from "./example";
+export default combineReducers({example});
