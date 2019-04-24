@@ -17,8 +17,8 @@ class HomeScreen extends React.Component {
     }
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <HomeContainer/>
+            <View style={styles.container}>
+                <HomeContainer drawerNav={this.props.navigation}/>
             </View>
         );
     }
@@ -27,18 +27,10 @@ class HomeScreen extends React.Component {
     }
 }
 const styles = StyleSheet.create({
-    contentContainer: {
+    container: {
         flex: 1,
-
-    },
-    view: {
-        flex: 2,
-        justifyContent: 'flex-start',
-        marginTop: 20
-
-    },
-    search: {
-        marginTop: 20
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
 export default HomeScreen;
