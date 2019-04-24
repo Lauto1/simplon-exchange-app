@@ -8,7 +8,7 @@ class ViewrComponent extends Component {
         return (
             <ScrollView>
                 <View style={styles.wrapper}> 
-                    <View >
+                    <View style={styles.text}>
                         <Text style={styles.titleText}>Exchange ?</Text>
                         <Text>Un lieu d'échange convivial où toutes questions trouvera une réponse</Text>
                         <Text>Apprentissage de la pédagogie de l'entraide. Savoir questionner pour obtenir des réponses pertinentes</Text>
@@ -63,9 +63,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         flex: 1,
-        padding: 20,
+        width: '70%',
+        margin: 'auto',
         backgroundColor: '#2f3239',
-        marginTop: 10,
         borderRadius: 5
     },
     titleText: {
