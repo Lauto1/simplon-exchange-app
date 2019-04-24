@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,ScrollView } from 'react-native';
+import { View, Text,ScrollView,StyleSheet } from 'react-native';
 import HomeContainer from "../containers/HomeContainer"
 class HomeScreen extends React.Component {
     constructor(props) {
@@ -26,5 +26,19 @@ class HomeScreen extends React.Component {
         console.log("loaded");
     }
 }
+const styles = StyleSheet.create({
+    contentContainer: {
+        flex: 1,
 
+    },
+    view: {
+        flex: 2,
+        justifyContent: 'flex-start',
+        marginTop: 20
+
+    },
+    search: {
+        marginTop: 20
+    }
+})
 export default HomeScreen;
