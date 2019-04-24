@@ -10,7 +10,7 @@ class Faq extends React.Component {
             return (
                 <View style={styles.container} key={i}>
                     <Text>{r.question}</Text>
-                    <Text>{r.reponse}</Text>
+                    <Text>{r.answer}</Text>
                 </View>
             );
         });
