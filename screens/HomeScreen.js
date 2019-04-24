@@ -1,7 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,ScrollView } from 'react-native';
+import HomeContainer from "../containers/HomeContainer"
 class HomeScreen extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            contentToDisplay :"hello world"
 
+          };
+      
+    }
     static navigationOptions = ({ navigation }) => {
         return {
             header: null,
@@ -10,9 +18,12 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>HomeScreen</Text>
+                <HomeContainer/>
             </View>
         );
+    }
+    onLoadCallback =()=>{
+        console.log("loaded");
     }
 }
 
