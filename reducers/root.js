@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
+import {storeStatistiques} from './storeStatistiques';
 
-export default combineReducers({
-  /**importer les reducers ici */
-});
+export default combineReducers({storeStatistiques});
