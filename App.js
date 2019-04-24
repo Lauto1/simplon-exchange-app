@@ -5,11 +5,14 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { Amplitude } from "expo";
 import { analyticsAPIKey } from "./config";
+
 export default class App extends Component {
+
   constructor(props) {
     super(props);
     Amplitude.initialize(analyticsAPIKey);
   }
+  
   render() {
     return (
       <Provider store={store}>
