@@ -7,14 +7,14 @@ class ViewrComponent extends Component {
     render() {
         return (
             <ScrollView>
-                <View > 
-                    <View style={styles.wrapper}>
+                <View style={styles.wrapper}> 
+                    <View >
                         <Text style={styles.titleText}>Exchange ?</Text>
                         <Text>Un lieu d'échange convivial où toutes questions trouvera une réponse</Text>
                         <Text>Apprentissage de la pédagogie de l'entraide. Savoir questionner pour obtenir des réponses pertinentes</Text>
                     </View>
 
-                    <View style={styles.wrapper}>
+                    <View >
                         <Text style={styles.titleText}>Liens utiles</Text>
                         <TouchableOpacity 
                         style={{width: '90%', borderRadius: 5}}
@@ -45,7 +45,7 @@ class ViewrComponent extends Component {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.wrapper}>
+                    <View >
                         <Text style={styles.titleText}>Intéret ?</Text>
                         <Text>Créer en tant que projet back office pour la fabrique de Roanne, cette outil à vocation pédagogique </Text>
                         <Text>a pour objectif de servir de lieu d'échange entre tous simploniens de toutes promotions.</Text>
@@ -61,8 +61,7 @@ const styles = StyleSheet.create({
     wrapper: {
         
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        justifyContent: 'center',
         flex: 1,
         padding: 20,
         backgroundColor: '#2f3239',
