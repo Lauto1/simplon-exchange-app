@@ -17,14 +17,8 @@ class HomeScreen extends React.Component {
     }
     render() {
         return (
-<<<<<<< HEAD
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>HomeScreen</Text>
-                <FooterComponent/>
-=======
             <View style={styles.container}>
                 <HomeContainer drawerNav={this.props.navigation}/>
->>>>>>> team-2
             </View>
         );
     }
