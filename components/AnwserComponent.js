@@ -2,65 +2,99 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import Headernav from "../components/layouts/header";
- 
+
 class AnwserComponent extends Component {
-  render() {
+    render() {
 
-    const {answer} = this.props
-    console.log(this.props);
-    
+        const { answer } = this.props
+        console.log(this.props);
 
-    return (
-      <View style={styles.view}>
-        <Card>
-          <View
-            style={{
-              flexDirection: "row"
-            }}
-          >
-            <View style={{ marginRight: 20 }}>
-              <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                {answer.karma}
+
+        return (
+            <View style={styles.view}>
+                <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
+                    <View
+                        style={{
+                            flexDirection: "row"
+                        }}
+                    >
+                        <View
+                            style={{
+                                backgroundColor: "#f3f3f3",
+                                justifyContent: "center",
+                                paddingLeft: 15,
+                                paddingRight: 15
+                            }}
+                        >
+                            <Icon name="sort-up" type="font-awesome" />
+                            <Text style={{ fontSize: 20 }}>{answer.karma}</Text>
+                        </View>
+
+                        <View style={{ flex: 1, padding: 15 }}>
+                            <Text
+                                style={{
+                                    paddingBottom: 15,
+                                    fontSize: 16,
+                                    fontFamily: "firacodebold",
+                                
+                                }}
+                            >
+                                {answer.content}
+                            </Text>
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    paddingBottom: 8
+                                }}
+                            >
+                                <Text
+                                    style={{ fontSize: 16, color: "#6C757D", fontFamily: "firacode", fontStyle: "italic" }}
+                                >
+                                    {answer.date}
+                                </Text>
+                                <Text
+                                    style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D", paddingHorizontal: 8 }}
+                                >
+                                    par
               </Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text
-                style={{
-                  marginBottom: 10,
-                  fontSize: 16,
-                }}
-              >
-                {answer.content}
-              </Text>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={{ fontSize: 16,marginBottom: 10 }}>{answer.date}</Text>
-                <Text style={{ fontSize: 16, marginBottom: 10 }}>{answer.author}</Text>
-              </View>
-            </View>
-          </View>
-        </Card>
-      </View>
+                                <Text style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D" }}>
+                                    {answer.author}
+                                </Text>
+                            </View>
 
-    );
-  }
+                            <View
+                                style={{
+                                    flex: 1,
+                                    flexDirection: "row",
+                                    justifyContent: "space-between",
+                                    borderTopColor: "#dedede",
+                                    borderTopWidth: 1,
+                                    paddingTop: 8,
+                                    marginTop: 8
+                                }}
+                            >
+                                 
+                            </View>
+                        </View>
+                    </View>
+                </Card>
+            </View>
+
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1
-  },
-  view: {
-    flex: 1,
-    backgroundColor: "#dee2e6"
-  },
-  search: {
-    marginTop: 20
-  }
+    contentContainer: {
+        flex: 1
+    },
+    view: {
+        flex: 1,
+        backgroundColor: "#dee2e6"
+    },
+    search: {
+        marginTop: 20
+    }
 });
 
 export default AnwserComponent;

@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import QuestionDetail from "../components/QuestionDetail";
+import Question from "../components/Question";
+
 import AnwserComponent from "../components/AnwserComponent";
 import { Card, Icon } from "react-native-elements";
 class QuestionScreen extends React.Component {
@@ -21,13 +23,13 @@ class QuestionScreen extends React.Component {
     const answers = question.answers
 
     return (
-      <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6"}} >
 
-        <QuestionDetail navigation={this.props.navigation} question={question} />
+        <Question navigation={this.props.navigation} question={question} showContent={true} />
         <Text style={{
-          backgroundColor: "#dee2e6",
           marginTop:10,
           marginBottom: 10,
+          marginLeft: 40,
           fontSize: 20,
           fontWeight: "bold",
           color: "#d6363e"
@@ -37,7 +39,7 @@ class QuestionScreen extends React.Component {
         ))}
 
 
-      </View>
+      </ScrollView>
     );
   }
   onLoadCallback = () => {

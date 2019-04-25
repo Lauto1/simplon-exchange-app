@@ -72,7 +72,7 @@ class HomeComponent extends React.Component {
           onScroll={this.onScroll}
         >
           {questions.map(question => (
-            <Question navigation={this.props.navigation}  key={question.id} question={question} />
+            <Question navigation={this.props.navigation} showContent={false} key={question.id} question={question} />
           ))}
         </ScrollView>
         {showScrollToTop && <ScrollToTopButton onPress={this.onScrollTop} />}

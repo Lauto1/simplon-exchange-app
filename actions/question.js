@@ -13,10 +13,10 @@ export const fetchQuestions = () => {
             const QUESTIONS = [
                 {
                   id: "01",
-                  title: "Question 1 à propos de ",
+                  title: "erreur SQL PDO : Recoverable fatal error: Object of class PDOStatement could not be converted to string in /shared/httpd/quizz/htdocs/quiz/quiz-informatique.php on line 42",
                   date: "09/10/2018",
                   author: "Jean-Michel",
-                  content: "Ici gît le corps de ma question 1",
+                  content: "Fatal error: Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'name' doesn't have a default value in /shared/httpd/test/htdocs/donne.php:27 Stack trace: #0 /shared/httpd/test/htdocs/donne.php(27): PDOStatement->execute(Array) #1 {main} thrown in /shared/httpd/test/htdocs/donne.php on line 27 cette erreur me bloque . je voudrai que quand on envoi un message sur ma page message.php sa envoi sur la page verification.php (ca sa marche) mais quand le code s'execute il me marque l'erreur",
                   upvote: 0,
                   answers: [
                     {
@@ -60,10 +60,10 @@ export const fetchQuestions = () => {
                 },
                 {
                   id: "02",
-                  title: "Question 2 à propos de ",
+                  title: "probleme animation css ancune transition entre chaque parti du keyframe",
                   date: "09/11/2018",
                   author: "Thor",
-                  content: "Ici est le corps de ma question 2",
+                  content: "Ici est le corps de ma question 2bonjour mon animation est 'saccader' il ne fait aucune transition entre chaque parti du mon keyframes mon code html",
                   upvote: 3,
                   answers: [
                     {
