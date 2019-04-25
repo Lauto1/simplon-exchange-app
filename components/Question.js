@@ -69,7 +69,12 @@ class Question extends Component {
               }}
             >
               <View style={{ flexDirection: "row", alignContent: "center" }}>
-                <Icon name="comment" type="font-awesome" color="#171b22" />
+                <Icon
+                  size={18}
+                  name="comment"
+                  type="font-awesome"
+                  color="#171b22"
+                />
                 <Text style={{ marginLeft: 8, color: "#171b22" }}>
                   {question.answers.length}
                 </Text>
@@ -85,13 +90,26 @@ class Question extends Component {
               >
                 <Text style={{ color: "#fff" }}>{question.factory}</Text>
               </View>
-              <View style={{ flexDirection: "row" }}>
+
+              <View
+                style={{
+                  flexDirection: "row"
+                }}
+              >
                 <Icon
+                  size={18}
                   name="tag"
                   type="font-awesome"
                   color="#171b22"
                 />
-                <Text style={{ marginLeft: 8, color: "#171b22" }}>
+                <Text
+                  style={{
+                    marginLeft: 8,
+                    color: "#171b22",
+                    textAlignVertical: "center",
+                    lineHeight: 15
+                  }}
+                >
                   {question.tag}
                 </Text>
               </View>
