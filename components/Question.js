@@ -1,12 +1,27 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
 
 class Question extends Component {
+
+
+  constructor(props){
+    super(props);
+  }
+
+  onPressQuestion() {
+    console.log('onPressQuestion');
+    
+    const { navigation:navigate } = this.props;
+    () => navigate('Question')
+  }
   render() {
     const { question } = this.props;
+    //  const {navigate} = this.props.navigation;
+    
 
     return (
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Question',{question: question})}>
       <Card>
         <View
           style={{
@@ -49,6 +64,7 @@ class Question extends Component {
           </View>
         </View>
       </Card>
+      </TouchableOpacity>
     );
   }
 }
