@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     view: {
         flex: 2,
         justifyContent: 'flex-start',
-        marginTop: 20
-
+        marginTop: 20,
+        backgroundColor: '#dee2e6'
     },
     search: {
         marginTop: 20
