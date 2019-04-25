@@ -1,40 +1,28 @@
-import React from 'react';
-import { ScrollView, Text, StyleSheet, View } from 'react-native';
-import Question from '../components/Question';
-import Searchbar from '../components/Searchbar';
+import React from "react";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
+import HomeContainer from "../containers/HomeContainer";
 
 class HomeScreen extends React.Component {
-    static navigationOptions = ({ navigation }) => {
-        return {
-            header: null,
-        };
-    }
-    render() {
-        return (
-            <ScrollView style={styles.contentContainer}>
-                <View style={styles.view}>
-                    <Searchbar style={styles.search} />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                    <Question />
-                </View>
-            </ScrollView>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      contentToDisplay: "hello world"
+    };
+  }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    };
+  };
+  render() {
+    return <HomeContainer drawerNav={this.props.navigation} />;
+  }
+  onLoadCallback = () => {
+    console.log("loaded");
+  };
 }
-const styles = StyleSheet.create({
-    contentContainer: {
-        flex: 1,
 
+<<<<<<< HEAD
     },
     view: {
         flex: 2,
@@ -47,3 +35,6 @@ const styles = StyleSheet.create({
     }
 })
 export default HomeScreen;
+=======
+export default HomeScreen;
+>>>>>>> origin/team-2-questions-list
