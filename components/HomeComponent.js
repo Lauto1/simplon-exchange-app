@@ -18,6 +18,7 @@ import Question from "../components/Question";
 import Searchbar from "../components/Searchbar";
 import Headernav from "../components/layouts/header";
 import ScrollToTopButton from "./ScrollToTopButton";
+import FooterComponent from "../components/layouts/Footer"
 
 const QUESTIONS = [
   {
@@ -264,6 +265,7 @@ class HomeComponent extends React.Component {
           {questions.map(question => (
             <Question key={question.id} question={question} />
           ))}
+          <FooterComponent/>
         </ScrollView>
         {showScrollToTop && <ScrollToTopButton onPress={this.onScrollTop} />}
       </View>
