@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, TouchableOpacity, View, Text, StyleSheet} from 'react-native';
+import { ScrollView, TouchableOpacity, Linking, View, Text, StyleSheet} from 'react-native';
 
 
 class FooterComponent extends Component {
+
 /***Composant FOOTER connecter au screen (HomeScreen) & re-utilisable comme le HEADER dans les autres composants*/
     render() {
         return (

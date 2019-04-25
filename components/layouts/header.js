@@ -7,43 +7,26 @@ import "@expo/vector-icons";
 class Headernav extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Header
-          style={styles.headerstyle}
-          leftComponent={{
-            icon: "menu",
-            color: "#fff",
-            padding: 8,
-            onPress: () => {
-              this.toggleDrawer();
-            }
-          }}
-          centerComponent={{
-            text: "Accueil",
-            style: { color: "#fff", fontSize: 16 }
-          }}
-          backgroundColor="#2F3239"
-        />
-      </View>
+      <Header
+        leftComponent={{
+          icon: "menu",
+          color: "#fff",
+          padding: 8,
+          onPress: () => {
+            this.toggleDrawer();
+          }
+        }}
+        centerComponent={{
+          text: "Accueil",
+          style: { color: "#fff", fontSize: 16 }
+        }}
+        backgroundColor="#2F3239"
+      />
     );
   }
   toggleDrawer = () => {
     this.props.drawerNav.toggleDrawer();
   };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center"
-  },
-
-  headerstyle: {
-    flex: 1,
-    flexDirection: "column",
-    alignContent: "flex-start"
-  }
-});
 
 export default Headernav;
