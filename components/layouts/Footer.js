@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { ScrollView, TouchableOpacity, View,  Text, StyleSheet} from 'react-native';
+import { ScrollView, TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 
 
-class ViewrComponent extends Component {
+class FooterComponent extends Component {
 
     render() {
         return (
             <ScrollView>
                 <View style={styles.wrapper}> 
-                    <View style={styles.text}>
+                    <View >
                         <Text style={styles.titleText}>Exchange ?</Text>
-                        <Text>Un lieu d'échange convivial où toutes questions trouvera une réponse</Text>
-                        <Text>Apprentissage de la pédagogie de l'entraide. Savoir questionner pour obtenir des réponses pertinentes</Text>
+                        <Text style={styles.textStyle}>Un lieu d'échange convivial où toutes questions trouvera une réponse</Text>
+                        <Text style={styles.textStyle}>Apprentissage de la pédagogie de l'entraide. </Text>
+                        <Text style={styles.textStyle}>Savoir questionner pour obtenir des réponses pertinentes</Text>
                     </View>
 
                     <View >
@@ -20,36 +21,47 @@ class ViewrComponent extends Component {
                         style={{width: '90%', borderRadius: 5}}
                         onPress={() => this.props.navigation.navigate('HomeScreen')}
                         >
-                            <Text>Accueil</Text>
+                            <Text style={styles.textStyle}>Accueil</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                         style={{width: '90%', borderRadius: 5}}
                         onPress={() => this.props.navigation.navigate('HomeScreen')} 
                         >
-                            <Text>Poser une question</Text>
+                            <Text style={styles.textStyle}>Poser une question</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity 
                         style={{width: '90%', borderRadius: 5}}
                         onPress={() => this.props.navigation.navigate('HomeScreen')}
                         >
-                            <Text>Aider la communauté</Text>
+                            <Text style={styles.textStyle}>Aider la communauté</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                         style={{width: '90%', borderRadius: 5}}
                         onPress={() => this.props.navigation.navigate('HomeScreen')}
                         >
-                            <Text>Foire Aux Questions</Text>
+                            <Text style={styles.textStyle}>Foire Aux Questions</Text>
                         </TouchableOpacity>
                     </View>
 
                     <View >
                         <Text style={styles.titleText}>Intéret ?</Text>
-                        <Text>Créer en tant que projet back office pour la fabrique de Roanne, cette outil à vocation pédagogique </Text>
-                        <Text>a pour objectif de servir de lieu d'échange entre tous simploniens de toutes promotions.</Text>
+                        <Text style={styles.textStyle}>Créer en tant que projet back office pour la fabrique de Roanne,</Text>
+                        <Text style={styles.textStyle}> cette outil à vocation pédagogique a pour objectif,</Text>
+                        <Text style={styles.textStyle}>de servir de lieu d'échange entre tous simploniens de toutes promotions.</Text>
                     </View>
+                </View>
+                <View>
+                    <Text>Copyright 2019 Une Question ? | 
+                        <TouchableOpacity
+                            style={{width: '90%', borderRadius: 5}}
+                            onPress={() => this.props.navigation.navigate('HomeScreen')}
+                            >
+                            <Text style={styles.textStyle}>By Simplon-Vénissieux</Text>
+                        </TouchableOpacity>
+                    </Text>
                 </View>
             </ScrollView>
         );
@@ -59,24 +71,31 @@ class ViewrComponent extends Component {
 const styles = StyleSheet.create({
 
     wrapper: {
-        
-        flexDirection: 'row',
+        flex: 3,
+        alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
-        width: '70%',
-        margin: 'auto',
         backgroundColor: '#2f3239',
-        borderRadius: 5
     },
+
+    View: {
+        flex: 2,
+        justifyContent: 'flex-start',
+        marginTop: 20,
+        backgroundColor: '#dee2e6',
+    },
+
     titleText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#d6363e'
+        color: '#d6363e',
+        width: '100%',   
+        justifyContent: 'space-evenly'
       },
-    text: {
-        flex: 0.9,
-        color: '#fff'
+
+    textStyle: {
+        color: '#fff',
+        fontSize:12
     },
 });
 
-export default ViewrComponent;
+export default FooterComponent;
