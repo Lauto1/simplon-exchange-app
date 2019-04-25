@@ -3,7 +3,7 @@ import { ScrollView, TouchableOpacity, View, Text, StyleSheet} from 'react-nativ
 
 
 class FooterComponent extends Component {
-
+/***Composant FOOTER connecter au screen (HomeScreen) & re-utilisable comme le HEADER dans les autres composants*/
     render() {
         return (
             <ScrollView>
@@ -17,33 +17,13 @@ class FooterComponent extends Component {
 
                     <View >
                         <Text style={styles.titleText}>Liens utiles</Text>
-                        <TouchableOpacity 
-                        style={{width: '90%', borderRadius: 5}}
-                        onPress={() => this.props.navigation.navigate('HomeScreen')}
-                        >
-                            <Text style={styles.textStyle}>Accueil</Text>
-                        </TouchableOpacity>
 
-                        <TouchableOpacity
-                        style={{width: '90%', borderRadius: 5}}
-                        onPress={() => this.props.navigation.navigate('HomeScreen')} 
-                        >
-                            <Text style={styles.textStyle}>Poser une question</Text>
-                        </TouchableOpacity>
+                        <Text style={styles.textStyle}>Accueil</Text>
 
-                        <TouchableOpacity 
-                        style={{width: '90%', borderRadius: 5}}
-                        onPress={() => this.props.navigation.navigate('HomeScreen')}
-                        >
-                            <Text style={styles.textStyle}>Aider la communauté</Text>
-                        </TouchableOpacity>
+                        <Text style={styles.textStyle}>Poser une question</Text>
 
-                        <TouchableOpacity
-                        style={{width: '90%', borderRadius: 5}}
-                        onPress={() => this.props.navigation.navigate('HomeScreen')}
-                        >
-                            <Text style={styles.textStyle}>Foire Aux Questions</Text>
-                        </TouchableOpacity>
+                        <Text style={styles.textStyle}>Aider la communauté</Text>
+                        <Text style={styles.textStyle}>Foire Aux Questions</Text>
                     </View>
 
                     <View >
@@ -53,15 +33,14 @@ class FooterComponent extends Component {
                         <Text style={styles.textStyle}>de servir de lieu d'échange entre tous simploniens de toutes promotions.</Text>
                     </View>
                 </View>
-                <View>
-                    <Text>Copyright 2019 Une Question ? | 
-                        <TouchableOpacity
-                            style={{width: '90%', borderRadius: 5}}
-                            onPress={() => this.props.navigation.navigate('HomeScreen')}
-                            >
-                            <Text style={styles.textStyle}>By Simplon-Vénissieux</Text>
-                        </TouchableOpacity>
-                    </Text>
+                <View style={styles.Copyright}>
+                    <Text style={styles.CopyrightItems}>Copyright 2019 Une Question ? | </Text>
+                    <TouchableOpacity
+                        style={{width: '90%', borderRadius: 5}}
+                        onPress={() => this.props.navigation.navigate('HomeScreen')}
+                    >
+                         <Text style={styles.CopyrightItems}>By Simplon-Vénissieux</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         );
@@ -72,29 +51,42 @@ const styles = StyleSheet.create({
 
     wrapper: {
         flex: 3,
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#2f3239',
+        width: '100%'
     },
 
     View: {
-        flex: 2,
-        justifyContent: 'flex-start',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
         marginTop: 20,
         backgroundColor: '#dee2e6',
+      
+    },
+    Copyright: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#222429',
+    },
+    CopyrightItems: {
+        fontSize: 9,
+        color: '#fff',
     },
 
     titleText: {
-        fontSize: 20,
+        fontSize: 14,
         fontWeight: 'bold',
-        color: '#d6363e',
-        width: '100%',   
+        color: '#d6363e',  
         justifyContent: 'space-evenly'
       },
 
     textStyle: {
         color: '#fff',
-        fontSize:12
+        fontSize:8,
     },
 });
 
