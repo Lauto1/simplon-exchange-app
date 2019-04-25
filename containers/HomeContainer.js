@@ -2,16 +2,18 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import HomeComponent from "../components/HomeComponent";
 import { getExample } from "../actions/example";
+import { fetchQuestions,searchQuestions } from "../actions/question";
+
 
 const mapStateToProps = state => {
   return {
-    example: state.example.getExample
+    questions: state.questionReducer.questions
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators({ getExample }, dispatch)
+    actions: bindActionCreators({ fetchQuestions,searchQuestions }, dispatch)
   };
 };
 const HomeContainer = connect(
