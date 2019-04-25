@@ -14,10 +14,11 @@ import {
 } from "react-native";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Question from "../components/Question";
-import Searchbar from "../components/Searchbar";
-import Headernav from "../components/layouts/header";
-import ScrollToTopButton from "./ScrollToTopButton";
+import QuestionComponent from "./QuestionComponent";
+import SearchbarComponent from "./SearchbarComponent";
+import HeaderComponent from "./layouts/HeaderComponent";
+import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
+import FooterComponent from "./layouts/FooterComponent"
 
 class HomeComponent extends React.Component {
   state = {
@@ -64,18 +65,19 @@ class HomeComponent extends React.Component {
     const  questions  = this.props.questions;
     return (
       <View style={styles.view}>
-        <Headernav drawerNav={this.props.navigation} title="Accueil"/>
-        <Searchbar style={styles.search} />
+        <HeaderComponent drawerNav={this.props.navigation} title="Accueil"/>
+        <SearchbarComponent style={styles.search} />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
           onScroll={this.onScroll}
         >
           {questions.map(question => (
-            <Question navigation={this.props.navigation} showContent={false} key={question.id} question={question} />
+            <QuestionComponent navigation={this.props.navigation} showContent={false} key={question.id} question={question} />
           ))}
+          <FooterComponent/>
         </ScrollView>
-        {showScrollToTop && <ScrollToTopButton onPress={this.onScrollTop} />}
+        {showScrollToTop && <ScrollToTopButtonComponent onPress={this.onScrollTop} />}
       </View>
     );
   }

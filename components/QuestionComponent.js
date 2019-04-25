@@ -2,7 +2,19 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
 
-class Question extends Component {
+class QuestionComponent extends Component {
+
+
+  constructor(props){
+    super(props);
+  }
+
+  onPressQuestion() {
+    console.log('onPressQuestion');
+    
+    const { navigation:navigate } = this.props;
+    () => navigate('Question')
+  }
   render() {
     const { question } = this.props;
     console.log("merge", this.props);
@@ -137,4 +149,4 @@ class Question extends Component {
   }
 }
 
-export default Question;
+export default QuestionComponent;

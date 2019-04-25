@@ -1,10 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-import QuestionDetail from "../components/QuestionDetail";
-import Question from "../components/Question";
-
+import QuestionComponent from "../components/QuestionComponent";
 import AnwserComponent from "../components/AnwserComponent";
-import { Card, Icon } from "react-native-elements";
 class QuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +22,7 @@ class QuestionScreen extends React.Component {
     return (
       <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6"}} >
 
-        <Question navigation={this.props.navigation} question={question} showContent={true} />
+        <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
         <Text style={{
           marginTop:10,
           marginBottom: 10,

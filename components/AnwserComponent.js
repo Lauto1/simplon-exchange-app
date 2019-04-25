@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import Headernav from "../components/layouts/header";
-
 class AnwserComponent extends Component {
     render() {
 
         const { answer } = this.props
-        console.log(this.props);
-
-
         return (
             <View style={styles.view}>
                 <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>

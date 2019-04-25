@@ -4,7 +4,7 @@ import { Header, Icon } from "react-native-elements";
 
 import "@expo/vector-icons";
 
-class Headernav extends React.Component {
+class HeaderComponent extends React.Component {
   render() {
     return (
       <Header
@@ -18,15 +18,18 @@ class Headernav extends React.Component {
         }}
         centerComponent={{
           text: this.props.title,
-          style: { color: "#fff", fontSize: 16 }
+          style: { color: "#fff", fontSize: 16, fontFamily: 'firacode' }
         }}
         backgroundColor="#2F3239"
       />
     );
   }
+  /**
+   * Active ou desactive le drawer au click
+   */
   toggleDrawer = () => {
     this.props.drawerNav.toggleDrawer();
   };
 }
 
-export default Headernav;
+export default HeaderComponent;
