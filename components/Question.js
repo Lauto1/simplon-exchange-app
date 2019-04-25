@@ -38,12 +38,12 @@ class Question extends Component {
                             <Text style={{ fontSize: 16, fontFamily: 'firacode' }}>{question.date}</Text>
                             <Text style={{ fontSize: 16, fontFamily: 'firacode' }}>{question.author}</Text>
                             <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                                <Icon name="tag" type="font-awesome" />
-                                <Text style={{ marginLeft: 8, fontFamily: 'firacode' }}>{question.tag}</Text>
+                                <Icon size={18} name="tag" type="font-awesome" />
+                                <Text style={{ marginLeft: 8, fontFamily: 'firacode', color: "#2f3239" }}>{question.tag}</Text>
                             </View>
                             <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                                <Icon size={22} name="comment" type="font-awesome" />
-                                <Text style={{ marginLeft: 8 }}>{question.answers.length}</Text>
+                                <Icon size={18} name="comment" type="font-awesome" />
+                                <Text style={{ marginLeft: 8, fontFamily: 'firacode', color: "#2f3239" }}>{question.answers.length}</Text>
                             </View>
                         </View>
                     </View>
