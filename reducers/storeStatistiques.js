@@ -1,5 +1,10 @@
 import * as types from '../constants/actionTypes';
 
+/*
+**Store utilisé par le chart graph, et par le filter des statistiques. 
+*/
+
+
 let initialState = {
     NbPosts: 1000,
     NbUtilisateurs:2000,

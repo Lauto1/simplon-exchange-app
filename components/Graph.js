@@ -12,6 +12,11 @@ import { StackedBarChart } from 'react-native-svg-charts'
                 NbReponses:0,
             }
         }
+
+        /*
+        ** fonction qui permet d'aller chercher les données dans le store, 
+        ** d'afficher ou cacher l'icone  de rechargement .
+        */
         fetchData = () => {
             this.setState({refreshing:true});
             this.setState({NbPosts: this.props.NbPosts});
@@ -31,27 +36,34 @@ import { StackedBarChart } from 'react-native-svg-charts'
         
     
     render() {
+
+        /*
+        **data du chart graph qui vont etre affichés.
+        */
         const data = [
             {
                 month: new Date(2015, 0, 1),
-                apples: this.state.NbPosts,
+                element: this.state.NbPosts,
                 
             },
             {
                 month: new Date(2015, 1, 1),
-                apples: this.state.NbUtilisateurs,
+                element: this.state.NbUtilisateurs,
                 
             },
             {
                 month: new Date(2015, 2, 1),
-                apples: this.state.NbReponses,
+                element: this.state.NbReponses,
                 
             },
         ]
  
         const colors = [ '#7b4173' ]
-        const keys   = [ 'apples',]
+        const keys   = [ 'element',]
         return (
+            /*
+            **event swipe pour raffraichir les data.
+            */
             <ScrollView
             refreshControl={
                 <RefreshControl
@@ -60,7 +72,11 @@ import { StackedBarChart } from 'react-native-svg-charts'
                 />
             }
             >
-            <View><StackedBarChart
+            <View>
+                {/* 
+                configuration chart graph.
+                */}
+                <StackedBarChart
                 style={ { height: 200, backgroundColor:'#d17a22' } }
                 keys={ keys }
                 colors={ colors }
