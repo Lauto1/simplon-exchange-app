@@ -18,13 +18,33 @@ class FooterComponent extends Component {
 
                     <View >
                         <Text style={styles.titleText}>Liens utiles</Text>
+                        <TouchableOpacity
+                            style={{width: '90%', borderRadius: 5}}
+                            onPress={() => this.props.navigation.navigate('HomeScreen')}
+                        >
+                            <Text style={styles.textStyle}>Accueil</Text>
+                        </TouchableOpacity>
 
-                        <Text style={styles.textStyle}>Accueil</Text>
+                        <TouchableOpacity
+                            style={{width: '90%', borderRadius: 5}}
+                            onPress={() => this.props.navigation.navigate('HomeScreen')}
+                        >
+                            <Text style={styles.textStyle}>Poser une question</Text>
+                        </TouchableOpacity>
 
-                        <Text style={styles.textStyle}>Poser une question</Text>
+                        <TouchableOpacity
+                            style={{width: '90%', borderRadius: 5}}
+                            onPress={() => this.props.navigation.navigate('HomeScreen')}
+                        >
+                            <Text style={styles.textStyle}>Aider la communauté</Text>
+                        </TouchableOpacity>
 
-                        <Text style={styles.textStyle}>Aider la communauté</Text>
-                        <Text style={styles.textStyle}>Foire Aux Questions</Text>
+                        <TouchableOpacity
+                            style={{width: '90%', borderRadius: 5}}
+                            onPress={() => this.props.navigation.navigate('HomeScreen')}
+                        >
+                            <Text style={styles.textStyle}>Foire Aux Questions</Text>
+                        </TouchableOpacity>                                                     
                     </View>
 
                     <View >
