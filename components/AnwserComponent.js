@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import Headernav from "../components/layouts/header";
-
-class QuestionDetail extends Component {
+ 
+class AnwserComponent extends Component {
   render() {
 
-    const {question} = this.props
+    const {answer} = this.props
     console.log(this.props);
     
 
@@ -20,19 +20,17 @@ class QuestionDetail extends Component {
           >
             <View style={{ marginRight: 20 }}>
               <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                {question.upvote}
+                {answer.karma}
               </Text>
             </View>
             <View style={{ flex: 1 }}>
               <Text
                 style={{
                   marginBottom: 10,
-                  fontSize: 20,
-                  fontWeight: "bold",
-                  color: "#d6363e"
+                  fontSize: 16,
                 }}
               >
-                {question.title}
+                {answer.content}
               </Text>
               <View
                 style={{
@@ -40,16 +38,8 @@ class QuestionDetail extends Component {
                   justifyContent: "space-between"
                 }}
               >
-                <Text style={{ fontSize: 16 }}>{question.date}</Text>
-                <Text style={{ fontSize: 16 }}>{question.author}</Text>
-                <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                  <Icon name="tag" type="font-awesome" />
-                  <Text style={{ marginLeft: 8 }}>{question.tag}</Text>
-                </View>
-                <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                  <Icon name="comment" type="font-awesome" />
-                  <Text style={{ marginLeft: 8 }}>{question.answers.length}</Text>
-                </View>
+                <Text style={{ fontSize: 16,marginBottom: 10 }}>{answer.date}</Text>
+                <Text style={{ fontSize: 16, marginBottom: 10 }}>{answer.author}</Text>
               </View>
             </View>
           </View>
@@ -73,4 +63,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default QuestionDetail;
+export default AnwserComponent;

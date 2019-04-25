@@ -23,31 +23,36 @@ export const fetchQuestions = () => {
                       id: "6",
                       author: "Marie-Béatrice",
                       karma: 0,
-                      content: "La super réponse de Marie-Béatrice"
+                      content: "La super réponse de Marie-Béatrice",
+                      date: "09/10/2018"
                     },
                     {
                       id: "7",
                       author: "Marie-Béatrice",
                       karma: 0,
-                      content: "La nouvelle réponse de Marie-Béatrice"
+                      content: "La nouvelle réponse de Marie-Béatrice",
+                      date: "09/10/2018"
                     },
                     {
                       id: "9",
                       author: "Jean-Michel",
                       karma: 0,
-                      content: "La réponse de Jean-Michel à Marie-Béatrice"
+                      content: "La réponse de Jean-Michel à Marie-Béatrice",
+                      date: "09/10/2018"
                     },
                     {
                       id: "19",
                       author: "Marie-Béatrice",
                       karma: 0,
-                      content: "La réponse de Marie-Béatrice à Jean-Michel"
+                      content: "La réponse de Marie-Béatrice à Jean-Michel",
+                      date: "09/10/2018"
                     },
                     {
                       id: "109",
                       author: "Al Capone",
                       karma: 90,
-                      content: "Le dernier mot est donné par Al Capone"
+                      content: "Le dernier mot est donné par Al Capone",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Villeurbanne",
@@ -65,7 +70,8 @@ export const fetchQuestions = () => {
                       id: "555",
                       author: "JCVD",
                       karma: 7,
-                      content: "La super réponse de JCVD"
+                      content: "La super réponse de JCVD",
+                       date: "09/10/2018"
                     }
                   ],
                   factory: "Vénissieux",
@@ -83,7 +89,8 @@ export const fetchQuestions = () => {
                       id: "666",
                       author: "Le pape",
                       karma: 7,
-                      content: "La super réponse du Pape"
+                      content: "La super réponse du Pape",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Roanne",
@@ -101,7 +108,8 @@ export const fetchQuestions = () => {
                       id: "11",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -119,13 +127,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -143,13 +153,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -167,13 +179,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -191,13 +205,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",

@@ -10,6 +10,6 @@ const HomeStack = createStackNavigator({
     Question: QuestionScreen
 });
 HomeStack.navigationOptions = {
-    tabBarLabel: 'Home'
+    tabBarLabel: 'Accueil'
 };
 export default HomeStack; 
