@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
+import { MailComposer } from 'expo';
+import { View,TextInput } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export default class Formulaire extends Component{
     constructor(props){
@@ -14,30 +17,48 @@ export default class Formulaire extends Component{
             image:''
         }
     }
-    verificationUtilisateur(obj){
+    async sendMail(obj){
+        MailComposer.composeAsync({
+            recipients:[obj.mail],
+            subject:obj.categories,
+            body:
+                'Mail : '+obj.mail+'\n'+
+                'Environnement : '+obj.environnement+'\n'+
+                'Page : '+obj.page+'\n'+
+                'Date : '+obj.date+'\n'+
+                'Catégories : '+obj.categories+'\n'+
+                'Descriptif : '+obj.descriptif+'\n'+
+                'Image : '+obj.image
+        });
+    }
+    verificationUtilisateur(){
         const regexEmail = /^(([^<()[\]\\.,;:\s@\]+(\.[^<()[\]\\.,;:\s@\]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
-        if(regexEmail.exec(obj.mail)){
-            if(obj.image !== ''){
+        if(regexEmail.exec(this.state.mail)){
+            if(this.state.image !== ''){
                 this.setState({
-                    mail:obj.mail,
-                    environnement:obj.environnement,
-                    page:obj.page,
-                    categories:obj.categories,
-                    date:obj.date,
-                    descriptif:obj.descriptif,
-                    image:obj.image
+                    mail:this.state.mail,
+                    environnement:this.state.environnement,
+                    page:this.state.page,
+                    categories:this.state.categories,
+                    date:this.state.date,
+                    descriptif:this.state.descriptif,
+                    image:this.state.image
                 })
+                return this.sendMail(this.state);
             }else{
                 this.setState({
-                    mail:obj.mail,
-                    environnement:obj.environnement,
-                    page:obj.page,
-                    categories:obj.categories,
-                    date:obj.date,
-                    descriptif:obj.descriptif,
+                    mail:this.state.mail,
+                    environnement:this.state.environnement,
+                    page:this.state.page,
+                    categories:this.state.categories,
+                    date:this.state.date,
+                    descriptif:this.state.descriptif,
                     image:''
                 })
+                return this.sendMail(this.state);
             }
+        }else{
+            console.error('Votre email doit être valide');
         }
     }
     render(){
@@ -54,13 +75,51 @@ export default class Formulaire extends Component{
                         image:this.state.image
                     }
                 }
-                onSubmit = { 
-                    (values, actions) => {
-                        setTimeout( () => {
-                            alert(JSON.stringify(values, null, 2));
-                            actions.setSubmitting(false);
-                        }, 1000);
-                    }
+                render={()=>
+                    <View>
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}} 
+                            placeholder="E-mail"
+                            onChangeText={(text)=>this.setState({mail:text})}
+                        />
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            placeholder="Environnement"
+                            onChangeText={(text)=>this.setState({environnement:text})}
+                        />
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            placeholder="Page"
+                            onChangeText={(text)=>this.setState({page:text})}
+                        />
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            placeholder="Catégories" 
+                            onChangeText={(text)=>this.setState({categories:text})}
+                        />
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            placeholder="Date" 
+                            onChangeText={(text)=>this.setState({date:text})}
+                        />
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            placeholder="Descriptif" 
+                            onChangeText={(text)=>this.setState({descriptif:text})}
+                        />
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            placeholder="Image" 
+                            onChangeText={(text)=>this.setState({image:text})}
+                        />
+                        <Button 
+                            title="Envoi Email"
+                            onPress =
+                            {
+                                ()=>this.verificationUtilisateur()
+                            }
+                        />
+                    </View>
                 }
             />
         )
