@@ -16,9 +16,6 @@ export default class App extends React.Component {
 
         <Title title=" Statistique" />
         <Description description=" Dans cette page touvez des statistique sur les nombre d'utilisateur, nombre de postes, et nombre de réponses" />
-
-        <Title title=" Statistique" />
-        <Description description=" Dans cette page touvez des statistique sur les nombre d'utilisateur, nombre de postes, et nombre de réponses" />
       </View>
     );
   }
