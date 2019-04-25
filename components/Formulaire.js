@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import { MailComposer } from 'expo';
 import { View,TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
+import PropTypes from 'prop-types';
 
 export default class Formulaire extends Component{
     constructor(props){
@@ -124,4 +125,15 @@ export default class Formulaire extends Component{
             />
         )
     }
+}
+
+
+Formulaire.propTypes = {
+    mail: PropTypes.string.isRequired,
+    environnement: PropTypes.string.isRequired,
+    page: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    categories: PropTypes.string.isRequired,
+    descriptif: PropTypes.string.isRequired,
+    image: PropTypes.string
 }
