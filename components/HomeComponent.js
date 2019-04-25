@@ -254,7 +254,7 @@ class HomeComponent extends React.Component {
 
     return (
       <View style={styles.view}>
-        <Headernav drawerNav={this.props.drawerNav} />
+        <Headernav drawerNav={this.props.navigation} title="Accueil"/>
         <Searchbar style={styles.search} />
         <ScrollView
           style={styles.contentContainer}
@@ -262,7 +262,7 @@ class HomeComponent extends React.Component {
           onScroll={this.onScroll}
         >
           {questions.map(question => (
-            <Question key={question.id} question={question} />
+            <Question navigation={this.props.navigation}  key={question.id} question={question} />
           ))}
         </ScrollView>
         {showScrollToTop && <ScrollToTopButton onPress={this.onScrollTop} />}

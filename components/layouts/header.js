@@ -17,7 +17,7 @@ class Headernav extends React.Component {
           }
         }}
         centerComponent={{
-          text: "Accueil",
+          text: this.props.title,
           style: { color: "#fff", fontSize: 16 }
         }}
         backgroundColor="#2F3239"

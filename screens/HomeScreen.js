@@ -15,7 +15,7 @@ class HomeScreen extends React.Component {
     };
   };
   render() {
-    return <HomeContainer drawerNav={this.props.navigation} />;
+    return <HomeContainer navigation={this.props.navigation} />;
   }
   onLoadCallback = () => {
     console.log("loaded");
