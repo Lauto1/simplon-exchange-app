@@ -64,7 +64,7 @@ const QUESTIONS = [
   },
   {
     id: "02",
-    title: "Question 2 à propos de ",
+    title: "Question 2 à propos de la congoxélisation lkjzaeklj zakje edfzfze ",
     date: "09/11/2018",
     author: "Thor",
     content: "Ici est le corps de ma question 2",
