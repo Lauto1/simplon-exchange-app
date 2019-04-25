@@ -132,7 +132,7 @@ Formulaire.propTypes = {
     mail: PropTypes.string.isRequired,
     environnement: PropTypes.string.isRequired,
     page: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.instanceOf(Date).isRequired,
     categories: PropTypes.string.isRequired,
     descriptif: PropTypes.string.isRequired,
     image: PropTypes.string
