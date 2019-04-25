@@ -18,7 +18,7 @@ import Question from "../components/Question";
 import Searchbar from "../components/Searchbar";
 import Headernav from "./layouts/HeaderComponent";
 import ScrollToTopButton from "./ScrollToTopButton";
-import FooterComponent from "../components/layouts/Footer"
+import FooterComponent from "./layouts/FooterComponent"
 
 class HomeComponent extends React.Component {
   state = {

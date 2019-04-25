@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
     wrapper: {
         flex: 3,
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#2f3239',
