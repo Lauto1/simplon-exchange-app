@@ -1,21 +1,36 @@
 import React from 'react';
-import { Button, TextInput, View, Text, StyleSheet, CheckBox } from 'react-native';
+import { TextInput, View, StyleSheet, Button, Text } from 'react-native';
+import { CheckBox } from 'react-native-elements';
 import { Formik } from 'formik';
 
 
 export default class Connexion extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            checked: false
+        }
+    }
+
     render() {
         return (
-            <View>
-                <Text>My Form</Text>
+            <View style={{backgroundColor: '#f3f3f3', flex: 1}}>
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     onSubmit={values => console.log(values)}
                 >
                     {props => (
-                        <View>
+                        <View style={styles.form}>
+                            <TextInput 
+                                style={styles.titleText}
+                                editable={false}
+                                value={"Se connecter"}
+                            />
                             <TextInput
-                                placeholder="Email"
+                                placeholder="E-mail"
                                 style={styles.field}
                                 onChangeText={props.handleChange('email')}
                                 onBlur={props.handleBlur('email')}
@@ -30,14 +45,22 @@ export default class Connexion extends React.Component {
                                 value={props.values.password}
                             />
                             <CheckBox
-                                center
-                                title='Click Here'
+                                title='Se rappeler de moi'
+                                checked={this.state.checked}
+                                onPress={() => this.setState({ checked: !this.state.checked })}
                             />
-                            <Button
-                                style={styles.button}
-                                onPress={props.handleSubmit} 
-                                title="Connexion" 
-                            />
+                            <View style={styles.button}>
+                                <Button
+                                    color="#D6363E"
+                                    onPress={props.handleSubmit} 
+                                    title="Connexion" 
+                                />
+                                <Button
+                                    title="Mot de passe oublié ?"
+                                    color="#2f3239"
+                                    onPress={props.handleSubmit} 
+                                />
+                            </View>
                         </View>
                     )}
                 </Formik>
@@ -46,13 +69,47 @@ export default class Connexion extends React.Component {
     }
 }
 const styles = StyleSheet.create({
+
+    titleText: {
+        color: '#D6363E',
+        width: 300,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        marginBottom: 20,
+        fontWeight: '500',
+        fontSize: 28,
+        borderBottomColor: 'rgba(0,0,0,.1)',
+        borderBottomWidth: 1,
+        paddingBottom: 10
+    },
+    form: {
+        marginTop: 75,
+        marginRight: 5,
+        marginLeft: 5,
+        marginBottom: 5,
+        padding: 10,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        borderColor: 'rgba(0,0,0,.125)',
+        borderWidth: 1
+    },
     field: {
         borderColor: "#000000",
         borderWidth: 1,
         borderStyle: "solid",
-        marginTop: 50,
+        borderRadius: 2,
+        padding: 10,
+        marginBottom: 25,
         width: 300,
+        height: 50,
         marginLeft: "auto",
         marginRight: "auto"
+    },
+    button: {
+        marginTop: 20,
+        width: 300,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        borderRadius: 5
     }
-})
+});
