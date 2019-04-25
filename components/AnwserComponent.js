@@ -51,7 +51,7 @@ class AnwserComponent extends Component {
                                     style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D", paddingHorizontal: 8 }}
                                 >
                                     par
-              </Text>
+                                </Text>
                                 <Text style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D" }}>
                                     {answer.author}
                                 </Text>

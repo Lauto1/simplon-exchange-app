@@ -4,7 +4,7 @@ let initialState = {
     questions: [],
     currentSearch: ""
 };
-
+/**reducer:  l'état de question change en réponse aux actions envoyées austore. */
 export const questionReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.ADD_QUESTIONS:

@@ -1,7 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Header, Icon } from "react-native-elements";
-
 import "@expo/vector-icons";
 
 class HeaderComponent extends React.Component {
