@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView, TouchableOpacity, Linking, View, Text, StyleSheet} from 'react-native';
 
+// import { MailComposer } from 'expo';
+// import * as MailComposer from 'expo-mail-composer';
+
 
 class FooterComponent extends Component {
 
