@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import QuestionComponent from "../components/QuestionComponent";
 import AnwserComponent from "../components/AnwserComponent";
+import FooterComponent from "../components/layouts/FooterComponent";
 class QuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -34,8 +35,7 @@ class QuestionScreen extends React.Component {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-
-
+      <FooterComponent/>
       </ScrollView>
     );
   }
