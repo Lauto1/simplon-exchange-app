@@ -1,2 +1,1 @@
 export default THIS_IS_AN_EXAMPLE = 'THIS_IS_AN_EXAMPLE';
-export const ADD_QUESTION = 'ADD_QUESTION';
