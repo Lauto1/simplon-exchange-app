@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import Headernav from "../components/layouts/header";
+import Headernav from "./layouts/HeaderComponent";
 
 class QuestionDetail extends Component {
   render() {
@@ -51,6 +51,7 @@ class QuestionDetail extends Component {
                   <Icon name="comment" type="font-awesome" />
                   <Text style={{ marginLeft: 8 }}>{question.answers.length}</Text>
                 </View>
+        
               </View>
             </View>
           </View>

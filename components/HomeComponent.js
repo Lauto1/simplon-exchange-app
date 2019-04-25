@@ -16,7 +16,7 @@ import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Question from "../components/Question";
 import Searchbar from "../components/Searchbar";
-import Headernav from "../components/layouts/header";
+import Headernav from "./layouts/HeaderComponent";
 import ScrollToTopButton from "./ScrollToTopButton";
 
 class HomeComponent extends React.Component {
