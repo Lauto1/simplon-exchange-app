@@ -2,6 +2,7 @@
     {
         "id": "01",
         "title": "Question 1 à propos de ",
+        "category": "php",
         "date": "09/10/2018",
         "author": "Jean-Michel",
         "content": "Ici gît le corps de ma question 1",
@@ -38,8 +39,7 @@
                 "content": "Le dernier mot est donné par Al Capone"
             }
         ],
-        "factory": "Villeurbanne",
-        "tag": "php"
+        "factory": "Villeurbanne"
     },
     {
         "id": "02",
@@ -57,7 +57,7 @@
             }
         ],
         "factory": "Vénissieux",
-        "tag": "mysql"
+        "category": "mysql"
     },
     {
         "id": "03",
@@ -75,7 +75,7 @@
             }
         ],
         "factory": "Roanne",
-        "tag": "css"
+        "category": "css"
     },
     {
         "id": "04",
@@ -93,7 +93,7 @@
             }
         ],
         "factory": "Montpellier",
-        "tag": "Ruby"
+        "category": "Ruby"
     },
     {
         "id": "05",
@@ -117,6 +117,6 @@
             }
         ],
         "factory": "Montpellier",
-        "tag": "Ruby"
+        "category": "Ruby"
     }
 ]

@@ -8,8 +8,15 @@ class ScrollToTopButton extends React.Component {
     const { onPress } = this.props;
 
     return (
-      <View style={{ position: "absolute", right: 20, bottom: 20 }}>
+      <View
+        style={{
+          position: "absolute",
+          right: 20,
+          bottom: 20
+        }}
+      >
         <Button
+          buttonStyle={{ backgroundColor: "#d5363e" }}
           icon={<Icon name="chevron-up" size={20} color="white" />}
           onPress={onPress}
         />
