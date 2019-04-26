@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { ScrollView, RefreshControl } from "react-native";
 import {View, StyleSheet, Platform, Text} from 'react-native';
 import Graph from '../containers/Graph'
-import PopUp from './filters/PopUp'
+// import PopUp from './filters/PopUp'
+import PopUp from '../containers/PopUp'
+
 import Title from './titleDescription/Title.component';
 import Description from './titleDescription/Description.component';
 

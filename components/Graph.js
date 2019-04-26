@@ -22,7 +22,7 @@ import { StackedBarChart } from 'react-native-svg-charts'
             },
             {
                 month: new Date(2015, 2, 1),
-                element: this.props.NbReponses,
+                element: this.props.NbResponses,
                 
             },
         ]
@@ -49,7 +49,7 @@ import { StackedBarChart } from 'react-native-svg-charts'
             />
             <Text style={styles.text}>Posts: {this.props.NbPosts}</Text>
             <Text style={styles.text}>Utilisateurs: {this.props.NbUtilisateurs}</Text>
-            <Text style={styles.text}>Reponses: {this.props.NbReponses}</Text>
+            <Text style={styles.text}>Reponses: {this.props.NbResponses}</Text>
 
             </View> 
             </ScrollView>

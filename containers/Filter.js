@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   return {
     // NbPosts: state.storeStatistiques.NbPosts,
     // NbUtilisateurs: state.storeStatistiques.NbUtilisateurs,
-    // NbReponses: state.storeStatistiques.NbReponses,    
+    // NbResponses: state.storeStatistiques.NbResponses,    
   };
 };
 
