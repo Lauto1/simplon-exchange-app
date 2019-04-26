@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import FaqComponent from "../components/faq";
+import Vote from "../components/VoteComponent";
 
-class FaqScreen extends React.Component {
+class VoteScreen extends React.Component {
 
     static navigationOptions = ({ navigation }) => {
         return {
@@ -12,7 +12,7 @@ class FaqScreen extends React.Component {
     render() {
         return (
             <View>
-                <FaqComponent/>
+                <Vote/>
             </View>
         );
     }
