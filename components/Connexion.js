@@ -44,21 +44,28 @@ export default class Connexion extends React.Component {
                                 onBlur={props.handleBlur('password')}
                                 value={props.values.password}
                             />
-                            <CheckBox
-                                title='Se rappeler de moi'
-                                checked={this.state.checked}
-                                onPress={() => this.setState({ checked: !this.state.checked })}
-                            />
                             <View style={styles.button}>
                                 <Button
-                                    color="#D6363E"
-                                    onPress={props.handleSubmit} 
-                                    title="Connexion" 
-                                />
-                                <Button
-                                    title="Mot de passe oublié ?"
                                     color="#2f3239"
                                     onPress={props.handleSubmit} 
+                                    title="Mot de passe oublié ?" 
+                                />
+                            </View>
+                            <View style={styles.button}>
+                                <Button
+                                    title="Connexion"
+                                    color="#D6363E"
+                                    onPress={props.handleSubmit} 
+                                />
+                            </View>
+                            <View style={{backgroundColor: "white"}}>
+                                <CheckBox
+                                    style={{width: "100%"}}
+                                    title='Se rappeler de moi'
+                                    textStyle={styles.checkboxText}
+                                    checkedColor="#D6363E"
+                                    checked={this.state.checked}
+                                    onPress={() => this.setState({ checked: !this.state.checked })}
                                 />
                             </View>
                         </View>
@@ -70,6 +77,9 @@ export default class Connexion extends React.Component {
 }
 const styles = StyleSheet.create({
 
+    checkboxText: {
+        color: '#D6363E'
+    },
     titleText: {
         color: '#D6363E',
         width: '100%',
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
         marginRight: 5,
         marginLeft: 5,
         marginBottom: 5,
-        padding: 10,
+        padding: 20,
         backgroundColor: 'white',
         borderRadius: 5,
         borderColor: 'rgba(0,0,0,.125)',
@@ -98,7 +108,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderStyle: "solid",
         borderRadius: 5,
-        padding: 10,
+        padding: 15,
         marginBottom: 25,
         width: '100%',
         height: 50,
@@ -110,6 +120,7 @@ const styles = StyleSheet.create({
         width: '100%',
         marginLeft: 'auto',
         marginRight: 'auto',
+        marginBottom: 10,
         borderRadius: 5
     }
 });
