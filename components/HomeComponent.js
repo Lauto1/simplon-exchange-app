@@ -18,7 +18,7 @@ import QuestionComponent from "./QuestionComponent";
 import SearchbarComponent from "./SearchbarComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
-import FooterComponent from "./layouts/FooterComponent"
+import FooterComponent from "./layouts/FooterComponent";
 
 class HomeComponent extends React.Component {
   state = {
@@ -27,11 +27,10 @@ class HomeComponent extends React.Component {
   };
 
   componentDidMount() {
-      this.props.actions.fetchQuestions().then(questions =>{
-        console.log(questions, "promise");
-      }
-      )
-      
+    this.props.actions.fetchQuestions().then(questions => {
+      console.log(questions, "promise");
+    });
+
     // Il faudra récupérer les questions via l'API quand elle sera prête, par exemple:
     // fetch('/api/questions')
     //   .then(response => response.json())
@@ -61,23 +60,33 @@ class HomeComponent extends React.Component {
   };
 
   render() {
-    const {  showScrollToTop } = this.state;
-    const  questions  = this.props.questions;
+    const { showScrollToTop } = this.state;
+    const questions = this.props.questions;
     return (
       <View style={styles.view}>
-        <HeaderComponent drawerNav={this.props.navigation} title="Accueil"/>
-        <SearchbarComponent searchQuestion={this.props.actions.searchQuestions} style={styles.search} />
+        <HeaderComponent
+          drawerNav={this.props.navigation}
+          title="Simplon-Exchange.Help"
+        />
+        <SearchbarComponent style={styles.search} />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
           onScroll={this.onScroll}
         >
           {questions.map(question => (
-            <QuestionComponent navigation={this.props.navigation} showContent={false} key={question.id} question={question} />
+            <QuestionComponent
+              navigation={this.props.navigation}
+              showContent={false}
+              key={question.id}
+              question={question}
+            />
           ))}
-          <FooterComponent/>
+          <FooterComponent />
         </ScrollView>
-        {showScrollToTop && <ScrollToTopButtonComponent onPress={this.onScrollTop} />}
+        {showScrollToTop && (
+          <ScrollToTopButtonComponent onPress={this.onScrollTop} />
+        )}
       </View>
     );
   }
