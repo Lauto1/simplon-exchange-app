@@ -8,6 +8,7 @@ import {
   StyleSheet
 } from "react-native";
 
+
 class FooterComponent extends Component {
   /***Composant FOOTER connecter au screen (HomeScreen) & re-utilisable comme le HEADER dans les autres composants*/
 
