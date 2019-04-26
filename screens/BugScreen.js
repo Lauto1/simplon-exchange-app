@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import BugReportComponent from '../components/Formulaire'
+import BugReportComponent from '../components/BugReportComponent'
 
 class BugScreen extends React.Component {
 
