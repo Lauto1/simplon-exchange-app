@@ -7,7 +7,7 @@ import FaqScreen from "../screens/FaqScreen";
 import BugScreen from "../screens/BugScreen";
 import StatsStack from "./stack/StatsStack";
 import GraphStack from "./stack/GraphStack";
-
+import VoteScreen from "../screens/VoteScreen";
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
@@ -20,7 +20,8 @@ const DrawerNavigator = createDrawerNavigator({
     Faq: FaqScreen,
     Bug: BugScreen,
     Statistiques: StatsStack,
-    Graphiques: GraphStack
+    Graphiques: GraphStack,
+  Vote: VoteScreen
   }
 );
 
