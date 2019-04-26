@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import VoteComponent from "../components/faq";
+import Vote from "../components/VoteComponent";
 
 class VoteScreen extends React.Component {
 
@@ -12,10 +12,10 @@ class VoteScreen extends React.Component {
     render() {
         return (
             <View>
-                <Text>Bonjour</Text>
+                <Vote/>
             </View>
         );
     }
 }
 
-export default FaqScreen;
+export default VoteScreen;
