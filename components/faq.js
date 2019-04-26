@@ -2,7 +2,7 @@ import React from "react"
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import * as faq from "../mock/faq.json"
 
-class Faq extends React.Component {
+class FaqComponent extends React.Component {
 
     //permet de maper chaque question/reponse
     Faq() {
@@ -82,4 +82,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default Faq;
+export default FaqComponent;
