@@ -68,22 +68,23 @@ class HomeComponent extends React.Component {
           drawerNav={this.props.navigation}
           title="Simplon-Exchange.Help"
         />
-        <View style={styles.welcomeHome}>
-            <Text style={styles.welcomeTitle}>
-              Bienvenue sur Simplon-Exchange.Help
-            </Text>
-            <Text style={styles.welcomeHomeText}>
-                Tous les Simplonnien.ne.s débutant.e.s font face aux mêmes problèmes/bogues/erreurs, mais n'osent pas toujours demander ou ne trouvent pas toujours les bonnes réponses.
-                Sois rassuré.e, ici tu es libre de poser la question que tu veux, une réponse fiable et de confiance te sera faite par un.e autre apprenant.e, un.e ancien.ne Simplonien.ne ou un formateur.     
-            </Text>
-            <Text style={styles.welcomeSousTitle}>N'attend plus, pose ta question dès maintenant !</Text>
-            <SearchbarComponent style={styles.search} />
-        </View>
+
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
           onScroll={this.onScroll}
         >
+          <View style={styles.welcomeHome}>
+            <Text style={styles.welcomeTitle}>
+              Bienvenue sur Simplon-Exchange.Help
+            </Text>
+            <Text style={styles.welcomeHomeText}>
+              Tous les Simplonnien.ne.s débutant.e.s font face aux mêmes problèmes/bogues/erreurs, mais n'osent pas toujours demander ou ne trouvent pas toujours les bonnes réponses.
+              Sois rassuré.e, ici tu es libre de poser la question que tu veux, une réponse fiable et de confiance te sera faite par un.e autre apprenant.e, un.e ancien.ne Simplonien.ne ou un formateur.
+            </Text>
+            <Text style={styles.welcomeSousTitle}>N'attend plus, pose ta question dès maintenant !</Text>
+            <SearchbarComponent style={styles.search} />
+          </View>
           {questions.map(question => (
             <QuestionComponent
               navigation={this.props.navigation}
@@ -114,12 +115,12 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   welcomeHome: {
-    backgroundColor:"#d7403e",
+    backgroundColor: "#d7403e",
     padding: 48,
     margin: -2,
   },
   welcomeTitle: {
-    fontFamily: "firacode",
+    fontFamily: "firacodebold",
     fontSize: 20,
     color: "#ffffff",
     alignItems: "center",
@@ -127,11 +128,12 @@ const styles = StyleSheet.create({
   },
   welcomeHomeText: {
     fontSize: 12,
+    textAlign: "center",
     color: "#ffffff",
-  
+
   },
   welcomeSousTitle: {
-    fontFamily: "firacode",
+    fontFamily: "firacodebold",
     color: "#ffffff",
     textAlign: "center",
     marginBottom: 46,
