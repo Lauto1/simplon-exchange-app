@@ -66,7 +66,7 @@ class HomeComponent extends React.Component {
     return (
       <View style={styles.view}>
         <HeaderComponent drawerNav={this.props.navigation} title="Accueil"/>
-        <SearchbarComponent style={styles.search} />
+        <SearchbarComponent searchQuestion={this.props.actions.searchQuestions} style={styles.search} />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"

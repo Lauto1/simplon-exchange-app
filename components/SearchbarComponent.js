@@ -10,6 +10,8 @@ class SearchbarComponent extends Component {
 
     updateSearch = search => {
         this.setState({ search });
+        this.props.searchQuestions(search)
+        
     };
     render() {
         const { search } = this.state;
