@@ -3,7 +3,8 @@ import { View } from "react-native";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-class ScrollToTopButton extends React.Component {
+class ScrollToTopButtonComponent extends React.Component {
+  /**composant Boutton scroll vers le haut */
   render() {
     const { onPress } = this.props;
 
@@ -25,4 +26,4 @@ class ScrollToTopButton extends React.Component {
   }
 }
 
-export default ScrollToTopButton;
+export default ScrollToTopButtonComponent;

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
 
-class Searchbar extends Component {
+class SearchbarComponent extends Component {
     state = {
         search: '',
     };
@@ -25,4 +25,4 @@ class Searchbar extends Component {
         )
     }
 }
-export default Searchbar;
+export default SearchbarComponent;

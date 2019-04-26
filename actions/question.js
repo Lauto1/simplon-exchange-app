@@ -1,5 +1,5 @@
 import types from "../constants/actionTypes";
-
+/**Action: function pour ajouter des questions, rechercher des questions */
 export const addQuestions = (questions) => {
   return { type: types.ADD_QUESTIONS, questions: questions };
 };
@@ -7,47 +7,53 @@ export const searchQuestions = (terms) => {
     return { type: types.SEARCH_QUESTION, terms: terms };
   };
 
+/**Action: function pour rechercher des questions & les dispatchés */
 export const fetchQuestions = () => {
     return async(dispatch) => {
         try {
             const QUESTIONS = [
                 {
                   id: "01",
-                  title: "Question 1 à propos de ",
+                  title: "erreur SQL PDO : Recoverable fatal error: Object of class PDOStatement could not be converted to string in /shared/httpd/quizz/htdocs/quiz/quiz-informatique.php on line 42",
                   date: "09/10/2018",
                   author: "Jean-Michel",
-                  content: "Ici gît le corps de ma question 1",
+                  content: "Fatal error: Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'name' doesn't have a default value in /shared/httpd/test/htdocs/donne.php:27 Stack trace: #0 /shared/httpd/test/htdocs/donne.php(27): PDOStatement->execute(Array) #1 {main} thrown in /shared/httpd/test/htdocs/donne.php on line 27 cette erreur me bloque . je voudrai que quand on envoi un message sur ma page message.php sa envoi sur la page verification.php (ca sa marche) mais quand le code s'execute il me marque l'erreur",
                   upvote: 0,
                   answers: [
                     {
                       id: "6",
                       author: "Marie-Béatrice",
                       karma: 0,
-                      content: "La super réponse de Marie-Béatrice"
+                      content: "La super réponse de Marie-Béatrice",
+                      date: "09/10/2018"
                     },
                     {
                       id: "7",
                       author: "Marie-Béatrice",
                       karma: 0,
-                      content: "La nouvelle réponse de Marie-Béatrice"
+                      content: "La nouvelle réponse de Marie-Béatrice",
+                      date: "09/10/2018"
                     },
                     {
                       id: "9",
                       author: "Jean-Michel",
                       karma: 0,
-                      content: "La réponse de Jean-Michel à Marie-Béatrice"
+                      content: "La réponse de Jean-Michel à Marie-Béatrice",
+                      date: "09/10/2018"
                     },
                     {
                       id: "19",
                       author: "Marie-Béatrice",
                       karma: 0,
-                      content: "La réponse de Marie-Béatrice à Jean-Michel"
+                      content: "La réponse de Marie-Béatrice à Jean-Michel",
+                      date: "09/10/2018"
                     },
                     {
                       id: "109",
                       author: "Al Capone",
                       karma: 90,
-                      content: "Le dernier mot est donné par Al Capone"
+                      content: "Le dernier mot est donné par Al Capone",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Villeurbanne",
@@ -55,17 +61,18 @@ export const fetchQuestions = () => {
                 },
                 {
                   id: "02",
-                  title: "Question 2 à propos de ",
+                  title: "probleme animation css ancune transition entre chaque parti du keyframe",
                   date: "09/11/2018",
                   author: "Thor",
-                  content: "Ici est le corps de ma question 2",
+                  content: "Ici est le corps de ma question 2bonjour mon animation est 'saccader' il ne fait aucune transition entre chaque parti du mon keyframes mon code html",
                   upvote: 3,
                   answers: [
                     {
                       id: "555",
                       author: "JCVD",
                       karma: 7,
-                      content: "La super réponse de JCVD"
+                      content: "La super réponse de JCVD",
+                       date: "09/10/2018"
                     }
                   ],
                   factory: "Vénissieux",
@@ -83,7 +90,8 @@ export const fetchQuestions = () => {
                       id: "666",
                       author: "Le pape",
                       karma: 7,
-                      content: "La super réponse du Pape"
+                      content: "La super réponse du Pape",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Roanne",
@@ -101,7 +109,8 @@ export const fetchQuestions = () => {
                       id: "11",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -119,13 +128,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -143,13 +154,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -167,13 +180,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -191,13 +206,15 @@ export const fetchQuestions = () => {
                       id: "55",
                       author: "Messi",
                       karma: 77,
-                      content: "La super réponse de Messi"
+                      content: "La super réponse de Messi",
+                      date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
                       karma: 888,
-                      content: "La super réponse du Messie"
+                      content: "La super réponse du Messie",
+                      date: "09/10/2018"
                     }
                   ],
                   factory: "Montpellier",
@@ -213,7 +230,7 @@ export const fetchQuestions = () => {
         } catch(e) {
             console.log(e);
             
-          //dispatch(err("failed to retrieve data"));
+         /** dispatch(err("failed to retrieve data"));*/
         }
       };
 }

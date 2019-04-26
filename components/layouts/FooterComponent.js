@@ -10,6 +10,8 @@ import {
 
 class FooterComponent extends Component {
   /***Composant FOOTER connecter au screen (HomeScreen) & re-utilisable comme le HEADER dans les autres composants*/
+
+  /**Dans les TouchableOpacity se trouve les Liens de connexion avec la barre de navigation du menu HEADER */
   render() {
     return (
       <ScrollView>
@@ -27,7 +29,6 @@ class FooterComponent extends Component {
               Savoir questionner pour obtenir des réponses pertinentes
             </Text>
           </View>
-
           <View>
             <Text style={styles.titleText}>Liens utiles</Text>
             <View
@@ -38,28 +39,29 @@ class FooterComponent extends Component {
             >
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("Accueil route")
+                 }
               >
                 <Text style={styles.textStyle}>Accueil / </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("poser une question route")}
               >
                 <Text style={styles.textStyle}>Poser une question / </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("aider la communauté route")}
               >
                 <Text style={styles.textStyle}>Aider la communauté / </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("foire au questions route")}
               >
                 <Text style={styles.textStyle}>Foire Aux Questions</Text>
               </TouchableOpacity>
@@ -87,7 +89,8 @@ class FooterComponent extends Component {
           </Text>
           <TouchableOpacity
             style={{ width: "90%", borderRadius: 5 }}
-            onPress={() => this.props.navigation.navigate("HomeScreen")}
+            onPress={() => console.log("mail to")
+            }
           >
             <Text style={styles.CopyrightItems}>By Simplon-Vénissieux</Text>
           </TouchableOpacity>
@@ -96,6 +99,7 @@ class FooterComponent extends Component {
     );
   }
 }
+/**Ci-dessus dans le TouchableOpacity 'By Simplon-Vénissieux' lien de contact mailto  'MailComposer' pour contacter les différents centres des différentes villes */
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -132,7 +136,6 @@ const styles = StyleSheet.create({
     fontFamily: "firacode",
     color: "#d6363e",
     paddingBottom: 8
-    //justifyContent: "space-evenly"
   },
 
   textStyle: {

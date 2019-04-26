@@ -2,13 +2,13 @@ import React from 'react';
 import { createStackNavigator, createBottomTabNavigator,createAppContainer,createDrawerNavigator } from 'react-navigation';
 import HomeStack from './stack/HomeStack';
 const DrawerNavigator = createDrawerNavigator({
-        Home: HomeStack,
+        Accueil: HomeStack,
     }
 ); 
    
-  
 const RootStack = createStackNavigator({
         Main: DrawerNavigator,
+        Home:HomeStack
     }, {
         mode: 'modal',
         headerMode: 'none',
