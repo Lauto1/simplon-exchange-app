@@ -130,14 +130,14 @@ export default class Inscription extends React.Component {
 const styles = StyleSheet.create({
     title: {
         color: '#D6363E',
-        width: 370,
+        width: '100%',
         marginRight: 'auto',
         marginLeft: 'auto',
         fontWeight: '500',
         fontSize: 28,
         borderBottomColor: 'rgba(0,0,0,.1)',
         borderBottomWidth: 1,
-        paddingBottom: 10
+        padding: 10
     },
     form: {
         marginTop: 75,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
         marginRight: "auto"
     },
     dropdown: {
-        width: 370,
+        width: '100%',
         marginLeft: 'auto',
         marginRight: 'auto',
         padding: 10,
@@ -171,14 +171,14 @@ const styles = StyleSheet.create({
         marginTop: -10
     },
     button: {
-        width: 370,
+        width: '100%',
         marginLeft: 'auto',
         marginRight: 'auto',
         borderRadius: 5
     },
     checkBox: {
         padding: 10,
-        width: 370,
+        width: '100%',
         height: 50,
         marginLeft: "auto",
         marginRight: "auto",
