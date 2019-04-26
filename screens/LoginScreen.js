@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import Connexion from "../components/connexion";
+import Connexion from "../components/Connexion";
 class LoginScreen extends React.Component {
 
     static navigationOptions = ({ navigation }) => {

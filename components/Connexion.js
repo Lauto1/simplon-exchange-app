@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
     titleText: {
         color: '#D6363E',
-        width: 300,
+        width: '100%',
         marginRight: 'auto',
         marginLeft: 'auto',
         marginBottom: 20,
@@ -97,17 +97,17 @@ const styles = StyleSheet.create({
         borderColor: "#000000",
         borderWidth: 1,
         borderStyle: "solid",
-        borderRadius: 2,
+        borderRadius: 5,
         padding: 10,
         marginBottom: 25,
-        width: 300,
+        width: '100%',
         height: 50,
         marginLeft: "auto",
         marginRight: "auto"
     },
     button: {
         marginTop: 20,
-        width: 300,
+        width: '100%',
         marginLeft: 'auto',
         marginRight: 'auto',
         borderRadius: 5
