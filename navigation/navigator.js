@@ -21,7 +21,7 @@ const DrawerNavigator = createDrawerNavigator({
     Bug: BugScreen,
     Statistiques: StatsStack,
     Graphiques: GraphStack,
-  Vote: VoteScreen
+    Vote: VoteScreen
   }
 );
 
