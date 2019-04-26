@@ -1,1 +1,6 @@
-export default THIS_IS_AN_EXAMPLE = 'THIS_IS_AN_EXAMPLE';
+export default {
+    ADD_QUESTIONS : 'ADD_QUESTIONS',
+    SEARCH_QUESTION: 'SEARCH_QUESTION'
+}
+  
+
