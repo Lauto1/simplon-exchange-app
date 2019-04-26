@@ -3,6 +3,7 @@ import { createStackNavigator, createBottomTabNavigator,createAppContainer,creat
 
 import HomeStack from './stack/HomeStack';
 import RegisterStack from "./stack/RegisterStack";
+import LoginStack from './stack/LoginStack';
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
@@ -11,6 +12,7 @@ import RegisterStack from "./stack/RegisterStack";
 const DrawerNavigator = createDrawerNavigator({
         Home: HomeStack,
         Inscription: RegisterStack,
+        Connexion: LoginStack
     }
 ); 
    

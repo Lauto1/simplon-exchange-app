@@ -114,9 +114,10 @@ export default class Inscription extends React.Component {
                             </View>
                             <View style={styles.button}>
                                 <Button
-                                    color="white"
-                                    onPress={props.handleSubmit}
-                                    title="S'enregistrer"/>
+                                    color="#D6363E"
+                                    onPress={props.handleSubmit} 
+                                    title="Connexion" 
+                                />
                             </View>
                         </View>
                     )}
@@ -173,7 +174,6 @@ const styles = StyleSheet.create({
         width: 370,
         marginLeft: 'auto',
         marginRight: 'auto',
-        backgroundColor: '#D6363E',
         borderRadius: 5
     },
     checkBox: {
