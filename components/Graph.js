@@ -58,17 +58,18 @@ import { StackedBarChart } from 'react-native-svg-charts'
             },
         ]
  
-        const colors = [ '#7b4173' ]
+        const colors = ['#18275f']
         const keys   = [ 'element',]
         return (
             /*
             **event swipe pour raffraichir les data.
             */
-            <ScrollView
+            <ScrollView 
             refreshControl={
                 <RefreshControl
                     refreshing={this.state.refreshing}
                     onRefresh={this.fetchData}
+                    
                 />
             }
             >
@@ -77,21 +78,30 @@ import { StackedBarChart } from 'react-native-svg-charts'
                 configuration chart graph.
                 */}
                 <StackedBarChart
-                style={ { height: 200, backgroundColor:'#d17a22' } }
+                style={ {  height: 200, backgroundColor: '#e1e4ef' } }
                 keys={ keys }
                 colors={ colors }
                 data={ data }
                 showGrid={ false }
-                contentInset={ { top: 30, bottom: 30 } }
+                contentInset={ { top: 30} }
             />
-            <Text>Posts: {this.state.NbPosts}</Text>
-            <Text>Utilisateurs: {this.state.NbUtilisateurs}</Text>
-            <Text>Reponses: {this.state.NbReponses}</Text>
+            <Text style={styles.text}>Posts: {this.state.NbPosts}</Text>
+            <Text style={styles.text}>Utilisateurs: {this.state.NbUtilisateurs}</Text>
+            <Text style={styles.text}>Reponses: {this.state.NbReponses}</Text>
 
             </View> 
             </ScrollView>
         )
     }
     }
+    const styles = StyleSheet.create({
+        container: {
+          margin: 20
+        },
+        text: {
+          color: '#00008B',
+          marginTop: 20
+        }
+      });
  
 export default graph;

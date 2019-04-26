@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { ScrollView, RefreshControl } from "react-native";
 import {View, StyleSheet, Platform, Text} from 'react-native';
 import Graph from '../containers/Graph'
-import Filter from '../containers/Filter'
+import PopUp from './filters/PopUp'
 import Title from './titleDescription/Title.component';
 import Description from './titleDescription/Description.component';
 
@@ -12,12 +12,21 @@ const Statistique = props => {
             <Title/>
             <Description />
      
-            <Text>Component de Tarik et Luca</Text>
+            {/* <Text>Component de Tarik et Luca</Text> */}
              
-            <Graph/> 
-            <Filter/>                  
+            <Graph  style={styles.graph}/> 
+            <PopUp/>                  
         </ScrollView>
     )
 }
-
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#FFFFFF',
+      marginTop: 40
+    },
+    graph: {
+      marginTop: 40
+    }
+  });
 export default Statistique;
