@@ -12,7 +12,8 @@ import BugScreen from "../screens/BugScreen";
 const DrawerNavigator = createDrawerNavigator({
         Home: HomeStack,
         Bug: BugScreen,
-        Faq: FaqScreen
+        Faq: FaqScreen,
+        Vote: VoteScreen
     }
 );
 
