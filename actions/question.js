@@ -23,35 +23,41 @@ export const fetchQuestions = () => {
                     {
                       id: "6",
                       author: "Marie-Béatrice",
-                      karma: 0,
+                      points: 0,
+                      upvote: 0,
                       content: "La super réponse de Marie-Béatrice",
                       date: "09/10/2018"
                     },
                     {
                       id: "7",
                       author: "Marie-Béatrice",
-                      karma: 0,
+                      points: 0,
+                      upvote: 0,
                       content: "La nouvelle réponse de Marie-Béatrice",
                       date: "09/10/2018"
                     },
                     {
                       id: "9",
                       author: "Jean-Michel",
-                      karma: 0,
+                      points: 0,
+                      upvote: 123,
+                      upvote: 0,
                       content: "La réponse de Jean-Michel à Marie-Béatrice",
                       date: "09/10/2018"
                     },
                     {
                       id: "19",
                       author: "Marie-Béatrice",
-                      karma: 0,
+                      points: 0,
+                      upvote: 123,
                       content: "La réponse de Marie-Béatrice à Jean-Michel",
                       date: "09/10/2018"
                     },
                     {
                       id: "109",
                       author: "Al Capone",
-                      karma: 90,
+                      points: 90,
+                      upvote: 123,
                       content: "Le dernier mot est donné par Al Capone",
                       date: "09/10/2018"
                     }
@@ -70,7 +76,8 @@ export const fetchQuestions = () => {
                     {
                       id: "555",
                       author: "JCVD",
-                      karma: 7,
+                      points: 7,
+                      upvote: 125,
                       content: "La super réponse de JCVD",
                        date: "09/10/2018"
                     }
@@ -89,7 +96,8 @@ export const fetchQuestions = () => {
                     {
                       id: "666",
                       author: "Le pape",
-                      karma: 7,
+                      points: 7,
+                      upvote: 128,
                       content: "La super réponse du Pape",
                       date: "09/10/2018"
                     }
@@ -108,7 +116,8 @@ export const fetchQuestions = () => {
                     {
                       id: "11",
                       author: "Messi",
-                      karma: 77,
+                      points: 77,
+                      upvote: 133,
                       content: "La super réponse de Messi",
                       date: "09/10/2018"
                     }
@@ -127,14 +136,16 @@ export const fetchQuestions = () => {
                     {
                       id: "55",
                       author: "Messi",
-                      karma: 77,
+                      points: 77,
+                      upvote: 143,
                       content: "La super réponse de Messi",
                       date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
-                      karma: 888,
+                      points: 888,
+                      upvote: 158,
                       content: "La super réponse du Messie",
                       date: "09/10/2018"
                     }
@@ -153,14 +164,16 @@ export const fetchQuestions = () => {
                     {
                       id: "55",
                       author: "Messi",
-                      karma: 77,
+                      points: 77,
+                      upvote: 177,
                       content: "La super réponse de Messi",
                       date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
-                      karma: 888,
+                      points: 888,
+                      upvote: 188,
                       content: "La super réponse du Messie",
                       date: "09/10/2018"
                     }
@@ -179,14 +192,16 @@ export const fetchQuestions = () => {
                     {
                       id: "55",
                       author: "Messi",
-                      karma: 77,
+                      points: 77,
+                      upvote: 193,
                       content: "La super réponse de Messi",
                       date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
-                      karma: 888,
+                      points: 888,
+                      upvote: 203,
                       content: "La super réponse du Messie",
                       date: "09/10/2018"
                     }
@@ -205,14 +220,16 @@ export const fetchQuestions = () => {
                     {
                       id: "55",
                       author: "Messi",
-                      karma: 77,
+                      points: 77,
+                      upvote: 213,
                       content: "La super réponse de Messi",
                       date: "09/10/2018"
                     },
                     {
                       id: "999",
                       author: "Le Messie",
-                      karma: 888,
+                      points: 888,
+                      upvote: 223,
                       content: "La super réponse du Messie",
                       date: "09/10/2018"
                     }
