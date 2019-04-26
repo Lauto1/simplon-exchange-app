@@ -5,20 +5,15 @@ import { Card, Icon } from "react-native-elements";
 class QuestionComponent extends Component {
 
 
-  constructor(props){
-    super(props);
-  }
-
+ 
   onPressQuestion() {
     console.log('onPressQuestion');
-    
-    const { navigation:navigate } = this.props;
+
+    const { navigation: navigate } = this.props;
     () => navigate('Question')
   }
   render() {
     const { question } = this.props;
-    console.log("merge", this.props);
-
     return (
       <TouchableOpacity onPress={() => this.props.navigation.navigate('Question', { question: question })}>
         <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
