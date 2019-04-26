@@ -5,6 +5,8 @@ import RegisterStack from "./stack/RegisterStack";
 import LoginStack from './stack/LoginStack';
 import FaqScreen from "../screens/FaqScreen";
 import BugScreen from "../screens/BugScreen";
+import StatsStack from "./stack/StatsStack";
+import GraphStack from "./stack/GraphStack";
 
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
@@ -16,7 +18,9 @@ const DrawerNavigator = createDrawerNavigator({
     Inscription: RegisterStack,
     Connexion: LoginStack,
     Faq: FaqScreen,
-    Bug: BugScreen
+    Bug: BugScreen,
+    Statistiques: StatsStack,
+    Graphiques: GraphStack
   }
 );
 
@@ -30,7 +34,7 @@ const RootStack = createStackNavigator({
     mode: 'modal',
     headerMode: 'none',
   }
-)
+);
 const Navigator = createAppContainer(RootStack);
 
 export default Navigator;
