@@ -13,20 +13,19 @@ class Vote extends Component {
     };
   }
 
-  /**
-   * Infos :
-   * - Procédure d'incrementation ou de décrémentation du compteur de votes
-   * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
-   */
-  handleVote(type) {
-    if (type == "+") {
-      this.setState({ vote_score: this.state.vote_score + 1 });
-      console.log(this.state);
-      //call action upvote
-    } else if (type == "-") {
-      this.setState({ vote_score: this.state.vote_score - 1 });
-      //call action downvote
-      console.log(this.state);
+    /**
+     * Infos :
+     * - Procédure d'incrementation ou de décrémentation du compteur de votes
+     * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
+     */
+    handleVote(type){
+        if(type == '+') {
+            this.setState({vote_score : this.state.vote_score + 1});
+            //call action upvote
+        }else if(type == '-') {
+            this.setState({vote_score : this.state.vote_score - 1});
+            //call action downvote
+        }
     }
   }
 
