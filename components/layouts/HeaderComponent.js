@@ -17,7 +17,7 @@ class HeaderComponent extends React.Component {
         }}
         centerComponent={{
           text: this.props.title,
-          style: { color: "#fff", fontSize: 18, fontFamily: "firacode" }
+          style: { color: "#fff", fontSize: 14, fontFamily: "firacode" }
         }}
         backgroundColor="#2F3239"
       />
