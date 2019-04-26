@@ -88,7 +88,8 @@ class FooterComponent extends Component {
           </Text>
           <TouchableOpacity
             style={{ width: "90%", borderRadius: 5 }}
-            onPress={() => this.props.navigation.navigate("HomeScreen")}
+            onPress={() => console.log("mail to")
+            }
           >
             <Text style={styles.CopyrightItems}>By Simplon-Vénissieux</Text>
           </TouchableOpacity>
