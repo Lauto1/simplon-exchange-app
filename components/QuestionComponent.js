@@ -50,17 +50,6 @@ class QuestionComponent extends Component {
               >
                 {question.title}
               </Text>
-              {this.props.showContent &&
-                <Text
-                  style={{
-                    paddingBottom: 15,
-                    fontSize: 14,
-                    fontFamily: "firacodebold",
-                  }}
-                >
-                  {question.content}
-                </Text>
-              }
               <View
                 style={{
                   flexDirection: "row",
@@ -81,7 +70,21 @@ class QuestionComponent extends Component {
                   {question.author}
                 </Text>
               </View>
-
+              {this.props.showContent &&
+                <Text
+                  style={{
+                    paddingBottom: 15,
+                    fontSize: 14,
+                    fontFamily: "firacodebold",
+                    borderTopColor: "#dedede",
+                    borderTopWidth: 1,
+                    paddingTop: 28,
+                    marginTop: 8
+                  }}
+                >
+                  {question.content}
+                </Text>
+              }
               <View
                 style={{
                   flex: 1,
