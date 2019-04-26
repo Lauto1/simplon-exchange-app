@@ -8,11 +8,11 @@ const Title = props => {
 // les styles à appliquer pour les titles
 const styles = StyleSheet.create({
   title: {
-    color: '#DC143C',
-    fontWeight: '300',
-    fontSize: 24,
+    color: '#dc3545',
+    fontWeight: '600',
+    fontSize: 36,
     textAlign: 'center',
-    marginTop: 30
+    marginTop: 50
   }
 });
 
