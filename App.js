@@ -8,6 +8,7 @@ import { Amplitude } from "expo";
 import { analyticsAPIKey } from "./example.config";
 
 export default class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +16,7 @@ export default class App extends Component {
     };
     Amplitude.initialize(analyticsAPIKey);
   }
+
 
   async componentWillMount() {
     await Font.loadAsync({
