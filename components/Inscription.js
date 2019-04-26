@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, View, StyleSheet, Picker, Text, Button, Switch} from 'react-native';
+import {TextInput, View, StyleSheet, Text, Button, Switch} from 'react-native';
 import {Formik} from 'formik';
 import {Dropdown} from 'react-native-material-dropdown';
 
@@ -106,7 +106,7 @@ export default class Inscription extends React.Component {
                                 value={props.values.repeatPassword}
                             />
                             <View style={styles.checkBox}>
-                                <Text style={{lineHeight: 30, marginRight: 10}}>Voulez-vous recevoir des notifications
+                                <Text style={{lineHeight: 30, fontSize: 15}}>Voulez-vous recevoir des notifications
                                     ?</Text>
                                 <Switch
                                     onValueChange={(value) => this.setState({notif: value})}
@@ -140,17 +140,17 @@ const styles = StyleSheet.create({
     },
     form: {
         marginTop: 75,
-        marginRight: 5,
-        marginLeft: 5,
-        marginBottom: 5,
-        padding: 10,
+        marginRight: 15,
+        marginLeft: 15,
+        marginBottom: 15,
+        padding: 20,
         backgroundColor: 'white',
         borderRadius: 5,
         borderColor: 'rgba(0,0,0,.125)',
         borderWidth: 1
     },
     field: {
-        borderColor: "#000000",
+        borderColor: "#808080",
         borderWidth: 1,
         borderStyle: "solid",
         borderRadius: 5,
@@ -159,7 +159,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 50,
         marginLeft: "auto",
-        marginRight: "auto"
+        marginRight: "auto",
+        fontSize: 16
     },
     dropdown: {
         width: '100%',
@@ -182,6 +183,6 @@ const styles = StyleSheet.create({
         marginLeft: "auto",
         marginRight: "auto",
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
     }
 });
