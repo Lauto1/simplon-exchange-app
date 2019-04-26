@@ -1,9 +1,8 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import { Header, Icon } from "react-native-elements";
 import "@expo/vector-icons";
+import React, { Component } from "react";
+import { Header } from "react-native-elements";
 
-class HeaderComponent extends React.Component {
+class HeaderComponent extends Component {
   render() {
     return (
       <Header

@@ -1,8 +1,7 @@
-import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import React, { Component } from "react";
 import HomeContainer from "../containers/HomeContainer";
 
-class HomeScreen extends React.Component {
+class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
