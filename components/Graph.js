@@ -3,25 +3,7 @@ import { ScrollView, RefreshControl } from "react-native";
 import {View, StyleSheet, Platform, Text} from 'react-native';
 import { StackedBarChart } from 'react-native-svg-charts'
     class graph extends Component {
-        constructor(props){
-            super(props);
-            this.state = {
-                refreshing: false,
-                
-            }
-        }
-
-        /*
-        ** fonction qui permet d'aller chercher les données dans le store, 
-        ** d'afficher ou cacher l'icone  de rechargement .
-        */
         
-    
-
-
-
-        
-    
     render() {
 
         /*
@@ -52,13 +34,6 @@ import { StackedBarChart } from 'react-native-svg-charts'
             **event swipe pour raffraichir les data.
             */
             <ScrollView 
-            refreshControl={
-                <RefreshControl
-                    refreshing={this.state.refreshing}
-                    onRefresh={this.fetchData}
-                    
-                />
-            }
             >
             <View>
                 {/* 
