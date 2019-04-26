@@ -10,10 +10,7 @@
   "dependencies": {
     "expo": "^32.0.0",
     "expo-cli": "^2.15.4",
-<<<<<<< HEAD
-=======
     "formik": "^1.5.2",
->>>>>>> team-3
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-elements": "^1.1.0",
