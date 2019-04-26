@@ -27,21 +27,19 @@ import Filter from "./Filter";
         }}
         fetchDataChecked = () => {
 
-            let checkedData = [];
-        
+            let checkedData = [];        
             if (this.checkedNbPosts === true) {
               checkedData.push(this.checkedNbPosts)
-            }
-        
+            }        
             if (this.checkedNbUsers === true) {
               checkedData.push(this.checkedNbUsers)
-            }
-        
+            }        
             if (this.checkedNbResponses === true) {
               checkedData.push(this.checkedNbResponses)
             }
         
             // this.props.actions.fetchDataApi(checkedData)
+            
           };
 // Afichage de la PopUp et création du bouton
     render() {

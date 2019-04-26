@@ -7,9 +7,7 @@ import { StackedBarChart } from 'react-native-svg-charts'
             super(props);
             this.state = {
                 refreshing: false,
-                NbPosts:0,
-                NbUtilisateurs:0,
-                NbReponses:0,
+                
             }
         }
 
@@ -17,18 +15,7 @@ import { StackedBarChart } from 'react-native-svg-charts'
         ** fonction qui permet d'aller chercher les données dans le store, 
         ** d'afficher ou cacher l'icone  de rechargement .
         */
-        fetchData = () => {
-            this.setState({refreshing:true});
-            this.setState({NbPosts: this.props.NbPosts});
-            this.setState({NbUtilisateurs: this.props.NbUtilisateurs});
-            this.setState({NbReponses: this.props.NbReponses});
-
-            // console.log('okokokokokok') 
-            // console.log(this.props.NbPosts) 
-            // console.log(this.state.NbPosts)          
-            //  this.props.actions.getNbPost();
-            this.setState({refreshing:false});
-        };
+        
     
 
 
@@ -43,17 +30,17 @@ import { StackedBarChart } from 'react-native-svg-charts'
         const data = [
             {
                 month: new Date(2015, 0, 1),
-                element: this.state.NbPosts,
+                element: this.props.NbPosts,
                 
             },
             {
                 month: new Date(2015, 1, 1),
-                element: this.state.NbUtilisateurs,
+                element: this.props.NbUtilisateurs,
                 
             },
             {
                 month: new Date(2015, 2, 1),
-                element: this.state.NbReponses,
+                element: this.props.NbReponses,
                 
             },
         ]
@@ -85,9 +72,9 @@ import { StackedBarChart } from 'react-native-svg-charts'
                 showGrid={ false }
                 contentInset={ { top: 30} }
             />
-            <Text style={styles.text}>Posts: {this.state.NbPosts}</Text>
-            <Text style={styles.text}>Utilisateurs: {this.state.NbUtilisateurs}</Text>
-            <Text style={styles.text}>Reponses: {this.state.NbReponses}</Text>
+            <Text style={styles.text}>Posts: {this.props.NbPosts}</Text>
+            <Text style={styles.text}>Utilisateurs: {this.props.NbUtilisateurs}</Text>
+            <Text style={styles.text}>Reponses: {this.props.NbReponses}</Text>
 
             </View> 
             </ScrollView>
