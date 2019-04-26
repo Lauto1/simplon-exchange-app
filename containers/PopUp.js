@@ -1,7 +1,7 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Graph from "../components/Graph";
-import { getNbPost } from "../actions/statistique";
+import PopUp from "../components/filters/PopUp";
+import {fetchDataApi} from '../actions/popUp';
 
 const mapStateToProps = state => {
   return {
@@ -13,10 +13,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators({ getNbPost }, dispatch)
+    actions: bindActionCreators({fetchDataApi }, dispatch)
   };
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Graph);
+)(PopUp);

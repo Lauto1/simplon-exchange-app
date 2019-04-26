@@ -10,6 +10,7 @@ import {CheckBox} from 'react-native-elements';
 import CalendarPicker from 'react-native-calendar-picker';
 
 
+
 import Filter from "./Filter";
 // Mise en place des states liées au component PopUp
  class PopUp extends Component {
@@ -27,18 +28,19 @@ import Filter from "./Filter";
         }}
         fetchDataChecked = () => {
 
-            let checkedData = [];        
-            if (this.checkedNbPosts === true) {
-              checkedData.push(this.checkedNbPosts)
+            let checkedData = []; 
+                   
+            if (this.state.checkedNbPosts === true) {
+              checkedData.push('NbPosts')
             }        
-            if (this.checkedNbUsers === true) {
-              checkedData.push(this.checkedNbUsers)
+            if (this.state.checkedNbUsers === true) {
+              checkedData.push('NbUsers')
             }        
-            if (this.checkedNbResponses === true) {
-              checkedData.push(this.checkedNbResponses)
+            if (this.state.checkedNbResponses === true) {
+              checkedData.push('NbResponses')
             }
-        
-            // this.props.actions.fetchDataApi(checkedData)
+            
+            this.props.actions.fetchDataApi(checkedData)
             
           };
 // Afichage de la PopUp et création du bouton
@@ -106,7 +108,6 @@ import Filter from "./Filter";
           checked={this.state.checkedNbPosts}
           onPress={() => this.setState({checkedNbPosts: !this.state.checkedNbPosts})}
         />
-
         <CheckBox
           title='Trier par utilisateur'
           checked={this.state.checkedNbUsers}

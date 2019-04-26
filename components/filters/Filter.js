@@ -9,15 +9,9 @@ import CalendarPicker from 'react-native-calendar-picker';
       constructor(props) {
         super(props);
         this.state = {
-          refreshing: false,
-          NbPosts: 0,
-          NbUsers: 0,
-          NbResponses: 0,
-          checkedNbPosts: false,
-          checkedNbUsers: false,
-          checkedNbResponses: false,
         }
       }
+      
   // récupere les données demander a l'api en fonction de son type (nombre de user, reponse, post)
   
   render() {
