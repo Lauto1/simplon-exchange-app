@@ -22,40 +22,44 @@ class AnwserComponent extends Component {
                             }}
                         >
                             <Icon name="sort-up" type="font-awesome" />
-                            <Text style={{ fontSize: 20 }}>{answer.karma}</Text>
+                            <Text style={{ fontSize: 20 }}>{answer.upvote}</Text>
                         </View>
 
                         <View style={{ flex: 1, padding: 15 }}>
-                            <Text
-                                style={{
-                                    paddingBottom: 15,
-                                    fontSize: 16,
-                                    fontFamily: "firacodebold",
-                                
-                                }}
-                            >
-                                {answer.content}
-                            </Text>
+                            
                             <View
                                 style={{
-                                    flexDirection: "row",
+                                    flexDirection: "column",
                                     paddingBottom: 8
                                 }}
-                            >
+                            >    
+                              <Text style={{ fontSize: 16, fontFamily: "firacodebold"}}>
+                                    {answer.author}
+                                </Text>
+                                <Text style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D" }}>karma : {answer.points}</Text>
+
                                 <Text
                                     style={{ fontSize: 16, color: "#6C757D", fontFamily: "firacode", fontStyle: "italic" }}
                                 >
                                     {answer.date}
                                 </Text>
-                                <Text
-                                    style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D", paddingHorizontal: 8 }}
-                                >
-                                    par
-                                </Text>
-                                <Text style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D" }}>
-                                    {answer.author}
-                                </Text>
+                            
+                              
                             </View>
+                            <Text
+                                style={{
+                                    paddingBottom: 15,
+                                    fontSize: 16,
+                                    fontFamily: "firacode",
+                                    borderTopColor: "#dedede",
+                                    borderTopWidth: 1,
+                                    paddingTop: 28,
+                                    marginTop: 8
+                                
+                                }}
+                            >
+                                {answer.content}
+                            </Text>
 
                             <View
                                 style={{
