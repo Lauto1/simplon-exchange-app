@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator, createBottomTabNavigator,createAppContainer,createDrawerNavigator } from 'react-navigation';
 
 import HomeStack from './stack/HomeStack';
-import VoteScreen from "../screens/VoteScreen";
+import FaqScreen from "../screens/FaqScreen";
 import BugScreen from "../screens/BugScreen";
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html

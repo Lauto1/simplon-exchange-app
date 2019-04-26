@@ -3,7 +3,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 
 import HomeScreen from '../../screens/HomeScreen';
-import VoteScreen from '../../screens/VoteScreen';
+import FaqScreen from '../../screens/FaqScreen';
 import BugScreen from '../../screens/BugScreen';
 
 /**
@@ -11,7 +11,7 @@ import BugScreen from '../../screens/BugScreen';
  */
 const HomeStack = createStackNavigator({
   	Home: HomeScreen,
-    Vote: VoteScreen,
+    Faq: FaqScreen,
     Bug: BugScreen
 });
 /**

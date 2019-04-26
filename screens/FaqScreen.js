@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-class VoteScreen extends React.Component {
+class FaqScreen extends React.Component {
 
     static navigationOptions = ({ navigation }) => {
         return {
@@ -16,4 +16,4 @@ class VoteScreen extends React.Component {
     }
 }
 
-export default VoteScreen;
+export default FaqScreen;
