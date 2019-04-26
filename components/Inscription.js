@@ -115,9 +115,8 @@ export default class Inscription extends React.Component {
                             <View style={styles.button}>
                                 <Button
                                     color="#D6363E"
-                                    onPress={props.handleSubmit} 
-                                    title="Connexion" 
-                                />
+                                    onPress={props.handleSubmit}
+                                    title="S'enregistrer"/>
                             </View>
                         </View>
                     )}
