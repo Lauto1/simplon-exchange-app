@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import Formulaire from '../components/Formulaire'
+import BugReportComponent from '../components/Formulaire'
 
 class BugScreen extends React.Component {
 
@@ -12,7 +12,7 @@ class BugScreen extends React.Component {
     render() {
         return (
             <View>
-                <Formulaire/>
+                <BugReportComponent/>
             </View>
         );
     }
