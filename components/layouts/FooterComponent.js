@@ -39,28 +39,29 @@ class FooterComponent extends Component {
             >
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("Accueil route")
+                 }
               >
                 <Text style={styles.textStyle}>Accueil / </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("poser une question route")}
               >
                 <Text style={styles.textStyle}>Poser une question / </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("aider la communauté route")}
               >
                 <Text style={styles.textStyle}>Aider la communauté / </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => this.props.navigation.navigate("HomeScreen")}
+                onPress={() => console.log("foire au questions route")}
               >
                 <Text style={styles.textStyle}>Foire Aux Questions</Text>
               </TouchableOpacity>
