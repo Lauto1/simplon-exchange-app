@@ -66,7 +66,7 @@ class HomeComponent extends React.Component {
       <View style={styles.view}>
         <HeaderComponent
           drawerNav={this.props.navigation}
-          title="Simplon-Exchange.Help"
+          title="Simplon-Exchange"
         />
         <SearchbarComponent style={styles.search} />
         <ScrollView
