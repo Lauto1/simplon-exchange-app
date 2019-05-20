@@ -68,7 +68,6 @@ class HomeComponent extends React.Component {
           drawerNav={this.props.navigation}
           title="Simplon-Exchange"
         />
-
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
@@ -93,7 +92,10 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
-          <FooterComponent />
+          <FooterComponent 
+            drawerNav={this.props.navigation}
+            title="Accueil"
+          />
         </ScrollView>
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
