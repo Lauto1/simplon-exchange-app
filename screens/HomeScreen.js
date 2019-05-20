@@ -11,6 +11,7 @@ class HomeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       header: null
+      
     };
   };
   render() {

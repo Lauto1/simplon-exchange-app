@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
-import { Card, Icon } from "react-native-elements";
+import { Card, Icon, Button } from "react-native-elements";
 import { WebViewQuillEditor, WebViewQuillViewer } from 'react-native-webview-quilljs';
+import { primaryColor, lightGreyColor,boldFontFamily,titleFontSize } from "../helpers/styleGuidelines";
 
 class AnwserFormComponent extends Component {
     constructor(props) {
@@ -15,22 +16,21 @@ class AnwserFormComponent extends Component {
 
         return (
             <View style={styles.view}>
-                <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
+                <Card containerStyle={styles.cardStyle}>
                     <View
-                        style={{
-                            flexDirection: "row"
-                        }}
+                        style={styles.row}
                     >
-                        <View  style={{flex:1,flexDirection:"column"}}>
-                        <Text style={{ fontSize: 16, fontFamily: "firacodebold", color: "#d6363e" }} >Répondre</Text>
+                        <View  style={styles.column}>
+                        <Text style={styles.responseButton}  >Répondre</Text>
 
-                            <View style={{ minHeight:200}}>
-                                <WebViewQuillEditor
+                            <View style={{ minHeight:400}}>
+                                <WebViewQuillEditor 
                                     ref={component => (this.webViewQuillEditor = component)}
-                                    getDeltaCallback={this.getDeltaCallback}
+                                    getDeltaCallback={text=> this.getDeltaCallback(text)}
                                     onLoad={this.onLoadCallback}
                                 />
                             </View>
+                            <Button title="Répondre" onPress={()=>{this.onTextChange()}}></Button>
                         </View>
                     </View>
                 </Card>
@@ -38,8 +38,15 @@ class AnwserFormComponent extends Component {
 
         );
     }
-    getDeltaCallback() {
+    getDeltaCallback(text) {
+       console.log("text",text.delta.ops[0].insert);
 
+       
+        
+    }
+    onTextChange() {
+        console.log("quill",this.webViewQuillEditor);
+        
     }
     onLoadCallback() {
 
@@ -56,7 +63,24 @@ const styles = StyleSheet.create({
     },
     search: {
         marginTop: 20
-    }
+    },
+    cardStyle : {
+        borderRadius: 3,
+        margin: 8, 
+        padding: 0 
+    },
+    row : {
+        flex:1,
+        flexDirection: "row"
+    },
+    column : {
+        flex:1,
+        flexDirection: "column"
+    },
+    responseButton: { 
+        fontSize: titleFontSize, 
+        fontFamily: boldFontFamily, 
+        color: primaryColor }
 });
 
 export default AnwserFormComponent;
