@@ -1,25 +1,16 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  Modal,
-  View,
-  ScrollView,
-  Alert,
-  FlatList,
-  TouchableOpacity,
-  RefreshControl,
-  Dimensions,
-  Linking
-} from "react-native";
-import { Button } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
-import QuestionComponent from "./QuestionComponent";
-import SearchbarComponent from "./SearchbarComponent";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
+import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
+<<<<<<< HEAD
 import FooterComponent from "./layouts/FooterComponent";
 import StatsComponent from "./StatsComponent"
+=======
+import SearchbarComponent from "./SearchbarComponent";
+import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+>>>>>>> dev
 
 class HomeComponent extends React.Component {
   state = {
@@ -82,10 +73,16 @@ class HomeComponent extends React.Component {
               Bienvenue sur Simplon-Exchange.Help
             </Text>
             <Text style={styles.welcomeHomeText}>
-              Tous les Simplonnien.ne.s débutant.e.s font face aux mêmes problèmes/bogues/erreurs, mais n'osent pas toujours demander ou ne trouvent pas toujours les bonnes réponses.
-              Sois rassuré.e, ici tu es libre de poser la question que tu veux, une réponse fiable et de confiance te sera faite par un.e autre apprenant.e, un.e ancien.ne Simplonien.ne ou un formateur.
+              Tous les Simplonnien.ne.s débutant.e.s font face aux mêmes
+              problèmes/bogues/erreurs, mais n'osent pas toujours demander ou ne
+              trouvent pas toujours les bonnes réponses. Sois rassuré.e, ici tu
+              es libre de poser la question que tu veux, une réponse fiable et
+              de confiance te sera faite par un.e autre apprenant.e, un.e
+              ancien.ne Simplonien.ne ou un formateur.
             </Text>
-            <Text style={styles.welcomeSousTitle}>N'attend plus, pose ta question dès maintenant !</Text>
+            <Text style={styles.welcomeSousTitle}>
+              N'attend plus, pose ta question dès maintenant !
+            </Text>
             <SearchbarComponent style={styles.search} />
           </View>
           {questions.map(question => (
@@ -113,15 +110,15 @@ const styles = StyleSheet.create({
   },
   view: {
     flex: 1,
-    backgroundColor: "#dee2e6"
+    backgroundColor: lightGreyColor
   },
   search: {
     marginTop: 20
   },
   welcomeHome: {
-    backgroundColor: "#d7403e",
+    backgroundColor: primaryColor,
     padding: 48,
-    margin: -2,
+    margin: -2
   },
   welcomeTitle: {
     fontFamily: "firacodebold",
@@ -133,14 +130,13 @@ const styles = StyleSheet.create({
   welcomeHomeText: {
     fontSize: 12,
     textAlign: "center",
-    color: "#ffffff",
-
+    color: "#ffffff"
   },
   welcomeSousTitle: {
     fontFamily: "firacodebold",
     color: "#ffffff",
     textAlign: "center",
-    marginBottom: 46,
+    marginBottom: 46
   }
 });
 
