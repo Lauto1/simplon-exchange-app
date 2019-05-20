@@ -4,6 +4,8 @@ import QuestionComponent from "../components/QuestionComponent";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
+import AnwserFormComponent from "../components/AnwserFormComponent";
+
 import { Button } from 'react-native-elements';
 import { Icon } from "react-native-elements";
 
@@ -14,12 +16,13 @@ class QuestionScreen extends React.Component {
     super(props);
     this.state = {
       contentToDisplay: "hello QuestionScreen",
-      showScrollToTop: false
+      showScrollToTop: false,
+      connected:true
     };
   }
   static navigationOptions = ({ navigation }) => {
     return {
-      title: "Question"
+      title: "Question",
     };
   };
 
@@ -95,10 +98,11 @@ class QuestionScreen extends React.Component {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-
+        {this.state.connected ? <AnwserFormComponent/> : 
         <View style={{ paddingTop:10, paddingLeft: 15, paddingRight: 15 }}>
           <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
-        </View>
+        </View>}
+       
         <FooterComponent />
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />

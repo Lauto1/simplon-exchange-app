@@ -16,7 +16,7 @@ export default class App extends React.Component {
   async componentWillMount() {
     await Font.loadAsync({
       firacode: require("./assets/fonts/firacoderegular.ttf"),
-      firacodebold: require("./assets/fonts/firacodebold.ttf")
+      firacodebold: require("./assets/fonts/firacodebold.ttf"),
     });
     this.setState({ AppLoading: false });
   }
