@@ -5,9 +5,6 @@ import { Card, Icon } from "react-native-elements";
 class QuestionComponent extends Component {
 
 
-  constructor(props) {
-    super(props);
-  }
 
   onPressQuestion() {
     console.log('onPressQuestion');
@@ -17,8 +14,6 @@ class QuestionComponent extends Component {
   }
   render() {
     const { question } = this.props;
-    console.log("merge", this.props);
-
     return (
       <TouchableOpacity onPress={() => this.props.navigation.navigate('Question', { question: question })}>
         <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
@@ -50,17 +45,6 @@ class QuestionComponent extends Component {
               >
                 {question.title}
               </Text>
-              {this.props.showContent &&
-                <Text
-                  style={{
-                    paddingBottom: 15,
-                    fontSize: 14,
-                    fontFamily: "firacodebold",
-                  }}
-                >
-                  {question.content}
-                </Text>
-              }
               <View
                 style={{
                   flexDirection: "row",
@@ -81,7 +65,21 @@ class QuestionComponent extends Component {
                   {question.author}
                 </Text>
               </View>
-
+              {this.props.showContent &&
+                <Text
+                  style={{
+                    paddingBottom: 15,
+                    fontSize: 14,
+                    fontFamily: "firacode",
+                    borderTopColor: "#dedede",
+                    borderTopWidth: 1,
+                    paddingTop: 28,
+                    marginTop: 8
+                  }}
+                >
+                  {question.content}
+                </Text>
+              }
               <View
                 style={{
                   flex: 1,

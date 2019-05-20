@@ -66,14 +66,25 @@ class HomeComponent extends React.Component {
       <View style={styles.view}>
         <HeaderComponent
           drawerNav={this.props.navigation}
-          title="Simplon-Exchange.Help"
+          title="Simplon-Exchange"
         />
-        <SearchbarComponent style={styles.search} />
+
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
           onScroll={this.onScroll}
         >
+          <View style={styles.welcomeHome}>
+            <Text style={styles.welcomeTitle}>
+              Bienvenue sur Simplon-Exchange.Help
+            </Text>
+            <Text style={styles.welcomeHomeText}>
+              Tous les Simplonnien.ne.s débutant.e.s font face aux mêmes problèmes/bogues/erreurs, mais n'osent pas toujours demander ou ne trouvent pas toujours les bonnes réponses.
+              Sois rassuré.e, ici tu es libre de poser la question que tu veux, une réponse fiable et de confiance te sera faite par un.e autre apprenant.e, un.e ancien.ne Simplonien.ne ou un formateur.
+            </Text>
+            <Text style={styles.welcomeSousTitle}>N'attend plus, pose ta question dès maintenant !</Text>
+            <SearchbarComponent style={styles.search} />
+          </View>
           {questions.map(question => (
             <QuestionComponent
               navigation={this.props.navigation}
@@ -101,7 +112,32 @@ const styles = StyleSheet.create({
     backgroundColor: "#dee2e6"
   },
   search: {
-    marginTop: 20
+    marginTop: 15,
+    flex: 2
+  },
+  welcomeHome: {
+    backgroundColor: "#d7403e",
+    padding: 48,
+    margin: -2,
+  },
+  welcomeTitle: {
+    fontFamily: "firacodebold",
+    fontSize: 20,
+    color: "#ffffff",
+    alignItems: "center",
+    textAlign: "center"
+  },
+  welcomeHomeText: {
+    fontSize: 12,
+    textAlign: "center",
+    color: "#ffffff",
+
+  },
+  welcomeSousTitle: {
+    fontFamily: "firacodebold",
+    color: "#ffffff",
+    textAlign: "center",
+    marginBottom: 46,
   }
 });
 

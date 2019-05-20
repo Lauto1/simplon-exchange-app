@@ -1,7 +1,6 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import HomeComponent from "../components/HomeComponent";
-import { getExample } from "../actions/example";
 import { fetchQuestions,searchQuestions } from "../actions/question";
 
 
