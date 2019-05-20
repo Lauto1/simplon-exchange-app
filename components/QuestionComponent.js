@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
 
 class QuestionComponent extends Component {

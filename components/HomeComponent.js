@@ -19,6 +19,7 @@ import SearchbarComponent from "./SearchbarComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import FooterComponent from "./layouts/FooterComponent";
+import StatsComponent from "./StatsComponent"
 
 class HomeComponent extends React.Component {
   state = {
@@ -62,6 +63,8 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
+    console.log('questions 1',questions.length);
+    
     return (
       <View style={styles.view}>
         <HeaderComponent
@@ -93,6 +96,7 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
+          <StatsComponent questions={questions}/>
           <FooterComponent />
         </ScrollView>
         {showScrollToTop && (
