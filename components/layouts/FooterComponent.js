@@ -63,7 +63,7 @@ class FooterComponent extends Component {
                 >
                   <TouchableOpacity
                     style={{ borderRadius: 5 }}
-                    onPress={() => console.log("Accueil route")}
+                    onPress={() => this.props.drawerNav.navigate("Home")}
                   >
                     <Text style={styles.textStyle}>Accueil</Text>
                   </TouchableOpacity>
@@ -84,7 +84,7 @@ class FooterComponent extends Component {
 
                   <TouchableOpacity
                     style={{ borderRadius: 5 }}
-                    onPress={() => console.log("foire au questions route")}
+                    onPress={( ) => this.props.drawerNav.navigate("Faq")}
                   >
                     <Text style={styles.textStyle}>Foire Aux Questions</Text>
                   </TouchableOpacity>
