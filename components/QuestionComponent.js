@@ -170,5 +170,4 @@ class QuestionComponent extends Component {
     );
   }
 }
-
 export default QuestionComponent;
