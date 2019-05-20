@@ -5,14 +5,14 @@ import { Card, Icon } from "react-native-elements";
 class QuestionComponent extends Component {
 
 
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
   onPressQuestion() {
     console.log('onPressQuestion');
-    
-    const { navigation:navigate } = this.props;
+
+    const { navigation: navigate } = this.props;
     () => navigate('Question')
   }
   render() {
@@ -148,5 +148,4 @@ class QuestionComponent extends Component {
     );
   }
 }
-
 export default QuestionComponent;
