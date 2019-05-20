@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
     backgroundColor: lightGreyColor
   },
   search: {
-    marginTop: 20
+    marginTop: 15,
+    flex: 2
   },
   welcomeHome: {
     backgroundColor: primaryColor,

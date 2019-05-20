@@ -3,6 +3,9 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
 
 class QuestionComponent extends Component {
+
+
+
   onPressQuestion() {
     console.log("onPressQuestion");
 
@@ -170,5 +173,4 @@ class QuestionComponent extends Component {
     );
   }
 }
-
 export default QuestionComponent;
