@@ -48,13 +48,16 @@ import Filter from "./Filter";
         return (
 
                 <View>
-                    <View >
+                    
+                    <View style={styles.buttonStyle}>
                         <Button
+                            color="#2F3239"
+                            padding="20"
                             title="Trier par date"
                             onPress={() => {
-                                this.setState({
-                                    defaultAnimationDialog: true,
-                                });
+                            this.setState({
+                                defaultAnimationDialog: true
+                            });
                             }}
                         />
                     </View>
@@ -119,15 +122,30 @@ import Filter from "./Filter";
           checked={this.state.checkedNbResponses}
           onPress={() => this.setState({checkedNbResponses: !this.state.checkedNbResponses})}
         />
-
-        <Button
-          onPress={this.fetchDataChecked}
-          title="Rechercher"
-          color="#841584"
-        />
+        <View style={styles.buttonStyle}>
+            <Button
+              onPress={this.fetchDataChecked}
+              title="Rechercher"
+              color="#2F3239"
+            />
+          </View>
       </View>
                 </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    container: { marginTop: 20 },
+    buttonStyle: {
+      backgroundColor: '#2F3239',
+      color: '#fff',
+      fontWeight: '600',
+      fontSize: 16,
+      textAlign: 'center',
+      borderRadius: 5,
+      // width: 150,
+      padding: 8,
+      margin: 20
+    }
+  });
 export default PopUp;

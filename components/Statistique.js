@@ -5,8 +5,8 @@ import Graph from '../containers/Graph'
 // import PopUp from './filters/PopUp'
 import PopUp from '../containers/PopUp'
 
-import Title from './titleDescription/Title.component';
-import Description from './titleDescription/Description.component';
+import Title from './titleDescription/Title';
+import Description from './titleDescription/Description';
 
 const Statistique = props => {
     return (

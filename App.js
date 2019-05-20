@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import Statistique from './components/Statistique';
 import store from './store';
-import Title from './components/titleDescription/Title.component';
-import Description from './components/titleDescription/Description.component';
+import Title from './components/titleDescription/Title';
+import Description from './components/titleDescription/Description';
 
 export default class App extends React.Component {
   render() {
