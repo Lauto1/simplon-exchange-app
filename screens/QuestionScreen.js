@@ -52,73 +52,51 @@ class QuestionScreen extends React.Component {
     const answers = question.answers;
     const { showScrollToTop } = this.state;
     return (
-      <ScrollView
-        contentContainerStyle={{ backgroundColor: "#dee2e6" }}
-        ref="scrollView"
-        onScroll={this.onScroll}
-      >
-        <QuestionComponent
-          navigation={this.props.navigation}
-          question={question}
-          showContent={true}
-        />
-        <View style={{ padding: 15 }}>
-          <TouchableOpacity>
-            <View
-              style={{
-                flexDirection: "row"
-              }}
-            >
-              <Icon
-                name="angle-double-left"
-                type="font-awesome"
-                color="#d6363e"
-              />
-              <Text
-                style={{
-                  fontFamily: "firacode",
-                  fontSize: 16,
-                  color: "#d6363e",
-                  textAlign: "left",
-                  paddingLeft: 5,
-                  marginBottom: 30
-                }}
-              >
-                Question Précédente
-              </Text>
+      <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6" }} ref="scrollView"
+        onScroll={this.onScroll} >
+
+        <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
+        <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
+        <TouchableOpacity>
+          <View  style={{
+                flexDirection:"row",
+              }}>
+          {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
+            <Text style={{
+              fontFamily: "firacode", 
+              fontSize: 16,
+              color: "#d6363e",
+              textAlign: "left",
+              paddingLeft: 5,
+              // marginBottom: 30
+            }}
+              >Précédente
+            </Text>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "flex-end"
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: "firacode",
-                  fontSize: 16,
-                  color: "#d6363e",
-                  textAlign: "right",
-                  paddingRight: 5
-                }}
-              >
-                Question Suivante
-              </Text>
-              <Icon
-                name="angle-double-right"
-                type="font-awesome"
-                color="#d6363e"
-              />
-            </View>
-          </TouchableOpacity>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View  style={{
+                flexDirection:"row",
+                justifyContent:"flex-end"
+              }}> 
+            <Text style={{ 
+              fontFamily: "firacode", 
+              fontSize: 16,
+              color: "#d6363e",
+              textAlign: "right",
+              paddingRight: 5
+             }}
+              >Suivante
+            </Text>
+            {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
+          </View> 
+        </TouchableOpacity>
         </View>
         <Text
           style={{
             marginTop: 10,
             marginBottom: 10,
-            marginLeft: 40,
+            textAlign: "center",
             fontSize: 20,
             fontWeight: "bold",
             color: "#d6363e"
