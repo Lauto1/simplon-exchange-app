@@ -25,15 +25,14 @@ class FaqComponent extends React.Component {
                 <View style={styles.titleView}>
                     <Text style={styles.title}>Foire aux questions</Text>
                 </View>
-                {this.Faq()}
-            </ScrollView>
+                 {this.Faq()} 
+             </ScrollView> 
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#f3f3f3',
         paddingLeft: 24,
         paddingRight: 24

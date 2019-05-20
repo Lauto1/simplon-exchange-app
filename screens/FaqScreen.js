@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import FaqComponent from "../components/faq";
+import HeaderComponent from "../components/layouts/HeaderComponent";
+import FooterComponent from '../components/layouts/FooterComponent';
 
 class FaqScreen extends React.Component {
 
@@ -11,9 +13,13 @@ class FaqScreen extends React.Component {
     }
     render() {
         return (
-            <View>
-                <FaqComponent/>
-            </View>
+            <>
+                <HeaderComponent />
+                <View>
+                    <FaqComponent />
+                </View>
+                <FooterComponent />
+            </>
         );
     }
 }
