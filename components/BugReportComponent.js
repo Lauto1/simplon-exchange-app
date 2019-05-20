@@ -116,7 +116,7 @@ async sendMail(obj){
     // On crée un email avec :
     MailComposer.composeAsync({
         // Comme recipient l'obj.mail qui est l'email de la personne
-        recipients:[obj.mail],
+        recipients:[obj.mail], //à remplacer par l'adresse mail du support technique
         // En sujet on met la catégories du mail
         subject:obj.category,
         // Body contient toutes les informations du mail

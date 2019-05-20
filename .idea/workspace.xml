@@ -128,6 +128,12 @@
         <option value="$PROJECT_DIR$/navigation/navigator.js" />
         <option value="$PROJECT_DIR$/screens/FaqScreen.js" />
         <option value="$PROJECT_DIR$/components/faq.js" />
+        <option value="$PROJECT_DIR$/components/Example.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/screens/BugScreen.js" />
+        <option value="$PROJECT_DIR$/navigation/navigator.js" />
+        <option value="$PROJECT_DIR$/screens/FaqScreen.js" />
+        <option value="$PROJECT_DIR$/components/faq.js" />
       </list>
     </option>
   </component>
