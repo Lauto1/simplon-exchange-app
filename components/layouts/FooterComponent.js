@@ -18,13 +18,8 @@ class FooterComponent extends Component {
             <Text style={styles.titleText}>Exchange ?</Text>
             <Text style={styles.textStyle}>
               Un lieu d'échange convivial où toutes questions trouvera une
-              réponse
-            </Text>
-            <Text style={styles.textStyle}>
-              Apprentissage de la pédagogie de l'entraide.
-            </Text>
-            <Text style={styles.textStyle}>
-              Savoir questionner pour obtenir des réponses pertinentes
+              réponse. Apprentissage de la pédagogie de l'entraide. Savoir
+              questionner pour obtenir des réponses pertinentes.
             </Text>
           </View>
 
@@ -32,30 +27,28 @@ class FooterComponent extends Component {
             <Text style={styles.titleText}>Liens utiles</Text>
             <View
               style={{
-                flexDirection: "row",
-                flexWrap: "wrap"
+                flexDirection: "column"
               }}
             >
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => console.log("Accueil route")
-                 }
+                onPress={() => console.log("Accueil route")}
               >
-                <Text style={styles.textStyle}>Accueil / </Text>
+                <Text style={styles.textStyle}>Accueil</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
                 onPress={() => console.log("poser une question route")}
               >
-                <Text style={styles.textStyle}>Poser une question / </Text>
+                <Text style={styles.textStyle}>Poser une question</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
                 onPress={() => console.log("aider la communauté route")}
               >
-                <Text style={styles.textStyle}>Aider la communauté / </Text>
+                <Text style={styles.textStyle}>Aider la communauté</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -71,13 +64,8 @@ class FooterComponent extends Component {
             <Text style={styles.titleText}>Intéret ?</Text>
             <Text style={styles.textStyle}>
               Créer en tant que projet back office pour la fabrique de Roanne,
-            </Text>
-            <Text style={styles.textStyle}>
-              et outil à vocation pédagogique a pour objectif,
-            </Text>
-            <Text style={styles.textStyle}>
-              de servir de lieu d'échange entre tous simploniens de toutes
-              promotions.
+              et outil à vocation pédagogique a pour objectif, de servir de lieu
+              d'échange entre tous simploniens de toutes promotions.
             </Text>
           </View>
         </View>
@@ -88,8 +76,7 @@ class FooterComponent extends Component {
           </Text>
           <TouchableOpacity
             style={{ width: "90%", borderRadius: 5 }}
-            onPress={() => console.log("mail to")
-            }
+            onPress={() => console.log("mail to")}
           >
             <Text style={styles.CopyrightItems}>By Simplon-Vénissieux</Text>
           </TouchableOpacity>
@@ -103,6 +90,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 3,
     flexDirection: "column",
+    textAlign: "center",
+    alignItems: "center",
     backgroundColor: "#2f3239",
     width: "100%",
     padding: 30,
@@ -130,6 +119,7 @@ const styles = StyleSheet.create({
   },
 
   titleText: {
+    textAlign: "center",
     fontSize: 24,
     fontFamily: "firacode",
     color: "#d6363e",
@@ -139,9 +129,9 @@ const styles = StyleSheet.create({
 
   textStyle: {
     color: "#fff",
+    textAlign: "center",
     fontSize: 14,
-    fontFamily: "firacode",
-    paddingBottom: 20
+    fontFamily: "firacode"
   }
 });
 
