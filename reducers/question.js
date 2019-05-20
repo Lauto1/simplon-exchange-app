@@ -1,20 +1,20 @@
 import types from "../constants/actionTypes";
 
 let initialState = {
-    questions: [],
-    currentSearch: ""
+  questions: [],
+  currentSearch: ""
 };
 /**reducer:  l'état de question change en réponse aux actions envoyées austore. */
 export const questionReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case types.ADD_QUESTIONS:
-            return { ...state, questions: action.questions };
-        case types.SEARCH_QUESTION:
-        console.log("search term",action.terms);
-        
-            return { ...state, currentSearch: action.terms};
+  switch (action.type) {
+    case types.ADD_QUESTIONS:
+      return { ...state, questions: action.questions };
+    case types.SEARCH_QUESTION:
+      console.log("search term", action.terms);
 
-        default:
-            return state;
-    }
+      return { ...state, currentSearch: action.terms };
+
+    default:
+      return state;
+  }
 };

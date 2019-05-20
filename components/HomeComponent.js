@@ -51,10 +51,6 @@ class HomeComponent extends React.Component {
     const questions = this.props.questions;
     return (
       <View style={styles.view}>
-        <HeaderComponent
-          drawerNav={this.props.navigation}
-          title="Simplon-Exchange"
-        />
 
         <ScrollView
           style={styles.contentContainer}
