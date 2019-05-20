@@ -11,8 +11,8 @@ class StatsComponent extends Component {
   render() {
     let count = 0
     const { questions } = this.props;
-    
-    questions.forEach( (question,index) => {
+
+    questions.forEach((question, index) => {
       count = count + question.answers.length
     });
 
@@ -22,18 +22,18 @@ class StatsComponent extends Component {
           <Text style={styles.title}>Stats</Text>
         </View>
         {/* <TouchableOpacity> */}
-          <View style={styles.btnContainer}>
-            <Icon name="help-outline"></Icon>
-            <Text style={styles.btnLabel}> Questions </Text>
-            <Text style={styles.btnLabel}>({questions.length})</Text>
-          </View>
+        <View style={styles.btnContainer}>
+          <Icon name="help-outline"></Icon>
+          <Text style={styles.btnLabel}> Questions </Text>
+          <Text style={styles.btnLabel}>({questions.length})</Text>
+        </View>
         {/* </TouchableOpacity>
         <TouchableOpacity> */}
-          <View style={styles.btnContainer}>
-            <Icon name="question-answer"></Icon>
-            <Text style={styles.btnLabel}> Réponses </Text>
-            <Text style={styles.btnLabel}>({count})</Text>
-          </View>
+        <View style={styles.btnContainer}>
+          <Icon name="question-answer"></Icon>
+          <Text style={styles.btnLabel}> Réponses </Text>
+          <Text style={styles.btnLabel}>({count})</Text>
+        </View>
         {/* </TouchableOpacity> */}
       </Card>
     );
@@ -42,7 +42,7 @@ class StatsComponent extends Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1, 
+    flex: 1,
     padding: 15
   },
   title: {
@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   btnContainer: {
-    flex: 1, 
-    flexDirection:"row", 
-    justifyContent:"center", 
-    borderWidth:2, 
-    borderColor: greyColor, 
-    padding:10, 
-    marginBottom:10,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    borderWidth: 2,
+    borderColor: greyColor,
+    padding: 10,
+    marginBottom: 10,
     marginLeft: 20,
     marginRight: 20
   },
