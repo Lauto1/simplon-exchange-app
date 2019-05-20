@@ -48,21 +48,21 @@ class QuestionScreen extends React.Component {
         onScroll={this.onScroll} >
 
         <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
-        <View style={{padding:15}}>
+        <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
         <TouchableOpacity>
           <View  style={{
-                flexDirection:"row"
+                flexDirection:"row",
               }}>
-          <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/>
+          {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
             <Text style={{
               fontFamily: "firacode", 
               fontSize: 16,
               color: "#d6363e",
               textAlign: "left",
               paddingLeft: 5,
-              marginBottom: 30
+              // marginBottom: 30
             }}
-              >Question Précédente
+              >Précédente
             </Text>
             </View>
         </TouchableOpacity>
@@ -78,9 +78,9 @@ class QuestionScreen extends React.Component {
               textAlign: "right",
               paddingRight: 5
              }}
-              >Question Suivante
+              >Suivante
             </Text>
-            <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/>
+            {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
           </View> 
         </TouchableOpacity>
         </View>
