@@ -24,7 +24,8 @@ class HeaderComponent extends React.Component {
         <View
           style={{
             backgroundColor: "#2F3239",
-            padding: 20,
+            paddingVertical: 15,
+            paddingLeft: 10,
             flexDirection: "row"
           }}
         >
@@ -50,7 +51,7 @@ class HeaderComponent extends React.Component {
                 paddingTop: 1,
                 color: "#d6363e",
                 fontSize: 20,
-                paddingLeft: 30,
+                paddingLeft: 15,
                 fontFamily: "firacode"
               }}
             >
