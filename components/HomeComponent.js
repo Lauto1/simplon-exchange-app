@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#dee2e6"
   },
   search: {
-    marginTop: 20
+    marginTop: 15,
+    flex: 2
   },
   welcomeHome: {
     backgroundColor: "#d7403e",
