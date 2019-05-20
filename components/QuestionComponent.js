@@ -1,21 +1,22 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
 
 class QuestionComponent extends Component {
-
-
- 
   onPressQuestion() {
-    console.log('onPressQuestion');
+    console.log("onPressQuestion");
 
     const { navigation: navigate } = this.props;
-    () => navigate('Question')
+    () => navigate("Question");
   }
   render() {
     const { question } = this.props;
     return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Question', { question: question })}>
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigation.navigate("Question", { question: question })
+        }
+      >
         <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
           <View
             style={{
@@ -52,20 +53,36 @@ class QuestionComponent extends Component {
                 }}
               >
                 <Text
-                  style={{ fontSize: 16, color: "#6C757D", fontFamily: "firacode", fontStyle: "italic" }}
+                  style={{
+                    fontSize: 16,
+                    color: "#6C757D",
+                    fontFamily: "firacode",
+                    fontStyle: "italic"
+                  }}
                 >
                   {question.date}
                 </Text>
                 <Text
-                  style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D", paddingHorizontal: 8 }}
+                  style={{
+                    fontSize: 16,
+                    fontFamily: "firacode",
+                    color: "#6C757D",
+                    paddingHorizontal: 8
+                  }}
                 >
                   par
-              </Text>
-                <Text style={{ fontSize: 16, fontFamily: "firacode", color: "#6C757D" }}>
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontFamily: "firacode",
+                    color: "#6C757D"
+                  }}
+                >
                   {question.author}
                 </Text>
               </View>
-              {this.props.showContent &&
+              {this.props.showContent && (
                 <Text
                   style={{
                     paddingBottom: 15,
@@ -79,7 +96,7 @@ class QuestionComponent extends Component {
                 >
                   {question.content}
                 </Text>
-              }
+              )}
               <View
                 style={{
                   flex: 1,
@@ -98,7 +115,13 @@ class QuestionComponent extends Component {
                     type="font-awesome"
                     color="#171b22"
                   />
-                  <Text style={{ marginLeft: 8, color: "#171b22", fontFamily: "firacode" }}>
+                  <Text
+                    style={{
+                      marginLeft: 8,
+                      color: "#171b22",
+                      fontFamily: "firacode"
+                    }}
+                  >
                     {question.answers.length}
                   </Text>
                 </View>
@@ -111,7 +134,9 @@ class QuestionComponent extends Component {
                     paddingHorizontal: 5
                   }}
                 >
-                  <Text style={{ color: "#fff", fontFamily: "firacode" }}>{question.factory}</Text>
+                  <Text style={{ color: "#fff", fontFamily: "firacode" }}>
+                    {question.factory}
+                  </Text>
                 </View>
 
                 <View
@@ -142,7 +167,6 @@ class QuestionComponent extends Component {
           </View>
         </Card>
       </TouchableOpacity>
-
     );
   }
 }

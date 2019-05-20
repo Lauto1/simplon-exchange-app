@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import {
   ScrollView,
-  TouchableOpacity,
-  Linking,
-  View,
+  StyleSheet,
   Text,
   Button,
-  StyleSheet
+  View,
+  TouchableOpacity
 } from "react-native";
 // import DropdownMenu from 'react-native-dropdown-menu';
 
