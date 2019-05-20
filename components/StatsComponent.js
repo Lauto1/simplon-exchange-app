@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
+import { primaryColor,
+  blackColor,
+  darkGreyColor,
+  greyColor,
+  lightGreyColor,
+  whiteColor,
+  primaryTextColor,
+  secondaryTextColor,
+  boldFontFamily,
+  regularFontFamily,
+  paragraphFontSize,
+  subtitleFontSize,
+  titleFontSize} from  "../helpers/styleGuidelines"
 
 class StatsComponent extends Component {
   state = {
@@ -10,18 +23,11 @@ class StatsComponent extends Component {
   render() {
     let count = 0
     const { questions } = this.props;
-    // const { answers } = this.props
-
     
-    // console.log('question toto7',questions);
     questions.forEach( (question,index) => {
-      console.log('question toto', question);
       count = count + question.answers.length
     });
-    console.log('count',count);
-    
 
-    
     return (
       <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 5 }}>
         <View style={styles.contentContainer}>
@@ -53,11 +59,11 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingBottom: 15,
-    fontSize: 20,
-    fontFamily: "firacodebold",
-    color: "#d6363e",
+    fontSize: titleFontSize,
+    fontFamily: boldFontFamily,
+    color: primaryColor,
     textAlign: "center",
-    borderBottomColor: "#dedede",
+    borderBottomColor: lightGreyColor,
     borderBottomWidth: 1,
   },
   btnContainer: {
@@ -65,15 +71,16 @@ const styles = StyleSheet.create({
     flexDirection:"row", 
     justifyContent:"center", 
     borderWidth:2, 
-    borderColor:"grey", 
+    borderColor: greyColor, 
     padding:10, 
     marginBottom:10,
     marginLeft: 20,
     marginRight: 20
   },
   btnLabel: {
-    color:"#2f3239",
-    fontSize:16
+    color: darkGreyColor,
+    fontSize: subtitleFontSize,
+    fontFamily: regularFontFamily
   }
 
 })

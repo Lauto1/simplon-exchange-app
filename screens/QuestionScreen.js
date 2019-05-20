@@ -92,7 +92,7 @@ class QuestionScreen extends React.Component {
           style={{
             marginTop: 10,
             marginBottom: 10,
-            marginLeft: 40,
+            textAlign: "center",
             fontSize: 20,
             fontWeight: "bold",
             color: "#d6363e"

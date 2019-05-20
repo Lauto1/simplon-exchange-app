@@ -4,7 +4,6 @@ import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
-import FooterComponent from "./layouts/FooterComponent";
 import StatsComponent from "./StatsComponent"
 import SearchbarComponent from "./SearchbarComponent";
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
