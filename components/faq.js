@@ -33,6 +33,7 @@ class FaqComponent extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: '#f3f3f3',
         paddingLeft: 24,
         paddingRight: 24

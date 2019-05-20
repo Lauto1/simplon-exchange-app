@@ -4,3 +4,4 @@ import { userVotes } from './userVotes';
 import {storeStatistiques} from './storeStatistiques';
 
 export default combineReducers({questionReducer, userVotes,storeStatistiques});
+
