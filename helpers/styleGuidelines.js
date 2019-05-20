@@ -23,7 +23,6 @@ export {
   secondaryTextColor,
   boldFontFamily,
   regularFontFamily,
-  fontFamily,
   paragraphFontSize,
   subtitleFontSize,
   titleFontSize
