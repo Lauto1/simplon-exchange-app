@@ -1,19 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import { primaryColor,
-  blackColor,
-  darkGreyColor,
-  greyColor,
-  lightGreyColor,
-  whiteColor,
-  primaryTextColor,
-  secondaryTextColor,
-  boldFontFamily,
-  regularFontFamily,
-  paragraphFontSize,
-  subtitleFontSize,
-  titleFontSize} from  "../helpers/styleGuidelines"
+import { boldFontFamily, darkGreyColor, greyColor, lightGreyColor, primaryColor, regularFontFamily, subtitleFontSize, titleFontSize } from "../helpers/styleGuidelines";
 
 class StatsComponent extends Component {
   state = {
