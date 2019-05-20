@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import {
   ScrollView,
-  TouchableOpacity,
-  Linking,
-  View,
+  StyleSheet,
   Text,
-  StyleSheet
+  TouchableOpacity,
+  View
 } from "react-native";
 
 class FooterComponent extends Component {
@@ -38,8 +37,7 @@ class FooterComponent extends Component {
             >
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => console.log("Accueil route")
-                 }
+                onPress={() => console.log("Accueil route")}
               >
                 <Text style={styles.textStyle}>Accueil / </Text>
               </TouchableOpacity>
@@ -88,8 +86,7 @@ class FooterComponent extends Component {
           </Text>
           <TouchableOpacity
             style={{ width: "90%", borderRadius: 5 }}
-            onPress={() => console.log("mail to")
-            }
+            onPress={() => console.log("mail to")}
           >
             <Text style={styles.CopyrightItems}>By Simplon-Vénissieux</Text>
           </TouchableOpacity>
