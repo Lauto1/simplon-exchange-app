@@ -55,7 +55,6 @@ class HomeComponent extends React.Component {
           drawerNav={this.props.navigation}
           title="Simplon-Exchange"
         />
-
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"

@@ -14,6 +14,7 @@ import AnwserFormComponent from "../components/AnwserFormComponent";
 
 import { Button } from 'react-native-elements';
 import { Icon } from "react-native-elements";
+import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -133,7 +134,7 @@ class QuestionScreen extends React.Component {
           <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
         </View>}
        
-        <FooterComponent />
+        <FooterComponent drawerNav={this.props.navigation} />
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
         )}
