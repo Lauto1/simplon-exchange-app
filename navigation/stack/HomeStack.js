@@ -12,7 +12,7 @@ const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Question: QuestionScreen,
   Faq: FaqScreen,
-  Bug: BugScreen,
+  Bug: BugScreen
 });
 /**
  * Nom du label affiché dans le menu
