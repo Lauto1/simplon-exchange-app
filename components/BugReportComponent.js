@@ -126,31 +126,19 @@ class BugReportComponent extends Component {
   async sendMail(obj) {
     // On crée un email avec :
     MailComposer.composeAsync({
-      // Comme recipient l'obj.mail qui est l'email de la personne
-      recipients: [obj.mail],
-      // En sujet on met la catégories du mail
-      subject: obj.category,
-      // Body contient toutes les informations du mail
-      body:
-        "Mail : " +
-        obj.mail +
-        "\n" +
-        "Environnement : " +
-        obj.environnement +
-        "\n" +
-        "Page : " +
-        obj.page +
-        "\n" +
-        "Date : " +
-        obj.date +
-        "\n" +
-        "Catégories : " +
-        obj.category +
-        "\n" +
-        "Descriptif : " +
-        obj.descriptif +
-        "\n",
-      attachments: [this.state.image]
+        // Comme recipient l'obj.mail qui est l'email de la personne
+        recipients:[obj.mail], //à remplacer par l'adresse mail du support technique
+        // En sujet on met la catégories du mail
+        subject:obj.category,
+        // Body contient toutes les informations du mail
+        body:
+            'Mail : '+obj.mail+'\n'+
+            'Environnement : '+obj.environnement+'\n'+
+            'Page : '+obj.page+'\n'+
+            'Date : '+obj.date+'\n'+
+            'Catégories : '+obj.category+'\n'+
+            'Descriptif : '+obj.descriptif+'\n',
+        attachments:[this.state.image]
     });
   }
   async uploadImageAsync(uri) {
