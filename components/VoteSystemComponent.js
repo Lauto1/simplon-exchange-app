@@ -9,7 +9,7 @@ export default class VoteSystemComponent extends Component {
     render() {
         return (
             <Provider store={store}>
-                {this.state.isConnecte}
+                {this.state.isConnected}
             </Provider>
         );
     }
