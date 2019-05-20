@@ -6,6 +6,7 @@ import HomeScreen from '../../screens/HomeScreen';
 import FaqScreen from '../../screens/FaqScreen';
 import BugScreen from '../../screens/BugScreen';
 import VoteScreen from '../../screens/VoteScreen';
+import VoteSystemScreen from '../../screens/VoteSystemScreen';
 
 /**
  * Creation d'un Stack Navigator à partir d'un Screen https://reactnavigation.org/docs/en/stack-navigator.html
@@ -14,7 +15,8 @@ const HomeStack = createStackNavigator({
   	Home: HomeScreen,
     Faq: FaqScreen,
     Bug: BugScreen,
-    Vote: VoteScreen
+    Vote: VoteScreen,
+    VoteSystemScreen: VoteSystemScreen
 });
 /**
  * Nom du label affiché dans le menu
