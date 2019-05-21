@@ -1,23 +1,25 @@
 import "@expo/vector-icons";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-elements";
+import {
+  paragraphFontSize,
+  boldFontFamily,
+  darkGreyColor,
+  greyColor,
+  lightGreyColor,
+  primaryColor,
+  regularFontFamily,
+  subtitleFontSize,
+  titleFontSize
+} from "../../helpers/styleGuidelines";
 
 class HeaderComponent extends React.Component {
   render() {
     return (
       <View>
         <View style={{ backgroundColor: "#000", height: 24 }} />
-        <Text
-          style={{
-            color: "#fff",
-            backgroundColor: "#d6363e",
-            width: "100%",
-            padding: 8,
-            justifyContent: "flex-start",
-            textAlign: "center"
-          }}
-        >
+        <Text style={styles.textStyle}>
           ⇐ Hey Simplonnien.ne ! Rejoins-nous vite
         </Text>
 
@@ -79,5 +81,18 @@ class HeaderComponent extends React.Component {
     this.props.drawerNav.toggleDrawer();
   };
 }
+
+const styles = StyleSheet.create({
+  textStyle: {
+    color: "#fff",
+    backgroundColor: "#d6363e",
+    width: "100%",
+    padding: 8,
+    justifyContent: "flex-start",
+    textAlign: "center",
+    fontSize: paragraphFontSize,
+    fontFamily: regularFontFamily
+  }
+});
 
 export default HeaderComponent;
