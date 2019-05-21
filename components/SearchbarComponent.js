@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import { SearchBar, Button, Icon } from 'react-native-elements';
+import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { SearchBar, Icon } from 'react-native-elements';
+import { regularFontFamily } from "../helpers/styleGuidelines"
 
 
 class SearchbarComponent extends Component {
@@ -9,37 +10,17 @@ class SearchbarComponent extends Component {
     };
 
     updateSearch = search => {
-        console.log("search",search);
-        
-        this.props.searchQuestions(search);
         this.setState({ search });
     };
     render() {
         const { search } = this.state;
+        const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 10
+
         return (
-            // <View style={styles.view}>
-            //     <View style={{ flexDirection: "row" }}>
-            //         <Icon name='pencil' type='font-awesome' iconStyle={{ color: "#fff", borderRadius: 5, marginTop: 30, backgroundColor: "#000", width: 40, height: 45 }} />
-            //         <TextInput
-            //             style={styles.textInput}
-            //             onFocus={this.clearInput}
-            //             onChangeText={this.updateSearch}
-            //             value={search}
-            //             placeholder={"Recherche une question, tu es sûr-e de trouver une réponse"}
-            //         />
-            //     </View>
-            //     <View style={styles.buttonContainer}>
-            //         <Button onPress={this.updateSearch}
-            //             style={styles.button}
-            //             title={'Rechercher'}
-            //             accessibilityLabel={'Rechercher'}
-            //         />
-            //     </View>
-            // </View>
+            <KeyboardAvoidingView style={styles.view}
+                keyboardVerticalOffset={keyboardVerticalOffset}
+                behavior="padding" enabled>
 
-
-            // Try with react Element SearchBar - could not make it work
-            <View style={{ paddingVertical: 0 }}>
                 <SearchBar style={styles.searchBar}
                     searchIcon={() =>
                         <Icon name='pencil'
@@ -86,7 +67,7 @@ class SearchbarComponent extends Component {
                     onChangeText={this.updateSearch}
                     value={search}
                 />
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -94,14 +75,18 @@ class SearchbarComponent extends Component {
 const styles = StyleSheet.create({
     view: {
         flexDirection: "column",
+        flex: 1,
         paddingLeft: 10,
         paddingRight: 10,
-        fontFamily: "firacodebold"
+        fontFamily: regularFontFamily,
+
     },
     searchBar: {
         marginTop: 50,
         padding: 0,
-        fontFamily: 'firacode',
+        flex: 1,
+        justifyContent: "flex-end",
+        fontFamily: regularFontFamily,
         backgroundColor: "#d5363e",
         borderRadius: 0,
         borderTopRightRadius: 5,
@@ -120,12 +105,12 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 0,
         flex: 2,
         marginTop: 30,
-        fontFamily: "firacode"
+        fontFamily: regularFontFamily,
     },
     buttonContainer: {
         padding: 3,
         marginTop: 30,
-        fontFamily: "firacode"
+        fontFamily: regularFontFamily,
     },
     button: {
         backgroundColor: "#d5363e",

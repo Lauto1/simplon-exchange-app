@@ -46,25 +46,25 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
-  searchQuestions(terms=null, questions) {
+  searchQuestions(terms = null, questions) {
     let filteredQuestions = [];
-    console.log("bfore null,",terms);
+    console.log("bfore null,", terms);
 
-      if (terms !=null && terms !="") {
-        console.log("pass null");
-        
-        for (var i = 0; i < questions.length; i++) {
-          if (questions[i].title.toLowerCase().includes(terms.toLowerCase()) ||questions[i].content.toLowerCase().includes(terms.toLowerCase())  ) {
-            console.log("recherche",questions[i]);
-            
-            filteredQuestions.push(questions[i]);
-          }
+    if (terms != null && terms != "") {
+      console.log("pass null");
+
+      for (var i = 0; i < questions.length; i++) {
+        if (questions[i].title.toLowerCase().includes(terms.toLowerCase()) || questions[i].content.toLowerCase().includes(terms.toLowerCase())) {
+          console.log("recherche", questions[i]);
+
+          filteredQuestions.push(questions[i]);
         }
-      } else {
-        console.log("else");
-        
-        filteredQuestions = questions;
       }
+    } else {
+      console.log("else");
+
+      filteredQuestions = questions;
+    }
     return filteredQuestions
   }
 
@@ -72,7 +72,7 @@ class HomeComponent extends React.Component {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
     const terms = this.props.currentSearch
-    console.log('questions 1',"terms", terms, questions.length);
+    console.log('questions 1', "terms", terms, questions.length);
     console.log("function this.search", this.props.actions.searchQuestions);
 
     return (
@@ -98,8 +98,9 @@ class HomeComponent extends React.Component {
               N'attend plus, pose ta question dès maintenant !
             </Text>
             <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
+
           </View>
-          {this.searchQuestions(terms,questions).map(question => (
+          {this.searchQuestions(terms, questions).map(question => (
             <QuestionComponent
               navigation={this.props.navigation}
               showContent={false}
@@ -107,14 +108,9 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
-<<<<<<< HEAD
-          <StatsComponent questions={questions}/>
-          <FooterComponent drawerNav={this.props.navigation} />
-=======
           <FooterComponent drawerNav={this.props.navigation} />
           <StatsComponent questions={questions} />
           <FooterComponent />
->>>>>>> 7b1d87e632bacad347ab810909b138e0b7ae4eaf
         </ScrollView>
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
