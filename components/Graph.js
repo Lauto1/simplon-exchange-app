@@ -18,7 +18,7 @@ class Graph extends Component {
       },
       {
         month: new Date(2015, 2, 1),
-        element: this.props.NbReponses
+        element: this.props.NbResponses
       }
     ];
 
@@ -39,7 +39,7 @@ class Graph extends Component {
           <Text style={styles.text}>
             Utilisateurs: {this.props.NbUtilisateurs}
           </Text>
-          <Text style={styles.text}>Reponses: {this.props.NbReponses}</Text>
+          <Text style={styles.text}>Reponses: {this.props.NbResponses}</Text>
         </View>
       </ScrollView>
     );
