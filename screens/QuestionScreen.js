@@ -8,6 +8,13 @@ import AnwserFormComponent from "../components/AnwserFormComponent";
 import QuestionComponent from "../components/QuestionComponent";
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
+<<<<<<< HEAD
+=======
+import AnwserFormComponent from "../components/AnwserFormComponent";
+
+
+import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+>>>>>>> a84b9dd1cb40a1e5d96ec665ab75287c67e199e4
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -21,7 +28,10 @@ class QuestionScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: "Question",
+<<<<<<< HEAD
       header: props => <HeaderComponent {...props} />
+=======
+>>>>>>> a84b9dd1cb40a1e5d96ec665ab75287c67e199e4
     };
   };
 
