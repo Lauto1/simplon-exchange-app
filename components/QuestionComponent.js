@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import Vote from "./VoteComponent";
-
 import Vote from './VoteComponent';
 
 class QuestionComponent extends Component {
