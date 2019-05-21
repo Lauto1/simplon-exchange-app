@@ -7,6 +7,7 @@ import {
   boldFontFamily,
   darkGreyColor,
   greyColor,
+  whiteColor,
   lightGreyColor,
   primaryColor,
   regularFontFamily,
@@ -19,18 +20,11 @@ class HeaderComponent extends React.Component {
     return (
       <View>
         <View style={{ backgroundColor: "#000", height: 24 }} />
-        <Text style={styles.textStyle}>
+        <Text style={styles.preHeader}>
           ⇐ Hey Simplonnien.ne ! Rejoins-nous vite
         </Text>
 
-        <View
-          style={{
-            backgroundColor: "#2F3239",
-            paddingVertical: 15,
-            paddingLeft: 10,
-            flexDirection: "row"
-          }}
-        >
+        <View style={styles.view}>
           <Icon
             name="menu"
             color="#fff"
@@ -48,27 +42,8 @@ class HeaderComponent extends React.Component {
               flexDirection: "row"
             }}
           >
-            <Text
-              style={{
-                paddingTop: 1,
-                color: "#d6363e",
-                fontSize: 20,
-                paddingLeft: 15,
-                fontFamily: "firacode"
-              }}
-            >
-              {this.props.title}
-            </Text>
-            <Text
-              style={{
-                paddingTop: 1,
-                color: "#fff",
-                fontSize: 20,
-                fontFamily: "firacode"
-              }}
-            >
-              .Help
-            </Text>
+            <Text style={styles.headerTitle}>{this.props.title}</Text>
+            <Text style={styles.headerHelp}>.Help</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -83,14 +58,36 @@ class HeaderComponent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  textStyle: {
-    color: "#fff",
-    backgroundColor: "#d6363e",
+  preHeader: {
+    color: whiteColor,
+    backgroundColor: primaryColor,
     width: "100%",
     padding: 8,
     justifyContent: "flex-start",
     textAlign: "center",
     fontSize: paragraphFontSize,
+    fontFamily: regularFontFamily
+  },
+
+  view: {
+    backgroundColor: greyColor,
+    paddingVertical: 15,
+    paddingLeft: 10,
+    flexDirection: "row"
+  },
+
+  headerHelp: {
+    color: whiteColor,
+    fontSize: titleFontSize,
+    fontFamily: regularFontFamily,
+    paddingTop: 1
+  },
+
+  headerTitle: {
+    paddingTop: 1,
+    paddingLeft: 15,
+    color: primaryColor,
+    fontSize: titleFontSize,
     fontFamily: regularFontFamily
   }
 });
