@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, View } from "react-native";
+import { Button, View, StyleSheet } from "react-native";
 import { CheckBox } from "react-native-elements";
 import Dialog, { DialogButton, DialogContent, DialogTitle } from "react-native-popup-dialog";
 import { primaryColor } from "../../helpers/styleGuidelines";
@@ -23,7 +23,6 @@ class PopUp extends Component {
   fetchDataChecked = () => {
     let checkedData = [];
 
-<<<<<<< HEAD
     if (this.state.checkedNbPosts === true) {
       checkedData.push("NbPosts");
     }
@@ -33,29 +32,6 @@ class PopUp extends Component {
     if (this.state.checkedNbResponses === true) {
       checkedData.push("NbResponses");
     }
-=======
-                <View>
-                    
-                    <View style={styles.buttonStyle}>
-                        <Button
-                            color="#2F3239"
-                            padding="20"
-                            title="Trier par date"
-                            onPress={() => {
-                            this.setState({
-                                defaultAnimationDialog: true
-                            });
-                            }}
-                        />
-                    </View>
-  
-         {/* Contenu de la PopUp */}
-          <Dialog
-                        onDismiss={() => {
-                            this.setState({ defaultAnimationDialog: false });
-                        }}
-                        height={700}
->>>>>>> design integration graphique
 
     this.props.actions.fetchDataApi(checkedData);
   };
@@ -131,7 +107,6 @@ class PopUp extends Component {
             }
           />
 
-<<<<<<< HEAD
           <CheckBox
             title="Trier par reponse"
             checked={this.state.checkedNbResponses}
@@ -148,7 +123,6 @@ class PopUp extends Component {
             color={primaryColor}
           />
         </View>
-=======
         <CheckBox
           title='Trier par reponse'
           checked={this.state.checkedNbResponses}
@@ -161,20 +135,13 @@ class PopUp extends Component {
               color="#2F3239"
             />
           </View>
-<<<<<<< HEAD
->>>>>>> design integration graphique
-=======
->>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b
       </View>
     );
   }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 export default PopUp;
-=======
-=======
->>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b
+
+
 const styles = StyleSheet.create({
     container: { marginTop: 20 },
     buttonStyle: {
@@ -189,9 +156,3 @@ const styles = StyleSheet.create({
       margin: 20
     }
   });
-<<<<<<< HEAD
-export default PopUp;
->>>>>>> design integration graphique
-=======
-export default PopUp;
->>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b
