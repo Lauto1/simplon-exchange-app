@@ -51,7 +51,6 @@ class SearchbarComponent extends Component {
                         borderBottomStartRadius: 0,
                         borderBottomLeftRadius: 0,
                     }} textInput={styles.textInput}
-                    // inputContainerStyle={{ backgroundColor: "#000" }}
                     leftIconContainerStyle={{
                         backgroundColor: "#000",
                         width: 40,
