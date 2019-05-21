@@ -20,7 +20,7 @@ class AnwserComponent extends Component {
                 paddingRight: 15
               }}
             >
-              <Icon name="sort-up" type="font-awesome" />
+              <Icon name="sort-up" type="font-awesome"/>
               <Text style={{ fontSize: 20 }}>{answer.upvote}</Text>
             </View>
 

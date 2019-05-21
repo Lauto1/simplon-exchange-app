@@ -6,7 +6,8 @@ import { fetchQuestions,searchQuestions } from "../actions/question";
 
 const mapStateToProps = state => {
   return {
-    questions: state.questionReducer.questions
+    questions: state.questionReducer.questions,
+    currentSearch : state.questionReducer.currentSearch
   };
 };
 

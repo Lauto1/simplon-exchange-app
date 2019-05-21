@@ -6,7 +6,7 @@ import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent"
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
@@ -46,18 +46,37 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
+  searchQuestions(terms=null, questions) {
+    let filteredQuestions = [];
+    console.log("bfore null,",terms);
+
+      if (terms !=null && terms !="") {
+        console.log("pass null");
+        
+        for (var i = 0; i < questions.length; i++) {
+          if (questions[i].title.toLowerCase().includes(terms.toLowerCase()) ||questions[i].content.toLowerCase().includes(terms.toLowerCase())  ) {
+            console.log("recherche",questions[i]);
+            
+            filteredQuestions.push(questions[i]);
+          }
+        }
+      } else {
+        console.log("else");
+        
+        filteredQuestions = questions;
+      }
+    return filteredQuestions
+  }
 
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    console.log('questions 1',questions.length);
-    
+    const terms = this.props.currentSearch
+    console.log('questions 1',"terms", terms, questions.length);
+    console.log("function this.search", this.props.actions.searchQuestions);
+
     return (
       <View style={styles.view}>
-        <HeaderComponent
-          drawerNav={this.props.navigation}
-          title="Simplon-Exchange"
-        />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
@@ -78,9 +97,9 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent style={styles.search} />
+            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
           </View>
-          {questions.map(question => (
+          {this.searchQuestions(terms,questions).map(question => (
             <QuestionComponent
               navigation={this.props.navigation}
               showContent={false}
@@ -88,8 +107,14 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
+<<<<<<< HEAD
           <StatsComponent questions={questions}/>
           <FooterComponent drawerNav={this.props.navigation} />
+=======
+          <FooterComponent drawerNav={this.props.navigation} />
+          <StatsComponent questions={questions} />
+          <FooterComponent />
+>>>>>>> 7b1d87e632bacad347ab810909b138e0b7ae4eaf
         </ScrollView>
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
@@ -117,20 +142,20 @@ const styles = StyleSheet.create({
     margin: -2
   },
   welcomeTitle: {
-    fontFamily: "firacodebold",
-    fontSize: 20,
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    fontSize: titleFontSize,
+    color: whiteColor,
     alignItems: "center",
     textAlign: "center"
   },
   welcomeHomeText: {
-    fontSize: 12,
+    fontSize: paragraphFontSize,
     textAlign: "center",
-    color: "#ffffff"
+    color: whiteColor
   },
   welcomeSousTitle: {
-    fontFamily: "firacodebold",
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    color: whiteColor,
     textAlign: "center",
     marginBottom: 46
   }

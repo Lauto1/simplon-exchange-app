@@ -1,19 +1,16 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
 import Inscription from "../components/Inscription";
+import HeaderComponent from "../components/layouts/HeaderComponent";
 class RegisterScreen extends React.Component {
-
-    static navigationOptions = ({ navigation }) => {
-        return {
-            header: null,
-        };
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: props => <HeaderComponent {...props} />
     };
+  };
 
-    render() {
-        return (
-            <Inscription/>
-        );
-    }
+  render() {
+    return <Inscription />;
+  }
 }
 
 export default RegisterScreen;

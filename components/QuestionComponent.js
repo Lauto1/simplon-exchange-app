@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
+import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily } from "../helpers/styleGuidelines";
 
 class QuestionComponent extends Component {
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 7b1d87e632bacad347ab810909b138e0b7ae4eaf
   onPressQuestion() {
     console.log("onPressQuestion");
 
@@ -40,7 +47,7 @@ class QuestionComponent extends Component {
                 style={{
                   paddingBottom: 15,
                   fontSize: 20,
-                  fontFamily: "firacodebold",
+                  fontFamily: boldFontFamily,
                   color: "#d6363e"
                 }}
               >
