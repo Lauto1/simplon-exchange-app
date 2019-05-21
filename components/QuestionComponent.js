@@ -13,6 +13,7 @@ import {
   blackColor,
   whiteColor
 } from "../helpers/styleGuidelines";
+import Vote from "./VoteComponent";
 
 class QuestionComponent extends Component {
   onPressQuestion() {
@@ -43,8 +44,7 @@ class QuestionComponent extends Component {
                 paddingRight: 15
               }}
             >
-              <Icon name="sort-up" type="font-awesome" />
-              <Text style={{ fontSize: titleFontSize }}>{question.upvote}</Text>
+              <Vote/>
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
