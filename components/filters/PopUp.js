@@ -161,14 +161,20 @@ class PopUp extends Component {
               color="#2F3239"
             />
           </View>
+<<<<<<< HEAD
 >>>>>>> design integration graphique
+=======
+>>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b
       </View>
     );
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default PopUp;
 =======
+=======
+>>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b
 const styles = StyleSheet.create({
     container: { marginTop: 20 },
     buttonStyle: {
@@ -183,5 +189,9 @@ const styles = StyleSheet.create({
       margin: 20
     }
   });
+<<<<<<< HEAD
 export default PopUp;
 >>>>>>> design integration graphique
+=======
+export default PopUp;
+>>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b

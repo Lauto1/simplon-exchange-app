@@ -12,7 +12,10 @@ import PopUp from '../containers/PopUp'
 
 import Title from './titleDescription/Title';
 import Description from './titleDescription/Description';
+<<<<<<< HEAD
 >>>>>>> design integration graphique
+=======
+>>>>>>> 113512493aa4b457825fe61c149f62a6d322fb0b
 
 const Statistique = props => {
   return (
