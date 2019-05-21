@@ -50,7 +50,6 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    console.log('questions 1',questions.length);
     
     return (
       <View style={styles.view}>

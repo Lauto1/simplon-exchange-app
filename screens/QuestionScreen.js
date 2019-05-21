@@ -1,19 +1,14 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity
-} from "react-native";
-import QuestionComponent from "../components/QuestionComponent";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
+import QuestionComponent from "../components/QuestionComponent";
+import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
 import AnwserFormComponent from "../components/AnwserFormComponent";
 
-import { Button } from 'react-native-elements';
-import { Icon } from "react-native-elements";
+
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
 
 class QuestionScreen extends React.Component {

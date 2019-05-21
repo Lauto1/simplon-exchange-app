@@ -1,10 +1,17 @@
-import React from "react";
-// import Example from "../components/Example";
+import React, {Component} from "react";
+import HeaderComponent from "../components/layouts/HeaderComponent";
 import Graph from "../components/Graph";
 
+class GraphScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: props => <HeaderComponent {...props} />
+    };
+  };
 
-const GraphScreen = props => {
-  return <Graph />;
-};
+  render() {
+    return <Graph />;
+  }
+}
 
 export default GraphScreen;
