@@ -5,6 +5,8 @@
 Technologies: 
 - React Native
 - Redux
+- React Navigation
+- React Thunk
 - Laravel API
 
 ## Creation d'une nouvelle page (Screen)
@@ -26,3 +28,14 @@ Technologies:
 Pour créer des event trackers, il faut suivre la documentation du paquet Amplitude d'Expo [disponible ici](https://docs.expo.io/versions/latest/sdk/amplitude/)
 
 Amplitude est initialisé dans le constructor de App.js.
+- GraphQL
+- Expo MailComposer
+- Expo Cli
+- React Native Elements
+- 
+
+## Creation d'une nouvelle page (Screen)
+1. Créer une Screen dans le dossier screen en suivant l'exemple ExampleScreen ou HomeScreen;
+2. Créer une stack en rapport à votre Screen dans le dossier navigation/stack en suivant l'exemple     du HomeStack.js
+3. Importer le Screen dans votre stack;
+4. Importez votre Stack dans le fichier navigator.js

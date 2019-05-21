@@ -1,3 +1,10 @@
 import { combineReducers } from "redux";
-import {example} from "./example";
-export default combineReducers({example});
+import { questionReducer } from "./question";
+import { storeStatistiques } from "./storeStatistiques";
+import { userVotes } from "./userVotes";
+
+export default combineReducers({
+  questionReducer,
+  userVotes,
+  storeStatistiques
+});

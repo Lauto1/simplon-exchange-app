@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "laurent",
+      "email": "laurent@email.com",
+      "password": "laurent",
+      "token": "laurentToken123"
+    },
+    {
+      "id": 2,
+      "name": "pawel",
+      "email": "pawel@email.com",
+      "password": "pawel",
+      "token": "pawelToken123"
+    },
+    {
+      "id": 3,
+      "name": "franck",
+      "email": "franck@email.com",
+      "password": "franck",
+      "token": "franckToken123"
+    },
+    {
+      "id": 4,
+      "name": "laurie",
+      "email": "laurie@email.com",
+      "password": "laurie",
+      "token": "laurieToken123"
+    }
+  ]
+}

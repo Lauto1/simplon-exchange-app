@@ -1,19 +1,27 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-class HomeScreen extends React.Component {
+import React, { Component } from "react";
+import HomeContainer from "../containers/HomeContainer";
+import HeaderComponent from "../components/layouts/HeaderComponent";
 
-    static navigationOptions = ({ navigation }) => {
-        return {
-            header: null,
-        };
-    }
-    render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>HomeScreen</Text>
-            </View>
-        );
-    }
+class HomeScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      contentToDisplay: "hello world"
+    };
+  }
+  
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: props => <HeaderComponent {...props} />
+    };
+  };
+
+  render() {
+    return <HomeContainer navigation={this.props.navigation} />;
+  }
+  onLoadCallback = () => {
+    console.log("loaded");
+  };
 }
 
 export default HomeScreen;

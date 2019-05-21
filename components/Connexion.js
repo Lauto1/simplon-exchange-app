@@ -1,8 +1,14 @@
-import React from 'react';
-import { TextInput, View, StyleSheet, Button } from 'react-native';
-import { CheckBox } from 'react-native-elements';
-import { Formik } from 'formik';
-
+import { Formik } from "formik";
+import React from "react";
+import { Button, StyleSheet, TextInput, View } from "react-native";
+import { CheckBox } from "react-native-elements";
+import {
+  greyColor,
+  lightGreyColor,
+  primaryColor,
+  titleFontSize,
+  whiteColor
+} from "../helpers/styleGuidelines";
 
 export default class Connexion extends React.Component {
 
@@ -94,52 +100,54 @@ export default class Connexion extends React.Component {
                     )}
                 </Formik>
             </View>
-        );
-    }
+          )}
+        </Formik>
+      </View>
+    );
+  }
 }
 // @ts-ignore
 const styles = StyleSheet.create({
-
-    titleText: {
-        color: '#D6363E',
-        width: '100%',
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        marginBottom: 20,
-        fontWeight: '500',
-        fontSize: 28,
-        borderBottomColor: 'rgba(0,0,0,.1)',
-        borderBottomWidth: 1,
-        paddingBottom: 10
-    },
-    form: {
-        marginTop: 75,
-        marginRight: 5,
-        marginLeft: 5,
-        marginBottom: 5,
-        padding: 10,
-        backgroundColor: 'white',
-        borderRadius: 5,
-        borderColor: 'rgba(0,0,0,.125)',
-        borderWidth: 1
-    },
-    field: {
-        borderColor: "#000000",
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderRadius: 5,
-        padding: 10,
-        marginBottom: 25,
-        width: '100%',
-        height: 50,
-        marginLeft: "auto",
-        marginRight: "auto"
-    },
-    button: {
-        marginTop: 20,
-        width: '100%',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        borderRadius: 5
-    }
+  titleText: {
+    color: primaryColor,
+    width: "100%",
+    marginRight: "auto",
+    marginLeft: "auto",
+    marginBottom: 20,
+    fontWeight: "500",
+    fontSize: titleFontSize,
+    borderBottomColor: lightGreyColor,
+    borderBottomWidth: 1,
+    paddingBottom: 10
+  },
+  form: {
+    marginTop: 75,
+    marginRight: 5,
+    marginLeft: 5,
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: whiteColor,
+    borderRadius: 5,
+    borderColor: lightGreyColor,
+    borderWidth: 1
+  },
+  field: {
+    borderColor: lightGreyColor,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 25,
+    width: "100%",
+    height: 50,
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  button: {
+    marginTop: 20,
+    width: "100%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderRadius: 5
+  }
 });
