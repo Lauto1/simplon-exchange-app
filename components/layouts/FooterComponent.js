@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import { whiteColor, greyColor, lightGreyColor, darkGreyColor, primaryColor, regularFontFamily, paragraphFontSize } from "../../helpers/styleGuidelines";
 
 class FooterComponent extends Component {
   /***Composant FOOTER connecter au screen (HomeScreen) & re-utilisable comme le HEADER dans les autres composants*/
@@ -81,7 +82,7 @@ class FooterComponent extends Component {
         </View>
 
         <View style={styles.Copyright}>
-          <Text style={{ color: "#fff", paddingBottom: 8 }}>
+          <Text style={{ color: whiteColor, paddingBottom: 8 }}>
             Copyright 2019 Une Question ? |
           </Text>
           <TouchableOpacity
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 3,
     flexDirection: "column",
-    backgroundColor: "#2f3239",
+    backgroundColor: greyColor,
     width: "100%",
     padding: 30,
     marginTop: 60
@@ -111,13 +112,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginTop: 20,
-    backgroundColor: "#dee2e6"
+    backgroundColor: lightGreyColor
   },
   Copyright: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#222429",
+    backgroundColor: darkGreyColor,
     padding: 20
   },
   CopyrightItems: {
@@ -128,16 +129,16 @@ const styles = StyleSheet.create({
 
   titleText: {
     fontSize: 24,
-    fontFamily: "firacode",
-    color: "#d6363e",
+    fontFamily: regularFontFamily,
+    color: primaryColor,
     paddingBottom: 8
     //justifyContent: "space-evenly"
   },
 
   textStyle: {
-    color: "#fff",
-    fontSize: 14,
-    fontFamily: "firacode",
+    color: whiteColor,
+    fontSize: paragraphFontSize,
+    fontFamily: regularFontFamily,
     paddingBottom: 20
   }
 });

@@ -9,6 +9,13 @@ import {
   View
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
+import {
+  primaryColor,
+  blackColor,
+  titleFontSize,
+  whiteColor,
+  lightGreyColor
+} from "../helpers/styleGuidelines";
 
 export default class Inscription extends React.Component {
   constructor(props) {
@@ -123,7 +130,7 @@ export default class Inscription extends React.Component {
               </View>
               <View style={styles.button}>
                 <Button
-                  color="#D6363E"
+                  color={primaryColor}
                   onPress={props.handleSubmit}
                   title="S'enregistrer"
                 />
@@ -138,13 +145,13 @@ export default class Inscription extends React.Component {
 
 const styles = StyleSheet.create({
   title: {
-    color: "#D6363E",
+    color: primaryColor,
     width: "100%",
     marginRight: "auto",
     marginLeft: "auto",
     fontWeight: "500",
-    fontSize: 28,
-    borderBottomColor: "rgba(0,0,0,.1)",
+    fontSize: titleFontSize,
+    borderBottomColor: lightGreyColor,
     borderBottomWidth: 1,
     padding: 10
   },
@@ -154,13 +161,13 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginBottom: 5,
     padding: 10,
-    backgroundColor: "white",
+    backgroundColor: whiteColor,
     borderRadius: 5,
-    borderColor: "rgba(0,0,0,.125)",
+    borderColor: lightGreyColor,
     borderWidth: 1
   },
   field: {
-    borderColor: "#000000",
+    borderColor: lightGreyColor,
     borderWidth: 1,
     borderStyle: "solid",
     borderRadius: 5,

@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
+import {
+  titleFontSize,
+  boldFontFamily,
+  primaryColor,
+  secondaryTextColor,
+  regularFontFamily,
+  subtitleFontSize,
+  paragraphFontSize,
+  lightGreyColor,
+  blackColor,
+  whiteColor
+} from "../helpers/styleGuidelines";
 
 class QuestionComponent extends Component {
   onPressQuestion() {
@@ -32,16 +44,16 @@ class QuestionComponent extends Component {
               }}
             >
               <Icon name="sort-up" type="font-awesome" />
-              <Text style={{ fontSize: 20 }}>{question.upvote}</Text>
+              <Text style={{ fontSize: titleFontSize }}>{question.upvote}</Text>
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
               <Text
                 style={{
                   paddingBottom: 15,
-                  fontSize: 20,
-                  fontFamily: "firacodebold",
-                  color: "#d6363e"
+                  fontSize: titleFontSize,
+                  fontFamily: boldFontFamily,
+                  color: primaryColor
                 }}
               >
                 {question.title}
@@ -55,8 +67,8 @@ class QuestionComponent extends Component {
                 <Text
                   style={{
                     fontSize: 16,
-                    color: "#6C757D",
-                    fontFamily: "firacode",
+                    color: secondaryTextColor,
+                    fontFamily: regularFontFamily,
                     fontStyle: "italic"
                   }}
                 >
@@ -64,9 +76,9 @@ class QuestionComponent extends Component {
                 </Text>
                 <Text
                   style={{
-                    fontSize: 16,
-                    fontFamily: "firacode",
-                    color: "#6C757D",
+                    fontSize: subtitleFontSize,
+                    fontFamily: regularFontFamily,
+                    color: secondaryTextColor,
                     paddingHorizontal: 8
                   }}
                 >
@@ -74,9 +86,9 @@ class QuestionComponent extends Component {
                 </Text>
                 <Text
                   style={{
-                    fontSize: 16,
-                    fontFamily: "firacode",
-                    color: "#6C757D"
+                    fontSize: subtitleFontSize,
+                    fontFamily: regularFontFamily,
+                    color: secondaryTextColor
                   }}
                 >
                   {question.author}
@@ -86,9 +98,9 @@ class QuestionComponent extends Component {
                 <Text
                   style={{
                     paddingBottom: 15,
-                    fontSize: 14,
-                    fontFamily: "firacode",
-                    borderTopColor: "#dedede",
+                    fontSize: paragraphFontSize,
+                    fontFamily: regularFontFamily,
+                    borderTopColor: lightGreyColor,
                     borderTopWidth: 1,
                     paddingTop: 28,
                     marginTop: 8
@@ -102,7 +114,7 @@ class QuestionComponent extends Component {
                   flex: 1,
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  borderTopColor: "#dedede",
+                  borderTopColor: lightGreyColor,
                   borderTopWidth: 1,
                   paddingTop: 8,
                   marginTop: 8
@@ -113,13 +125,13 @@ class QuestionComponent extends Component {
                     size={18}
                     name="comment"
                     type="font-awesome"
-                    color="#171b22"
+                    color={blackColor}
                   />
                   <Text
                     style={{
                       marginLeft: 8,
-                      color: "#171b22",
-                      fontFamily: "firacode"
+                      color: blackColor,
+                      fontFamily: regularFontFamily
                     }}
                   >
                     {question.answers.length}
@@ -129,12 +141,14 @@ class QuestionComponent extends Component {
                   style={{
                     flexDirection: "row",
                     alignContent: "center",
-                    backgroundColor: "#D6363E",
+                    backgroundColor: primaryColor,
                     borderRadius: 3,
                     paddingHorizontal: 5
                   }}
                 >
-                  <Text style={{ color: "#fff", fontFamily: "firacode" }}>
+                  <Text
+                    style={{ color: whiteColor, fontFamily: regularFontFamily }}
+                  >
                     {question.factory}
                   </Text>
                 </View>
@@ -148,13 +162,13 @@ class QuestionComponent extends Component {
                     size={18}
                     name="tag"
                     type="font-awesome"
-                    color="#171b22"
+                    color={blackColor}
                   />
                   <Text
                     style={{
                       marginLeft: 8,
-                      color: "#171b22",
-                      fontFamily: "firacode",
+                      color: blackColor,
+                      fontFamily: regularFontFamily,
                       textAlignVertical: "center",
                       lineHeight: 15
                     }}

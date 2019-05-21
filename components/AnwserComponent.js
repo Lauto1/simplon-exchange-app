@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
+import { titleFontSize, subtitleFontSize, boldFontFamily, regularFontFamily, secondaryTextColor, lightGreyColor } from "../helpers/styleGuidelines";
 class AnwserComponent extends Component {
   render() {
     const { answer } = this.props;
@@ -21,7 +22,7 @@ class AnwserComponent extends Component {
               }}
             >
               <Icon name="sort-up" type="font-awesome" />
-              <Text style={{ fontSize: 20 }}>{answer.upvote}</Text>
+              <Text style={{ fontSize: titleFontSize }}>{answer.upvote}</Text>
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
@@ -31,14 +32,14 @@ class AnwserComponent extends Component {
                   paddingBottom: 8
                 }}
               >
-                <Text style={{ fontSize: 16, fontFamily: "firacodebold" }}>
+                <Text style={{ fontSize: subtitleFontSize, fontFamily: boldFontFamily }}>
                   {answer.author}
                 </Text>
                 <Text
                   style={{
-                    fontSize: 16,
-                    fontFamily: "firacode",
-                    color: "#6C757D"
+                    fontSize: subtitleFontSize,
+                    fontFamily: regularFontFamily,
+                    color: secondaryTextColor
                   }}
                 >
                   karma : {answer.points}
@@ -46,9 +47,9 @@ class AnwserComponent extends Component {
 
                 <Text
                   style={{
-                    fontSize: 16,
-                    color: "#6C757D",
-                    fontFamily: "firacode",
+                    fontSize: subtitleFontSize,
+                    color: secondaryTextColor,
+                    fontFamily: regularFontFamily,
                     fontStyle: "italic"
                   }}
                 >
@@ -58,8 +59,8 @@ class AnwserComponent extends Component {
               <Text
                 style={{
                   paddingBottom: 15,
-                  fontSize: 16,
-                  fontFamily: "firacode",
+                  fontSize: subtitleFontSize,
+                  fontFamily: regularFontFamily,
                   borderTopColor: "#dedede",
                   borderTopWidth: 1,
                   paddingTop: 28,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
   },
   view: {
     flex: 1,
-    backgroundColor: "#dee2e6"
+    backgroundColor: lightGreyColor
   },
   search: {
     marginTop: 20

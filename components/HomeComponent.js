@@ -5,7 +5,7 @@ import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
@@ -109,20 +109,20 @@ const styles = StyleSheet.create({
     margin: -2
   },
   welcomeTitle: {
-    fontFamily: "firacodebold",
-    fontSize: 20,
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    fontSize: titleFontSize,
+    color: whiteColor,
     alignItems: "center",
     textAlign: "center"
   },
   welcomeHomeText: {
-    fontSize: 12,
+    fontSize: paragraphFontSize,
     textAlign: "center",
-    color: "#ffffff"
+    color: whiteColor
   },
   welcomeSousTitle: {
-    fontFamily: "firacodebold",
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    color: whiteColor,
     textAlign: "center",
     marginBottom: 46
   }

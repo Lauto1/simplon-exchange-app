@@ -2,6 +2,13 @@ import { Formik } from "formik";
 import React from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import { CheckBox } from "react-native-elements";
+import {
+  greyColor,
+  lightGreyColor,
+  primaryColor,
+  titleFontSize,
+  whiteColor
+} from "../helpers/styleGuidelines";
 
 export default class Connexion extends React.Component {
   constructor(props) {
@@ -49,13 +56,13 @@ export default class Connexion extends React.Component {
               />
               <View style={styles.button}>
                 <Button
-                  color="#D6363E"
+                  color={primaryColor}
                   onPress={props.handleSubmit}
                   title="Connexion"
                 />
                 <Button
                   title="Mot de passe oublié ?"
-                  color="#2f3239"
+                  color={greyColor}
                   onPress={props.handleSubmit}
                 />
               </View>
@@ -68,14 +75,14 @@ export default class Connexion extends React.Component {
 }
 const styles = StyleSheet.create({
   titleText: {
-    color: "#D6363E",
+    color: primaryColor,
     width: "100%",
     marginRight: "auto",
     marginLeft: "auto",
     marginBottom: 20,
     fontWeight: "500",
-    fontSize: 28,
-    borderBottomColor: "rgba(0,0,0,.1)",
+    fontSize: titleFontSize,
+    borderBottomColor: lightGreyColor,
     borderBottomWidth: 1,
     paddingBottom: 10
   },
@@ -85,13 +92,13 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginBottom: 5,
     padding: 10,
-    backgroundColor: "white",
+    backgroundColor: whiteColor,
     borderRadius: 5,
-    borderColor: "rgba(0,0,0,.125)",
+    borderColor: lightGreyColor,
     borderWidth: 1
   },
   field: {
-    borderColor: "#000000",
+    borderColor: lightGreyColor,
     borderWidth: 1,
     borderStyle: "solid",
     borderRadius: 5,
