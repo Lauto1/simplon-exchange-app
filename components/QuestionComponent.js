@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
+import Vote from "./VoteComponent";
 
 class QuestionComponent extends Component {
   onPressQuestion() {
@@ -31,8 +32,7 @@ class QuestionComponent extends Component {
                 paddingRight: 15
               }}
             >
-              <Icon name="sort-up" type="font-awesome" />
-              <Text style={{ fontSize: 20 }}>{question.upvote}</Text>
+              <Vote/>
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
