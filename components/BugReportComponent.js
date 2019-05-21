@@ -10,8 +10,10 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
+  Alert
 } from "react-native";
+import { withNavigation } from 'react-navigation';
 import { Dropdown } from "react-native-material-dropdown";
 import {blackColor, lightGreyColor, whiteColor, primaryColor} from "../helpers/styleGuidelines"
 
@@ -65,8 +67,24 @@ addZero(value)
     return value;
 }
 
-componentDidMount()
-{
+  componentWillMount() {
+    let mockUserAsyncStorage = true ; // à remplacer par l'asyncStorage lié à la connexion quand elle aura été faite par l'équipe 1
+
+    if(!mockUserAsyncStorage) {
+        this.props.navigation.navigate('Connexion');
+
+        Alert.alert(
+            'Connectez-vous',
+            'Veuillez vous connecter s\'il vous plait',
+            [
+              {text: 'OK', onPress: () => console.log()}
+            ],
+            { cancelable: false }
+          );
+    }
+  }
+
+  componentDidMount() {
     this.setDate();
 }
 
@@ -426,5 +444,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BugReportComponent;
+export default withNavigation(BugReportComponent);
 
