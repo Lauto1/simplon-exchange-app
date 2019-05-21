@@ -12,22 +12,28 @@ class Vote extends Component {
       voted: false
     };
   }
+  isLoged = false; // à remplacer par verificatin de login
 
-    /**
-     * Infos :
-     * - Procédure d'incrementation ou de décrémentation du compteur de votes
-     * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
-     */
-    handleVote(type){
-        if(type == '+') {
-            this.setState({vote_score : this.state.vote_score + 1});
-            //call action upvote
-        }else if(type == '-') {
-            this.setState({vote_score : this.state.vote_score - 1});
-            //call action downvote
-        }
+  /**
+   * Infos :
+   * - Procédure d'incrementation ou de décrémentation du compteur de votes
+   * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
+   */
+  handleVote(type) {
+    // check if ( user is logged ? )
+    if (this.isLoged) {
+      if (type == '+') {
+        this.setState({ vote_score: this.state.vote_score + 1 });
+        //call action upvote
+      } else if (type == '-') {
+        this.setState({ vote_score: this.state.vote_score - 1 });
+        //call action downvote
+      }
+    } else {
+      this.props.navigation.navigate("Login");
     }
   }
+
 
   render() {
     return (
