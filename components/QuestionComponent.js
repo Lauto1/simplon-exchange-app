@@ -4,9 +4,8 @@ import { Card, Icon } from "react-native-elements";
 import Vote from './VoteComponent';
 
 class QuestionComponent extends Component {
-  onPressQuestion() {
-    console.log("onPressQuestion");
 
+  onPressQuestion() {
     const { navigation: navigate } = this.props;
     () => navigate("Question");
   }
