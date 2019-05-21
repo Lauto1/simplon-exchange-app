@@ -31,8 +31,9 @@ class HeaderComponent extends Component {
 
         <View
           style={{
-            backgroundColor: greyColor,
-            padding: 20,
+            backgroundColor: "#2F3239",
+            paddingVertical: 15,
+            paddingLeft: 10,
             flexDirection: "row"
           }}
         >
@@ -58,8 +59,8 @@ class HeaderComponent extends Component {
                 paddingTop: 1,
                 color: primaryColor,
                 fontSize: 20,
-                paddingLeft: 30,
-                fontFamily: regularFontFamily
+                paddingLeft: 15,
+                fontFamily: "firacode"
               }}
             >
               Simplon-Exchange

@@ -16,16 +16,18 @@ import StatsStack from "./stack/StatsStack";
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
  * ex : Home: HomeStack, Faq:FaqStack
  */
+
 const DrawerNavigator = createDrawerNavigator({
-  Accueil: HomeStack,
-  Inscription: RegisterStack,
-  Connexion: LoginStack,
-  Faq: FaqScreen,
-  Bug: BugScreen,
-  Statistiques: StatsStack,
-  Graphiques: GraphStack,
-  Vote: VoteScreen
-});
+    Home: HomeStack,
+    Inscription: RegisterStack,
+    Connexion: LoginStack,
+    Faq: FaqScreen,
+    Bug: BugScreen,
+    Statistiques: StatsStack,
+    Graphiques: GraphStack,
+    Vote: VoteScreen
+  }
+);
 
 /**
  * Le root navigator regroupe toute les stack et les navigators

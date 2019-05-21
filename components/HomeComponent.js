@@ -4,6 +4,7 @@ import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
+import StatsComponent from "./StatsComponent"
 import SearchbarComponent from "./SearchbarComponent";
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
 
@@ -15,7 +16,7 @@ class HomeComponent extends React.Component {
 
   componentDidMount() {
     this.props.actions.fetchQuestions().then(questions => {
-      console.log(questions, "promise");
+      //console.log(questions, "promise");
     });
 
     // Il faudra récupérer les questions via l'API quand elle sera prête, par exemple:
@@ -49,9 +50,13 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
+    
     return (
       <View style={styles.view}>
-
+        <HeaderComponent
+          drawerNav={this.props.navigation}
+          title="Simplon-Exchange"
+        />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
@@ -82,7 +87,8 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
-          <FooterComponent />
+          <StatsComponent questions={questions}/>
+          <FooterComponent drawerNav={this.props.navigation} />
         </ScrollView>
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
@@ -101,7 +107,8 @@ const styles = StyleSheet.create({
     backgroundColor: lightGreyColor
   },
   search: {
-    marginTop: 20
+    marginTop: 15,
+    flex: 2
   },
   welcomeHome: {
     backgroundColor: primaryColor,

@@ -19,7 +19,8 @@ const HomeStack = createStackNavigator({
  * Nom du label affiché dans le menu
  */
 HomeStack.navigationOptions = {
-  tabBarLabel: "Accueil",
+    tabBarLabel: 'Accueil',
+    drawerLabel: 'Accueil'
 };
 
 export default HomeStack;
