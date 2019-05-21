@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, View } from "react-native";
+import { Button, View, StyleSheet } from "react-native";
 import { CheckBox } from "react-native-elements";
 import Dialog, { DialogButton, DialogContent, DialogTitle } from "react-native-popup-dialog";
 import { primaryColor } from "../../helpers/styleGuidelines";
