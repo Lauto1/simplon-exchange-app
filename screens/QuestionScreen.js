@@ -22,9 +22,25 @@ class QuestionScreen extends React.Component {
     this.state = {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
-      connected:true
+      connected:true,
+
+      // questions: []
     };
   }
+//Test navigation
+
+
+// goToNext = (question, index) => {
+//   console.log('gotonext');
+//   const questions = this.props.questions;
+//   this.setState({ index: (this.state.index + 1) % questions.length });
+// };
+
+
+
+//
+
+
   static navigationOptions = ({ navigation }) => {
     return {
       title: "Question",
@@ -49,6 +65,8 @@ class QuestionScreen extends React.Component {
 
   render() {
     const question = this.props.navigation.getParam("question", "no Data");
+    console.log('questionNav', question);
+    
     const answers = question.answers;
     const { showScrollToTop } = this.state;
     return (
@@ -62,6 +80,7 @@ class QuestionScreen extends React.Component {
                 flexDirection:"row",
               }}>
           {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
+          {/* <TouchableOpacity onPress={this.goToNext()}> */}
             <Text style={{
               fontFamily: "firacode", 
               fontSize: 16,
@@ -72,6 +91,7 @@ class QuestionScreen extends React.Component {
             }}
               >Précédente
             </Text>
+            {/* </TouchableOpacity> */}
             </View>
         </TouchableOpacity>
         <TouchableOpacity>
