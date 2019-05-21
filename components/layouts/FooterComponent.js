@@ -7,7 +7,7 @@ import {
   View
 } from "react-native";
 // import DropdownMenu from 'react-native-dropdown-menu';
-import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily,lightGreyColor,greyColor,darkGreyColor } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily,greyColor,darkGreyColor } from "../../helpers/styleGuidelines"
 
 
 class Anchor extends React.Component {

@@ -6,7 +6,7 @@ import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent"
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
@@ -46,12 +46,35 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
+  searchQuestions(terms=null, questions) {
+    let filteredQuestions = [];
+    console.log("bfore null,",terms);
+
+      if (terms !=null && terms !="") {
+        console.log("pass null");
+        
+        for (var i = 0; i < questions.length; i++) {
+          if (questions[i].title.toLowerCase().includes(terms.toLowerCase()) ||questions[i].content.toLowerCase().includes(terms.toLowerCase())  ) {
+            console.log("recherche",questions[i]);
+            
+            filteredQuestions.push(questions[i]);
+          }
+        }
+      } else {
+        console.log("else");
+        
+        filteredQuestions = questions;
+      }
+    return filteredQuestions
+  }
 
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    console.log('questions 1',questions.length);
-    
+    const terms = this.props.currentSearch
+    console.log('questions 1',"terms", terms, questions.length);
+    console.log("function this.search", this.props.actions.searchQuestions);
+
     return (
       <View style={styles.view}>
         <ScrollView
@@ -74,9 +97,9 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent style={styles.search} />
+            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
           </View>
-          {questions.map(question => (
+          {this.searchQuestions(terms,questions).map(question => (
             <QuestionComponent
               navigation={this.props.navigation}
               showContent={false}
@@ -85,7 +108,7 @@ class HomeComponent extends React.Component {
             />
           ))}
           <FooterComponent drawerNav={this.props.navigation} />
-          <StatsComponent questions={questions}/>
+          <StatsComponent questions={questions} />
           <FooterComponent />
         </ScrollView>
         {showScrollToTop && (

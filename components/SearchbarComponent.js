@@ -9,6 +9,9 @@ class SearchbarComponent extends Component {
     };
 
     updateSearch = search => {
+        console.log("search",search);
+        
+        this.props.searchQuestions(search);
         this.setState({ search });
     };
     render() {

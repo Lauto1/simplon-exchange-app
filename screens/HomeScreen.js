@@ -9,7 +9,7 @@ class HomeScreen extends Component {
       contentToDisplay: "hello world"
     };
   }
-  
+
   static navigationOptions = ({ navigation }) => {
     return {
       header: props => <HeaderComponent {...props} />
