@@ -20,7 +20,7 @@ class Vote extends Component {
    * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
    */
   handleVote(type) {
-    // check if ( user is logged ? )
+    // if condition checks if ( user is logged ? )
     if (this.isLoged) {
       if (type == '+') {
         this.setState({ vote_score: this.state.vote_score + 1 });
@@ -33,7 +33,6 @@ class Vote extends Component {
       this.props.navigation.navigate("Login");
     }
   }
-
 
   render() {
     return (
