@@ -79,21 +79,28 @@ export default class Connexion extends React.Component {
                                 onBlur={props.handleBlur('password')}
                                 value={props.values.password}
                             />
-                            <CheckBox
-                                title='Se rappeler de moi'
-                                checked={this.state.checked}
-                                onPress={() => this.setState({ checked: !this.state.checked })}
-                            />
                             <View style={styles.button}>
                                 <Button
                                     color="#D6363E"
                                     onPress={() => this.handleSubmit()} 
                                     title="Connexion"
                                 />
+                            </View>
+                            <View style={styles.button}>
                                 <Button
                                     title="Mot de passe oublié ?"
                                     color="#2f3239"
                                     onPress={() => this.passwordForgotten()} 
+                                />
+                            </View>
+                            <View style={{backgroundColor: "white"}}>
+                                <CheckBox
+                                    style={{width: "100%"}}
+                                    title='Se rappeler de moi'
+                                    textStyle={styles.checkboxText}
+                                    checkedColor="#D6363E"
+                                    checked={this.state.checked}
+                                    onPress={() => this.setState({ checked: !this.state.checked })}
                                 />
                             </View>
                         </View>
@@ -101,13 +108,15 @@ export default class Connexion extends React.Component {
                 </Formik>
             </View>
           )}
-        </Formik>
-      </View>
-    );
-  }
-}
+    }
+
 // @ts-ignore
 const styles = StyleSheet.create({
+
+    checkboxText: {
+      color: '#D6363E'
+    },
+
   titleText: {
     color: primaryColor,
     width: "100%",
