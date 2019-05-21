@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HomeContainer from "../containers/HomeContainer";
+import HeaderComponent from "../components/layouts/HeaderComponent";
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -8,12 +9,13 @@ class HomeScreen extends Component {
       contentToDisplay: "hello world"
     };
   }
+  
   static navigationOptions = ({ navigation }) => {
     return {
-      header: null
-      
+      header: props => <HeaderComponent {...props} />
     };
   };
+
   render() {
     return <HomeContainer navigation={this.props.navigation} />;
   }

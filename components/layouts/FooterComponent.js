@@ -7,6 +7,8 @@ import {
   View
 } from "react-native";
 // import DropdownMenu from 'react-native-dropdown-menu';
+import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily,lightGreyColor,greyColor,darkGreyColor } from "../helpers/styleGuidelines";
+
 
 class Anchor extends React.Component {
   /**Faire un link pour le mailto */
@@ -101,7 +103,7 @@ class FooterComponent extends Component {
           </View>     
 
           <View style={styles.Copyright}>
-            <Text style={{ color: "#fff", paddingBottom: 8 }}>
+            <Text style={{ color: whiteColor, paddingBottom: 8 }}>
               Copyright 2019 Une Question ? |
             </Text>
             <TouchableOpacity
@@ -122,7 +124,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     textAlign: "center",
     alignItems: "center",
-    backgroundColor: "#2f3239",
+    backgroundColor: greyColor,
     width: "100%",
     padding: 30,
     marginTop: 60
@@ -133,13 +135,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginTop: 20,
-    backgroundColor: "#dee2e6"
+    backgroundColor: lightGreyColor
   },
   Copyright: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#222429",
+    backgroundColor: darkGreyColor,
     padding: 20
   },
   CopyrightItems: {
@@ -151,17 +153,17 @@ const styles = StyleSheet.create({
   titleText: {
     textAlign: "center",
     fontSize: 24,
-    fontFamily: "firacode",
+    fontFamily: regularFontFamily,
     color: "#d6363e",
     paddingBottom: 8
     //justifyContent: "space-evenly"
   },
 
   textStyle: {
-    color: "#fff",
+    color: whiteColor,
     textAlign: "center",
-    fontSize: 14,
-    fontFamily: "firacode"
+    fontSize: paragraphFontSize,
+    fontFamily: regularFontFamily
   },
   titleMailto: {
     color: "#0056b3",
