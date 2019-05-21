@@ -76,8 +76,11 @@ class QuestionScreen extends React.Component {
         <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
         <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
         <TouchableOpacity>
+        {/* <TouchableOpacity onPress={() => this.props.question.navigate("")}> */}
+
           <View  style={{
                 flexDirection:"row",
+                borderWidth: 2
               }}>
           {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
           {/* <TouchableOpacity onPress={this.goToNext()}> */}
