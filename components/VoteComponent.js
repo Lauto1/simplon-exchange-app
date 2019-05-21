@@ -28,7 +28,6 @@ class Vote extends Component {
             //call action downvote
         }
     }
-  
 
   render() {
     return (
