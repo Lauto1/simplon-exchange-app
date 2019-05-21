@@ -18,7 +18,7 @@ export default class Inscription extends React.Component {
     }
 
     render() {
-        let fabrik = [
+        const fabrik = [
             {
                 value: 'Roanne'
             },

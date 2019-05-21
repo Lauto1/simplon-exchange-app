@@ -1,12 +1,18 @@
 import React from 'react';
-import { TextInput, View, StyleSheet, Button, Text } from 'react-native';
+import { TextInput, View, StyleSheet, Button } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { Formik } from 'formik';
 
 
 export default class Connexion extends React.Component {
 
-    constructor(props){
+    _API = "http://dev.simplon-exchange.help/api/login";
+
+    
+    /**
+     * @param {any} props
+     */
+    constructor(props) {
         super(props);
         this.state = {
             email: '',
@@ -15,16 +21,39 @@ export default class Connexion extends React.Component {
         }
     }
 
+    handleSubmit(){
+        fetch(this._API, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: "root",
+                password: "root",
+            }),
+        }).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.error(error)
+        });
+    }
+
+    passwordForgotten(){
+        // TODO
+    }
+
+
     render() {
         return (
-            <View style={{backgroundColor: '#f3f3f3', flex: 1}}>
+            <View style={{ backgroundColor: '#f3f3f3', flex: 1 }}>
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     onSubmit={values => console.log(values)}
                 >
                     {props => (
                         <View style={styles.form}>
-                            <TextInput 
+                            <TextInput
                                 style={styles.titleText}
                                 editable={false}
                                 value={"Se connecter"}
@@ -52,13 +81,13 @@ export default class Connexion extends React.Component {
                             <View style={styles.button}>
                                 <Button
                                     color="#D6363E"
-                                    onPress={props.handleSubmit} 
-                                    title="Connexion" 
+                                    onPress={() => this.handleSubmit()} 
+                                    title="Connexion"
                                 />
                                 <Button
                                     title="Mot de passe oublié ?"
                                     color="#2f3239"
-                                    onPress={props.handleSubmit} 
+                                    onPress={() => this.passwordForgotten()} 
                                 />
                             </View>
                         </View>
@@ -68,6 +97,7 @@ export default class Connexion extends React.Component {
         );
     }
 }
+// @ts-ignore
 const styles = StyleSheet.create({
 
     titleText: {
