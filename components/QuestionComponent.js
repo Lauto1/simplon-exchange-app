@@ -1,11 +1,21 @@
 import React, { Component } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View, ActivityIndicator, StyleSheet } from "react-native";
 import { Card, Icon } from "react-native-elements";
 
+
 class QuestionComponent extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      showLoader:false
+    }
+  }
+    showLoader = () => { this.setState({ showLoader:true }); };
+    hideLoader = () => { this.setState({ showLoader:false }); };
+  
   onPressQuestion() {
     console.log("onPressQuestion");
-
     const { navigation: navigate } = this.props;
     () => navigate("Question");
   }
@@ -17,6 +27,9 @@ class QuestionComponent extends Component {
           this.props.navigation.navigate("Question", { question: question })
         }
       >
+        <View style={{ position: 'absolute', top:"35%",right: 0, left: 0 }}>
+          <ActivityIndicator size="large" color="#D7403E" />
+        </View>
         <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
           <View
             style={{
@@ -170,5 +183,4 @@ class QuestionComponent extends Component {
     );
   }
 }
-
 export default QuestionComponent;
