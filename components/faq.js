@@ -1,8 +1,21 @@
-import React from "react"
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
-import * as faq from "../mock/faq.json"
+import React from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import * as faq from "../mock/faq.json";
 
 class FaqComponent extends React.Component {
+  //permet de maper chaque question/reponse
+  Faq() {
+    return faq.faq.map(function(r, i) {
+      return (
+        <View style={styles.cart} key={i}>
+          <View style={styles.questionView}>
+            <Text style={styles.question}>{r.question}</Text>
+          </View>
+          <Text style={styles.answer}>{r.answer}</Text>
+        </View>
+      );
+    });
+  }
 
     //permet de maper chaque question/reponse
     Faq() {
@@ -79,6 +92,5 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8
     }
 })
-
 
 export default FaqComponent;
