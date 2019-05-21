@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import { Dropdown } from "react-native-material-dropdown";
 
 class BugReportComponent extends Component {
   // On crée notre constructor avec comme paramètre les props du Formulaire
@@ -217,6 +218,49 @@ class BugReportComponent extends Component {
     }
   }
   render() {
+    const environments = [
+      {
+        value: "Android"
+      }, 
+      {
+        value: "Ios"
+      }
+    ];
+    const pages = [
+      {
+        value: "Acceuil"
+      }, 
+      {
+        value: "Inscription"
+      },
+      {
+        value: "Connexion"
+      }, 
+      {
+        value: "Faq"
+      },
+      {
+        value: "Bug"
+      }, 
+      {
+        value: "Statistiques"
+      },
+      {
+        value : "Graphiques"
+      }
+    ];
+    const categories = [
+     {
+       value : "Catégorie de bug 1"
+     },
+     {
+       value : "Catégorie de bug 2"
+    },
+    {
+      value :  "Catégorie de bug 3"
+    }
+    ];
+
     // On dit a Formik ou chercher ses valeurs initiaux ici le state du Formulaire
     return (
       <Formik initialValues={this.state}>
@@ -238,48 +282,32 @@ class BugReportComponent extends Component {
                 }}
               />
               <Text style={styles.date}>Date : {this.state.date}</Text>
-              <Picker
-                style={styles.select}
-                selectedValue={this.state.environnement}
-                onValueChange={(itemValue, itemIndex) => {
-                  this.setState({ environnement: itemValue });
-                }}
-              >
-                <Picker.Item
+              <Dropdown
                   label="Environnement"
-                  enabled="false"
-                  color="grey"
+                  data={environments}
+                  onChangeText={itemValue => {
+                    this.setState({ environnement: itemValue });
+                  }}
                 />
-                <Picker.Item label="Android" value="android" />
-                <Picker.Item label="Ios" value="ios" />
-              </Picker>
-              <Picker
-                style={styles.select}
-                selectedValue={this.state.page}
-                onValueChange={(itemValue, itemIndex) => {
-                  this.setState({ page: itemValue });
-                }}
-              >
-                <Picker.Item label="Page" enabled="false" color="grey" />
-                <Picker.Item label="Page 1" value="page1" />
-                <Picker.Item label="Page 2" value="page2" />
-              </Picker>
-              <Picker
-                style={styles.select}
-                selectedValue={this.state.category}
-                onValueChange={(itemValue, itemIndex) => {
-                  this.setState({ category: itemValue });
-                }}
-              >
-                <Picker.Item label="Catégorie" enabled="false" color="grey" />
-                <Picker.Item label="Catégorie 1" value="category1" />
-                <Picker.Item label="Catégorie 2" value="category2" />
-              </Picker>
+                <Dropdown
+                  label="Page"
+                  data={pages}
+                  onChangeText={itemValue => {
+                    this.setState({ page: itemValue });
+                  }}
+                />
+                <Dropdown
+                  label="Catégories"
+                  data={categories}
+                  onChangeText={itemValue => {
+                    this.setState({ category: itemValue });
+                  }}
+                />
               <TextInput
                 multiline={true}
                 numberOfLines={4}
                 placeholder="descriptif"
-                style={styles.inputText}
+                style={styles.textArea}
                 onChangeText={e => {
                   this.setState({ descriptif: e });
                 }}
@@ -369,9 +397,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   textArea: {
+    marginTop : 20,
     padding: 2,
-    borderWidth: 2,
-    borderColor: "black",
+    borderWidth: 1,
+    borderColor: "lightGreyColor",
     borderStyle: "solid"
   },
   imageUpload: {
@@ -398,3 +427,4 @@ const styles = StyleSheet.create({
 });
 
 export default BugReportComponent;
+
