@@ -4,9 +4,18 @@ import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
-import StatsComponent from "./StatsComponent"
+import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+import {
+  primaryColor,
+  whiteColor,
+  lightGreyColor,
+  paragraphFontSize,
+  subtitleFontSize,
+  titleFontSize,
+  boldFontFamily,
+  regularFontFamily
+} from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
@@ -50,8 +59,8 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    console.log('questions 1',questions.length);
-    
+    console.log("questions 1", questions.length);
+
     return (
       <View style={styles.view}>
         <HeaderComponent
@@ -88,7 +97,7 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
-          <StatsComponent questions={questions}/>
+          <StatsComponent questions={questions} />
           <FooterComponent drawerNav={this.props.navigation} />
         </ScrollView>
         {showScrollToTop && (
@@ -113,25 +122,26 @@ const styles = StyleSheet.create({
   },
   welcomeHome: {
     backgroundColor: primaryColor,
-    padding: 48,
+    padding: 30,
     margin: -2
   },
+
   welcomeTitle: {
-    fontFamily: "firacodebold",
-    fontSize: 20,
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    fontSize: titleFontSize,
+    color: whiteColor,
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "justify"
   },
   welcomeHomeText: {
-    fontSize: 12,
-    textAlign: "center",
-    color: "#ffffff"
+    textAlign: "justify",
+    color: whiteColor,
+    fontSize: paragraphFontSize
   },
   welcomeSousTitle: {
-    fontFamily: "firacodebold",
-    color: "#ffffff",
-    textAlign: "center",
+    fontFamily: boldFontFamily,
+    color: whiteColor,
+    textAlign: "justify",
     marginBottom: 46
   }
 });

@@ -21,7 +21,7 @@ class HeaderComponent extends React.Component {
       <View>
         <View style={{ backgroundColor: "#000", height: 24 }} />
         <Text style={styles.preHeader}>
-          ⇐ Hey Simplonnien.ne ! Rejoins-nous vite
+          ⇐ Hey Simplonnien.ne ! Rejoins-nous vites
         </Text>
 
         <View style={styles.view}>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: "flex-start",
     textAlign: "center",
-    fontSize: paragraphFontSize,
+    fontSize: 13,
     fontFamily: regularFontFamily
   },
 
