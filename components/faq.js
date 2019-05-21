@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import * as faq from "../mock/faq.json";
+import {lightGreyColor, primaryColor, whiteColor, darkGreyColor, blackColor} from "../helpers/styleGuidelines"
 
 class FaqComponent extends React.Component {
   //permet de maper chaque question/reponse
@@ -31,53 +32,52 @@ class FaqComponent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f3f3f3',
-        paddingLeft: 24,
-        paddingRight: 24
-    },
-    titleView: {
-        padding: 24,
-        paddingTop: 40,
-        marginBottom: 8,
-        borderBottomColor: '#e99599',
-        borderBottomWidth: 1,
-    },
-    title: {
-        fontSize: 22,
-        fontWeight: "400",
-        color: '#d6363e',
-        textAlign: 'center'
-    },
-    cart: {
-        backgroundColor: '#fff',
-        marginVertical: 8,
-        borderRadius: 4,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
-        paddingHorizontal: 16,
-        paddingVertical: 8
-    },
-    questionView: {
-        paddingTop: 8,
-        paddingBottom: 16,
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1
-    },
-    question: {
-        color: '#d6363e',
-        textAlign: 'justify',
-        fontWeight: "700",
-        fontSize: 16,
-    },
-    answer: {
-        color: '#2f323f',
-        paddingVertical: 16,
-        paddingHorizontal: 8
-    }
-})
+  container: {
+    backgroundColor: lightGreyColor,
+    paddingLeft: 24,
+    paddingRight: 24
+  },
+  titleView: {
+    padding: 24,
+    paddingTop: 40,
+    marginBottom: 8,
+    borderBottomColor: "#e99599",
+    borderBottomWidth: 1
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "400",
+    color: primaryColor,
+    textAlign: "center"
+  },
+  cart: {
+    backgroundColor: whiteColor,
+    marginVertical: 8,
+    borderRadius: 4,
+    shadowColor: blackColor,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    paddingHorizontal: 16,
+    paddingVertical: 8
+  },
+  questionView: {
+    paddingTop: 8,
+    paddingBottom: 16,
+    borderBottomColor: lightGreyColor,
+    borderBottomWidth: 1
+  },
+  question: {
+    color: primaryColor,
+    textAlign: "justify",
+    fontWeight: "700",
+    fontSize: 16
+  },
+  answer: {
+    color: darkGreyColor,
+    paddingVertical: 16,
+    paddingHorizontal: 8
+  }
+});
 
 export default FaqComponent;

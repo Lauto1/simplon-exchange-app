@@ -13,6 +13,7 @@ import {
   View
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
+import {blackColor, lightGreyColor, whiteColor, primaryColor} from "../helpers/styleGuidelines"
 
 class BugReportComponent extends Component {
   // On crée notre constructor avec comme paramètre les props du Formulaire
@@ -356,7 +357,7 @@ const styles = StyleSheet.create({
     width: "90%",
     borderRadius: 3,
     elevation: 2,
-    shadowColor: "#000",
+    shadowColor: blackColor,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -365,7 +366,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   title: {
-    color: "#d6363e",
+    color: primaryColor,
     fontSize: 30,
     textAlign: "left",
     width: "100%",
@@ -388,36 +389,36 @@ const styles = StyleSheet.create({
   },
   inputText: {
     borderWidth: 1,
-    borderColor: "lightgrey",
+    borderColor: lightGreyColor,
     paddingLeft: 5,
     marginBottom: 20
   },
   select: {
-    borderColor: "lightgrey",
+    borderColor: lightGreyColor,
     borderBottomWidth: 1
   },
   textArea: {
     marginTop : 20,
     padding: 2,
-    borderWidth: 1,
-    borderColor: "lightGreyColor",
+    borderWidth: 2,
+    borderColor: blackColor,
     borderStyle: "solid"
   },
   imageUpload: {
-    backgroundColor: "#d6363e",
+    backgroundColor: primaryColor,
     marginTop: 20,
     marginBottom: 20,
     borderRadius: 2,
     padding: 8,
     flexDirection: "row",
     justifyContent: "center",
-    shadowColor: "#000",
+    shadowColor: blackColor,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2
   },
   imageUploadText: {
-    color: "white",
+    color: whiteColor,
     fontSize: 15,
     fontWeight: "bold"
   },

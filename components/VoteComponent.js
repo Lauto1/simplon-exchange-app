@@ -3,6 +3,7 @@
  */
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {blackColor, lightGreyColor, whiteColor} from "../helpers/styleGuidelines"
 
 class Vote extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Vote extends Component {
             //call action downvote
         }
     }
-  }
+  
 
   render() {
     return (
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    backgroundColor: "lightgrey",
+    backgroundColor: lightGreyColor,
     width: 30,
     height: 30,
     marginTop: 3,
@@ -70,11 +71,11 @@ const styles = StyleSheet.create({
     borderRadius: 4
   },
   arrow: {
-    color: "white",
+    color: whiteColor,
     textAlign: "center"
   },
   button: {
-    backgroundColor: "black",
+    backgroundColor: blackColor,
     textAlign: "center",
     width: 30,
     height: 30,
