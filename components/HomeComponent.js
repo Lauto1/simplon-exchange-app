@@ -11,7 +11,8 @@ import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize
 class HomeComponent extends React.Component {
   state = {
     questions: [],
-    showScrollToTop: false
+    showScrollToTop: false,
+    showContent:false
   };
 
   componentDidMount() {
@@ -48,31 +49,33 @@ class HomeComponent extends React.Component {
   };
   searchQuestions(terms = null, questions) {
     let filteredQuestions = [];
-
     if (terms != null && terms != "" && terms.length >= 2) {
       let multipleTerms = terms.split(" ");
       multipleTerms.forEach(term => {
         for (var i = 0; i < questions.length; i++) {
-          const found = filteredQuestions.some(el => el.id === questions[i].id);
-          if (questions[i].title.toLowerCase().includes(term.toLowerCase()) || questions[i].content.toLowerCase().includes(term.toLowerCase())) {
-            
+          let whiteSpace = term.length >=1 &&term !=" "
+          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
+            const found = filteredQuestions.some(el => el.id === questions[i].id);
+                questions[i].showContent = true;
             if (!found) filteredQuestions.push(questions[i]);
           }
         }
       })
-
+      
     } else {
-      filteredQuestions = questions;
+      filteredQuestions = questions.map(question=> 
+        { 
+          question.showContent = false;
+          return question
+        });
     }
-    return filteredQuestions
+    return filteredQuestions;
   }
 
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    const terms = this.props.currentSearch
-
-
+    const terms = this.props.currentSearch;
     return (
       <View style={styles.view}>
         <ScrollView
@@ -96,11 +99,12 @@ class HomeComponent extends React.Component {
               N'attend plus, pose ta question dès maintenant !
             </Text>
             <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
+
           </View>
           {this.searchQuestions(terms, questions).map(question => (
             <QuestionComponent terms={terms}
               navigation={this.props.navigation}
-              showContent={false}
+              showContent={question.showContent}
               key={question.id}
               question={question}
             />

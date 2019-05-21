@@ -3,8 +3,9 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  View
+  Button,
+  View,
+  TouchableOpacity
 } from "react-native";
 // import DropdownMenu from 'react-native-dropdown-menu';
 import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily,greyColor,darkGreyColor } from "../../helpers/styleGuidelines"

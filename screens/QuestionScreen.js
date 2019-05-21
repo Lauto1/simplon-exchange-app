@@ -101,7 +101,7 @@ class QuestionScreen extends React.Component {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-        {this.state.connected ? <AnwserFormComponent/> : 
+        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse}/> : 
         <View style={{ paddingTop:10, paddingLeft: 15, paddingRight: 15 }}>
           <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
         </View>}
@@ -112,6 +112,10 @@ class QuestionScreen extends React.Component {
         )}
       </ScrollView>
     );
+  }
+  addResponse(newResponse) {
+		console.log("TCL: addResponse -> newResponse", newResponse)
+    
   }
   onLoadCallback = () => {
     console.log("loaded");

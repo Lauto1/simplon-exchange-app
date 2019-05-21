@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View,StyleSheet } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
@@ -32,19 +32,9 @@ class QuestionComponent extends Component {
 			console.log("TCL: originalWord", originalWord);
       
       let lastWords = title.slice(indexWord + originalWord.length, title.length);
-      return <Text style={{
-        paddingBottom: 15,
-        fontSize: 20,
-        fontFamily: boldFontFamily,
-        color: "#d6363e"
-      }} >{ beginningWords }<Text style={{ backgroundColor: "#FFFF00" }} >{ originalWord }</Text><Text>{ lastWords }</Text></Text>
+      return <Text style={styles.titleContainer} >{ beginningWords }<Text style={{ backgroundColor: "#FFFF00" }} >{ originalWord }</Text><Text>{ lastWords }</Text></Text>
     } else {
-      return <Text style={{
-        paddingBottom: 15,
-        fontSize: 20,
-        fontFamily: boldFontFamily,
-        color: "#d6363e"
-      }}>{title}</Text>
+      return <Text style={styles.titleContainer}>{title}</Text>
     }
   }
   render() {
@@ -201,4 +191,12 @@ class QuestionComponent extends Component {
     );
   }
 }
+const styles = StyleSheet.create({ 
+   titleContainer: {
+    paddingBottom: 15,
+    fontSize: 20,
+    fontFamily: boldFontFamily,
+    color: "#d6363e"
+  }
+})
 export default QuestionComponent;
