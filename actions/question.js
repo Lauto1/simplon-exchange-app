@@ -1,5 +1,5 @@
 import types from "../constants/actionTypes";
-import * as mockQuestions from "../mock/reponses.json";
+import * as mockQuestions from "../mock/questionsReponses.json";
 
 /**Action: function pour ajouter des questions, rechercher des questions */
 export const addQuestions = questions => {
@@ -13,7 +13,7 @@ export const searchQuestions = terms => {
 export const fetchQuestions = () => {
   return async dispatch => {
     try {
-      console.log(mockQuestions);
+      //console.log(mockQuestions);
       
       const QUESTIONS =mockQuestions.questions;
       dispatch(addQuestions(QUESTIONS));

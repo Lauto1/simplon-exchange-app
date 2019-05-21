@@ -46,25 +46,24 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
-  searchQuestions(terms=null, questions) {
+  searchQuestions(terms = null, questions) {
     let filteredQuestions = [];
-    console.log("bfore null,",terms);
 
-      if (terms !=null && terms !="") {
-        console.log("pass null");
-        
+    if (terms != null && terms != "" && terms.length >= 2) {
+      let multipleTerms = terms.split(" ");
+      multipleTerms.forEach(term => {
         for (var i = 0; i < questions.length; i++) {
-          if (questions[i].title.toLowerCase().includes(terms.toLowerCase()) ||questions[i].content.toLowerCase().includes(terms.toLowerCase())  ) {
-            console.log("recherche",questions[i]);
+          const found = filteredQuestions.some(el => el.id === questions[i].id);
+          if (questions[i].title.toLowerCase().includes(term.toLowerCase()) || questions[i].content.toLowerCase().includes(term.toLowerCase())) {
             
-            filteredQuestions.push(questions[i]);
+            if (!found) filteredQuestions.push(questions[i]);
           }
         }
-      } else {
-        console.log("else");
-        
-        filteredQuestions = questions;
-      }
+      })
+
+    } else {
+      filteredQuestions = questions;
+    }
     return filteredQuestions
   }
 
@@ -72,8 +71,7 @@ class HomeComponent extends React.Component {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
     const terms = this.props.currentSearch
-    console.log('questions 1',"terms", terms, questions.length);
-    console.log("function this.search", this.props.actions.searchQuestions);
+
 
     return (
       <View style={styles.view}>
@@ -99,8 +97,8 @@ class HomeComponent extends React.Component {
             </Text>
             <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
           </View>
-          {this.searchQuestions(terms,questions).map(question => (
-            <QuestionComponent
+          {this.searchQuestions(terms, questions).map(question => (
+            <QuestionComponent terms={terms}
               navigation={this.props.navigation}
               showContent={false}
               key={question.id}

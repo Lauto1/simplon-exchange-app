@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class QuestionComponent extends Component {
 
@@ -13,8 +13,43 @@ class QuestionComponent extends Component {
     const { navigation: navigate } = this.props;
     () => navigate("Question");
   }
+  //test hightlight word "not 100% functionnal"
+  hightlightTerm(title = null, terms = null) {
+    let testHiglight = false;
+    if ( testHiglight && terms != null && terms != "" && title.toLowerCase().includes(terms.toLowerCase()) &&terms.length >=2) {
+
+      let indexWord = title.toLowerCase().indexOf(terms.toLowerCase());
+			console.log("TCL: indexWord", indexWord)
+      let beginningWords = title.slice(0, indexWord);
+      let originalWord;
+      let words = title.split(" ");
+			console.log("TCL: words", words)
+      words.forEach(word=>{
+          if (word.toLowerCase()=== terms.toLowerCase() || word.toLowerCase().includes(terms.toLowerCase()) ) {
+              originalWord = word;
+          }
+      })
+			console.log("TCL: originalWord", originalWord);
+      
+      let lastWords = title.slice(indexWord + originalWord.length, title.length);
+      return <Text style={{
+        paddingBottom: 15,
+        fontSize: 20,
+        fontFamily: boldFontFamily,
+        color: "#d6363e"
+      }} >{ beginningWords }<Text style={{ backgroundColor: "#FFFF00" }} >{ originalWord }</Text><Text>{ lastWords }</Text></Text>
+    } else {
+      return <Text style={{
+        paddingBottom: 15,
+        fontSize: 20,
+        fontFamily: boldFontFamily,
+        color: "#d6363e"
+      }}>{title}</Text>
+    }
+  }
   render() {
     const { question } = this.props;
+    const { terms } = this.props
     return (
       <TouchableOpacity
         onPress={() =>
@@ -40,16 +75,8 @@ class QuestionComponent extends Component {
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
-              <Text
-                style={{
-                  paddingBottom: 15,
-                  fontSize: 20,
-                  fontFamily: boldFontFamily,
-                  color: "#d6363e"
-                }}
-              >
-                {question.title}
-              </Text>
+              {this.hightlightTerm(question.title,terms)}
+
               <View
                 style={{
                   flexDirection: "row",
