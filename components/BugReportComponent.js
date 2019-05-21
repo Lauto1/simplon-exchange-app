@@ -1,8 +1,18 @@
-import React, { Component } from 'react';
-import { Formik } from 'formik';
-import { MailComposer,Permissions,ImagePicker } from 'expo';
-import PropTypes from 'prop-types';
-import { KeyboardAvoidingView, ScrollView, View, Text, TextInput, Picker, DatePickerAndroid, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { ImagePicker, MailComposer, Permissions } from "expo";
+import { Formik } from "formik";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import {
+  Button,
+  KeyboardAvoidingView,
+  Picker,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from "react-native";
+import { Dropdown } from "react-native-material-dropdown";
 
 class BugReportComponent extends Component {
  // On crée notre constructor avec comme paramètre les props du Formulaire
@@ -204,43 +214,123 @@ verificationUtilisateur(){
         // Sinon on retourne un message d'erreur
         return console.error('Votre email doit être valide');
     }
-}
-render(){
+  }
+  render() {
+    const environments = [
+      {
+        value: "Android"
+      }, 
+      {
+        value: "Ios"
+      }
+    ];
+    const pages = [
+      {
+        value: "Acceuil"
+      }, 
+      {
+        value: "Inscription"
+      },
+      {
+        value: "Connexion"
+      }, 
+      {
+        value: "Faq"
+      },
+      {
+        value: "Bug"
+      }, 
+      {
+        value: "Statistiques"
+      },
+      {
+        value : "Graphiques"
+      }
+    ];
+    const categories = [
+     {
+       value : "Catégorie de bug 1"
+     },
+     {
+       value : "Catégorie de bug 2"
+    },
+    {
+      value :  "Catégorie de bug 3"
+    }
+    ];
+
     // On dit a Formik ou chercher ses valeurs initiaux ici le state du Formulaire
     return (
-        <Formik initialValues = {this.state} >
-            {() => <KeyboardAvoidingView style={styles.card} behavior="padding" enabled keyboardVerticalOffset="10">
-                <Text style={styles.title}>Signaler un Bug</Text>
-                <View style={styles.line}/>
-                <View style={styles.inputContainer}>
-                    <TextInput placeholder="mail" style={styles.inputText} onChangeText={(e) => {this.setState({mail : e})}}/>
-                    <Text style={styles.date} >Date : {this.state.date}</Text>
-                    <Picker  style={styles.select} selectedValue={this.state.environnement} onValueChange={(itemValue, itemIndex) => {this.setState({environnement : itemValue})}}>
-                        <Picker.Item label="Environnement" enabled="false" color="grey"/>
-                        <Picker.Item label="Android" value="android" />
-                        <Picker.Item label="Ios" value="ios" />
-                    </Picker>
-                    <Picker  style={styles.select} selectedValue={this.state.page} onValueChange={(itemValue, itemIndex) => {this.setState({page : itemValue})}}>
-                        <Picker.Item label="Page" enabled="false" color="grey"/>
-                        <Picker.Item label="Page 1" value="page1"/>
-                        <Picker.Item label="Page 2" value="page2"/>
-                    </Picker>
-                    <Picker  style={styles.select} selectedValue={this.state.category} onValueChange={(itemValue, itemIndex) => {this.setState({category : itemValue})}}>
-                        <Picker.Item label="Catégorie" enabled="false" color="grey"/>
-                        <Picker.Item label="Catégorie 1" value="category1"/>
-                        <Picker.Item label="Catégorie 2" value="category2"/>
-                    </Picker>
-                    <TextInput multiline = {true} numberOfLines = {4} placeholder="descriptif" style={styles.inputText} onChangeText={(e) => {this.setState({descriptif : e})}}/>
-                    <TouchableOpacity style={styles.imageUpload} onPress={() => this.traitment()}>
-                        <Text style={styles.imageUploadText}>AJOUTER UNE IMAGE    {this.state.uploaded}</Text>
-                    </TouchableOpacity>
-                    <Button  title="Soumettre"
-                        color="#d6363e"
-                        accessibilityLabel="Signalisation d'un disfonctionnement" style={styles.submit} onPress={() => this.verificationUtilisateur()}/>
-                </View>
-            </KeyboardAvoidingView>}
-        </Formik>
-    )
+      <Formik initialValues={this.state}>
+        {() => (
+          <KeyboardAvoidingView
+            style={styles.card}
+            behavior="padding"
+            enabled
+            keyboardVerticalOffset="10"
+          >
+            <Text style={styles.title}>Signaler un Bug</Text>
+            <View style={styles.line} />
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="mail"
+                style={styles.inputText}
+                onChangeText={e => {
+                  this.setState({ mail: e });
+                }}
+              />
+              <Text style={styles.date}>Date : {this.state.date}</Text>
+              <Dropdown
+                  label="Environnement"
+                  data={environments}
+                  onChangeText={itemValue => {
+                    this.setState({ environnement: itemValue });
+                  }}
+                />
+                <Dropdown
+                  label="Page"
+                  data={pages}
+                  onChangeText={itemValue => {
+                    this.setState({ page: itemValue });
+                  }}
+                />
+                <Dropdown
+                  label="Catégories"
+                  data={categories}
+                  onChangeText={itemValue => {
+                    this.setState({ category: itemValue });
+                  }}
+                />
+              <TextInput
+                multiline={true}
+                numberOfLines={4}
+                placeholder="descriptif"
+                style={styles.textArea}
+                onChangeText={e => {
+                  this.setState({ descriptif: e });
+                }}
+              />
+              <TouchableOpacity
+                style={styles.imageUpload}
+                onPress={() => this.traitment()}
+              >
+                <Text style={styles.imageUploadText}>
+                  AJOUTER UNE IMAGE {this.state.uploaded}
+                </Text>
+              </TouchableOpacity>
+              <Button
+                title="Soumettre"
+                color="#d6363e"
+                accessibilityLabel="Signalisation d'un disfonctionnement"
+                style={styles.submit}
+                onPress={() => this.verificationUtilisateur()}
+              />
+            </View>
+          </KeyboardAvoidingView>
+        )}
+      </Formik>
+    );
+  }
 }
 }
 
@@ -260,78 +350,80 @@ BugReportComponent.propTypes = {
 }
 
 const styles = StyleSheet.create({
-    card :{
-        height : 'auto',
-        width: '90%',
-        borderRadius : 3,
-        elevation : 2,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        padding: 8,
-        flexDirection : 'column',
-        alignItems : 'center'
-    },
-    title : {
-        color : '#d6363e',
-        fontSize : 30,
-        textAlign : 'left',
-        width : '100%',
-        marginTop : 10,
-    },
-    date : {
-        marginLeft : 8,
-        marginBottom: 15
-    },
-    line : {
-        backgroundColor :'rgba(0, 0, 0, 0.1)',
-        width : '80%',
-        height : 1,
-        marginTop : 15,
-        marginBottom : 20
-    },
-    inputContainer : {
-        width : '100%',
-        marginBottom : 20
-    },
-    inputText : {
-        borderWidth : 1,
-        borderColor : 'lightgrey',
-        paddingLeft : 5, 
-        marginBottom : 20
-    },
-    select : {
-        borderColor : 'lightgrey',
-        borderBottomWidth : 1
-    },
-    textArea : {
-        padding : 2,
-        borderWidth : 2,
-        borderColor : 'black',
-        borderStyle : 'solid'
-    },
-    imageUpload : {
-        backgroundColor : '#d6363e',
-        marginTop : 20,
-        marginBottom : 20,
-        borderRadius : 2,
-        padding : 8,
-        flexDirection : 'row',
-        justifyContent : 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-    },
-    imageUploadText : {
-        color : 'white',
-        fontSize : 15,
-        fontWeight : 'bold'
-    },
-    submit : {
-        width: '80%'
-    }
+  card: {
+    height: "auto",
+    width: "90%",
+    borderRadius: 3,
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    padding: 8,
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  title: {
+    color: "#d6363e",
+    fontSize: 30,
+    textAlign: "left",
+    width: "100%",
+    marginTop: 10
+  },
+  date: {
+    marginLeft: 8,
+    marginBottom: 15
+  },
+  line: {
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    width: "80%",
+    height: 1,
+    marginTop: 15,
+    marginBottom: 20
+  },
+  inputContainer: {
+    width: "100%",
+    marginBottom: 20
+  },
+  inputText: {
+    borderWidth: 1,
+    borderColor: "lightgrey",
+    paddingLeft: 5,
+    marginBottom: 20
+  },
+  select: {
+    borderColor: "lightgrey",
+    borderBottomWidth: 1
+  },
+  textArea: {
+    marginTop : 20,
+    padding: 2,
+    borderWidth: 1,
+    borderColor: "lightGreyColor",
+    borderStyle: "solid"
+  },
+  imageUpload: {
+    backgroundColor: "#d6363e",
+    marginTop: 20,
+    marginBottom: 20,
+    borderRadius: 2,
+    padding: 8,
+    flexDirection: "row",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2
+  },
+  imageUploadText: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold"
+  },
+  submit: {
+    width: "80%"
+  }
 });
 
 export default BugReportComponent;
+
