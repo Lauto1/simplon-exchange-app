@@ -131,17 +131,17 @@ const styles = StyleSheet.create({
     fontSize: titleFontSize,
     color: whiteColor,
     alignItems: "center",
-    textAlign: "justify"
+    textAlign: "center"
   },
   welcomeHomeText: {
-    textAlign: "justify",
+    textAlign: "center",
     color: whiteColor,
     fontSize: paragraphFontSize
   },
   welcomeSousTitle: {
     fontFamily: boldFontFamily,
     color: whiteColor,
-    textAlign: "justify",
+    textAlign: "center",
     marginBottom: 46
   }
 });
