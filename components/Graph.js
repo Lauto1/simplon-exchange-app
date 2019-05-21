@@ -22,6 +22,7 @@ class graph extends Component {
       }
     ];
 
+<<<<<<< HEAD
     const colors = ["#18275f"];
     const keys = ["element"];
     return (
@@ -62,3 +63,63 @@ const styles = StyleSheet.create({
 });
 
 export default graph;
+=======
+        /*
+        **data du chart graph qui vont etre affichés.
+        */
+        const data = [
+            {
+                month: new Date(2015, 0, 1),
+                element: this.props.NbPosts,
+                
+            },
+            {
+                month: new Date(2015, 1, 1),
+                element: this.props.NbUtilisateurs,
+                
+            },
+            {
+                month: new Date(2015, 2, 1),
+                element: this.props.NbResponses,                
+            },
+        ]
+ 
+        const colors = ['#d6363e'];
+        const keys   = [ 'element',]
+        return (
+            /*
+            **event swipe pour raffraichir les data.
+            */
+            <ScrollView 
+            style={{margin: 10}}
+            >
+            <View>
+                {/* 
+                configuration chart graph.
+                */}
+                <StackedBarChart
+                style={ {  height: 200, backgroundColor: '#2F3239', } }
+                keys={ keys }
+                colors={ colors }
+                data={ data }
+                showGrid={ false }
+                contentInset={ { top: 30} }
+            />
+            <Text style={styles.text}>Posts: {this.props.NbPosts}</Text>
+            <Text style={styles.text}>Utilisateurs: {this.props.NbUtilisateurs}</Text>
+            <Text style={styles.text}>Reponses: {this.props.NbResponses}</Text>
+
+            </View> 
+            </ScrollView>
+        )
+    }
+    }
+    const styles = StyleSheet.create({
+          text: {
+            color: '#2F3239',
+            margin: 20
+          }
+      });
+ 
+export default graph;
+>>>>>>> design integration graphique

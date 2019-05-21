@@ -23,6 +23,7 @@ class PopUp extends Component {
   fetchDataChecked = () => {
     let checkedData = [];
 
+<<<<<<< HEAD
     if (this.state.checkedNbPosts === true) {
       checkedData.push("NbPosts");
     }
@@ -32,6 +33,29 @@ class PopUp extends Component {
     if (this.state.checkedNbResponses === true) {
       checkedData.push("NbResponses");
     }
+=======
+                <View>
+                    
+                    <View style={styles.buttonStyle}>
+                        <Button
+                            color="#2F3239"
+                            padding="20"
+                            title="Trier par date"
+                            onPress={() => {
+                            this.setState({
+                                defaultAnimationDialog: true
+                            });
+                            }}
+                        />
+                    </View>
+  
+         {/* Contenu de la PopUp */}
+          <Dialog
+                        onDismiss={() => {
+                            this.setState({ defaultAnimationDialog: false });
+                        }}
+                        height={700}
+>>>>>>> design integration graphique
 
     this.props.actions.fetchDataApi(checkedData);
   };
@@ -107,6 +131,7 @@ class PopUp extends Component {
             }
           />
 
+<<<<<<< HEAD
           <CheckBox
             title="Trier par reponse"
             checked={this.state.checkedNbResponses}
@@ -123,8 +148,40 @@ class PopUp extends Component {
             color={primaryColor}
           />
         </View>
+=======
+        <CheckBox
+          title='Trier par reponse'
+          checked={this.state.checkedNbResponses}
+          onPress={() => this.setState({checkedNbResponses: !this.state.checkedNbResponses})}
+        />
+        <View style={styles.buttonStyle}>
+            <Button
+              onPress={this.fetchDataChecked}
+              title="Rechercher"
+              color="#2F3239"
+            />
+          </View>
+>>>>>>> design integration graphique
       </View>
     );
   }
 }
+<<<<<<< HEAD
 export default PopUp;
+=======
+const styles = StyleSheet.create({
+    container: { marginTop: 20 },
+    buttonStyle: {
+      backgroundColor: '#2F3239',
+      color: '#fff',
+      fontWeight: '600',
+      fontSize: 16,
+      textAlign: 'center',
+      borderRadius: 5,
+      // width: 150,
+      padding: 8,
+      margin: 20
+    }
+  });
+export default PopUp;
+>>>>>>> design integration graphique
