@@ -16,9 +16,8 @@ import {
 import Vote from "./VoteComponent";
 
 class QuestionComponent extends Component {
-  onPressQuestion() {
-    console.log("onPressQuestion");
 
+  onPressQuestion() {
     const { navigation: navigate } = this.props;
     () => navigate("Question");
   }
@@ -38,13 +37,12 @@ class QuestionComponent extends Component {
           >
             <View
               style={{
-                backgroundColor: "#f3f3f3",
                 justifyContent: "center",
                 paddingLeft: 15,
                 paddingRight: 15
               }}
             >
-              <Vote/>
+              <Vote navigation={this.props.navigation} />
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
