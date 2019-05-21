@@ -14,7 +14,6 @@ class Vote extends Component {
     };
   }
   isLoged = false; // à remplacer par verificatin de login
-
   /**
    * Infos :
    * - Procédure d'incrementation ou de décrémentation du compteur de votes
@@ -33,7 +32,7 @@ class Vote extends Component {
     } else {
       this.props.navigation.navigate("Login");
     }
-
+  }
   render() {
     return (
       <View>
