@@ -42,7 +42,6 @@ class SearchbarComponent extends Component {
                         <Icon name='pencil'
                             type='font-awesome' iconStyle={{ color: "#fff" }} />
                     }
-                    iconContainerStyle={{ borderBottomLeftRadius: 0 }}
                     containerStyle={{
                         padding: 0,
                         margin: 0,
@@ -84,17 +83,6 @@ class SearchbarComponent extends Component {
                     onChangeText={this.updateSearch}
                     value={search}
                 />
-                <Button onPress={this.updateSearch} buttonStyle={{
-                    borderRadius: 0,
-                    borderBottomRightRadius: 5,
-                    borderBottomLeftRadius: 5,
-                    backgroundColor: "#d5363e",
-                    borderWidth: 2,
-                    borderColor: "#fff",
-                }}
-                    title={'Rechercher'} titleStyle={{ fontFamily: "firacode" }}
-                    textStyle={{ fontFamily: "firacode" }}
-                    accessibilityLabel={'Rechercher'} />
             </View>
         )
     }
@@ -116,7 +104,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 5,
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0
+        borderBottomRightRadius: 0,
     },
     textInput: {
         fontSize: 16,
