@@ -6,7 +6,6 @@ import {
 import BugScreen from "../screens/BugScreen";
 import FaqScreen from "../screens/FaqScreen";
 import VoteScreen from "../screens/VoteScreen";
-import GraphStack from "./stack/GraphStack";
 import HomeStack from "./stack/HomeStack";
 import LoginStack from "./stack/LoginStack";
 import RegisterStack from "./stack/RegisterStack";
@@ -23,7 +22,6 @@ const DrawerNavigator = createDrawerNavigator({
   Faq: FaqScreen,
   Bug: BugScreen,
   Statistiques: StatsStack,
-  Graphiques: GraphStack,
   Vote: VoteScreen
 });
 
