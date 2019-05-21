@@ -8,13 +8,7 @@ import AnwserFormComponent from "../components/AnwserFormComponent";
 import QuestionComponent from "../components/QuestionComponent";
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
-<<<<<<< HEAD
-=======
-import AnwserFormComponent from "../components/AnwserFormComponent";
-
-
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
->>>>>>> a84b9dd1cb40a1e5d96ec665ab75287c67e199e4
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -22,16 +16,13 @@ class QuestionScreen extends React.Component {
     this.state = {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
-      connected:true
+      connected: true
     };
   }
   static navigationOptions = ({ navigation }) => {
     return {
       title: "Question",
-<<<<<<< HEAD
       header: props => <HeaderComponent {...props} />
-=======
->>>>>>> a84b9dd1cb40a1e5d96ec665ab75287c67e199e4
     };
   };
 
@@ -60,41 +51,41 @@ class QuestionScreen extends React.Component {
         onScroll={this.onScroll} >
 
         <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
-        <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
-        <TouchableOpacity>
-          <View  style={{
-                flexDirection:"row",
-              }}>
-          {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
-            <Text style={{
-              fontFamily: "firacode", 
-              fontSize: 16,
-              color: "#d6363e",
-              textAlign: "left",
-              paddingLeft: 5,
-              // marginBottom: 30
-            }}
+        <View style={{ padding: 15, flexDirection: "row", justifyContent: "space-between" }}>
+          <TouchableOpacity>
+            <View style={{
+              flexDirection: "row",
+            }}>
+              {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
+              <Text style={{
+                fontFamily: "firacode",
+                fontSize: 16,
+                color: "#d6363e",
+                textAlign: "left",
+                paddingLeft: 5,
+                // marginBottom: 30
+              }}
               >Précédente
             </Text>
             </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View  style={{
-                flexDirection:"row",
-                justifyContent:"flex-end"
-              }}> 
-            <Text style={{ 
-              fontFamily: "firacode", 
-              fontSize: 16,
-              color: "#d6363e",
-              textAlign: "right",
-              paddingRight: 5
-             }}
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View style={{
+              flexDirection: "row",
+              justifyContent: "flex-end"
+            }}>
+              <Text style={{
+                fontFamily: "firacode",
+                fontSize: 16,
+                color: "#d6363e",
+                textAlign: "right",
+                paddingRight: 5
+              }}
               >Suivante
             </Text>
-            {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
-          </View> 
-        </TouchableOpacity>
+              {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
+            </View>
+          </TouchableOpacity>
         </View>
         <Text
           style={{
@@ -111,11 +102,11 @@ class QuestionScreen extends React.Component {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-        {this.state.connected ? <AnwserFormComponent/> : 
-        <View style={{ paddingTop:10, paddingLeft: 15, paddingRight: 15 }}>
-          <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
-        </View>}
-       
+        {this.state.connected ? <AnwserFormComponent /> :
+          <View style={{ paddingTop: 10, paddingLeft: 15, paddingRight: 15 }}>
+            <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e" }} />
+          </View>}
+
         <FooterComponent drawerNav={this.props.navigation} />
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />

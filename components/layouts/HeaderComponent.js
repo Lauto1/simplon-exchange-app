@@ -31,8 +31,9 @@ class HeaderComponent extends Component {
 
         <View
           style={{
-            backgroundColor: greyColor,
-            padding: 20,
+            backgroundColor: "#2F3239",
+            paddingVertical: 15,
+            paddingLeft: 10,
             flexDirection: "row"
           }}
         >
