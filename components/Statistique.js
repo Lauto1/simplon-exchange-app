@@ -3,9 +3,13 @@ import { ScrollView, StyleSheet } from "react-native";
 import Graph from "../containers/Graph";
 // import PopUp from './filters/PopUp'
 import PopUp from "../containers/PopUp";
-import { whiteColor } from "../helpers/styleGuidelines";
 import Description from "./titleDescription/Description";
 import Title from "./titleDescription/Title";
+import { whiteColor } from "../helpers/styleGuidelines";
+import PopUp from '../containers/PopUp'
+
+import Title from './titleDescription/Title';
+import Description from './titleDescription/Description';
 
 const Statistique = props => {
   return (

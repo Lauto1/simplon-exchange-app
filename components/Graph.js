@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { StackedBarChart } from "react-native-svg-charts";
-import { greyColor, primaryColor } from "../helpers/styleGuidelines";
-class Graph extends Component {
+import { lightGreyColor } from "../helpers/styleGuidelines";
+class graph extends Component {
   render() {
-    /**
-        data du chart graph qui vont etre affichés.
-        */
+    /*
+     **data du chart graph qui vont etre affichés.
+     */
     const data = [
       {
         month: new Date(2015, 0, 1),
@@ -22,13 +22,19 @@ class Graph extends Component {
       }
     ];
 
-    const colors = [primaryColor];
+    const colors = ["#18275f"];
     const keys = ["element"];
     return (
-      <ScrollView style={{ margin: 10 }}>
+      /*
+       **event swipe pour raffraichir les data.
+       */
+      <ScrollView>
         <View>
+          {/* 
+                configuration chart graph.
+                */}
           <StackedBarChart
-            style={{ height: 200, backgroundColor: greyColor }}
+            style={{ height: 200, backgroundColor: lightGreyColor }}
             keys={keys}
             colors={colors}
             data={data}
@@ -46,10 +52,13 @@ class Graph extends Component {
   }
 }
 const styles = StyleSheet.create({
-  text: {
-    color: greyColor,
+  container: {
     margin: 20
+  },
+  text: {
+    color: "#00008B",
+    marginTop: 20
   }
 });
 
-export default Graph;
+export default graph;
