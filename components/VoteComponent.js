@@ -22,13 +22,8 @@ class Vote extends Component {
   handleVote(type) {
     // if condition checks if ( user is logged ? )
     if (this.isLoged) {
-      if (type == '+') {
-        this.setState({ vote_score: this.state.vote_score + 1 });
-        //call action upvote
-      } else if (type == '-') {
-        this.setState({ vote_score: this.state.vote_score - 1 });
-        //call action downvote
-      }
+      this.setState({ vote_score: this.state.vote_score + 1 });
+      //call action upvote
     } else {
       this.props.navigation.navigate("Login");
     }
