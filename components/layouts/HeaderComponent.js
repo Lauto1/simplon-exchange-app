@@ -1,42 +1,30 @@
 import "@expo/vector-icons";
-import React, { Component } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-elements";
 import {
-  primaryColor,
-  whiteColor,
+  paragraphFontSize,
+  boldFontFamily,
+  darkGreyColor,
   greyColor,
+  whiteColor,
+  lightGreyColor,
+  primaryColor,
   regularFontFamily,
-  blackColor,
+  subtitleFontSize,
   titleFontSize
 } from "../../helpers/styleGuidelines";
 
-class HeaderComponent extends Component {
+class HeaderComponent extends React.Component {
   render() {
     return (
       <View>
-        <View style={{ backgroundColor: blackColor, height: 24 }} />
-        <Text
-          style={{
-            color: whiteColor,
-            backgroundColor: primaryColor,
-            width: "100%",
-            padding: 8,
-            justifyContent: "flex-start",
-            textAlign: "center"
-          }}
-        >
-          ⇐ Hey Simplonnien.ne ! Rejoins-nous vite
+        <View style={{ backgroundColor: "#000", height: 24 }} />
+        <Text style={styles.preHeader}>
+          ⇐ Hey Simplonnien.ne ! Rejoins-nous vites
         </Text>
 
-        <View
-          style={{
-            backgroundColor: "#2F3239",
-            paddingVertical: 15,
-            paddingLeft: 10,
-            flexDirection: "row"
-          }}
-        >
+        <View style={styles.view}>
           <Icon
             name="menu"
             color={whiteColor}
@@ -54,32 +42,48 @@ class HeaderComponent extends Component {
               flexDirection: "row"
             }}
           >
-            <Text
-              style={{
-                paddingTop: 1,
-                color: primaryColor,
-                fontSize: 20,
-                paddingLeft: 15,
-                fontFamily: "firacode"
-              }}
-            >
-              Simplon-Exchange
-            </Text>
-            <Text
-              style={{
-                paddingTop: 1,
-                color: whiteColor,
-                fontSize: titleFontSize,
-                fontFamily: regularFontFamily
-              }}
-            >
-              .Help
-            </Text>
+            <Text style={styles.headerTitle}>{this.props.title}</Text>
+            <Text style={styles.headerHelp}>.Help</Text>
           </TouchableOpacity>
         </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  preHeader: {
+    color: whiteColor,
+    backgroundColor: primaryColor,
+    width: "100%",
+    padding: 8,
+    justifyContent: "flex-start",
+    textAlign: "center",
+    fontSize: 13,
+    fontFamily: regularFontFamily
+  },
+
+  view: {
+    backgroundColor: greyColor,
+    paddingVertical: 15,
+    paddingLeft: 10,
+    flexDirection: "row"
+  },
+
+  headerHelp: {
+    color: whiteColor,
+    fontSize: titleFontSize,
+    fontFamily: regularFontFamily,
+    paddingTop: 1
+  },
+
+  headerTitle: {
+    paddingTop: 1,
+    paddingLeft: 15,
+    color: primaryColor,
+    fontSize: titleFontSize,
+    fontFamily: regularFontFamily
+  }
+});
 
 export default HeaderComponent;

@@ -6,6 +6,8 @@ import {
 import BugScreen from "../screens/BugScreen";
 import FaqScreen from "../screens/FaqScreen";
 import VoteScreen from "../screens/VoteScreen";
+import AskQuestionScreen from "../screens/AskQuestionScreen";
+
 import GraphStack from "./stack/GraphStack";
 import HomeStack from "./stack/HomeStack";
 import LoginStack from "./stack/LoginStack";
@@ -16,15 +18,17 @@ import StatsStack from "./stack/StatsStack";
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
  * ex : Home: HomeStack, Faq:FaqStack
  */
-
+/**
+ * removed page grap bug Graphiques: GraphStack,
+ */
 const DrawerNavigator = createDrawerNavigator({
     Home: HomeStack,
     Inscription: RegisterStack,
     Connexion: LoginStack,
+    askQuestion:AskQuestionScreen,
     Faq: FaqScreen,
     Bug: BugScreen,
     Statistiques: StatsStack,
-    Graphiques: GraphStack,
     Vote: VoteScreen
   }
 );

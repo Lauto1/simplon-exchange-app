@@ -4,14 +4,15 @@ import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
-import StatsComponent from "./StatsComponent"
+import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
     questions: [],
-    showScrollToTop: false
+    showScrollToTop: false,
+    showContent:false
   };
 
   componentDidMount() {
@@ -46,21 +47,37 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
+  searchQuestions(terms = null, questions) {
+    let filteredQuestions = [];
+    if (terms != null && terms != "" && terms.length >= 2) {
+      let multipleTerms = terms.split(" ");
+      multipleTerms.forEach(term => {
+        for (var i = 0; i < questions.length; i++) {
+          let whiteSpace = term.length >=1 &&term !=" "
+          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
+            const found = filteredQuestions.some(el => el.id === questions[i].id);
+                questions[i].showContent = true;
+            if (!found) filteredQuestions.push(questions[i]);
+          }
+        }
+      })
+      
+    } else {
+      filteredQuestions = questions.map(question=> 
+        { 
+          question.showContent = false;
+          return question
+        });
+    }
+    return filteredQuestions;
+  }
 
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    // console.log('HomeComp this.props',this.props);
-
-    // console.log('HomeComp questions',questions);
-    
-    
+    const terms = this.props.currentSearch;
     return (
       <View style={styles.view}>
-        <HeaderComponent
-          drawerNav={this.props.navigation}
-          title="Simplon-Exchange"
-        />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
@@ -81,18 +98,19 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent style={styles.search} />
+            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
+
           </View>
-          {questions.map((question,i) => (
-            <QuestionComponent
+          {this.searchQuestions(terms, questions).map((question,i) => (
+            <QuestionComponent terms={terms}
               navigation={this.props.navigation}
-              showContent={false}
+              showContent={question.showContent}
               key={question.id}
               question={question}
-              index={i} getQuestion={this.props.actions.getQuestion}
+              index={i} navigateQuestion={this.props.actions.navigateQuestion} currentQuestion={this.props.currentQuestion}
             />
           ))}
-          <StatsComponent questions={questions}/>
+          <StatsComponent questions={questions} />
           <FooterComponent drawerNav={this.props.navigation} />
         </ScrollView>
         {showScrollToTop && (
@@ -117,24 +135,25 @@ const styles = StyleSheet.create({
   },
   welcomeHome: {
     backgroundColor: primaryColor,
-    padding: 48,
+    padding: 30,
     margin: -2
   },
+
   welcomeTitle: {
-    fontFamily: "firacodebold",
-    fontSize: 20,
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    fontSize: titleFontSize,
+    color: whiteColor,
     alignItems: "center",
     textAlign: "center"
   },
   welcomeHomeText: {
-    fontSize: 12,
     textAlign: "center",
-    color: "#ffffff"
+    color: whiteColor,
+    fontSize: paragraphFontSize
   },
   welcomeSousTitle: {
-    fontFamily: "firacodebold",
-    color: "#ffffff",
+    fontFamily: boldFontFamily,
+    color: whiteColor,
     textAlign: "center",
     marginBottom: 46
   }

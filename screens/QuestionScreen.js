@@ -3,10 +3,11 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
+import AnwserFormComponent from "../components/AnwserFormComponent";
 import QuestionComponent from "../components/QuestionComponent";
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
-import AnwserFormComponent from "../components/AnwserFormComponent";
+
 
 
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
@@ -18,30 +19,29 @@ class QuestionScreen extends React.Component {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
       connected:true,
-      //
-      questions: [],
-      index: this.props.navigation.state.params.index
-      //
-    };    
+      currentQuestion:null
+    };
+    
   }
-  
-//Test navigation
+  componentWillMount(){
+    const navigateQuestion =this.props.navigation.getParam("navigateQuestion","no data")
+    const index = this.props.navigation.getParam("index", "index");
+    const state = this.props.navigation.getParam("state", "no data");
 
-
-goToNext = () => {
-  console.log('gotonext');
-  // const questions = this.props.questions;
-  // this.setState({ index: (this.state.index + 1) % questions.length });
-  this.props.navigation.navigate('Question', {index: this.state.index +1 })
-  console.log('this.props.navigation',this.props.navigation);
-  console.log('this.state.index',this.state.index);
-
-  
-};
-
-
-//
-
+    navigateQuestion(index,state).then(value=>{
+      console.log("question current kev 2",value);
+       this.setState({currentQuestion:value})
+    })
+  }
+  componentDidMount(){
+   
+  }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: "Question",
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
+    };
+  };
 
   onScrollTop = () => {
     this.refs.scrollView.scrollTo({ x: 0, y: 0, animated: true });
@@ -64,20 +64,24 @@ goToNext = () => {
   render() {
 
     const question = this.props.navigation.getParam("question", "no Data");
-    const index = this.props.navigation.getParam("index", "no Data");
-    console.log('question.state.params.index',this.props.navigation.state.params);
-    console.log('index',index);
-    
-    console.log('questionNav', question);
+    const index = this.props.navigation.getParam("index", "index");
+    const navigateQuestion =this.props.navigation.getParam("navigateQuestion","no data")
 
-    console.log('this.propsNav', this.props.navigation);
+    //console.log('question.state.params.index',this.props.navigation.state.params);
     
-    console.log('this.state',this.state);
+    
+    
+    
+    //console.log('questionNav', question);
+
+    //console.log('this.propsNav', this.props.navigation);
+    
+    //console.log('this.state',this.state);
     
     
     const answers = question.answers;
 
-    console.log('answerss', answers);
+    //console.log('answerss', answers);
     
     const { showScrollToTop } = this.state;
     return (
@@ -88,9 +92,7 @@ goToNext = () => {
         <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
         {/* <TouchableOpacity > */}
         <TouchableOpacity 
-        onPress={() => this.props.navigation.navigate('Question', {index: 2 })}
-        question={question} 
-        showContent={true}>
+        onPress={() => this.props.navigation.navigate("Question",{question:this.state.currentQuestion,index:index-1,navigateQuestion:navigateQuestion,state:"backward"})}>
           <View  style={{
                 flexDirection:"row",
                 borderWidth: 2
@@ -110,7 +112,7 @@ goToNext = () => {
             {/* </TouchableOpacity> */}
             </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => this.props.navigation.navigate("Question",{question:this.state.currentQuestion,index:index+1,navigateQuestion:navigateQuestion,state:"forward"})}> 
           <View  style={{
                 flexDirection:"row",
                 justifyContent:"flex-end"
@@ -143,7 +145,7 @@ goToNext = () => {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-        {this.state.connected ? <AnwserFormComponent/> : 
+        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse}/> : 
         <View style={{ paddingTop:10, paddingLeft: 15, paddingRight: 15 }}>
           <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
         </View>}
@@ -154,6 +156,10 @@ goToNext = () => {
         )}
       </ScrollView>
     );
+  }
+  addResponse(newResponse) {
+		console.log("TCL: addResponse -> newResponse", newResponse)
+    
   }
   onLoadCallback = () => {
     console.log("loaded");

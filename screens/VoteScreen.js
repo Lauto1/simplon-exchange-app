@@ -6,7 +6,7 @@ import Vote from "../components/VoteComponent";
 class VoteScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      header: props => <HeaderComponent {...props} />
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
   render() {
