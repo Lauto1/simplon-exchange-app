@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { StackedBarChart } from "react-native-svg-charts";
-import { greyColor, primaryColor } from "../helpers/styleGuidelines";
+import { greyColor, primaryColor, boldFontFamily, } from "../helpers/styleGuidelines";
 class Graph extends Component {
   render() {
     /**
@@ -35,11 +35,13 @@ class Graph extends Component {
             showGrid={false}
             contentInset={{ top: 30 }}
           />
-          <Text style={styles.text}>Posts: {this.props.NbPosts}</Text>
-          <Text style={styles.text}>
-            Utilisateurs: {this.props.NbUtilisateurs}
-          </Text>
-          <Text style={styles.text}>Reponses: {this.props.NbResponses}</Text>
+          <View style={styles.container}>
+            <Text>Posts:</Text><Text style={styles.text}>{this.props.NbPosts} </Text>
+
+            <Text>Utilisateurs:</Text><Text style={styles.text}>{this.props.NbUtilisateurs} </Text>
+
+            <Text>Reponses:</Text><Text style={styles.text}>{this.props.NbResponses} </Text>
+          </View>
         </View>
       </ScrollView>
     );
@@ -47,8 +49,17 @@ class Graph extends Component {
 }
 const styles = StyleSheet.create({
   text: {
-    color: greyColor,
-    margin: 20
+    color: primaryColor,
+    fontFamily: boldFontFamily,
+    marginLeft: -20
+  },
+  container: {
+    marginTop: 20,
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around'
+
   }
 });
 

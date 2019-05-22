@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { greyColor, subtitleFontSize } from "../../helpers/styleGuidelines";
+import { greyColor, subtitleFontSize, boldFontFamily, } from "../../helpers/styleGuidelines";
 
 const Description = props => {
   return (
@@ -15,11 +15,10 @@ const Description = props => {
 const styles = StyleSheet.create({
   description: {
     color: greyColor,
-    fontWeight: "600",
     fontSize: subtitleFontSize,
+    fontFamily: boldFontFamily,
     textAlign: "center",
     padding: 20,
-    borderRadius: 20
   }
 });
 
