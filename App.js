@@ -105,7 +105,7 @@ export default class App extends Component {
 
 
           <View style={styles.container}>
-        <TextInput
+        {/* <TextInput
           value={this.state.messageText}
           onChangeText={this.handleChangeText}
           style={styles.textInput}
@@ -117,7 +117,7 @@ export default class App extends Component {
           <Text style={styles.buttonText}>Send</Text>
 
 
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         {this.state.notification ?
           this.renderNotification()
         : null}
