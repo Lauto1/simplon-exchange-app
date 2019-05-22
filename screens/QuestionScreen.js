@@ -18,29 +18,30 @@ class QuestionScreen extends React.Component {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
       connected:true,
-
-      // questions: []
-    };
+      //
+      questions: [],
+      index: this.props.navigation.state.params.index
+      //
+    };    
   }
+  
 //Test navigation
 
 
-// goToNext = (question, index) => {
-//   console.log('gotonext');
-//   const questions = this.props.questions;
-//   this.setState({ index: (this.state.index + 1) % questions.length });
-// };
+goToNext = () => {
+  console.log('gotonext');
+  // const questions = this.props.questions;
+  // this.setState({ index: (this.state.index + 1) % questions.length });
+  this.props.navigation.navigate('Question', {index: this.state.index +1 })
+  console.log('this.props.navigation',this.props.navigation);
+  console.log('this.state.index',this.state.index);
 
+  
+};
 
 
 //
 
-
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: "Question",
-    };
-  };
 
   onScrollTop = () => {
     this.refs.scrollView.scrollTo({ x: 0, y: 0, animated: true });
@@ -58,11 +59,26 @@ class QuestionScreen extends React.Component {
     }
   };
 
+  
+
   render() {
+
     const question = this.props.navigation.getParam("question", "no Data");
+    const index = this.props.navigation.getParam("index", "no Data");
+    console.log('question.state.params.index',this.props.navigation.state.params);
+    console.log('index',index);
+    
     console.log('questionNav', question);
+
+    console.log('this.propsNav', this.props.navigation);
+    
+    console.log('this.state',this.state);
+    
     
     const answers = question.answers;
+
+    console.log('answerss', answers);
+    
     const { showScrollToTop } = this.state;
     return (
       <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6" }} ref="scrollView"
@@ -70,9 +86,11 @@ class QuestionScreen extends React.Component {
 
         <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
         <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
-        <TouchableOpacity>
-        {/* <TouchableOpacity onPress={() => this.props.question.navigate("")}> */}
-
+        {/* <TouchableOpacity > */}
+        <TouchableOpacity 
+        onPress={() => this.props.navigation.navigate('Question', {index: 2 })}
+        question={question} 
+        showContent={true}>
           <View  style={{
                 flexDirection:"row",
                 borderWidth: 2

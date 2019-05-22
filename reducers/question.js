@@ -2,7 +2,8 @@ import types from "../constants/actionTypes";
 
 let initialState = {
   questions: [],
-  currentSearch: ""
+  currentSearch: "",
+  currentQuestion:{}
 };
 /**reducer:  l'état de question change en réponse aux actions envoyées austore. */
 export const questionReducer = (state = initialState, action) => {
@@ -13,7 +14,15 @@ export const questionReducer = (state = initialState, action) => {
       console.log("search term", action.terms);
 
       return { ...state, currentSearch: action.terms };
-
+    case types.GET_QUESTION:
+      console.log("currentQuestion", action.index);
+      let currentQuestion;
+      state.questions.forEach((question,i)=>{
+        if (i ==action.index) {
+           currentQuestion = question
+        }
+      })
+      return { ...state, currentQuestion: currentQuestion };
     default:
       return state;
   }

@@ -21,6 +21,8 @@ class QuestionComponent extends Component {
   }
   render() {
     const { question } = this.props;
+    console.log('questionComponent props', this.props);
+    
     return (
       <TouchableOpacity
         onPress={() =>

@@ -50,6 +50,10 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
+    // console.log('HomeComp this.props',this.props);
+
+    // console.log('HomeComp questions',questions);
+    
     
     return (
       <View style={styles.view}>
@@ -79,12 +83,13 @@ class HomeComponent extends React.Component {
             </Text>
             <SearchbarComponent style={styles.search} />
           </View>
-          {questions.map(question => (
+          {questions.map((question,i) => (
             <QuestionComponent
               navigation={this.props.navigation}
               showContent={false}
               key={question.id}
               question={question}
+              index={i} getQuestion={this.props.actions.getQuestion}
             />
           ))}
           <StatsComponent questions={questions}/>

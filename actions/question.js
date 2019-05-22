@@ -6,6 +6,9 @@ export const addQuestions = questions => {
 export const searchQuestions = terms => {
   return { type: types.SEARCH_QUESTION, terms: terms };
 };
+export const getQuestion = index => {
+  return { type: types.GET_QUESTION, index: index };
+};
 
 /**Action: function pour rechercher des questions & les dispatchés */
 export const fetchQuestions = () => {
