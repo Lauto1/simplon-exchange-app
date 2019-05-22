@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="093d6b49-1088-4f1a-b791-00d5bd94da35" name="Default Changelist" comment="" />
 =======
     <list default="true" id="093d6b49-1088-4f1a-b791-00d5bd94da35" name="Default Changelist" comment="">
@@ -12,12 +13,20 @@
       <change beforePath="$PROJECT_DIR$/screens/FaqScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/FaqScreen.js" afterDir="false" />
     </list>
 >>>>>>> team-3
+=======
+    <list default="true" id="dc90c69c-a037-438a-ab23-f1d074cc3f96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/components/filters/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/filters/Filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/filters/PopUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/filters/PopUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
+>>>>>>> mise en place du datePicker
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
 <<<<<<< HEAD
     <leaf>
@@ -76,20 +85,43 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+=======
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Example.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="53" selection-start-line="1" selection-end-line="2" />
+>>>>>>> mise en place du datePicker
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/screens/BugScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/filters/Filter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+>>>>>>> mise en place du datePicker
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/screens/FaqScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -98,10 +130,17 @@
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/components/filters/PopUp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1305">
+              <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+>>>>>>> mise en place du datePicker
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
@@ -122,23 +161,40 @@
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Statistique.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+>>>>>>> mise en place du datePicker
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/navigation/navigator.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+>>>>>>> mise en place du datePicker
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/components/Formulaire.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -147,12 +203,19 @@
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
 >>>>>>> team-3
+=======
+        <entry file="file://$PROJECT_DIR$/constants/actionTypes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+>>>>>>> mise en place du datePicker
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   <component name="FindInProjectRecents">
@@ -161,12 +224,41 @@
     </findStrings>
   </component>
 >>>>>>> team-3
+=======
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ante</find>
+      <find>initi</find>
+      <find>END_DATE</find>
+      <find>show dialog</find>
+      <find>scale</find>
+      <find>navigationLeftButton</find>
+      <find>navigationButton</find>
+      <find>navigator</find>
+      <find>navigationBar</find>
+      <find>navigationTitle</find>
+      <find>customBackgroundDialog</find>
+      <find>footer</find>
+      <find>dialogTitle</find>
+      <find>style</find>
+      <find>endDate</find>
+      <find>FilterComponent</find>
+      <find>container</find>
+      <find>svg</find>
+      <find>store</find>
+      <find>this.state.defau</find>
+      <find>this.props.action</find>
+      <find>previousTitle</find>
+    </findStrings>
+  </component>
+>>>>>>> mise en place du datePicker
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/mock/faq.json" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -194,17 +286,59 @@
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="705" />
+=======
+        <option value="$PROJECT_DIR$/components/Filters/FilterDate.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/components/filters/FilterDate.js" />
+        <option value="$PROJECT_DIR$/components/filters/FilterDate..component.js" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
+        <option value="$PROJECT_DIR$/components/filters/Filter.component.js" />
+        <option value="$PROJECT_DIR$/components/Graph.js" />
+        <option value="$PROJECT_DIR$/components/filters/test.txt" />
+        <option value="$PROJECT_DIR$/containers/Filter.js" />
+        <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/actions/statistique.js" />
+        <option value="$PROJECT_DIR$/constants/actionTypes.js" />
+        <option value="$PROJECT_DIR$/containers/PopUp.js" />
+        <option value="$PROJECT_DIR$/containers/DatePicker.js" />
+        <option value="$PROJECT_DIR$/reducers/storeStatistiques.js" />
+        <option value="$PROJECT_DIR$/components/filters/DatePicker.js" />
+        <option value="$PROJECT_DIR$/components/Statistique.js" />
+        <option value="$PROJECT_DIR$/components/filters/PopUp.js" />
+        <option value="$PROJECT_DIR$/components/filters/Filter.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/simplon-exchange-app.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="312" />
+    <option name="y" value="105" />
+    <option name="width" value="974" />
+    <option name="height" value="730" />
+>>>>>>> mise en place du datePicker
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
 <<<<<<< HEAD
 =======
       <pane id="Scope" />
 >>>>>>> team-3
+=======
+>>>>>>> mise en place du datePicker
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,40 +349,75 @@
             <path>
               <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
+>>>>>>> mise en place du datePicker
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
 <<<<<<< HEAD
+<<<<<<< HEAD
               <item name="mock" type="462c0819:PsiDirectoryNode" />
 =======
               <item name="navigation" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="filters" type="462c0819:PsiDirectoryNode" />
+>>>>>>> mise en place du datePicker
             </path>
             <path>
               <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="navigation" type="462c0819:PsiDirectoryNode" />
               <item name="stack" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="constants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+>>>>>>> mise en place du datePicker
             </path>
             <path>
               <item name="simplon-exchange-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="simplon-exchange-app" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
 >>>>>>> team-3
+=======
+>>>>>>> mise en place du datePicker
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scope" />
 =======
 >>>>>>> team-3
+=======
+      <pane id="Scope" />
+>>>>>>> mise en place du datePicker
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="aspect.path.notification.shown" value="true" />
 <<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556115280827" />
@@ -258,6 +427,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+=======
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/containers" />
+      <recent name="$PROJECT_DIR$/containers/FilterContainer" />
+    </key>
+>>>>>>> mise en place du datePicker
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -276,6 +457,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="093d6b49-1088-4f1a-b791-00d5bd94da35" name="Default Changelist" comment="" />
       <created>1556025270801</created>
       <option name="number" value="Default" />
@@ -287,10 +469,23 @@
       <workItem from="1556269347845" duration="1625000" />
       <workItem from="1556278475092" duration="890000" />
 >>>>>>> team-3
+=======
+      <changelist id="dc90c69c-a037-438a-ab23-f1d074cc3f96" name="Default Changelist" comment="" />
+      <created>1556092195968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556092195968</updated>
+      <workItem from="1556092197501" duration="46985000" />
+      <workItem from="1556264889398" duration="4716000" />
+      <workItem from="1556278649069" duration="6699000" />
+      <workItem from="1558338969749" duration="20000" />
+      <workItem from="1558339372142" duration="141000" />
+>>>>>>> mise en place du datePicker
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="9966000" />
   </component>
@@ -316,12 +511,26 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+=======
+    <option name="totallyTimeSpent" value="58561000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2753392" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
+>>>>>>> mise en place du datePicker
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Database Changes" order="8" />
 <<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.26101142" />
@@ -339,12 +548,24 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
+=======
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="TypeScript" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+>>>>>>> mise en place du datePicker
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -396,22 +617,80 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+=======
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-date-ranges/src/ComposePicker.js" />
+    <entry file="file://$PROJECT_DIR$/containers/Example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/GraphScreen.js" />
+    <entry file="file://$PROJECT_DIR$/screens/ExampleScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/screens/StatistiquesScreen.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/redux/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-popup-dialog/dist/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+>>>>>>> mise en place du datePicker
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/navigation/navigator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/containers/Graph.js" />
+    <entry file="file://$PROJECT_DIR$/containers/Statistique.js" />
+    <entry file="file://$PROJECT_DIR$/reducers/root.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+>>>>>>> mise en place du datePicker
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/components/Formulaire.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -471,6 +750,57 @@
             <element signature="e#0#25#0" expanded="true" />
 >>>>>>> team-3
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/reducers/storeStatistiques.js" />
+    <entry file="file://$PROJECT_DIR$/components/filters/test.txt" />
+    <entry file="file://$PROJECT_DIR$/containers/PopUp.js" />
+    <entry file="file://$PROJECT_DIR$/containers/DatePicker.js" />
+    <entry file="file://$PROJECT_DIR$/actions/statistique.js" />
+    <entry file="file://$PROJECT_DIR$/components/filters/DatePicker.js" />
+    <entry file="file://$PROJECT_DIR$/components/Graph.js" />
+    <entry file="file://$PROJECT_DIR$/components/Example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="53" selection-start-line="1" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/filters/PopUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Statistique.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants/actionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/filters/Filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+>>>>>>> mise en place du datePicker
         </state>
       </provider>
     </entry>

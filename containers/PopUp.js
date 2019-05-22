@@ -1,7 +1,7 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import PopUp from "../components/filters/PopUp";
-import {fetchDataApi} from '../actions/popUp';
+import {fetchDataApi, setDatePickedStart, setDatePickedEnd} from '../actions/PopUp';
 
 const mapStateToProps = state => {
   return {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators({fetchDataApi }, dispatch)
+    actions: bindActionCreators({fetchDataApi, setDatePickedStart, setDatePickedEnd  }, dispatch)
   };
 };
 export default connect(
