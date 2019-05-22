@@ -3,7 +3,13 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 import Graph from "../containers/Graph";
 // import PopUp from './filters/PopUp'
 import PopUp from "../containers/PopUp";
-import { greyColor, primaryColor, subtitleFontSize, titleFontSize, whiteColor } from "../helpers/styleGuidelines";
+import {
+  greyColor,
+  primaryColor,
+  subtitleFontSize,
+  titleFontSize,
+  whiteColor
+} from "../helpers/styleGuidelines";
 
 const Statistiques = props => {
   return (
@@ -18,6 +24,7 @@ const Statistiques = props => {
     </ScrollView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
