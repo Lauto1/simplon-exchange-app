@@ -1,9 +1,9 @@
 import { Formik } from "formik";
 import React from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
+import {AsyncStorage} from 'react-native';
 import { CheckBox } from "react-native-elements";
 import {
-  greyColor,
   lightGreyColor,
   primaryColor,
   titleFontSize,
@@ -13,7 +13,6 @@ import {
 export default class Connexion extends React.Component {
 
     _API = "http://dev.simplon-exchange.help/api/login";
-
     
     /**
      * @param {any} props
@@ -27,24 +26,49 @@ export default class Connexion extends React.Component {
         }
     }
 
-    handleSubmit(){
+    /*
+    * Set l'id et le token de l'utilisateurs dans le storage
+    */
+    createStorage(data) {
+        AsyncStorage.setItem('user_informations', JSON.stringify(data), () => {
+            return true;
+        })
+    }
+
+    /*
+    * Récupère l'id et le token de l'utilisateurs dans le storage
+    */
+    getStorage() {
+        AsyncStorage.getItem('user_informations', (err, result) => {
+            console.log("Contenu storage :",JSON.parse(result));
+        });
+    }
+
+    /*
+    * Permet à l'utilisateur de se connecter
+    */
+    handleSubmit(values){
         fetch(this._API, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                email: "root",
-                password: "root",
-            }),
+            body: JSON.stringify(values),
         }).then((response) => {
-            console.log(response)
-        }).catch((error) => {
+            return response.json();
+        }).then((data) => {
+            this.createStorage(data);
+            this.getStorage();
+        })
+        .catch((error) => {
             console.error(error)
         });
     }
 
+    /*
+    * Redirige vers un formulaire dédié 
+    */
     passwordForgotten(){
         // TODO
     }
@@ -55,7 +79,7 @@ export default class Connexion extends React.Component {
             <View style={{ backgroundColor: '#f3f3f3', flex: 1 }}>
                 <Formik
                     initialValues={{ email: '', password: '' }}
-                    onSubmit={values => console.log(values)}
+                    onSubmit={values => this.handleSubmit(values)}
                 >
                     {props => (
                         <View style={styles.form}>
@@ -82,7 +106,7 @@ export default class Connexion extends React.Component {
                             <View style={styles.button}>
                                 <Button
                                     color="#D6363E"
-                                    onPress={() => this.handleSubmit()} 
+                                    onPress={props.handleSubmit} 
                                     title="Connexion"
                                 />
                             </View>
