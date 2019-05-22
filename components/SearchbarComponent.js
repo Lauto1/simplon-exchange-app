@@ -9,6 +9,9 @@ class SearchbarComponent extends Component {
     };
 
     updateSearch = search => {
+        setTimeout(()=>{
+            this.props.searchQuestions(search)
+        },2000);
         this.setState({ search });
     };
     render() {
@@ -84,7 +87,7 @@ class SearchbarComponent extends Component {
                     onChangeText={this.updateSearch}
                     value={search}
                 />
-                <Button onPress={this.updateSearch} buttonStyle={{
+                {/* <Button onPress={this.updateSearch} buttonStyle={{
                     borderRadius: 0,
                     borderBottomRightRadius: 5,
                     borderBottomLeftRadius: 5,
@@ -94,7 +97,7 @@ class SearchbarComponent extends Component {
                 }}
                     title={'Rechercher'} titleStyle={{ fontFamily: "firacode" }}
                     textStyle={{ fontFamily: "firacode" }}
-                    accessibilityLabel={'Rechercher'} />
+                    accessibilityLabel={'Rechercher'} /> */}
             </View>
         )
     }

@@ -1,40 +1,54 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, TouchableOpacity, View,ActivityIndicator } from "react-native";
+import { Text, TouchableOpacity, View,StyleSheet, ActivityIndicator } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import {
-  paragraphFontSize,
+import { 
+  primaryColor, 
+  lightGreyColor, 
   boldFontFamily,
-  darkGreyColor,
-  greyColor,
-  whiteColor,
-  lightGreyColor,
-  primaryColor,
+  whiteColor, 
+  blackColor,
+  titleFontSize, 
   secondaryTextColor,
-  regularFontFamily,
+  paragraphFontSize, 
   subtitleFontSize,
-  titleFontSize,
-  blackColor
-} from "../helpers/styleGuidelines";
-
+  regularFontFamily } from "../helpers/styleGuidelines";
 
 class QuestionComponent extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      showLoader:false
-    }
-  }
-    showLoader = () => { this.setState({ showLoader:true }); };
-    hideLoader = () => { this.setState({ showLoader:false }); };
-  
+
+
+
   onPressQuestion() {
     console.log("onPressQuestion");
     const { navigation: navigate } = this.props;
     () => navigate("Question");
   }
+  //test hightlight word "not 100% functionnal"
+  hightlightTerm(title = null, terms = null) {
+    let testHiglight = false;
+    if ( testHiglight && terms != null && terms != "" && title.toLowerCase().includes(terms.toLowerCase()) &&terms.length >=2) {
+
+      let indexWord = title.toLowerCase().indexOf(terms.toLowerCase());
+			console.log("TCL: indexWord", indexWord)
+      let beginningWords = title.slice(0, indexWord);
+      let originalWord;
+      let words = title.split(" ");
+			console.log("TCL: words", words)
+      words.forEach(word=>{
+          if (word.toLowerCase()=== terms.toLowerCase() || word.toLowerCase().includes(terms.toLowerCase()) ) {
+              originalWord = word;
+          }
+      })
+			console.log("TCL: originalWord", originalWord);
+      
+      let lastWords = title.slice(indexWord + originalWord.length, title.length);
+      return <Text style={styles.titleContainer} >{ beginningWords }<Text style={{ backgroundColor: "#FFFF00" }} >{ originalWord }</Text><Text>{ lastWords }</Text></Text>
+    } else {
+      return <Text style={styles.titleContainer}>{title}</Text>
+    }
+  }
   render() {
     const { question } = this.props;
+    const { terms } = this.props
     return (
       <TouchableOpacity
         onPress={() =>
@@ -56,12 +70,43 @@ class QuestionComponent extends Component {
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
-              <Text style={styles.title}>{question.title}</Text>
+              {this.hightlightTerm(question.title,terms)}
 
-              <View style={styles.infosPostBox}>
-                <Text style={styles.date}>{question.date}</Text>
-                <Text style={styles.par}>par</Text>
-                <Text style={styles.author}>{question.author}</Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  paddingBottom: 8
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: "#6C757D",
+                    fontFamily: "firacode",
+                    fontStyle: "italic"
+                  }}
+                >
+                  {question.date}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontFamily: "firacode",
+                    color: "#6C757D",
+                    paddingHorizontal: 8
+                  }}
+                >
+                  par
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontFamily: "firacode",
+                    color: "#6C757D"
+                  }}
+                >
+                  {question.author}
+                </Text>
               </View>
 
               {this.props.showContent && (
@@ -193,6 +238,12 @@ const styles = StyleSheet.create({
     fontFamily: regularFontFamily,
     textAlignVertical: "center",
     lineHeight: 15
+  },
+  titleContainer: {
+    paddingBottom: 15,
+    fontSize: 20,
+    fontFamily: boldFontFamily,
+    color: "#d6363e"
   }
 });
 

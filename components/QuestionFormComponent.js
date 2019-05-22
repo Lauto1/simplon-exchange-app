@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert, Button } from "react-native";
-import { Card, Icon } from "react-native-elements";
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Button, TextInput } from "react-native";
+import { Card, Icon, Input } from "react-native-elements";
 import { WebViewQuillEditor, WebViewQuillViewer } from 'react-native-webview-quilljs';
 import { primaryColor, lightGreyColor, boldFontFamily, titleFontSize } from "../helpers/styleGuidelines";
 
-class AnwserFormComponent extends Component {
+class QuestionFormComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,10 +22,29 @@ class AnwserFormComponent extends Component {
                         style={styles.row}
                     >
                         <View style={styles.column}>
-                            <Text style={styles.responseText}  >Répondre</Text>
-                            
-                            <View style={{ minHeight: 280 }} >
-                            
+                            <Text style={styles.responseText} >Posez votre question</Text>
+
+                            <View style={{
+                                flex: 1,
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                borderTopColor: "#dedede",
+                                borderTopWidth: 1,
+                                paddingTop: 8,
+                                marginTop: 8,
+                                minHeight: 280
+                            }} >
+                                <Text>La précision et la rapidité de la réponse passe par une question correctement posée. Votre titre doit être explicite, votre question pas globale mais spécifique.
+Si vous faites face à un bug, copiez le code nécessaire à la résolution.</Text>
+                                <View >
+
+
+                                    <View style={styles.row}>
+                                        <Text>Intitulé de la question *</Text>
+                                        <TextInput style={styles.inputBar} />
+                                    </View>
+                                    
+                                </View >
                                 <View style={{ minHeight: 250 }}>
                                     <WebViewQuillEditor
                                         ref={component => (this.webViewQuillEditor = component)}
@@ -45,18 +64,11 @@ class AnwserFormComponent extends Component {
     getDelta(text) {
         console.log("text", text);
 
-        this.setState({ response: text.delta.ops[0].insert })
+
 
     }
     onTextChange() {
-        let response = {
-            "id": "93",
-            "author": "falseAuthor",
-            "points": 77,
-            "upvote": 0,
-            "content": this.state.response,
-            "date": "09/10/2019"
-        }
+
         this.props.newResponse(response)
     }
     onLoadCallback() {
@@ -93,7 +105,21 @@ const styles = StyleSheet.create({
         fontSize: titleFontSize,
         fontFamily: boldFontFamily,
         color: primaryColor
-    }
+    },
+    inputBar: {
+        marginTop: 50,
+        padding: 0,
+        fontFamily: 'firacode',
+        backgroundColor: "#FFFFFF",
+        borderRadius: 0,
+        borderWidth: 1,
+        borderColor: "#dedede",
+        borderTopRightRadius: 5,
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
+        minWidth: 150
+    },
 });
 
-export default AnwserFormComponent;
+export default QuestionFormComponent;

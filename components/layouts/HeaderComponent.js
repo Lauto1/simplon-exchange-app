@@ -24,7 +24,13 @@ class HeaderComponent extends React.Component {
           ⇐ Hey Simplonnien.ne ! Rejoins-nous vites
         </Text>
 
-        <View style={styles.view}>
+        <View
+          style={{
+            backgroundColor: greyColor,
+            padding: 20,
+            flexDirection: "row"
+          }}
+        >
           <Icon
             name="menu"
             color={whiteColor}
@@ -42,8 +48,27 @@ class HeaderComponent extends React.Component {
               flexDirection: "row"
             }}
           >
-            <Text style={styles.headerTitle}>{this.props.title}</Text>
-            <Text style={styles.headerHelp}>.Help</Text>
+            <Text
+              style={{
+                paddingTop: 1,
+                color: primaryColor,
+                fontSize: 20,
+                paddingLeft: 30,
+                fontFamily: regularFontFamily
+              }}
+            >
+              Simplon-Exchange
+            </Text>
+            <Text
+              style={{
+                paddingTop: 1,
+                color: whiteColor,
+                fontSize: titleFontSize,
+                fontFamily: regularFontFamily
+              }}
+            >
+              .Help
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

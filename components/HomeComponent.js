@@ -6,21 +6,13 @@ import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import {
-  primaryColor,
-  whiteColor,
-  lightGreyColor,
-  paragraphFontSize,
-  subtitleFontSize,
-  titleFontSize,
-  boldFontFamily,
-  regularFontFamily
-} from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
     questions: [],
-    showScrollToTop: false
+    showScrollToTop: false,
+    showContent:false
   };
 
   componentDidMount() {
@@ -55,18 +47,37 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
+  searchQuestions(terms = null, questions) {
+    let filteredQuestions = [];
+    if (terms != null && terms != "" && terms.length >= 2) {
+      let multipleTerms = terms.split(" ");
+      multipleTerms.forEach(term => {
+        for (var i = 0; i < questions.length; i++) {
+          let whiteSpace = term.length >=1 &&term !=" "
+          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
+            const found = filteredQuestions.some(el => el.id === questions[i].id);
+                questions[i].showContent = true;
+            if (!found) filteredQuestions.push(questions[i]);
+          }
+        }
+      })
+      
+    } else {
+      filteredQuestions = questions.map(question=> 
+        { 
+          question.showContent = false;
+          return question
+        });
+    }
+    return filteredQuestions;
+  }
 
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
-    console.log("questions 1", questions.length);
-
+    const terms = this.props.currentSearch;
     return (
       <View style={styles.view}>
-        <HeaderComponent
-          drawerNav={this.props.navigation}
-          title="Simplon-Exchange"
-        />
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
@@ -87,12 +98,13 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent style={styles.search} />
+            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
+
           </View>
-          {questions.map(question => (
-            <QuestionComponent
+          {this.searchQuestions(terms, questions).map(question => (
+            <QuestionComponent terms={terms}
               navigation={this.props.navigation}
-              showContent={false}
+              showContent={question.showContent}
               key={question.id}
               question={question}
             />
@@ -134,9 +146,9 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   welcomeHomeText: {
+    fontSize: paragraphFontSize,
     textAlign: "center",
-    color: whiteColor,
-    fontSize: paragraphFontSize
+    color: whiteColor
   },
   welcomeSousTitle: {
     fontFamily: boldFontFamily,
