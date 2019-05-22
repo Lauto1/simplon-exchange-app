@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
-import { primaryColor, whiteColor } from "../../helpers/styleGuidelines";
+import { primaryColor, whiteColor, boldFontFamily, } from "../../helpers/styleGuidelines";
 
 class Filter extends Component {
   constructor(props) {
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: whiteColor,
-    marginTop: 100
+    marginTop: 100,
+    fontFamily: boldFontFamily,
   }
 });
 

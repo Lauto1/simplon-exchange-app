@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, View, StyleSheet } from "react-native";
 import { CheckBox } from "react-native-elements";
 import Dialog, { DialogButton, DialogContent, DialogTitle } from "react-native-popup-dialog";
-import { primaryColor } from "../../helpers/styleGuidelines";
+import { greyColor, whiteColor, boldFontFamily, paragraphFontSize } from "../../helpers/styleGuidelines";
 import Filter from "./Filter";
 
 // Mise en place des states liées au component PopUp
@@ -39,8 +39,10 @@ class PopUp extends Component {
   render() {
     return (
       <View>
-        <View>
+        <View style={styles.buttonStyle}>
           <Button
+            color={greyColor}
+            titleStyle={{ fontFamily: boldFontFamily }}
             title="Trier par date"
             onPress={() => {
               this.setState({
@@ -88,18 +90,19 @@ class PopUp extends Component {
             </View>
           </DialogContent>
         </Dialog>
-        <View>
-          {/*
+        {/*
         // Les checkboxs qui permet d'afficher les statistiques en fonction du type de donnée demander
         */}
+        <View style={styles.checkBox}>
           <CheckBox
+            fontFamily={boldFontFamily}
             title="Trier par post"
             checked={this.state.checkedNbPosts}
             onPress={() =>
               this.setState({ checkedNbPosts: !this.state.checkedNbPosts })
             }
           />
-          <CheckBox
+          <CheckBox style={styles.checkBox}
             title="Trier par utilisateur"
             checked={this.state.checkedNbUsers}
             onPress={() =>
@@ -107,7 +110,7 @@ class PopUp extends Component {
             }
           />
 
-          <CheckBox
+          <CheckBox style={styles.checkBox}
             title="Trier par reponse"
             checked={this.state.checkedNbResponses}
             onPress={() =>
@@ -116,26 +119,16 @@ class PopUp extends Component {
               })
             }
           />
-
+        </View>
+        <View style={styles.buttonStyle}>
           <Button
             onPress={this.fetchDataChecked}
             title="Rechercher"
-            color={primaryColor}
+            color={greyColor}
           />
         </View>
-        <CheckBox
-          title='Trier par reponse'
-          checked={this.state.checkedNbResponses}
-          onPress={() => this.setState({checkedNbResponses: !this.state.checkedNbResponses})}
-        />
-        <View style={styles.buttonStyle}>
-            <Button
-              onPress={this.fetchDataChecked}
-              title="Rechercher"
-              color="#2F3239"
-            />
-          </View>
       </View>
+
     );
   }
 }
@@ -143,16 +136,22 @@ export default PopUp;
 
 
 const styles = StyleSheet.create({
-    container: { marginTop: 20 },
-    buttonStyle: {
-      backgroundColor: '#2F3239',
-      color: '#fff',
-      fontWeight: '600',
-      fontSize: 16,
-      textAlign: 'center',
-      borderRadius: 5,
-      // width: 150,
-      padding: 8,
-      margin: 20
-    }
-  });
+  container: { marginTop: 20 },
+  buttonStyle: {
+    color: whiteColor,
+    fontFamily: boldFontFamily,
+    fontSize: paragraphFontSize,
+    textAlign: 'center',
+    borderRadius: 5,
+    padding: 8,
+    margin: 20
+  },
+  checkBox: {
+    color: whiteColor,
+    fontFamily: boldFontFamily,
+    fontSize: paragraphFontSize,
+    textAlign: 'center',
+
+  },
+
+});
