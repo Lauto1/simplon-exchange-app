@@ -5,28 +5,32 @@
       "name": "laurent",
       "email": "laurent@email.com",
       "password": "laurent",
-      "token": "laurentToken123"
+      "token": "laurentToken123",
+      "points": 1
     },
     {
       "id": 2,
       "name": "pawel",
       "email": "pawel@email.com",
       "password": "pawel",
-      "token": "pawelToken123"
+      "token": "pawelToken123",
+      "points": 2
     },
     {
       "id": 3,
       "name": "franck",
       "email": "franck@email.com",
       "password": "franck",
-      "token": "franckToken123"
+      "token": "franckToken123",
+      "points": 3
     },
     {
       "id": 4,
       "name": "laurie",
       "email": "laurie@email.com",
       "password": "laurie",
-      "token": "laurieToken123"
+      "token": "laurieToken123",
+      "points": 4
     }
   ]
 }

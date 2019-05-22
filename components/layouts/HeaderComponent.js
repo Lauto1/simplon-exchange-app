@@ -2,6 +2,7 @@ import "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-elements";
+import * as connexion from "../../mock/connexion.json";
 import {
   paragraphFontSize,
   boldFontFamily,
@@ -16,12 +17,17 @@ import {
 } from "../../helpers/styleGuidelines";
 
 class HeaderComponent extends React.Component {
+
   render() {
     return (
       <View>
         <View style={{ backgroundColor: "#000", height: 24 }} />
-        <Text style={styles.preHeader}>
+        {/* <Text style={styles.preHeader}>
           ⇐ Hey Simplonnien.ne ! Rejoins-nous vites
+        </Text> */}
+
+        <Text style={styles.preHeader}>
+         Bonjour {connexion.users[1].name}. Tu as {connexion.users[1].points} point(s) de karma.
         </Text>
 
         <View style={styles.view}>
