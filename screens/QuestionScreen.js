@@ -21,7 +21,7 @@ class QuestionScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: "Question",
-      header: props => <HeaderComponent {...props} />
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
 

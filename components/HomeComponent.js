@@ -4,7 +4,7 @@ import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
-import StatsComponent from "./StatsComponent"
+import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
 import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
@@ -109,9 +109,8 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
-          <FooterComponent drawerNav={this.props.navigation} />
           <StatsComponent questions={questions} />
-          <FooterComponent />
+          <FooterComponent drawerNav={this.props.navigation} />
         </ScrollView>
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
@@ -135,9 +134,10 @@ const styles = StyleSheet.create({
   },
   welcomeHome: {
     backgroundColor: primaryColor,
-    padding: 48,
+    padding: 30,
     margin: -2
   },
+
   welcomeTitle: {
     fontFamily: boldFontFamily,
     fontSize: titleFontSize,
@@ -146,9 +146,9 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   welcomeHomeText: {
-    fontSize: paragraphFontSize,
     textAlign: "center",
-    color: whiteColor
+    color: whiteColor,
+    fontSize: paragraphFontSize
   },
   welcomeSousTitle: {
     fontFamily: boldFontFamily,
