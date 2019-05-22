@@ -4,10 +4,12 @@ import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
 import AnwserFormComponent from "../components/AnwserFormComponent";
-
 import QuestionComponent from "../components/QuestionComponent";
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
+
+
+
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
 
 class QuestionScreen extends React.Component {
@@ -22,7 +24,7 @@ class QuestionScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: "Question",
-      header: props => <HeaderComponent {...props} />
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
 
@@ -102,7 +104,7 @@ class QuestionScreen extends React.Component {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-        {this.state.connected ? <AnwserFormComponent /> :
+        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse} /> :
           <View style={{ paddingTop: 10, paddingLeft: 15, paddingRight: 15 }}>
             <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e" }} />
           </View>}
@@ -113,6 +115,10 @@ class QuestionScreen extends React.Component {
         )}
       </ScrollView>
     );
+  }
+  addResponse(newResponse) {
+    console.log("TCL: addResponse -> newResponse", newResponse)
+
   }
   onLoadCallback = () => {
     console.log("loaded");

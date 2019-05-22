@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
-import { SearchBar, Icon } from 'react-native-elements';
-import { regularFontFamily } from "../helpers/styleGuidelines"
+import { View, TextInput, StyleSheet } from 'react-native';
+import { SearchBar, Button, Icon } from 'react-native-elements';
 
 
 class SearchbarComponent extends Component {
@@ -10,22 +9,43 @@ class SearchbarComponent extends Component {
     };
 
     updateSearch = search => {
+        setTimeout(()=>{
+            this.props.searchQuestions(search)
+        },2000);
         this.setState({ search });
     };
     render() {
         const { search } = this.state;
-        const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 10
-
         return (
-            <KeyboardAvoidingView style={styles.view}
-                keyboardVerticalOffset={keyboardVerticalOffset}
-                behavior="padding" enabled>
+            // <View style={styles.view}>
+            //     <View style={{ flexDirection: "row" }}>
+            //         <Icon name='pencil' type='font-awesome' iconStyle={{ color: "#fff", borderRadius: 5, marginTop: 30, backgroundColor: "#000", width: 40, height: 45 }} />
+            //         <TextInput
+            //             style={styles.textInput}
+            //             onFocus={this.clearInput}
+            //             onChangeText={this.updateSearch}
+            //             value={search}
+            //             placeholder={"Recherche une question, tu es sûr-e de trouver une réponse"}
+            //         />
+            //     </View>
+            //     <View style={styles.buttonContainer}>
+            //         <Button onPress={this.updateSearch}
+            //             style={styles.button}
+            //             title={'Rechercher'}
+            //             accessibilityLabel={'Rechercher'}
+            //         />
+            //     </View>
+            // </View>
 
+
+            // Try with react Element SearchBar - could not make it work
+            <View style={{ paddingVertical: 0 }}>
                 <SearchBar style={styles.searchBar}
                     searchIcon={() =>
                         <Icon name='pencil'
                             type='font-awesome' iconStyle={{ color: "#fff" }} />
                     }
+                    iconContainerStyle={{ borderBottomLeftRadius: 0 }}
                     containerStyle={{
                         padding: 0,
                         margin: 0,
@@ -66,7 +86,18 @@ class SearchbarComponent extends Component {
                     onChangeText={this.updateSearch}
                     value={search}
                 />
-            </KeyboardAvoidingView>
+                {/* <Button onPress={this.updateSearch} buttonStyle={{
+                    borderRadius: 0,
+                    borderBottomRightRadius: 5,
+                    borderBottomLeftRadius: 5,
+                    backgroundColor: "#d5363e",
+                    borderWidth: 2,
+                    borderColor: "#fff",
+                }}
+                    title={'Rechercher'} titleStyle={{ fontFamily: "firacode" }}
+                    textStyle={{ fontFamily: "firacode" }}
+                    accessibilityLabel={'Rechercher'} /> */}
+            </View>
         )
     }
 }
@@ -74,24 +105,20 @@ class SearchbarComponent extends Component {
 const styles = StyleSheet.create({
     view: {
         flexDirection: "column",
-        flex: 1,
         paddingLeft: 10,
         paddingRight: 10,
-        fontFamily: regularFontFamily,
-
+        fontFamily: "firacodebold"
     },
     searchBar: {
         marginTop: 50,
         padding: 0,
-        flex: 1,
-        justifyContent: "flex-end",
-        fontFamily: regularFontFamily,
+        fontFamily: 'firacode',
         backgroundColor: "#d5363e",
         borderRadius: 0,
         borderTopRightRadius: 5,
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
+        borderBottomRightRadius: 0
     },
     textInput: {
         fontSize: 16,
@@ -104,12 +131,12 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 0,
         flex: 2,
         marginTop: 30,
-        fontFamily: regularFontFamily,
+        fontFamily: "firacode"
     },
     buttonContainer: {
         padding: 3,
         marginTop: 30,
-        fontFamily: regularFontFamily,
+        fontFamily: "firacode"
     },
     button: {
         backgroundColor: "#d5363e",

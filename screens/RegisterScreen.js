@@ -4,7 +4,7 @@ import HeaderComponent from "../components/layouts/HeaderComponent";
 class RegisterScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      header: props => <HeaderComponent {...props} />
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
 

@@ -12,8 +12,7 @@ class HomeScreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      header: null
-
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
 

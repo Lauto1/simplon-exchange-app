@@ -1,5 +1,5 @@
 import types from "../constants/actionTypes";
-import * as mockQuestions from "../mock/reponses.json";
+import * as mockQuestions from "../mock/questionsReponses.json";
 import { toggleLoader } from './loader';
 
 /**Action: function pour ajouter des questions, rechercher des questions */
@@ -14,8 +14,7 @@ export const searchQuestions = terms => {
 export const fetchQuestions = () => {
   return async dispatch => {
     try {
-
-      console.log(mockQuestions);
+      //console.log(mockQuestions);
 
       const QUESTIONS = mockQuestions.questions;
       dispatch(addQuestions(QUESTIONS));
@@ -24,9 +23,9 @@ export const fetchQuestions = () => {
       });
     } catch (e) {
       console.log(e);
-      
+
       /** dispatch(err("failed to retrieve data"));*/
     }
-    
+
   };
 };

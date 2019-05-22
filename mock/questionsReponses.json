@@ -55,6 +55,27 @@
           "tag": "php"
         },
         {
+          "id": "azfea",
+          "title":
+            "probleme animation css 2 ancune transition entre chaque parti du keyframe",
+          "date": "09/11/2018",
+          "author": "Thor",
+          "content":
+            "Ici est le corps de ma question 2bonjour mon animation est 'saccader' il ne fait aucune transition entre chaque parti du mon keyframes mon code html",
+          "upvote": 8,
+          "answers": [
+            {
+              "id": "555",
+              "author": "JCVD",
+              "points": 18,
+              "upvote": 125,
+              "content": "La super réponse de JCVD",
+              "date": "09/10/2018"
+            }
+          ],
+          "factory": "Vénissieux",
+          "tag": "mysql"
+        },{
           "id": "02",
           "title":
             "probleme animation css ancune transition entre chaque parti du keyframe",
