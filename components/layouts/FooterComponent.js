@@ -5,6 +5,7 @@ import {
   Text,
   Button,
   View,
+  Linking,
   TouchableOpacity
 } from "react-native";
 // import DropdownMenu from 'react-native-dropdown-menu';
