@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Text, TouchableOpacity, View, ActivityIndicator, StyleSheet } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
+import Loader from "./Loader";
+import { toggleLoader } from "../actions/loader";
 
 
 class QuestionComponent extends Component {
@@ -22,16 +24,14 @@ class QuestionComponent extends Component {
   }
   render() {
     const { question } = this.props;
+
     return (
       <TouchableOpacity
         onPress={() =>
           this.props.navigation.navigate("Question", { question: question })
-        }
-      >
-        <View style={{ position: 'absolute', top: "35%", right: 0, left: 0 }}>
-          <ActivityIndicator size="large" color="#D7403E" />
-        </View>
-        <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
+        }>
+
+        <Card onPress={() => toggleLoader()} containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
           <View
             style={{
               flexDirection: "row"
@@ -43,8 +43,7 @@ class QuestionComponent extends Component {
                 justifyContent: "center",
                 paddingLeft: 15,
                 paddingRight: 15
-              }}
-            >
+              }}>
               <Icon name="sort-up" type="font-awesome" />
               <Text style={{ fontSize: 20 }}>{question.upvote}</Text>
             </View>
