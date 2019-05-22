@@ -6,7 +6,7 @@ import { ScrollView } from "react-native";
 class AskQuestionScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      header: props => <HeaderComponent {...props} />,
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />,
       drawerLabel: 'Posez une question'
     };
   };

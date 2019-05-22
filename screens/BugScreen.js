@@ -6,7 +6,7 @@ import HeaderComponent from "../components/layouts/HeaderComponent";
 class BugScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      header: props => <HeaderComponent {...props} />
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
   render() {

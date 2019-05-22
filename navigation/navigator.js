@@ -18,7 +18,9 @@ import StatsStack from "./stack/StatsStack";
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
  * ex : Home: HomeStack, Faq:FaqStack
  */
-
+/**
+ * removed page grap bug Graphiques: GraphStack,
+ */
 const DrawerNavigator = createDrawerNavigator({
     Home: HomeStack,
     Inscription: RegisterStack,

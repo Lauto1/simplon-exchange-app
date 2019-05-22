@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, TouchableOpacity, View,StyleSheet, ActivityIndicator } from "react-native";
+import { Text, TouchableOpacity, View, ActivityIndicator, StyleSheet } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { 
   primaryColor, 
@@ -11,12 +11,22 @@ import {
   secondaryTextColor,
   paragraphFontSize, 
   subtitleFontSize,
-  regularFontFamily } from "../helpers/styleGuidelines";
+  titleFontSize,
+  blackColor
+} from "../helpers/styleGuidelines";
+
 
 class QuestionComponent extends Component {
-
-
-
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      showLoader:false
+    }
+  }
+    showLoader = () => { this.setState({ showLoader:true }); };
+    hideLoader = () => { this.setState({ showLoader:false }); };
+  
   onPressQuestion() {
     console.log("onPressQuestion");
     const { navigation: navigate } = this.props;
@@ -70,43 +80,12 @@ class QuestionComponent extends Component {
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
-              {this.hightlightTerm(question.title,terms)}
+              <Text style={styles.title}>{question.title}</Text>
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  paddingBottom: 8
-                }}
-              >
-                <Text
-                  style={{
-                    fontSize: 16,
-                    color: "#6C757D",
-                    fontFamily: "firacode",
-                    fontStyle: "italic"
-                  }}
-                >
-                  {question.date}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontFamily: "firacode",
-                    color: "#6C757D",
-                    paddingHorizontal: 8
-                  }}
-                >
-                  par
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontFamily: "firacode",
-                    color: "#6C757D"
-                  }}
-                >
-                  {question.author}
-                </Text>
+              <View style={styles.infosPostBox}>
+                <Text style={styles.date}>{question.date}</Text>
+                <Text style={styles.par}>par</Text>
+                <Text style={styles.author}>{question.author}</Text>
               </View>
 
               {this.props.showContent && (
@@ -238,12 +217,6 @@ const styles = StyleSheet.create({
     fontFamily: regularFontFamily,
     textAlignVertical: "center",
     lineHeight: 15
-  },
-  titleContainer: {
-    paddingBottom: 15,
-    fontSize: 20,
-    fontFamily: boldFontFamily,
-    color: "#d6363e"
   }
 });
 

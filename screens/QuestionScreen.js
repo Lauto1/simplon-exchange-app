@@ -4,11 +4,9 @@ import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
 import AnwserFormComponent from "../components/AnwserFormComponent";
-
 import QuestionComponent from "../components/QuestionComponent";
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
-// import AnwserFormComponent from "../components/AnwserFormComponent";
 
 
 import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
@@ -25,7 +23,7 @@ class QuestionScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: "Question",
-      header: props => <HeaderComponent {...props} />
+      header: props => <HeaderComponent {...props} title="Simplon-Exchange" />
     };
   };
 

@@ -5,8 +5,8 @@ import {
   Text,
   Button,
   View,
-  Linking,
-  TouchableOpacity
+  TouchableOpacity,
+  Linking
 } from "react-native";
 // import DropdownMenu from 'react-native-dropdown-menu';
 import { primaryColor, lightGreyColor,boldFontFamily,whiteColor,titleFontSize,paragraphFontSize,regularFontFamily,greyColor,darkGreyColor } from "../../helpers/styleGuidelines"
