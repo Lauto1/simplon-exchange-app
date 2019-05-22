@@ -368,7 +368,6 @@ verificationUtilisateur(){
     );
   }
 }
-}
 
 BugReportComponent.propTypes = {
     // On vérifie si le type entrée dans mail est un type string et qu'il est requis

@@ -3,12 +3,6 @@ import BugScreen from "../../screens/BugScreen";
 import FaqScreen from "../../screens/FaqScreen";
 import HomeScreen from "../../screens/HomeScreen";
 import QuestionScreen from "../../screens/QuestionScreen";
-import VoteScreen from "../../screens/VoteScreen";
-
-import HomeScreen from '../../screens/HomeScreen';
-import QuestionScreen from '../../screens/QuestionScreen';
-import FaqScreen from '../../screens/FaqScreen';
-import BugScreen from '../../screens/BugScreen';
 
 /**
  * Creation d'un Stack Navigator à partir d'un Screen https://reactnavigation.org/docs/en/stack-navigator.html

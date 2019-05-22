@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import {faq} from "../mock/faq.js";
+import {faq} from "../helpers/faq.js";
 import { lightGreyColor, primaryColor, whiteColor, darkGreyColor, blackColor } from "../helpers/styleGuidelines"
 import Accordion from 'react-native-collapsible/Accordion'
 
