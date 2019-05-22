@@ -16,6 +16,7 @@ import {
 import { withNavigation } from 'react-navigation';
 import { Dropdown } from "react-native-material-dropdown";
 import {blackColor, lightGreyColor, whiteColor, primaryColor} from "../helpers/styleGuidelines"
+import { emailHTML } from "../helpers/mailTemplate";
 
 class BugReportComponent extends Component {
  // On crée notre constructor avec comme paramètre les props du Formulaire
@@ -166,13 +167,14 @@ async sendMail(obj){
         // En sujet on met la catégories du mail
         subject:obj.category,
         // Body contient toutes les informations du mail
-        body:
-            'Mail : '+obj.mail+'\n'+
-            'Environnement : '+obj.environnement+'\n'+
-            'Page : '+obj.page+'\n'+
-            'Date : '+obj.date+'\n'+
-            'Catégories : '+obj.category+'\n'+
-            'Descriptif : '+obj.descriptif+'\n',
+        body: emailHTML,
+        isHtml:true,
+            // 'Mail : '+obj.mail+'\n'+
+            // 'Environnement : '+obj.environnement+'\n'+
+            // 'Page : '+obj.page+'\n'+
+            // 'Date : '+obj.date+'\n'+
+            // 'Catégories : '+obj.category+'\n'+
+            // 'Descriptif : '+obj.descriptif+'\n',
         attachments:[this.state.image]
     });
 }
