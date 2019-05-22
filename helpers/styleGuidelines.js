@@ -6,6 +6,7 @@ const primaryColor = "#D7403E",
   whiteColor = "#FFFFFF",
   primaryTextColor = blackColor,
   secondaryTextColor = "#6C757D",
+  blackColorText ="#f4f4f3",
   boldFontFamily = "firacodebold",
   regularFontFamily = "firacode",
   paragraphFontSize = 14,
@@ -25,5 +26,6 @@ export {
   regularFontFamily,
   paragraphFontSize,
   subtitleFontSize,
-  titleFontSize
+  titleFontSize,
+  blackColorText
 };

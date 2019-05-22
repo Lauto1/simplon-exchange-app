@@ -1,14 +1,34 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+ 
+  import { ScrollView, StyleSheet, Text, View, ListView, TouchableHighlight } from "react-native";
 import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
+import { primaryColor, blackColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
+  // constructor(){
+  //   // Gestion du select des fabriques
+  //   super();
+  //   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  //   this.state = {
+  //     dataSource: ds.cloneWithRows([
+  //       'Simplon',  
+  //       'Roanne',
+  //       'Rodez',
+  //       'Cahors',
+  //      ' Carbonne',
+  //      ' Toulouse',
+  //       ' Grenoble',
+  //      'Vénissieux',
+  //       'Villeurbanne',
+  //      ' Chambéry'
+  //     ]),
+  //   };
+  // }
   state = {
     questions: [],
     showScrollToTop: false,
@@ -30,7 +50,16 @@ class HomeComponent extends React.Component {
     //   this.setState({ questions: QUESTIONS });
     // }, 1000);
   }
-
+// Simplon
+// Roanne
+// Rodez
+// Cahors
+// Carbonne
+// Toulouse
+// Grenoble
+// Vénissieux
+// Villeurbanne
+// Chambéry
   onScrollTop = () => {
     this.refs.scrollView.scrollTo({ x: 0, y: 0, animated: true });
   };
@@ -99,8 +128,65 @@ class HomeComponent extends React.Component {
               N'attend plus, pose ta question dès maintenant !
             </Text>
             <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
-
           </View>
+
+          <View>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: 'space-around',
+                backgroundColor: '#f4f4f3',
+                height: 50
+              }}
+            >
+              <TouchableHighlight
+                style={{ borderRadius: 5}}
+                onPress={() => this.props.drawerNav.navigate("Home")}
+              >
+                <Text style={styles.textStyle}>Simplon</Text>
+              </TouchableHighlight>
+
+              <TouchableHighlight
+                style={{ borderRadius: 5 }}
+                onPress={() => console.log("voir la fabrique Roanne")}
+              >
+                <Text style={styles.textStyle}>Roanne</Text>
+              </TouchableHighlight>
+
+              <TouchableHighlight
+                style={{ borderRadius: 5 }}
+                onPress={() => console.log("fabrique Rodez")}
+              >
+                <Text style={styles.textStyle}>Rodez</Text>
+              </TouchableHighlight>
+
+              <TouchableHighlight
+                style={{ borderRadius: 5 }}
+                onPress={( ) => this.props.drawerNav.navigate("Home")}
+              >
+                <Text style={styles.textStyle}>Cahors</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={{ borderRadius: 5 }}
+                onPress={( ) => this.props.drawerNav.navigate("Home")}
+              >
+                <Text style={styles.textStyle}>Carbonne</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={{ borderRadius: 5 }}
+                onPress={( ) => this.props.drawerNav.navigate("Home")}
+              >
+                <Text style={styles.textStyle}>Toulouse</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={{ borderRadius: 5 }}
+                onPress={( ) => this.props.drawerNav.navigate("Home")}
+              >
+                <Text style={styles.textStyle}>Grenoble</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+          
           {this.searchQuestions(terms, questions).map(question => (
             <QuestionComponent terms={terms}
               navigation={this.props.navigation}
@@ -155,6 +241,15 @@ const styles = StyleSheet.create({
     color: whiteColor,
     textAlign: "center",
     marginBottom: 46
+  },
+  textStyle:{
+    justifyContent: 'space-around',
+    // textAlign: "center",
+    borderBottomColor: '#bbb',
+    color: blackColor,
+    padding: 10,
+    left: 5,
+    top: 4
   }
 });
 
