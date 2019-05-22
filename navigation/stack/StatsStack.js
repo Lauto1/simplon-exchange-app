@@ -1,6 +1,6 @@
-import { createStackNavigator } from "react-navigation";
+import React from 'react';
+import {createStackNavigator} from 'react-navigation';
 import StatistiquesScreen from "../../screens/StatistiquesScreen";
-import HeaderComponent from "../../components/layouts/HeaderComponent";
 
 /**
  * Creation d'un Stack Navigator à partir d'un Screen https://reactnavigation.org/docs/en/stack-navigator.html
@@ -12,6 +12,6 @@ const StatsStack = createStackNavigator({
  * Nom du label affiché dans le menu
  */
 StatsStack.navigationOptions = {
-  tabBarLabel: "Statistiques",
+  tabBarLabel: 'Statistiques'
 };
 export default StatsStack;

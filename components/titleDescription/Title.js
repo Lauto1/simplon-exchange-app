@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { primaryColor, titleFontSize } from "../../helpers/styleGuidelines";
 
 const Title = props => {
   return <Text style={styles.title}>Statistiques</Text>;
@@ -9,9 +8,9 @@ const Title = props => {
 // les styles à appliquer pour les titles
 const styles = StyleSheet.create({
   title: {
-    color: primaryColor,
+    color: "#dc3545",
     fontWeight: "600",
-    fontSize: titleFontSize,
+    fontSize: 36,
     textAlign: "center",
     marginTop: 50
   }

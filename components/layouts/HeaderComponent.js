@@ -1,25 +1,17 @@
 import "@expo/vector-icons";
-import React, { Component } from "react";
+import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-elements";
-import {
-  primaryColor,
-  whiteColor,
-  greyColor,
-  regularFontFamily,
-  blackColor,
-  titleFontSize
-} from "../../helpers/styleGuidelines";
 
-class HeaderComponent extends Component {
+class HeaderComponent extends React.Component {
   render() {
     return (
       <View>
-        <View style={{ backgroundColor: blackColor, height: 24 }} />
+        <View style={{ backgroundColor: "#000", height: 24 }} />
         <Text
           style={{
-            color: whiteColor,
-            backgroundColor: primaryColor,
+            color: "#fff",
+            backgroundColor: "#d6363e",
             width: "100%",
             padding: 8,
             justifyContent: "flex-start",
@@ -31,23 +23,23 @@ class HeaderComponent extends Component {
 
         <View
           style={{
-            backgroundColor: greyColor,
+            backgroundColor: "#2F3239",
             padding: 20,
             flexDirection: "row"
           }}
         >
           <Icon
             name="menu"
-            color={whiteColor}
+            color="#fff"
             size={30}
             onPress={() => {
-              this.props.navigation.toggleDrawer();
+              this.toggleDrawer();
             }}
           />
 
           <TouchableOpacity
             onPress={() => {
-              this.props.navigation.toggleDrawer();
+              this.toggleDrawer();
             }}
             style={{
               flexDirection: "row"
@@ -56,20 +48,20 @@ class HeaderComponent extends Component {
             <Text
               style={{
                 paddingTop: 1,
-                color: primaryColor,
+                color: "#d6363e",
                 fontSize: 20,
                 paddingLeft: 30,
-                fontFamily: regularFontFamily
+                fontFamily: "firacode"
               }}
             >
-              Simplon-Exchange
+              {this.props.title}
             </Text>
             <Text
               style={{
                 paddingTop: 1,
-                color: whiteColor,
-                fontSize: titleFontSize,
-                fontFamily: regularFontFamily
+                color: "#fff",
+                fontSize: 20,
+                fontFamily: "firacode"
               }}
             >
               .Help
@@ -79,6 +71,12 @@ class HeaderComponent extends Component {
       </View>
     );
   }
+  /**
+   * Active ou desactive le drawer au click
+   */
+  toggleDrawer = () => {
+    this.props.drawerNav.toggleDrawer();
+  };
 }
 
 export default HeaderComponent;

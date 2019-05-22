@@ -3,7 +3,6 @@
  */
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { lightGreyColor, whiteColor, blackColor } from "../helpers/styleGuidelines";
 
 class Vote extends Component {
   constructor(props) {
@@ -13,21 +12,23 @@ class Vote extends Component {
       voted: false
     };
   }
-  isLoged = false; // à remplacer par verificatin de login
-  /**
-   * Infos :
-   * - Procédure d'incrementation ou de décrémentation du compteur de votes
-   * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
-   */
-  handleVote(type) {
-    // if condition checks if ( user is logged ? )
-    if (this.isLoged) {
-      this.setState({ vote_score: this.state.vote_score + 1 });
-      //call action upvote
-    } else {
-      this.props.navigation.navigate("Login");
+
+    /**
+     * Infos :
+     * - Procédure d'incrementation ou de décrémentation du compteur de votes
+     * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
+     */
+    handleVote(type){
+        if(type == '+') {
+            this.setState({vote_score : this.state.vote_score + 1});
+            //call action upvote
+        }else if(type == '-') {
+            this.setState({vote_score : this.state.vote_score - 1});
+            //call action downvote
+        }
     }
   }
+
   render() {
     return (
       <View>
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    backgroundColor: lightGreyColor,
+    backgroundColor: "lightgrey",
     width: 30,
     height: 30,
     marginTop: 3,
@@ -69,11 +70,11 @@ const styles = StyleSheet.create({
     borderRadius: 4
   },
   arrow: {
-    color: whiteColor,
+    color: "white",
     textAlign: "center"
   },
   button: {
-    backgroundColor: blackColor,
+    backgroundColor: "black",
     textAlign: "center",
     width: 30,
     height: 30,

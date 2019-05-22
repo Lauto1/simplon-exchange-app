@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { greyColor, subtitleFontSize } from "../../helpers/styleGuidelines";
 
 const Description = props => {
   return (
@@ -14,9 +13,9 @@ const Description = props => {
 // les styles à appliquer pour les descriptions
 const styles = StyleSheet.create({
   description: {
-    color: greyColor,
+    color: "#2F3239",
     fontWeight: "600",
-    fontSize: subtitleFontSize,
+    fontSize: 16,
     textAlign: "center",
     padding: 20,
     borderRadius: 20

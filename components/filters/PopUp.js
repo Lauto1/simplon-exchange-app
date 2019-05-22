@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Button, View } from "react-native";
 import { CheckBox } from "react-native-elements";
-import Dialog, { DialogButton, DialogContent, DialogTitle } from "react-native-popup-dialog";
-import { primaryColor } from "../../helpers/styleGuidelines";
+import Dialog, {
+  DialogButton,
+  DialogContent,
+  DialogTitle
+} from "react-native-popup-dialog";
 import Filter from "./Filter";
 
 // Mise en place des states liées au component PopUp
@@ -120,7 +123,7 @@ class PopUp extends Component {
           <Button
             onPress={this.fetchDataChecked}
             title="Rechercher"
-            color={primaryColor}
+            color="#841584"
           />
         </View>
       </View>

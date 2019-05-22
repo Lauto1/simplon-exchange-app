@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
+import { View, Text } from 'react-native';
 import Connexion from "../components/Connexion";
-import HeaderComponent from "../components/layouts/HeaderComponent";
-
 class LoginScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: props => <HeaderComponent {...props} />
-    };
-  };
 
-  render() {
-    return <Connexion />;
-  }
+    static navigationOptions = ({ navigation }) => {
+        return {
+            header: null,
+        };
+    };
+
+    render() {
+        return (
+            <Connexion/>
+        );
+    }
 }
 
 export default LoginScreen;

@@ -1,11 +1,17 @@
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { Button, Icon } from "react-native-elements";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
+import QuestionComponent from "../components/QuestionComponent";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
-import QuestionComponent from "../components/QuestionComponent";
-import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
+import { Button } from "react-native-elements";
+import { Icon } from "react-native-elements";
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -17,8 +23,7 @@ class QuestionScreen extends React.Component {
   }
   static navigationOptions = ({ navigation }) => {
     return {
-      title: "Question",
-      header: props => <HeaderComponent {...props} />
+      title: "Question"
     };
   };
 

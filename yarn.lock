@@ -10834,13 +10834,6 @@ react-native-calendar-picker@^6.0.0:
     prop-types "^15.6.0"
     uuid "3.2.1"
 
-react-native-collapsible@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-1.4.0.tgz#ec03cac361178319b77bb9993b73677356dd89d2"
-  integrity sha512-lf2U3gRHTNakqtN04NLJkmF02XaOF/DPOTGlwK8yrn85wMAdRaPpD0fnb7RvH4OID3SmxXBTWzZqkBTmasJyIQ==
-  dependencies:
-    prop-types "^15.6.2"
-
 react-native-elements@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.1.0.tgz#f99bcda4459a886f3ab4591c684c099d37aedf2b"

@@ -5,7 +5,6 @@ import Graph from "../containers/Graph";
 import PopUp from "../containers/PopUp";
 import Description from "./titleDescription/Description";
 import Title from "./titleDescription/Title";
-import { whiteColor } from "../helpers/styleGuidelines";
 
 const Statistique = props => {
   return (
@@ -23,7 +22,7 @@ const Statistique = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: whiteColor,
+    backgroundColor: "#FFFFFF",
     marginTop: 40
   },
   graph: {

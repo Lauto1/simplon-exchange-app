@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import { SearchBar } from "react-native-elements";
-import { regularFontFamily } from "../helpers/styleGuidelines";
 
 class SearchbarComponent extends Component {
   state = {
@@ -16,8 +15,8 @@ class SearchbarComponent extends Component {
     return (
       <View>
         <SearchBar
-          style={{ marginTop: 50, fontFamily: regularFontFamily }}
-          inputStyle={{ fontFamily: regularFontFamily }}
+          style={{ marginTop: 50, fontFamily: "firacode" }}
+          inputStyle={{ fontFamily: "firacode" }}
           placeholder="Recherche une question, tu es sûr-e de trouver une réponse"
           platform="default"
           lightTheme={true}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { StackedBarChart } from "react-native-svg-charts";
-import { lightGreyColor } from "../helpers/styleGuidelines";
 class graph extends Component {
   render() {
     /*
@@ -34,7 +33,7 @@ class graph extends Component {
                 configuration chart graph.
                 */}
           <StackedBarChart
-            style={{ height: 200, backgroundColor: lightGreyColor }}
+            style={{ height: 200, backgroundColor: "#e1e4ef" }}
             keys={keys}
             colors={colors}
             data={data}

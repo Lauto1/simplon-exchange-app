@@ -5,7 +5,7 @@ import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
@@ -51,6 +51,10 @@ class HomeComponent extends React.Component {
     const questions = this.props.questions;
     return (
       <View style={styles.view}>
+        <HeaderComponent
+          drawerNav={this.props.navigation}
+          title="Simplon-Exchange"
+        />
 
         <ScrollView
           style={styles.contentContainer}
@@ -109,20 +113,20 @@ const styles = StyleSheet.create({
     margin: -2
   },
   welcomeTitle: {
-    fontFamily: boldFontFamily,
-    fontSize: titleFontSize,
-    color: whiteColor,
+    fontFamily: "firacodebold",
+    fontSize: 20,
+    color: "#ffffff",
     alignItems: "center",
     textAlign: "center"
   },
   welcomeHomeText: {
-    fontSize: paragraphFontSize,
+    fontSize: 12,
     textAlign: "center",
-    color: whiteColor
+    color: "#ffffff"
   },
   welcomeSousTitle: {
-    fontFamily: boldFontFamily,
-    color: whiteColor,
+    fontFamily: "firacodebold",
+    color: "#ffffff",
     textAlign: "center",
     marginBottom: 46
   }
