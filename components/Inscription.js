@@ -10,12 +10,47 @@ import {
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 import {
+  lightGreyColor,
   primaryColor,
-  blackColor,
   titleFontSize,
-  whiteColor,
-  lightGreyColor
+  whiteColor
 } from "../helpers/styleGuidelines";
+
+const fabriks = [
+  {
+    value: "Roanne"
+  },
+  {
+    value: "Rodez"
+  },
+  {
+    value: "Cahors"
+  },
+  {
+    value: "Saint-Gaudens"
+  },
+  {
+    value: "Toulouse"
+  },
+  {
+    value: "Grenoble"
+  },
+  {
+    value: "Vénissieux"
+  },
+  {
+    value: "Villeurbanne"
+  },
+  {
+    value: "Chambéry"
+  },
+  {
+    value: "Annemasse"
+  },
+  {
+    value: "Montpellier"
+  }
+];
 
 export default class Inscription extends React.Component {
   constructor(props) {
@@ -31,42 +66,6 @@ export default class Inscription extends React.Component {
   }
 
   render() {
-    let fabrik = [
-      {
-        value: "Roanne"
-      },
-      {
-        value: "Rodez"
-      },
-      {
-        value: "Cahors"
-      },
-      {
-        value: "Saint-Gaudens"
-      },
-      {
-        value: "Toulouse"
-      },
-      {
-        value: "Grenoble"
-      },
-      {
-        value: "Vénissieux"
-      },
-      {
-        value: "Villeurbanne"
-      },
-      {
-        value: "Chambéry"
-      },
-      {
-        value: "Annemasse"
-      },
-      {
-        value: "Montpellier"
-      }
-    ];
-
     return (
       <View style={{ backgroundColor: "#f3f3f3", flex: 1 }}>
         <Formik
@@ -90,7 +89,7 @@ export default class Inscription extends React.Component {
               <View style={styles.dropdown}>
                 <Dropdown
                   label="Quelle est votre fabrique Simplon ?"
-                  data={fabrik}
+                  data={fabriks}
                   onChangeText={itemValue => {
                     console.log(itemValue, "dropdown");
                   }}
