@@ -10,27 +10,9 @@ import SearchbarComponent from "./SearchbarComponent";
 import { primaryColor, blackColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
-  // constructor(){
-  //   // Gestion du select des fabriques
-  //   super();
-  //   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-  //   this.state = {
-  //     dataSource: ds.cloneWithRows([
-  //       'Simplon',  
-  //       'Roanne',
-  //       'Rodez',
-  //       'Cahors',
-  //      ' Carbonne',
-  //      ' Toulouse',
-  //       ' Grenoble',
-  //      'Vénissieux',
-  //       'Villeurbanne',
-  //      ' Chambéry'
-  //     ]),
-  //   };
-  // }
   state = {
     questions: [],
+    filterQuestions:[],
     showScrollToTop: false,
     showContent:false
   };
@@ -50,16 +32,7 @@ class HomeComponent extends React.Component {
     //   this.setState({ questions: QUESTIONS });
     // }, 1000);
   }
-// Simplon
-// Roanne
-// Rodez
-// Cahors
-// Carbonne
-// Toulouse
-// Grenoble
-// Vénissieux
-// Villeurbanne
-// Chambéry
+
   onScrollTop = () => {
     this.refs.scrollView.scrollTo({ x: 0, y: 0, animated: true });
   };
@@ -99,6 +72,30 @@ class HomeComponent extends React.Component {
         });
     }
     return filteredQuestions;
+  };
+
+  //fonction pour trier les questions réponses posées par les utilisateurs aux fabrique
+  QuestionComponent(){
+    this.setState({
+      questions,
+      filteredQuestions: questions
+    })
+  }
+
+  filteredQuestionsFabriques = () => {
+    let filteredQuestions = this.state.questions
+    filteredQuestions = filteredQuestions.filter((question) => {
+      let questionTitle = question.firstTitle.toLowerCase() + question.lastTitle.toLowerCase()
+      return questionTitle.indexOff(
+        questionFilter.toLowerCase()) !==-1
+    })
+    this.setState({
+      filteredQuestions
+    })
+
+    // for (var i = 0; i < questions.length; i++){
+    //   console.log('questions', questions);    
+    // }
   }
 
   render() {
@@ -144,6 +141,7 @@ class HomeComponent extends React.Component {
                 onPress={() => this.props.drawerNav.navigate("Home")}
               >
                 <Text style={styles.textStyle}>Simplon</Text>
+                <QuestionComponent questions={this.state.filteredQuestions} match={this.props.match} onChange={this.filterQuestions} />
               </TouchableHighlight>
 
               <TouchableHighlight
