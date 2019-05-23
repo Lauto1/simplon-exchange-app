@@ -12,7 +12,7 @@ class HomeComponent extends React.Component {
   state = {
     questions: [],
     showScrollToTop: false,
-    showContent: false
+    showContent: false,
   };
 
   componentDidMount() {
@@ -97,7 +97,8 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
+            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions}
+              style={styles.search} />
 
           </View>
           {this.searchQuestions(terms, questions).map(question => (

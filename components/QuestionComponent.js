@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Text, TouchableOpacity, View, ActivityIndicator, StyleSheet } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { primaryColor, lightGreyColor, blackColor, secondaryTextColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily, subtitleFontSize } from "../helpers/styleGuidelines";
-import Loader from "./Loader";
 import { toggleLoader } from "../actions/loader";
+import Loader from "./Loader";
 
 
 class QuestionComponent extends Component {
@@ -11,7 +11,7 @@ class QuestionComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showLoader: false
+      isLoaderDisplayed: false
     }
   }
   showLoader = () => { this.setState({ showLoader: true }); };
@@ -20,6 +20,7 @@ class QuestionComponent extends Component {
   onPressQuestion() {
     console.log("onPressQuestion");
     const { navigation: navigate } = this.props;
+    this.props.isLoaderDisplayed = true;
     () => navigate("Question");
   }
   //test hightlight word "not 100% functionnal"
@@ -48,7 +49,6 @@ class QuestionComponent extends Component {
   }
   render() {
     const { question } = this.props;
-
     const { terms } = this.props
     return (
       <TouchableOpacity
