@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
+import { KeyboardAvoidingView } from 'react-native';
 import {
   Button,
   StyleSheet,
@@ -18,127 +19,140 @@ import {
 } from "../helpers/styleGuidelines";
 
 export default class Inscription extends React.Component {
+
+  _API = "http://dev.simplon-exchange.help/api/";
+
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      fabrik: "",
+      name: "",
+      fabric_id: "",
       email: "",
       password: "",
-      repeatPassword: "",
-      notif: false
+      confirm_password: "",
+      notif: false,
+      fabrics: []
     };
+    this.getFabrics()
   }
 
-  render() {
-    let fabrik = [
-      {
-        value: "Roanne"
-      },
-      {
-        value: "Rodez"
-      },
-      {
-        value: "Cahors"
-      },
-      {
-        value: "Saint-Gaudens"
-      },
-      {
-        value: "Toulouse"
-      },
-      {
-        value: "Grenoble"
-      },
-      {
-        value: "Vénissieux"
-      },
-      {
-        value: "Villeurbanne"
-      },
-      {
-        value: "Chambéry"
-      },
-      {
-        value: "Annemasse"
-      },
-      {
-        value: "Montpellier"
+  getFabrics() {
+    fetch(this._API + 'anon/fabrics', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       }
-    ];
+    }).then((response) => {
+      return response.json();
+    }).then((data) => {
+      data = data.data.map(item => {
+        return {
+          value: item.id,
+          label: item.name
+        }
+      })
+      return this.setState({ fabrics: data })
+    }).catch((error) => {
+      console.error(error)
+    });
+  }
 
+  handleSubmit() {
+    fetch(this._API + 'register', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state),
+    }).then((response) => {
+      console.log(response)
+    }).then(() => {
+      this.props.navigation.navigate('Connexion')
+    }).catch((error) => {
+        console.error(error)
+      });
+  }
+
+
+
+  render() {
     return (
-      <View style={{ backgroundColor: "#f3f3f3", flex: 1 }}>
-        <Formik
-          initialValues={this.state}
-          onSubmit={values => console.log(values, this.state)}
-        >
-          {props => (
-            <View style={styles.form}>
-              <TextInput
-                style={styles.title}
-                editable={false}
-                value={"Enregistrement"}
-              />
-              <TextInput
-                placeholder="Nom de l'utilisateur"
-                style={styles.field}
-                onChangeText={props.handleChange("username")}
-                onBlur={props.handleBlur("username")}
-                value={props.values.username}
-              />
-              <View style={styles.dropdown}>
-                <Dropdown
-                  label="Quelle est votre fabrique Simplon ?"
-                  data={fabrik}
-                  onChangeText={itemValue => {
-                    console.log(itemValue, "dropdown");
+      <KeyboardAvoidingView behavior="position" enabled>
+        <View>
+          <Formik
+            initialValues={this.state}
+          >
+            {() => (
+              <View style={styles.form}>
+                <TextInput
+                  style={styles.title}
+                  editable={false}
+                  value={"Enregistrement"}
+                />
+                <TextInput
+                  placeholder="Nom de l'utilisateur"
+                  style={styles.field}
+                  onChangeText={e => {
+                    this.setState({ name: e });
                   }}
+  
                 />
-              </View>
-              <TextInput
-                placeholder="E-mail"
-                style={styles.field}
-                onChangeText={props.handleChange("email")}
-                onBlur={props.handleBlur("email")}
-                value={props.values.email}
-              />
-              <TextInput
-                placeholder="Mot de passe"
-                style={styles.field}
-                secureTextEntry={true}
-                onChangeText={props.handleChange("password")}
-                onBlur={props.handleBlur("password")}
-                value={props.values.password}
-              />
-              <TextInput
-                placeholder="Répéter le mot de passe"
-                style={styles.field}
-                secureTextEntry={true}
-                onChangeText={props.handleChange("repeatPassword")}
-                onBlur={props.handleBlur("repeatPassword")}
-                value={props.values.repeatPassword}
-              />
-              <View style={styles.checkBox}>
-                <Text style={{ lineHeight: 30, marginRight: 10 }}>
-                  Voulez-vous recevoir des notifications ?
-                </Text>
-                <Switch
-                  onValueChange={value => this.setState({ notif: value })}
-                  value={this.state.notif}
+                <View style={styles.dropdown}>
+                  <Dropdown
+                    label="Quelle est votre fabrique Simplon ?"
+                    data={this.state.fabrics}
+                    onChangeText={itemValue => {this.setState({ fabric_id: itemValue })}}
+                  />
+                </View>
+                <TextInput
+                  placeholder="E-mail"
+                  style={styles.field}
+                  onChangeText={e => {
+                    this.setState({ email: e });
+                  }}
+  
                 />
-              </View>
-              <View style={styles.button}>
-                <Button
-                  color={primaryColor}
-                  onPress={props.handleSubmit}
-                  title="S'enregistrer"
+                <TextInput
+                  placeholder="Mot de passe"
+                  style={styles.field}
+                  secureTextEntry={true}
+                  onChangeText={e => {
+                    this.setState({ password: e });
+                  }}
+  
                 />
+                <TextInput
+                  placeholder="Répéter le mot de passe"
+                  style={styles.field}
+                  secureTextEntry={true}
+                  onChangeText={e => {
+                    this.setState({ confirm_password: e });
+                  }}
+  
+                />
+                <View style={styles.checkBox}>
+                  <Text style={{ lineHeight: 30, marginRight: 10 }}>
+                    Voulez-vous recevoir des notifications ?
+                  </Text>
+                  <Switch
+                    onValueChange={value => this.setState({ notif: value })}
+                    value={this.state.notif}
+                  />
+                </View>
+                <View style={styles.button}>
+                  <Button
+                    color={primaryColor}
+                    onPress={() => this.handleSubmit()}
+                    title="S'enregistrer"
+                  />
+                </View>
               </View>
-            </View>
-          )}
-        </Formik>
-      </View>
+            )}
+          </Formik>
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }

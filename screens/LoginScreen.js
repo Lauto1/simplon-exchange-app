@@ -10,7 +10,7 @@ class LoginScreen extends React.Component {
   };
 
   render() {
-    return <Connexion />;
+    return <Connexion navigation={this.props.navigation} />;
   }
 }
 
