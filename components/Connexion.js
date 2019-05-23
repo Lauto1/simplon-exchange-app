@@ -60,7 +60,8 @@ export default class Connexion extends React.Component {
             return response.json();
         }).then((data) => {
             this.createStorage(data);
-            this.getStorage();
+        }).then(() => {
+            this.props.navigation.navigate('Accueil')
         })
         .catch((error) => {
             console.error(error)
