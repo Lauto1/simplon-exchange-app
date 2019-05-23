@@ -1,6 +1,5 @@
 import React from "react";
 import Profil from "../components/ProfilUser";
-import React from 'react';
 import { View, Text } from 'react-native';
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import FooterComponent from '../components/layouts/FooterComponent';
@@ -15,13 +14,10 @@ class ProfilUserScreen extends React.Component {
     render() {
         return (
             <>
-
-            export default FaqScreen;
-            
                 <HeaderComponent />
-                <View>
+                <Text>Wher is my Profil ?! </Text>
                     <Profil />
-                </View>
+                
                 <FooterComponent />
             </>
         );

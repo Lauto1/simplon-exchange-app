@@ -2,16 +2,18 @@
  * -Composant à relier au container lié au post "questions/réponses"
  */
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
+import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+
 
 class Profil extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatar = 'PG',
-      userName = 'Paul',
-      fabric = 'Venissieux',
-      mail = 'user@mail.com',
+      avatar: 'PG',
+      userName: 'Paul',
+      fabric: 'Venissieux',
+      mail: 'user@mail.com',
       nb_questions: 0,
       nb_answers: 0,
       nb_valid_answers: 0,
@@ -22,10 +24,13 @@ class Profil extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView>
+      <View style={styles.container}>
         <View style={styles.header}>
           <View>
-            {this.state.avatar}
+            <Text>
+              {this.state.avatar}
+            </Text>
           </View>
           <View style={styles.header}>
             <Text>{this.state.userName}</Text>
@@ -53,6 +58,8 @@ class Profil extends Component {
           <Text>nb réponses validées :</Text>
           <Text>points karma :</Text>
         </View>
+      </View>
+
       </ScrollView>
     );
   }
@@ -60,11 +67,7 @@ class Profil extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    backgroundColor: "lightgrey",
+    backgroundColor: lightGreyColor,
     flex: 1,
     paddingLeft: 24,
     paddingRight: 24
@@ -79,7 +82,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
   buttonPwd: {
-    backgroundColor: "primaryColor",
+    backgroundColor: primaryColor,
     textAlign: "center",
     width: 30,
     height: 30,
