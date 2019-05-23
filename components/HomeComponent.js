@@ -79,6 +79,8 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
+    
+    
     const terms = this.props.currentSearch;
     return (
       <View style={styles.view}>
