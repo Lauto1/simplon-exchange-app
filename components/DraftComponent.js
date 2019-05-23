@@ -20,17 +20,17 @@ class DraftComponent extends Component {
                 numberOfLines={8}
                 onChangeText={(text) => this.getText(text)}
                 value={this.state.text} />
-                <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange(this.state.text) }}></Button>
+                <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
                 </ScrollView>
         );
     }
-    onTextChange(text) {
+    onTextChange() {
         let response = {
             "id": "93",
             "user": { "name": "falseAuthor" },
             "points": 77,
             "views": 0,
-            "description": text,
+            "description": this.state.text,
             "created_at": "09/10/2019"
         }
         //this.props.newResponse(response)

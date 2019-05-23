@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Button, TextInput } from "react-native";
 import { Card, Icon, Input } from "react-native-elements";
-import { WebViewQuillEditor, WebViewQuillViewer } from 'react-native-webview-quilljs';
 import { primaryColor, lightGreyColor, boldFontFamily, titleFontSize } from "../helpers/styleGuidelines";
+import DraftComponent from "./DraftComponent";
 
 class QuestionFormComponent extends Component {
     constructor(props) {
@@ -45,15 +45,11 @@ Si vous faites face à un bug, copiez le code nécessaire à la résolution.</Te
                                     </View>
                                     
                                 </View >
-                                <View style={{ minHeight: 250 }}>
-                                    <WebViewQuillEditor
-                                        ref={component => (this.webViewQuillEditor = component)}
-                                        getDeltaCallback={this.getDelta}
-                                        onLoad={this.onLoadCallback}
-                                    />
+                                <View >
+                                    <DraftComponent/>
                                 </View>
                             </View>
-                            <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
+                         
                         </View>
                     </View>
                 </Card>

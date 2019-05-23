@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Button } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { primaryColor, lightGreyColor, boldFontFamily, titleFontSize } from "../helpers/styleGuidelines";
-import DraftComponent from "./DraftComponent"
-
+import DraftComponent from "./DraftComponent";
+/**TO DO Remplacez draft component par un vrai editeur , ici c'est un TEXT INPUT */
 class AnwserFormComponent extends Component {
     constructor(props) {
         super(props);
@@ -13,8 +13,6 @@ class AnwserFormComponent extends Component {
         };
     }
     render() {
-
-
         return (
             <View style={styles.view}>
                 <Card containerStyle={styles.cardStyle}>
@@ -23,9 +21,12 @@ class AnwserFormComponent extends Component {
                     >
                         <View style={styles.column}>
                             <Text style={styles.responseText}  >Répondre</Text>
-
-
-                            <DraftComponent />
+                            
+                            <View  >
+                            
+                               <DraftComponent/>
+                            </View>
+                        
                         </View>
                     </View>
                 </Card>
@@ -33,16 +34,7 @@ class AnwserFormComponent extends Component {
 
         );
     }
-    getDelta(text) {
-
-
-
-
-    }
    
-    onLoadCallback() {
-
-    }
 }
 
 const styles = StyleSheet.create({
