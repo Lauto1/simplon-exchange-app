@@ -6,15 +6,16 @@ import { Email, Item, Span, Image,renderEmail } from 'react-html-email';
 import { Platform } from 'react-native';
 import { styleMailing, dataText, styleMailingData } from '../helpers/styleGuidelineTemplateMailing';
 import {
-    Button,
-    KeyboardAvoidingView,
-    Picker,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    Alert
+  Button,
+  KeyboardAvoidingView,
+  Picker,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Alert,
+  Platform
 } from "react-native";
 import {withNavigation} from 'react-navigation';
 import {Dropdown} from "react-native-material-dropdown";
@@ -433,85 +434,80 @@ BugReportComponent.propTypes = {
 }
 
 const styles = StyleSheet.create({
-    card: {
-        height: "auto",
-        width: "90%",
-        borderRadius: 3,
-        elevation: 2,
-        shadowColor: blackColor,
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        padding: 8,
-        flexDirection: "column",
-        alignItems: "center"
-    },
-    title: {
-        color: primaryColor,
-        fontSize: 30,
-        textAlign: "left",
-        width: "100%",
-        marginTop: 10
-    },
-    date: {
-        marginLeft: 8,
-        marginBottom: 15
-    },
-    line: {
-        backgroundColor: "rgba(0, 0, 0, 0.1)",
-        width: "80%",
-        height: 1,
-        marginTop: 15,
-        marginBottom: 20
-    },
-    inputContainer: {
-        width: "100%",
-        marginBottom: 20
-    },
-    inputText: {
-        borderWidth: 1,
-        borderColor: lightGreyColor,
-        paddingLeft: 5,
-        marginBottom: 20
-    },
-    select: {
-        borderColor: lightGreyColor,
-        borderBottomWidth: 1
-    },
-    textArea: {
-        marginTop: 20,
-        padding: 2,
-        borderWidth: 2,
-        borderColor: blackColor,
-        borderStyle: "solid"
-    },
-    imageUpload: {
-        backgroundColor: primaryColor,
-        marginTop: 20,
-        marginBottom: 20,
-        borderRadius: 2,
-        padding: 8,
-        flexDirection: "row",
-        justifyContent: "center",
-        shadowColor: blackColor,
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.8,
-        shadowRadius: 2
-    },
-    imageUploadText: {
-        color: whiteColor,
-        fontSize: 15,
-        fontWeight: "bold"
-    },
-    submit: {
-        width: "80%"
-    }
+  card: {
+    height: "auto",
+    width: "90%",
+    borderRadius: 3,
+    elevation: 2,
+    shadowColor: blackColor,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    padding: 8,
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  title: {
+    color: primaryColor,
+    fontSize: 30,
+    textAlign: "left",
+    width: "100%",
+    marginTop: 10
+  },
+  date: {
+    marginLeft: 8,
+    marginBottom: 15
+  },
+  line: {
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    width: "80%",
+    height: 1,
+    marginTop: 15,
+    marginBottom: 20
+  },
+  inputContainer: {
+    width: "100%",
+    marginBottom: 20
+  },
+  inputText: {
+    borderWidth: 1,
+    borderColor: lightGreyColor,
+    paddingLeft: 5,
+    marginBottom: 20,
+    height : Platform.OS === 'ios' ? 40 : 40
+  },
+  select: {
+    borderColor: lightGreyColor,
+    borderBottomWidth: 1
+  },
+  textArea: {
+    height : Platform.OS === 'ios' ? 80 : 80,
+    marginTop : 20,
+    paddingLeft: 5,
+    borderWidth: 1,
+    borderColor: lightGreyColor
+  },
+  imageUpload: {
+    backgroundColor: primaryColor,
+    marginTop: 20,
+    marginBottom: 20,
+    borderRadius: 2,
+    padding: 8,
+    flexDirection: "row",
+    justifyContent: "center",
+    shadowColor: blackColor,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2
+  },
+  imageUploadText: {
+    color: whiteColor,
+    fontSize: 15,
+    fontWeight: "bold"
+  },
+  submit: {
+    width: "80%"
+  }
 });
 
 export default withNavigation(BugReportComponent);

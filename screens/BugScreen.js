@@ -5,11 +5,10 @@ import HeaderComponent from "../components/layouts/HeaderComponent";
 
 class BugScreen extends React.Component {
 
-    static navigationOptions = ({ navigation }) => {
-        return {
-            header: null,
-        };
-    }
+    static navigationOptions = ({ navigation }) => ({
+        header: props => <HeaderComponent {...props} />
+      });
+      
     render() {
         return (
             <View style={styles.container}>
