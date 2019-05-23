@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Button, ScrollView, TextInput } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { primaryColor, lightGreyColor, boldFontFamily, titleFontSize } from "../helpers/styleGuidelines";
-import getRNDraftJSBlocks from 'react-native-draftjs-render';
+//import getRNDraftJSBlocks from 'react-native-draftjs-render';
 
 /**TODO Changer le text input par un editeur editeur wysiwyg */
 class DraftComponent extends Component {
