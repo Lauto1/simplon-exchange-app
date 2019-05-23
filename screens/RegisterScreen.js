@@ -9,7 +9,7 @@ class RegisterScreen extends React.Component {
   };
 
   render() {
-    return <Inscription />;
+    return <Inscription navigation={this.props.navigation} />;
   }
 }
 
