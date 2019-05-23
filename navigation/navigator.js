@@ -9,9 +9,11 @@ import HomeStack from "./stack/HomeStack";
 import LoginStack from "./stack/LoginStack";
 import RegisterStack from "./stack/RegisterStack";
 import StatsStack from "./stack/StatsStack";
+import ProfileContainer from './../containers/Profile';
 
 // definit la connexion
 let mockUserAsyncStorage = true ; // A modifier à l'arrivée de l'api
+
 
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
@@ -26,6 +28,7 @@ const DrawerNavigator = createDrawerNavigator({
   // Profil: {screen: ProfileScreen, navigationOptions: {drawerLabel: ()=> mockUserAsyncStorage? "Faq" : null}}, 
   Bug: BugScreen,
   Statistiques: StatsStack,
+  Profil : ProfileContainer
 });
 
 
