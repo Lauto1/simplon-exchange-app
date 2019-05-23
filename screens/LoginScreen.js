@@ -1,5 +1,5 @@
 import React from "react";
-import Connexion from "../components/Connexion";
+import Connexion from "../containers/Connexion";
 import HeaderComponent from "../components/layouts/HeaderComponent";
 
 class LoginScreen extends React.Component {

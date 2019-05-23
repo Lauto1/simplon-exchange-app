@@ -1,9 +1,9 @@
 import { Formik } from "formik";
 import React from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
-import {AsyncStorage} from 'react-native';
 import { CheckBox } from "react-native-elements";
 import {KeyboardAvoidingView} from 'react-native';
+import {AsyncStorage} from 'react-native';
 import {
   lightGreyColor,
   primaryColor,
@@ -32,17 +32,8 @@ export default class Connexion extends React.Component {
     */
     createStorage(data) {
         AsyncStorage.setItem('user_informations', JSON.stringify(data), () => {
-            return true;
+            return this.props.actions.setStorage();
         })
-    }
-
-    /*
-    * Récupère l'id et le token de l'utilisateurs dans le storage
-    */
-    getStorage() {
-        AsyncStorage.getItem('user_informations', (err, result) => {
-            console.log("Contenu storage :",JSON.parse(result));
-        });
     }
 
     /*
