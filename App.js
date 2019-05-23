@@ -103,7 +103,7 @@ export default class App extends Component {
         <Provider store={store}>
           <Navigator />
           
-          <View style={styles.container}>
+          {/* <View style={styles.container}>
         <TextInput
           value={this.state.messageText}
           onChangeText={this.handleChangeText}
@@ -118,7 +118,7 @@ export default class App extends Component {
         {this.state.notification ?
           this.renderNotification()
         : null}
-      </View>
+      </View> */}
         </Provider>
       );
     }

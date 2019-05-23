@@ -20,6 +20,7 @@
     "react-native-calendar-picker": "^6.0.0",
     "react-native-elements": "^1.1.0",
     "react-native-material-dropdown": "^0.11.1",
+    "react-native-modal-datetime-picker": "^7.4.2",
     "react-native-popup-dialog": "^0.18.2",
     "react-native-svg-charts": "^5.2.0",
     "react-navigation": "^3.8.1",

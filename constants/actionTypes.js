@@ -7,4 +7,8 @@ export default {
   ADD_NB_USERS: 'ADD_NB_USERS'
 }
 
-
+export const ADD_NB_POSTS = 'ADD_NB_POSTS';
+export const ADD_NB_RESPONSES = 'ADD_NB_RESPONSES';
+export const ADD_NB_USERS = 'ADD_NB_USERS';
+export const ADD_END_DATE_FILTER = 'ADD_END_DATE_FILTER';
+export const ADD_START_DATE_FILTER = 'ADD_START_DATE_FILTER';

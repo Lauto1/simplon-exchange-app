@@ -1,11 +1,12 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import PopUp from "../components/filters/PopUp";
+import DatePicker from "../components/filters/DatePicker";
 import {fetchDataApi, setDatePickedStart, setDatePickedEnd} from '../actions/popUp';
+
 const mapStateToProps = state => {
   return {
-    NbPosts: state.storeStatistiques.NbPosts,
-    NbUtilisateurs: state.storeStatistiques.NbUtilisateurs,
+    StartDateFilter: state.storeStatistiques.StartDateFilter,
+    EndDateFilter: state.storeStatistiques.EndDateFilter,
     NbResponses: state.storeStatistiques.NbResponses,    
   };
 };
@@ -17,4 +18,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PopUp);
+)(DatePicker);
