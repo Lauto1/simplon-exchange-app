@@ -14,7 +14,8 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Alert
+  Alert,
+  Platform
 } from "react-native";
 import { withNavigation } from 'react-navigation';
 import { Dropdown } from "react-native-material-dropdown";
@@ -508,18 +509,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: lightGreyColor,
     paddingLeft: 5,
-    marginBottom: 20
+    marginBottom: 20,
+    height : Platform.OS === 'ios' ? 40 : 40
   },
   select: {
     borderColor: lightGreyColor,
     borderBottomWidth: 1
   },
   textArea: {
+    height : Platform.OS === 'ios' ? 80 : 80,
     marginTop : 20,
-    padding: 2,
-    borderWidth: 2,
-    borderColor: blackColor,
-    borderStyle: "solid"
+    paddingLeft: 5,
+    borderWidth: 1,
+    borderColor: lightGreyColor
   },
   imageUpload: {
     backgroundColor: primaryColor,
