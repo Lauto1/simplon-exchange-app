@@ -45,14 +45,19 @@ export const navigateQuestion = (index) => {
 export const fetchQuestions = () => {
   return async dispatch => {
     try {
-      //console.log(mockQuestions);
       console.log("current Token",token.token);
-      const response= await fetch (`http://dev.simplon-exchange.help/api/questions?token=${token.token}`);
+      //const response= await fetch (`http://dev.simplon-exchange.help/api/questions?token=${token.token}`);
       
       
-      const json= await response.json();
+      //let json= await response.json();
 
-      console.log("api",json.data);
+      //console.log("api",json.data);
+      // let QuestionsFromApi = json.data.map(question => {
+      //     question.user = {};
+      //     question.user.name = "testoApi";
+      //     question.user.points = 0;
+      //     return question;
+      // })
       const QUESTIONS =mockQuestions.questions;
       dispatch(addQuestions(QUESTIONS));
       return new Promise((resolve, reject) => {
