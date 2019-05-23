@@ -33,4 +33,6 @@ Amplitude est initialisé dans le constructor de App.js.
 - Expo Cli
 - React Native Elements
 - 
-
+## TO DO
+-Le text editor est pour l'instant un text input, tout les components react native testé comportaient des problèmes
+-Remplacer le Text input.
