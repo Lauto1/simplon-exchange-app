@@ -27,7 +27,7 @@ class Profil extends Component {
           <View>
             {this.state.avatar}
           </View>
-          <View>
+          <View style={styles.header}>
             <Text>{this.state.userName}</Text>
             <Text>{this.state.fabric}</Text>
           </View>
@@ -71,6 +71,12 @@ const styles = StyleSheet.create({
   },
   header: {
     margin: 3
+  },
+  informations: {
+    margin: 5
+  },
+  statistics: {
+    margin: 5
   },
   buttonPwd: {
     backgroundColor: "primaryColor",
