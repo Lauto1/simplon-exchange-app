@@ -4,7 +4,8 @@ import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
 import AnwserFormComponent from "../components/AnwserFormComponent";
-import QuestionComponent from "../components/QuestionComponent";
+import Question from "../containers/Question";
+import * as Questions from "../mock/questionsReponses.json"
 import HeaderComponent from "../components/layouts/HeaderComponent";
 import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent";
 
@@ -19,19 +20,17 @@ class QuestionScreen extends React.Component {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
       connected:true,
+      currentQuestion:null,
+      navigationIndex: null,
       currentQuestion:null
     };
     
   }
   componentWillMount(){
-    const navigateQuestion =this.props.navigation.getParam("navigateQuestion","no data")
-    const index = this.props.navigation.getParam("index", "index");
-    const state = this.props.navigation.getParam("state", "no data");
-
-    navigateQuestion(index,state).then(value=>{
-      console.log("question current kev 2",value);
-       this.setState({currentQuestion:value})
-    })
+    const navigateQuestion = this.props.navigation.getParam("navigateQuestion","no data");
+    const state = this.props.navigation.getParam("state", null);
+    const index = this.props.navigation.getParam("index","no-data");
+    this.setState({navigateByIndex:index});
   }
   componentDidMount(){
    
@@ -60,15 +59,18 @@ class QuestionScreen extends React.Component {
   };
 
   
-
+  navigateByIndex = (index)=> {
+    console.log("question Screen",index);
+    this.setState({navigationIndex:index});
+  }
+   
   render() {
 
     const question = this.props.navigation.getParam("question", "no Data");
-    const index = this.props.navigation.getParam("index", "index");
-    const navigateQuestion =this.props.navigation.getParam("navigateQuestion","no data")
-
+    const index = this.props.navigation.getParam("index","no-data");
     //console.log('question.state.params.index',this.props.navigation.state.params);
     
+    console.log("this.props.index",index,"this.props");
     
     
     
@@ -80,7 +82,6 @@ class QuestionScreen extends React.Component {
     
     
     const answers = question.answers;
-
     //console.log('answerss', answers);
     
     const { showScrollToTop } = this.state;
@@ -88,11 +89,12 @@ class QuestionScreen extends React.Component {
       <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6" }} ref="scrollView"
         onScroll={this.onScroll} >
 
-        <QuestionComponent navigation={this.props.navigation} question={question} showContent={true} />
+        <Question navigateByIndex={this.navigateByIndex} navigation={this.props.navigation} index={index} question={question} showContent={true} />
         <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
         {/* <TouchableOpacity > */}
         <TouchableOpacity 
-        onPress={() => this.props.navigation.navigate("Question",{question:this.state.currentQuestion,index:index-1,navigateQuestion:navigateQuestion,state:"backward"})}>
+        onPress={() => { this.setState({navigationIndex:--index});console.log("goBackward");
+        }}>
           <View  style={{
                 flexDirection:"row",
                 borderWidth: 2
@@ -112,7 +114,7 @@ class QuestionScreen extends React.Component {
             {/* </TouchableOpacity> */}
             </View>
         </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate("Question",{question:this.state.currentQuestion,index:index+1,navigateQuestion:navigateQuestion,state:"forward"})}> 
+        <TouchableOpacity  onPress={() => {this.setState({navigationIndex:++index});console.log("goForward")}}> 
           <View  style={{
                 flexDirection:"row",
                 justifyContent:"flex-end"

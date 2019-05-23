@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
-import QuestionComponent from "./QuestionComponent";
+import Question from "../containers/Question";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
@@ -12,9 +12,13 @@ class HomeComponent extends React.Component {
   state = {
     questions: [],
     showScrollToTop: false,
-    showContent:false
+    showContent:false,
+    navigationIndex:false
   };
-
+  navigateByIndex = (index)=> {
+    console.log("question Screen",index);
+    this.setState({navigationIndex:index});
+  }
   componentDidMount() {
     this.props.actions.fetchQuestions().then(questions => {
       //console.log(questions, "promise");
@@ -102,12 +106,12 @@ class HomeComponent extends React.Component {
 
           </View>
           {this.searchQuestions(terms, questions).map((question,i) => (
-            <QuestionComponent terms={terms}
+            <Question  terms={terms}
               navigation={this.props.navigation}
               showContent={question.showContent}
               key={question.id}
               question={question}
-              index={i} navigateQuestion={this.props.actions.navigateQuestion} currentQuestion={this.props.currentQuestion}
+              indexQuestion={i} 
             />
           ))}
           <StatsComponent questions={questions} />

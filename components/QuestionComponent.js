@@ -18,15 +18,19 @@ import {
 
 
 class QuestionComponent extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
-      showLoader:false
+      showLoader: false,
+      currentQuestion: null
     }
   }
-    showLoader = () => { this.setState({ showLoader:true }); };
-    hideLoader = () => { this.setState({ showLoader:false }); };
+  componentWillMount() {
+   
+  }
+  showLoader = () => { this.setState({ showLoader: true }); };
+  hideLoader = () => { this.setState({ showLoader: false }); };
   
   onPressQuestion() {
     console.log("onPressQuestion");
@@ -36,23 +40,23 @@ class QuestionComponent extends Component {
   //test hightlight word "not 100% functionnal"
   hightlightTerm(title = null, terms = null) {
     let testHiglight = false;
-    if ( testHiglight && terms != null && terms != "" && title.toLowerCase().includes(terms.toLowerCase()) &&terms.length >=2) {
+    if (testHiglight && terms != null && terms != "" && title.toLowerCase().includes(terms.toLowerCase()) && terms.length >= 2) {
 
       let indexWord = title.toLowerCase().indexOf(terms.toLowerCase());
-			console.log("TCL: indexWord", indexWord)
+      console.log("TCL: indexWord", indexWord)
       let beginningWords = title.slice(0, indexWord);
       let originalWord;
       let words = title.split(" ");
-			console.log("TCL: words", words)
-      words.forEach(word=>{
-          if (word.toLowerCase()=== terms.toLowerCase() || word.toLowerCase().includes(terms.toLowerCase()) ) {
-              originalWord = word;
-          }
+      console.log("TCL: words", words)
+      words.forEach(word => {
+        if (word.toLowerCase() === terms.toLowerCase() || word.toLowerCase().includes(terms.toLowerCase())) {
+          originalWord = word;
+        }
       })
-			console.log("TCL: originalWord", originalWord);
-      
+      console.log("TCL: originalWord", originalWord);
+
       let lastWords = title.slice(indexWord + originalWord.length, title.length);
-      return <Text style={styles.titleContainer} >{ beginningWords }<Text style={{ backgroundColor: "#FFFF00" }} >{ originalWord }</Text><Text>{ lastWords }</Text></Text>
+      return <Text style={styles.titleContainer} >{beginningWords}<Text style={{ backgroundColor: "#FFFF00" }} >{originalWord}</Text><Text>{lastWords}</Text></Text>
     } else {
       return <Text style={styles.titleContainer}>{title}</Text>
     }
@@ -61,13 +65,18 @@ class QuestionComponent extends Component {
     const { question } = this.props;
     
     const { terms } = this.props
+    const { indexQuestion } = this.props;
+    console.log("question",question);
+    
+    
+    //console.log("index inside",indexQuestion,"index inside");
+    
     return (
       <TouchableOpacity
-        onPress={() =>
-          this.props.navigation.navigate("Question", { question: question,index:this.props.index,navigateQuestion:this.props.navigateQuestion })
+        onPress={() => {this.props.navigation.navigate("Question", { question: question, index: indexQuestion }) }
         }
       >
-        <View style={{ position: 'absolute', top:"35%",right: 0, left: 0 }}>
+        <View style={{ position: 'absolute', top: "35%", right: 0, left: 0 }}>
           <ActivityIndicator size="large" color="#D7403E" />
         </View>
         <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
@@ -78,20 +87,20 @@ class QuestionComponent extends Component {
           >
             <View style={styles.view}>
               <Icon name="sort-up" type="font-awesome" />
-              <Text style={styles.textUpVote}>{question.upvote}</Text>
+              <Text style={styles.textUpVote}>{question.views}</Text>
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
               <Text style={styles.title}>{question.title}</Text>
 
               <View style={styles.infosPostBox}>
-                <Text style={styles.date}>{question.date}</Text>
+                <Text style={styles.date}>{question.created_at}</Text>
                 <Text style={styles.par}>par</Text>
-                <Text style={styles.author}>{question.author}</Text>
+                <Text style={styles.author}>{question.user.name}</Text>
               </View>
 
               {this.props.showContent && (
-                <Text style={styles.questionContent}>{question.content}</Text>
+                <Text style={styles.questionContent}>{question.description}</Text>
               )}
 
               <View style={styles.boxTags}>
