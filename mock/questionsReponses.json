@@ -4,51 +4,51 @@
           "id": "01",
           "title":
             "erreur SQL PDO : Recoverable fatal error: Object of class PDOStatement could not be converted to string in /shared/httpd/quizz/htdocs/quiz/quiz-informatique.php on line 42",
-          "date": "09/10/2018",
-          "author": "Jean-Michel",
-          "content":
+          "created_at": "09/10/2018",
+          "user": {"name":"Jean-Michel","points":0},
+          "description":
             "Fatal error: Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'name' doesn't have a default value in /shared/httpd/test/htdocs/donne.php:27 Stack trace: #0 /shared/httpd/test/htdocs/donne.php(27): PDOStatement->execute(Array) #1 {main} thrown in /shared/httpd/test/htdocs/donne.php on line 27 cette erreur me bloque . je voudrai que quand on envoi un message sur ma page message.php sa envoi sur la page verification.php (ca sa marche) mais quand le code s'execute il me marque l'erreur",
-          "upvote": 0,
+          "views": 0,
           "answers": [
             {
               "id": "6",
-              "author": "Marie-Béatrice",
+              "user": {"name":"Marie-Béatrice","points":0},
               "points": 0,
-              "upvote": 0,
-              "content": "La super réponse de Marie-Béatrice",
-              "date": "09/10/2018"
+              "views": 0,
+              "description": "La super réponse de Marie-Béatrice",
+              "created_at": "09/10/2018"
             },
             {
               "id": "7",
-              "author": "Marie-Béatrice",
+              "user": {"name":"Marie-Béatrice","points":0},
               "points": 0,
-              "upvote": 0,
-              "content": "La nouvelle réponse de Marie-Béatrice",
-              "date": "09/10/2018"
+              "views": 0,
+              "description": "La nouvelle réponse de Marie-Béatrice",
+              "created_at": "09/10/2018"
             },
             {
               "id": "9",
-              "author": "Jean-Michel",
+              "user": {"name":"Jean-Michel","points":0},
               "points": 0,
-              "upvote": 123,
-              "content": "La réponse de Jean-Michel à Marie-Béatrice",
-              "date": "09/10/2018"
+              "views": 123,
+              "description": "La réponse de Jean-Michel à Marie-Béatrice",
+              "created_at": "09/10/2018"
             },
             {
               "id": "19",
-              "author": "Marie-Béatrice",
+              "user": {"name":"Marie-Béatrice","points":0},
               "points": 0,
-              "upvote": 123,
-              "content": "La réponse de Marie-Béatrice à Jean-Michel",
-              "date": "09/10/2018"
+              "views": 123,
+              "description": "La réponse de Marie-Béatrice à Jean-Michel",
+              "created_at": "09/10/2018"
             },
             {
               "id": "109",
-              "author": "Al Capone",
+              "user": {"name":"Al Capone","points":0},
               "points": 90,
-              "upvote": 123,
-              "content": "Le dernier mot est donné par Al Capone",
-              "date": "09/10/2018"
+              "views": 123,
+              "description": "Le dernier mot est donné par Al Capone",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Villeurbanne",
@@ -58,19 +58,19 @@
           "id": "azfea",
           "title":
             "probleme animation css 2 ancune transition entre chaque parti du keyframe",
-          "date": "09/11/2018",
-          "author": "Thor",
-          "content":
+          "created_at": "09/11/2018",
+          "user": {"name":"Thor","points":0},
+          "description":
             "Ici est le corps de ma question 2bonjour mon animation est 'saccader' il ne fait aucune transition entre chaque parti du mon keyframes mon code html",
-          "upvote": 8,
+          "views": 8,
           "answers": [
             {
               "id": "555",
-              "author": "JCVD",
+              "user": {"name":"JCVD","points":0} ,
               "points": 18,
-              "upvote": 125,
-              "content": "La super réponse de JCVD",
-              "date": "09/10/2018"
+              "views": 125,
+              "description": "La super réponse de JCVD",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Vénissieux",
@@ -79,19 +79,19 @@
           "id": "02",
           "title":
             "probleme animation css ancune transition entre chaque parti du keyframe",
-          "date": "09/11/2018",
-          "author": "Thor",
-          "content":
+          "created_at": "09/11/2018",
+          "user": {"name":"Thor","points":0} ,
+          "description":
             "Ici est le corps de ma question 2bonjour mon animation est 'saccader' il ne fait aucune transition entre chaque parti du mon keyframes mon code html",
-          "upvote": 3,
+          "views": 3,
           "answers": [
             {
               "id": "555",
-              "author": "JCVD",
+              "user": {"name":"JCVD","points":0},
               "points": 7,
-              "upvote": 125,
-              "content": "La super réponse de JCVD",
-              "date": "09/10/2018"
+              "views": 125,
+              "description": "La super réponse de JCVD",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Vénissieux",
@@ -100,18 +100,18 @@
         {
           "id": "03",
           "title": "Question 3 à propos de ",
-          "date": "05/11/2016",
-          "author": "Garcimore",
-          "content": "Ici est le corps de ma question 3",
-          "upvote": 2,
+          "created_at": "05/11/2016",
+          "user": {"name":"Garcimore","points":0},
+          "description": "Ici est le corps de ma question 3",
+          "views": 2,
           "answers": [
             {
               "id": "666",
-              "author": "Le pape",
+              "user": {"name":"Le pape","points":0},
               "points": 7,
-              "upvote": 128,
-              "content": "La super réponse du Pape",
-              "date": "09/10/2018"
+              "views": 128,
+              "description": "La super réponse du Pape",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Roanne",
@@ -120,18 +120,18 @@
         {
           "id": "04",
           "title": "Question 4 à propos de ",
-          "date": "05/04/2017",
-          "author": "Casimir",
-          "content": "Ici est le texte de la question 4",
-          "upvote": 0,
+          "created_at": "05/04/2017",
+          "user": {"name":"Casimir","points":0},
+          "description": "Ici est le texte de la question 4",
+          "views": 0,
           "answers": [
             {
               "id": "11",
-              "author": "Messi",
+              "user": {"name":"Messi","points":0} ,
               "points": 77,
-              "upvote": 133,
-              "content": "La super réponse de Messi",
-              "date": "09/10/2018"
+              "views": 133,
+              "description": "La super réponse de Messi",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Montpellier",
@@ -140,26 +140,26 @@
         {
           "id": "05",
           "title": "Question 5 à propos de ",
-          "date": "05/04/2017",
-          "author": "Casimir",
-          "content": "Ici est le texte de la question 5",
-          "upvote": 0,
+          "created_at": "05/04/2017",
+          "user": {"name":"Casimir","points":0},
+          "description": "Ici est le texte de la question 5",
+          "views": 0,
           "answers": [
             {
               "id": "55",
-              "author": "Messi",
+              "user": {"name":"Messi","points":0},
               "points": 77,
-              "upvote": 143,
-              "content": "La super réponse de Messi",
-              "date": "09/10/2018"
+              "views": 143,
+              "description": "La super réponse de Messi",
+              "created_at": "09/10/2018"
             },
             {
               "id": "999",
-              "author": "Le Messie",
+              "user": {"name":"Le Messie","points":0},
               "points": 888,
-              "upvote": 158,
-              "content": "La super réponse du Messie",
-              "date": "09/10/2018"
+              "views": 158,
+              "description": "La super réponse du Messie",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Montpellier",
@@ -168,26 +168,26 @@
         {
           "id": "06",
           "title": "Question 6 à propos de ",
-          "date": "05/04/2017",
-          "author": "Casimir",
-          "content": "Ici est le texte de la question 6",
-          "upvote": 0,
+          "created_at": "05/04/2017",
+          "user": {"name":"Casimir","points":0},
+          "description": "Ici est le texte de la question 6",
+          "views": 0,
           "answers": [
             {
               "id": "55",
-              "author": "Messi",
+              "user": {"name":"Messi","points":0},
               "points": 77,
-              "upvote": 177,
-              "content": "La super réponse de Messi",
-              "date": "09/10/2018"
+              "views": 177,
+              "description": "La super réponse de Messi",
+              "created_at": "09/10/2018"
             },
             {
               "id": "999",
-              "author": "Le Messie",
+              "user": {"name":"Le Messie","points":0} ,
               "points": 888,
-              "upvote": 188,
-              "content": "La super réponse du Messie",
-              "date": "09/10/2018"
+              "views": 188,
+              "description": "La super réponse du Messie",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Montpellier",
@@ -196,26 +196,26 @@
         {
           "id": "07",
           "title": "Question 7 à propos de ",
-          "date": "05/04/2017",
-          "author": "Casimir",
-          "content": "Ici est le texte de la question 7",
-          "upvote": 0,
+          "created_at": "05/04/2017",
+          "user": {"name":"Casimir","points":0} ,
+          "description": "Ici est le texte de la question 7",
+          "views": 0,
           "answers": [
             {
               "id": "55",
-              "author": "Messi",
+              "user": {"name":"Messi","points":0},
               "points": 77,
-              "upvote": 193,
-              "content": "La super réponse de Messi",
-              "date": "09/10/2018"
+              "views": 193,
+              "description": "La super réponse de Messi",
+              "created_at": "09/10/2018"
             },
             {
               "id": "999",
-              "author": "Le Messie",
+              "user": {"name":"Le Messie","points":0} ,
               "points": 888,
-              "upvote": 203,
-              "content": "La super réponse du Messie",
-              "date": "09/10/2018"
+              "views": 203,
+              "description": "La super réponse du Messie",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Montpellier",
@@ -224,26 +224,26 @@
         {
           "id": "08",
           "title": "Question 8 à propos de ",
-          "date": "05/04/2017",
-          "author": "Casimir",
-          "content": "Ici est le texte de la question 8",
-          "upvote": 0,
+          "created_at": "05/04/2017",
+          "user": {"name":"Casimir","points":0},
+          "description": "Ici est le texte de la question 8",
+          "views": 0,
           "answers": [
             {
               "id": "55",
-              "author": "Messi",
+              "user": {"name":"Messi","points":0} ,
               "points": 77,
-              "upvote": 213,
-              "content": "La super réponse de Messi",
-              "date": "09/10/2018"
+              "views": 213,
+              "description": "La super réponse de Messi",
+              "created_at": "09/10/2018"
             },
             {
               "id": "999",
-              "author": "Le Messie",
+              "user": {"name":"Le Messie","points":0},
               "points": 888,
-              "upvote": 223,
-              "content": "La super réponse du Messie",
-              "date": "09/10/2018"
+              "views": 223,
+              "description": "La super réponse du Messie",
+              "created_at": "09/10/2018"
             }
           ],
           "factory": "Montpellier",
