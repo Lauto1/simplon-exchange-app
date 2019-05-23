@@ -2,6 +2,9 @@ import { ImagePicker, MailComposer, Permissions } from "expo";
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import { Email, Item, Span, Image,renderEmail } from 'react-html-email';
+import { Platform } from 'react-native';
+import { styleMailing, dataText, styleMailingData } from '../helpers/styleGuidelineTemplateMailing';
 import {
   Button,
   KeyboardAvoidingView,
@@ -157,24 +160,105 @@ _handleImagePicked = async pickerResult =>{
     this.setState({
         uploading:false,
     })
-}
+} 
 async sendMail(obj){
-    // On crée un email avec :
-    MailComposer.composeAsync({
+    if(Platform.OS === 'ios'){
+      if(this.state.image){
+        // On crée un email avec :
+        MailComposer.composeAsync({
+            // Comme recipient l'obj.mail qui est l'email de la personne
+            recipients:[obj.mail,'contact@idmkr.io'], //à remplacer par l'adresse mail du support technique
+            // En sujet on met la catégories du mail
+            subject:obj.category,
+            // Body contient toutes les informations du mail
+            body: 
+              renderEmail(
+                <Email title=""><br/><br/>
+                  <Item align="left">
+                    <Span>support technique Simplon :</Span><br/><br/>
+                    <Span {...styleMailing.date}{...dataText}>Envoyé le : </Span><Span {...styleMailingData.date}{...dataText}>{this.state.date}</Span><br/>
+                    <Span {...styleMailing.environnement}{...dataText}>Environnement : </Span><Span {...styleMailingData.environnement}{...dataText}>{this.state.environnement}</Span><br/>
+                    <Span {...styleMailing.page}{...dataText}>Page : </Span><Span {...styleMailingData.page}{...dataText}>{this.state.page}</Span><br/>
+                    <Span {...styleMailing.categories}{...dataText}>Catégorie : </Span><Span {...styleMailingData.categories}{...dataText}>{this.state.category}</Span><br/><br/>
+                    <Span {...styleMailing.descriptif}{...dataText}>Descriptif : </Span><Span {...styleMailingData.descriptif}{...dataText}>{this.state.descriptif}</Span>
+                    <Image width={500} height={500} alt="image Bug" src={this.state.image}/>
+                  </Item>
+                </Email>
+              ),
+            isHtml:true,
+        });
+      }else {
+            // On crée un email avec :
+      MailComposer.composeAsync({
         // Comme recipient l'obj.mail qui est l'email de la personne
-        recipients:[obj.mail], //à remplacer par l'adresse mail du support technique
+        recipients:[obj.mail,'contact@idmkr.io'], //à remplacer par l'adresse mail du support technique
         // En sujet on met la catégories du mail
         subject:obj.category,
         // Body contient toutes les informations du mail
-        body:
-            'Mail : '+obj.mail+'\n'+
-            'Environnement : '+obj.environnement+'\n'+
-            'Page : '+obj.page+'\n'+
-            'Date : '+obj.date+'\n'+
-            'Catégories : '+obj.category+'\n'+
-            'Descriptif : '+obj.descriptif+'\n',
-        attachments:[this.state.image]
+        body: 
+          renderEmail(
+            <Email title=""><br/><br/>
+              <Item align="left">
+                <Span>support technique Simplon :</Span><br/><br/>
+                <Span {...styleMailing.date}>Envoyé le : </Span><Span {...styleMailingData.date}>{this.state.date}</Span><br/>
+                <Span {...styleMailing.environnement}>Environnement : </Span><Span {...styleMailingData.environnement}>{this.state.environnement}</Span><br/>
+                <Span {...styleMailing.page}>Page : </Span><Span {...styleMailingData.page}>{this.state.page}</Span><br/>
+                <Span {...styleMailing.categories}>Catégorie : </Span><Span {...styleMailingData.categories}>{this.state.category}</Span><br/>
+                <Span {...styleMailing.descriptif}>Descriptif : </Span><Span {...styleMailingData.descriptif}>{this.state.descriptif}</Span>
+              </Item>
+            </Email>
+          ),
+        isHtml:true,
     });
+      } 
+    }else {
+      if(this.state.image){
+        // On crée un email avec :
+        MailComposer.composeAsync({
+            // Comme recipient l'obj.mail qui est l'email de la personne
+            recipients:[obj.mail,'contact@idmkr.io'], //à remplacer par l'adresse mail du support technique
+            // En sujet on met la catégories du mail
+            subject:obj.category,
+            // Body contient toutes les informations du mail
+            body: 
+              renderEmail(
+                <Email title="support technique Simplon :"><br/><br/>
+                  <Item align="left">
+                    <Span {...styleMailing.date}{...dataText}>Envoyé le : </Span><Span {...styleMailingData.date}{...dataText}>{this.state.date}</Span><br/><br/>
+                    <Span {...styleMailing.environnement}{...dataText}>Environnement : </Span><Span {...styleMailingData.environnement}{...dataText}>{this.state.environnement}</Span><br/><br/>
+                    <Span {...styleMailing.page}{...dataText}>Page : </Span><Span {...styleMailingData.page}{...dataText}>{this.state.page}</Span><br/><br/>
+                    <Span {...styleMailing.categories}{...dataText}>Catégorie : </Span><Span {...styleMailingData.categories}{...dataText}>{this.state.category}</Span><br/><br/>
+                    <Span {...styleMailing.descriptif}{...dataText}>Descriptif : </Span><Span {...styleMailingData.descriptif}{...dataText}>{this.state.descriptif}</Span>
+                  </Item>
+                </Email>
+              ),
+              attachments:[this.state.image],
+            isHtml:true,
+        });
+      }else {
+            // On crée un email avec :
+      MailComposer.composeAsync({
+        // Comme recipient l'obj.mail qui est l'email de la personne
+        recipients:[obj.mail,'contact@idmkr.io'], //à remplacer par l'adresse mail du support technique
+        // En sujet on met la catégories du mail
+        subject:obj.category,
+        // Body contient toutes les informations du mail
+        body: 
+          renderEmail(
+            <Email title="support technique Simplon :"><br/><br/>
+              <Item align="left">
+                <Span {...styleMailing.date}>Envoyé le : </Span><Span {...styleMailingData.date}>{this.state.date}</Span><br/><br/>
+                <Span {...styleMailing.environnement}>Environnement : </Span><Span {...styleMailingData.environnement}>{this.state.environnement}</Span><br/><br/>
+                <Span {...styleMailing.page}>Page : </Span><Span {...styleMailingData.page}>{this.state.page}</Span><br/><br/>
+                <Span {...styleMailing.categories}>Catégorie : </Span><Span {...styleMailingData.categories}>{this.state.category}</Span><br/><br/>
+                <Span {...styleMailing.descriptif}>Descriptif : </Span><Span {...styleMailingData.descriptif}>{this.state.descriptif}</Span>
+              </Item>
+            </Email>
+          ),
+        isHtml:true,
+    });
+      }
+    }
 }
 async uploadImageAsync(uri) {
     // On prépare l'url de l'API
