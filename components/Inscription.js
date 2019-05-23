@@ -92,7 +92,7 @@ export default class Inscription extends React.Component {
                   label="Quelle est votre fabrique Simplon ?"
                   data={fabrik}
                   onChangeText={itemValue => {
-                    console.log(itemValue, "dropdown");
+                    // console.log(itemValue, "dropdown");
                   }}
                 />
               </View>

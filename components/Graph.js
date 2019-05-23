@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
   text: {
     color: primaryColor,
     fontFamily: boldFontFamily,
-    marginLeft: -20
   },
   container: {
     marginTop: 20,

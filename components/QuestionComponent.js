@@ -16,7 +16,7 @@ import {
 
 class QuestionComponent extends Component {
   onPressQuestion() {
-    console.log("onPressQuestion");
+    // console.log("onPressQuestion");
 
     const { navigation: navigate } = this.props;
     () => navigate("Question");

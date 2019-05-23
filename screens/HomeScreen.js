@@ -20,7 +20,7 @@ class HomeScreen extends Component {
     return <HomeContainer navigation={this.props.navigation} />;
   }
   onLoadCallback = () => {
-    console.log("loaded");
+    // console.log("loaded");
   };
 }
 

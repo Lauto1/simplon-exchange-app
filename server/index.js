@@ -43,7 +43,7 @@ const handlePushTokens = (message) => {
     for (let chunk of chunks) {
       try {
         let receipts = await expo.sendPushNotificationsAsync(chunk);
-        console.log(receipts);
+        // console.log(receipts);
       } catch (error) {
         console.error(error);
       }
@@ -66,12 +66,18 @@ app.get('/', (req, res) => {
 app.post('/token', (req, res) => {
   saveToken(req.body.token.value);
   console.log(`Received push token, ${req.body.token.value}`);
+  console.log(`Received username, ${req.body.user.username}`);
+  console.log(`Received name, ${req.body.user.name}`);
+
+
+
   res.send(`Received push token, ${req.body.token.value}`);
 });
 
 app.post('/message', (req, res) => {
   handlePushTokens(req.body.message);
   console.log(`Received message, ${req.body.message}`);
+
   res.send(`Received message, ${req.body.message}`);
 });
 

@@ -38,7 +38,8 @@ class FooterComponent extends Component {
             >
               <TouchableOpacity
                 style={{ borderRadius: 5 }}
-                onPress={() => console.log("Accueil route")}
+                onPress={() =>
+                   console.log("Accueil route")}
               >
                 <Text style={styles.textStyle}>Accueil / </Text>
               </TouchableOpacity>

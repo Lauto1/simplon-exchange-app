@@ -2,6 +2,7 @@ import "@expo/vector-icons";
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-elements";
+
 import {
   primaryColor,
   whiteColor,
@@ -36,14 +37,8 @@ class HeaderComponent extends Component {
             flexDirection: "row"
           }}
         >
-          <Icon
-            name="menu"
-            color={whiteColor}
-            size={30}
-            onPress={() => {
-              this.props.navigation.toggleDrawer();
-            }}
-          />
+        
+          
 
           <TouchableOpacity
             onPress={() => {
@@ -75,6 +70,17 @@ class HeaderComponent extends Component {
               .Help
             </Text>
           </TouchableOpacity>
+          
+
+          <Icon
+            name="menu"
+            color={whiteColor}
+            size={30}
+            onPress={() => {
+              this.props.navigation.toggleDrawer();
+            }}
+          />
+        
         </View>
       </View>
     );

@@ -22,12 +22,12 @@ class Vote extends Component {
   handleVote(type) {
     if (type == "+") {
       this.setState({ vote_score: this.state.vote_score + 1 });
-      console.log(this.state);
+      // console.log(this.state);
       //call action upvote
     } else if (type == "-") {
       this.setState({ vote_score: this.state.vote_score - 1 });
       //call action downvote
-      console.log(this.state);
+      // console.log(this.state);
     }
   }
 

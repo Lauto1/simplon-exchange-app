@@ -15,7 +15,7 @@ class HomeComponent extends React.Component {
 
   componentDidMount() {
     this.props.actions.fetchQuestions().then(questions => {
-      console.log(questions, "promise");
+      // console.log(questions, "promise");
     });
 
     // Il faudra récupérer les questions via l'API quand elle sera prête, par exemple:

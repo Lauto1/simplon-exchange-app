@@ -10,8 +10,8 @@ import { analyticsAPIKey } from "./example.config";
 import { Permissions, Notifications } from 'expo';
 
 
-const PUSH_REGISTRATION_ENDPOINT = 'http://6d934f21.ngrok.io/token';
-const MESSAGE_ENPOINT = 'http://6d934f21.ngrok.io/message';
+const PUSH_REGISTRATION_ENDPOINT = ' http://56a0ffb1.ngrok.io/token';
+const MESSAGE_ENPOINT = ' http://56a0ffb1.ngrok.io/message';
 
 
 export default class App extends Component {
@@ -73,8 +73,8 @@ export default class App extends Component {
           value: token,
         },
         user: {
-          username: 'warly',
-          name: 'Dan Ward'
+          username: 'Simplon',
+          name: 'Simplon'
         },
       }),
     });
@@ -102,10 +102,9 @@ export default class App extends Component {
       return (
         <Provider store={store}>
           <Navigator />
-
-
+          
           <View style={styles.container}>
-        {/* <TextInput
+        <TextInput
           value={this.state.messageText}
           onChangeText={this.handleChangeText}
           style={styles.textInput}
@@ -114,10 +113,8 @@ export default class App extends Component {
           style={styles.button}
           onPress={this.sendMessage}
         >
-          <Text style={styles.buttonText}>Send</Text>
-
-
-        </TouchableOpacity> */}
+        <Text style={styles.buttonText}>Send</Text>
+        </TouchableOpacity>
         {this.state.notification ?
           this.renderNotification()
         : null}

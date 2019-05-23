@@ -2,6 +2,9 @@ import types from "../constants/actionTypes";
 /**Action: function pour ajouter des questions, rechercher des questions */
 export const addQuestions = questions => {
   return { type: types.ADD_QUESTIONS, questions: questions };
+
+  
+
 };
 export const searchQuestions = terms => {
   return { type: types.SEARCH_QUESTION, terms: terms };
@@ -247,7 +250,7 @@ export const fetchQuestions = () => {
         QUESTIONS ? resolve(QUESTIONS) : reject("Error");
       });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
 
       /** dispatch(err("failed to retrieve data"));*/
     }

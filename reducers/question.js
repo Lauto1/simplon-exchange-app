@@ -10,7 +10,7 @@ export const questionReducer = (state = initialState, action) => {
     case types.ADD_QUESTIONS:
       return { ...state, questions: action.questions };
     case types.SEARCH_QUESTION:
-      console.log("search term", action.terms);
+      // console.log("search term", action.terms);
 
       return { ...state, currentSearch: action.terms };
 

@@ -25,7 +25,7 @@ export default class Connexion extends React.Component {
       <View style={{ backgroundColor: "#f3f3f3", flex: 1 }}>
         <Formik
           initialValues={{ email: "", password: "" }}
-          onSubmit={values => console.log(values)}
+          onSubmit={values => values}
         >
           {props => (
             <View style={styles.form}>

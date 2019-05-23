@@ -25,6 +25,8 @@ const DrawerNavigator = createDrawerNavigator({
   Statistiques: StatsStack,
   Graphiques: GraphStack,
   Vote: VoteScreen
+},{
+  drawerPosition: 'right',
 });
 
 /**
@@ -32,13 +34,20 @@ const DrawerNavigator = createDrawerNavigator({
  */
 const RootStack = createStackNavigator(
   {
-    Main: DrawerNavigator
+    Main: DrawerNavigator,
   },
   {
-    mode: "modal",
-    headerMode: "none"
+    headerMode: 'none',
+    mode: 'modal',
+    defaultNavigationOptions:{
+      gesturesEnabled: false,
+    },
+  
   }
-);
+)
+
 const Navigator = createAppContainer(RootStack);
+
+
 
 export default Navigator;
