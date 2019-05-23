@@ -3,6 +3,7 @@ import React from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import {AsyncStorage} from 'react-native';
 import { CheckBox } from "react-native-elements";
+import {KeyboardAvoidingView} from 'react-native';
 import {
   lightGreyColor,
   primaryColor,
@@ -76,65 +77,66 @@ export default class Connexion extends React.Component {
 
     render() {
         return (
-            <View style={{ backgroundColor: '#f3f3f3', flex: 1 }}>
-                <Formik
-                    initialValues={{ email: '', password: '' }}
-                    onSubmit={values => this.handleSubmit(values)}
-                >
-                    {props => (
-                        <View style={styles.form}>
-                            <TextInput
-                                style={styles.titleText}
-                                editable={false}
-                                value={"Se connecter"}
-                            />
-                            <TextInput
-                                placeholder="E-mail"
-                                style={styles.field}
-                                onChangeText={props.handleChange('email')}
-                                onBlur={props.handleBlur('email')}
-                                value={props.values.email}
-                            />
-                            <TextInput
-                                placeholder="Mot de passe"
-                                style={styles.field}
-                                secureTextEntry={true}
-                                onChangeText={props.handleChange('password')}
-                                onBlur={props.handleBlur('password')}
-                                value={props.values.password}
-                            />
-                            <View style={styles.button}>
-                                <Button
-                                    color="#D6363E"
-                                    onPress={props.handleSubmit} 
-                                    title="Connexion"
+            <KeyboardAvoidingView behavior="position" enabled>
+                <View>
+                    <Formik
+                        initialValues={{ email: '', password: '' }}
+                        onSubmit={values => this.handleSubmit(values)}
+                    >
+                        {props => (
+                            <View style={styles.form}>
+                                <TextInput
+                                    style={styles.titleText}
+                                    editable={false}
+                                    value={"Se connecter"}
                                 />
-                            </View>
-                            <View style={styles.button}>
-                                <Button
-                                    title="Mot de passe oublié ?"
-                                    color="#2f3239"
-                                    onPress={() => this.passwordForgotten()} 
+                                <TextInput
+                                    placeholder="E-mail"
+                                    style={styles.field}
+                                    onChangeText={props.handleChange('email')}
+                                    onBlur={props.handleBlur('email')}
+                                    value={props.values.email}
                                 />
-                            </View>
-                            <View style={{backgroundColor: "white"}}>
-                                <CheckBox
-                                    style={{width: "100%"}}
-                                    title='Se rappeler de moi'
-                                    textStyle={styles.checkboxText}
-                                    checkedColor="#D6363E"
-                                    checked={this.state.checked}
-                                    onPress={() => this.setState({ checked: !this.state.checked })}
+                                <TextInput
+                                    placeholder="Mot de passe"
+                                    style={styles.field}
+                                    secureTextEntry={true}
+                                    onChangeText={props.handleChange('password')}
+                                    onBlur={props.handleBlur('password')}
+                                    value={props.values.password}
                                 />
+                                <View style={styles.button}>
+                                    <Button
+                                        color="#D6363E"
+                                        onPress={props.handleSubmit} 
+                                        title="Connexion"
+                                    />
+                                </View>
+                                <View style={styles.button}>
+                                    <Button
+                                        title="Mot de passe oublié ?"
+                                        color="#2f3239"
+                                        onPress={() => this.passwordForgotten()} 
+                                    />
+                                </View>
+                                <View style={{backgroundColor: "white"}}>
+                                    <CheckBox
+                                        style={{width: "100%"}}
+                                        title='Se rappeler de moi'
+                                        textStyle={styles.checkboxText}
+                                        checkedColor="#D6363E"
+                                        checked={this.state.checked}
+                                        onPress={() => this.setState({ checked: !this.state.checked })}
+                                    />
+                                </View>
                             </View>
-                        </View>
-                    )}
-                </Formik>
-            </View>
+                        )}
+                    </Formik>
+                </View>
+            </KeyboardAvoidingView>
           )}
     }
 
-// @ts-ignore
 const styles = StyleSheet.create({
 
     checkboxText: {

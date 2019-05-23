@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
+import {KeyboardAvoidingView} from 'react-native';
 import {
   Button,
   StyleSheet,
@@ -68,77 +69,79 @@ export default class Inscription extends React.Component {
     ];
 
     return (
-      <View style={{ backgroundColor: "#f3f3f3", flex: 1 }}>
-        <Formik
-          initialValues={this.state}
-          onSubmit={values => console.log(values, this.state)}
-        >
-          {props => (
-            <View style={styles.form}>
-              <TextInput
-                style={styles.title}
-                editable={false}
-                value={"Enregistrement"}
-              />
-              <TextInput
-                placeholder="Nom de l'utilisateur"
-                style={styles.field}
-                onChangeText={props.handleChange("username")}
-                onBlur={props.handleBlur("username")}
-                value={props.values.username}
-              />
-              <View style={styles.dropdown}>
-                <Dropdown
-                  label="Quelle est votre fabrique Simplon ?"
-                  data={fabrik}
-                  onChangeText={itemValue => {
-                    console.log(itemValue, "dropdown");
-                  }}
+      <KeyboardAvoidingView behavior="position" enabled>
+        <View>
+          <Formik
+            initialValues={this.state}
+            onSubmit={values => console.log(values, this.state)}
+          >
+            {props => (
+              <View style={styles.form}>
+                <TextInput
+                  style={styles.title}
+                  editable={false}
+                  value={"Enregistrement"}
                 />
-              </View>
-              <TextInput
-                placeholder="E-mail"
-                style={styles.field}
-                onChangeText={props.handleChange("email")}
-                onBlur={props.handleBlur("email")}
-                value={props.values.email}
-              />
-              <TextInput
-                placeholder="Mot de passe"
-                style={styles.field}
-                secureTextEntry={true}
-                onChangeText={props.handleChange("password")}
-                onBlur={props.handleBlur("password")}
-                value={props.values.password}
-              />
-              <TextInput
-                placeholder="Répéter le mot de passe"
-                style={styles.field}
-                secureTextEntry={true}
-                onChangeText={props.handleChange("repeatPassword")}
-                onBlur={props.handleBlur("repeatPassword")}
-                value={props.values.repeatPassword}
-              />
-              <View style={styles.checkBox}>
-                <Text style={{ lineHeight: 30, marginRight: 10 }}>
-                  Voulez-vous recevoir des notifications ?
-                </Text>
-                <Switch
-                  onValueChange={value => this.setState({ notif: value })}
-                  value={this.state.notif}
+                <TextInput
+                  placeholder="Nom de l'utilisateur"
+                  style={styles.field}
+                  onChangeText={props.handleChange("username")}
+                  onBlur={props.handleBlur("username")}
+                  value={props.values.username}
                 />
-              </View>
-              <View style={styles.button}>
-                <Button
-                  color={primaryColor}
-                  onPress={props.handleSubmit}
-                  title="S'enregistrer"
+                <View style={styles.dropdown}>
+                  <Dropdown
+                    label="Quelle est votre fabrique Simplon ?"
+                    data={fabrik}
+                    onChangeText={itemValue => {
+                      console.log(itemValue, "dropdown");
+                    }}
+                  />
+                </View>
+                <TextInput
+                  placeholder="E-mail"
+                  style={styles.field}
+                  onChangeText={props.handleChange("email")}
+                  onBlur={props.handleBlur("email")}
+                  value={props.values.email}
                 />
+                <TextInput
+                  placeholder="Mot de passe"
+                  style={styles.field}
+                  secureTextEntry={true}
+                  onChangeText={props.handleChange("password")}
+                  onBlur={props.handleBlur("password")}
+                  value={props.values.password}
+                />
+                <TextInput
+                  placeholder="Répéter le mot de passe"
+                  style={styles.field}
+                  secureTextEntry={true}
+                  onChangeText={props.handleChange("repeatPassword")}
+                  onBlur={props.handleBlur("repeatPassword")}
+                  value={props.values.repeatPassword}
+                />
+                <View style={styles.checkBox}>
+                  <Text style={{ lineHeight: 30, marginRight: 10 }}>
+                    Voulez-vous recevoir des notifications ?
+                  </Text>
+                  <Switch
+                    onValueChange={value => this.setState({ notif: value })}
+                    value={this.state.notif}
+                  />
+                </View>
+                <View style={styles.button}>
+                  <Button
+                    color={primaryColor}
+                    onPress={props.handleSubmit}
+                    title="S'enregistrer"
+                  />
+                </View>
               </View>
-            </View>
-          )}
-        </Formik>
-      </View>
+            )}
+          </Formik>
+        </View>
+        </KeyboardAvoidingView>
     );
   }
 }
