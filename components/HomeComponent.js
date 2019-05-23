@@ -1,6 +1,5 @@
 import React from "react";
- 
-  import { ScrollView, StyleSheet, Text, View, ListView, TouchableHighlight } from "react-native";
+import { ScrollView, StyleSheet, Text, View, ListView, TouchableHighlight, Questions } from "react-native";
 import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import QuestionComponent from "./QuestionComponent";
@@ -12,7 +11,7 @@ import { primaryColor, blackColor, lightGreyColor, boldFontFamily, whiteColor, t
 class HomeComponent extends React.Component {
   state = {
     questions: [],
-    filterQuestions:[],
+    // filterQuestions:[],
     showScrollToTop: false,
     showContent:false
   };
@@ -62,6 +61,10 @@ class HomeComponent extends React.Component {
             if (!found) filteredQuestions.push(questions[i]);
           }
         }
+        if(questions[i].factory = "roanne") {
+          console.log("Roanne");
+          questions[i].showContent = true 
+        }
       })
       
     } else {
@@ -75,28 +78,33 @@ class HomeComponent extends React.Component {
   };
 
   //fonction pour trier les questions réponses posées par les utilisateurs aux fabrique
-  QuestionComponent(){
-    this.setState({
-      questions,
-      filteredQuestions: questions
-    })
-  }
+  // filteredQuestionsMade(terms = null, questions) {
+  // //   // let filteredQuestions = this.state.questions
+  // //   // filteredQuestions = filteredQuestions.filter((question) => {
+  // //   //   let questionTitle = question.firstTitle.toLowerCase() + question.lastTitle.toLowerCase()
+  // //   //   return questionTitle.indexOff(
+  // //   //     questionFilter.toLowerCase()) !==-1
+  // //   // })
+  // //   // this.setState({
+  // //   //   filteredQuestions
+  // //   // })
 
-  filteredQuestionsFabriques = () => {
-    let filteredQuestions = this.state.questions
-    filteredQuestions = filteredQuestions.filter((question) => {
-      let questionTitle = question.firstTitle.toLowerCase() + question.lastTitle.toLowerCase()
-      return questionTitle.indexOff(
-        questionFilter.toLowerCase()) !==-1
-    })
-    this.setState({
-      filteredQuestions
-    })
-
-    // for (var i = 0; i < questions.length; i++){
-    //   console.log('questions', questions);    
-    // }
-  }
+  //   // // for (var i = 0; i < questions.length; i++){
+  //   // //   console.log('questions', questions);    
+  //   // // }
+  //   for (var i = 0; i < questions.length; i++) {
+  //     let whiteSpace = term.length >=1 &&term !=" "
+  //     if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
+  //       const found = filteredQuestions.some(el => el.id === questions[i].id);
+  //           questions[i].showContent = true;
+  //       if (!found) filteredQuestions.push(questions[i]);
+  //     }
+  //   }
+  //   // if(questions[i].factory = "roanne") {
+  //   //   console.log("Roanne");
+  //   //   questions[i].showContent = true 
+  //   // }
+  // }
 
   render() {
     const { showScrollToTop } = this.state;
@@ -141,7 +149,6 @@ class HomeComponent extends React.Component {
                 onPress={() => this.props.drawerNav.navigate("Home")}
               >
                 <Text style={styles.textStyle}>Simplon</Text>
-                <QuestionComponent questions={this.state.filteredQuestions} match={this.props.match} onChange={this.filterQuestions} />
               </TouchableHighlight>
 
               <TouchableHighlight
@@ -193,6 +200,7 @@ class HomeComponent extends React.Component {
               question={question}
             />
           ))}
+
           <StatsComponent questions={questions} />
           <FooterComponent drawerNav={this.props.navigation} />
         </ScrollView>
@@ -241,11 +249,13 @@ const styles = StyleSheet.create({
     marginBottom: 46
   },
   textStyle:{
+    flex: 1,
     justifyContent: 'space-around',
     // textAlign: "center",
     borderBottomColor: '#bbb',
+    borderRadius: 5,
     color: blackColor,
-    padding: 10,
+    margin: 10,
     left: 5,
     top: 4
   }
