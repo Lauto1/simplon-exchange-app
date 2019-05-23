@@ -7,15 +7,16 @@ export const addQuestions = questions => {
   return { type: types.ADD_QUESTIONS, questions: questions };
 };
 export const searchQuestions = terms => {
+
   return { type: types.SEARCH_QUESTION, terms: terms };
 };
 
 /**Action: function pour rechercher des questions & les dispatcher */
 export const fetchQuestions = () => {
   return async dispatch => {
+
     try {
       //console.log(mockQuestions);
-
       const QUESTIONS = mockQuestions.questions;
       dispatch(addQuestions(QUESTIONS));
       return new Promise((resolve, reject) => {

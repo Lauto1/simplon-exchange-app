@@ -21,6 +21,7 @@ class QuestionComponent extends Component {
     console.log("onPressQuestion");
     const { navigation: navigate } = this.props;
     this.props.isLoaderDisplayed = true;
+    this.toggleLoader();
     () => navigate("Question");
   }
   //test hightlight word "not 100% functionnal"
@@ -50,13 +51,14 @@ class QuestionComponent extends Component {
   render() {
     const { question } = this.props;
     const { terms } = this.props
+
     return (
       <TouchableOpacity
-        onPress={() =>
-          this.props.navigation.navigate("Question", { question: question })
+        onPress={() => { this.props.navigation.navigate("Question", { question: question }); this.props.isLoaderDisplayed = true }
+
         }>
 
-        <Card onPress={() => toggleLoader()} containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
+        <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
           <View
             style={{
               flexDirection: "row"

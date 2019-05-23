@@ -2,14 +2,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addQuestions } from '../actions/question';
 import { searchQuestions } from '../actions/question';
-
-import QuestionComponent from "../components/QuestionComponent"
-
 import { toggleLoader } from "../actions/loader";
 
 const mapStateToProps = state => {
     return {
-        addQuestion: state.questionReducer.addQuestions,
+        addQuestions: state.questionReducer.addQuestions,
         searchQuestions: state.questionReducer.searchQuestions,
         isLoaderDisplayed: state.loader.isLoaderDisplayed,
     }

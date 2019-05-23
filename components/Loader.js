@@ -8,7 +8,6 @@ const Loader = () => {
         </View>
     )
 };
-
 const styles = StyleSheet.create({
     loaderContainer: {
         height: '100%',
@@ -17,5 +16,4 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 });
-
 export default Loader;
