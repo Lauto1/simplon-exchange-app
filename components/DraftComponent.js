@@ -16,7 +16,7 @@ class DraftComponent extends Component {
     }
     render() {
         return (
-            <ScrollView style={{ flex: 1 }}><TextInput multiline={true}
+            <ScrollView style={{ flex: 1 }}><TextInput multiline={true} style={styles.textInput}
                 numberOfLines={8}
                 onChangeText={(text) => this.getText(text)}
                 value={this.state.text} placeholder="Entrez votre réponse" />
@@ -46,7 +46,11 @@ class DraftComponent extends Component {
     }
 }
 
-
+const styles = StyleSheet.create({ 
+    textInput: {
+        padding: 10
+    }
+})
 
 
 export default DraftComponent;

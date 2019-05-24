@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
@@ -11,7 +11,7 @@ import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent
 
 
 
-import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor,regularFontFamily,titleFontSize,subtitleFontSize } from "../helpers/styleGuidelines";
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -19,21 +19,21 @@ class QuestionScreen extends React.Component {
     this.state = {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
-      connected:true,
-      currentQuestion:null,
+      connected: true,
+      currentQuestion: null,
       navigationIndex: null,
-      currentQuestion:null
+      currentQuestion: null
     };
-    
+
   }
-  componentWillMount(){
-    const navigateQuestion = this.props.navigation.getParam("navigateQuestion","no data");
+  componentWillMount() {
+    const navigateQuestion = this.props.navigation.getParam("navigateQuestion", "no data");
     const state = this.props.navigation.getParam("state", null);
-    const index = this.props.navigation.getParam("index","no-data");
-    this.setState({navigateByIndex:index});
+    const index = this.props.navigation.getParam("index", "no-data");
+    this.setState({ navigateByIndex: index });
   }
-  componentDidMount(){
-   
+  componentDidMount() {
+
   }
   static navigationOptions = ({ navigation }) => {
     return {
@@ -58,100 +58,66 @@ class QuestionScreen extends React.Component {
     }
   };
 
-  
-  navigateByIndex = (index)=> {
-    console.log("question Screen",index);
-    this.setState({navigationIndex:index});
+
+  navigateByIndex = (index) => {
+    console.log("question Screen", index);
+    this.setState({ navigationIndex: index });
   }
-   
+
   render() {
 
     const question = this.props.navigation.getParam("question", "no Data");
-    const index = this.props.navigation.getParam("index","no-data");
-    //console.log('question.state.params.index',this.props.navigation.state.params);
-    
-    console.log("this.props.index",index,"this.props");
-    
-    
-    
-    //console.log('questionNav', question);
-
-    //console.log('this.propsNav', this.props.navigation);
-    
-    //console.log('this.state',this.state);
-    
-    
+    const index = this.props.navigation.getParam("index", "no-data");
     const answers = question.answers;
-    //console.log('answerss', answers);
-    
     const { showScrollToTop } = this.state;
     return (
-      <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6" }} ref="scrollView"
+      <ScrollView contentContainerStyle={styles.scrollView} ref="scrollView"
         onScroll={this.onScroll} >
 
         <Question navigateByIndex={this.navigateByIndex} navigation={this.props.navigation} index={index} question={question} showContent={true} />
-        <View style={{padding:15, flexDirection:"row", justifyContent:"space-between"}}>
-        {/* <TouchableOpacity > */}
-        <TouchableOpacity 
-        onPress={() => { this.setState({navigationIndex:--index});console.log("goBackward");
-        }}>
-          <View  style={{
-                flexDirection:"row",
-                borderWidth: 2
-              }}>
-          {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
-          {/* <TouchableOpacity onPress={this.goToNext()}> */}
-            <Text style={{
-              fontFamily: "firacode", 
-              fontSize: 16,
-              color: "#d6363e",
-              textAlign: "left",
-              paddingLeft: 5,
-              // marginBottom: 30
-            }}
+        <View style={styles.navigationContainer}>
+          {/* <TouchableOpacity > */}
+          <TouchableOpacity
+            onPress={() => {
+              console.log("goBackward");
+            }}>
+            <View style={{
+              flexDirection: "row",
+              borderWidth: 2
+            }}>
+              {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
+              {/* <TouchableOpacity onPress={this.goToNext()}> */}
+              <Text style={styles.navigationText}
               >Précédente
             </Text>
-            {/* </TouchableOpacity> */}
+              {/* </TouchableOpacity> */}
             </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => {this.setState({navigationIndex:++index});console.log("goForward")}}> 
-          <View  style={{
-                flexDirection:"row",
-                justifyContent:"flex-end"
-              }}> 
-            <Text style={{ 
-              fontFamily: "firacode", 
-              fontSize: 16,
-              color: "#d6363e",
-              textAlign: "right",
-              paddingRight: 5
-             }}
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => { console.log("goForward") }}>
+            <View style={{
+              flexDirection: "row",
+              justifyContent: "flex-end"
+            }}>
+              <Text style={styles.navigationText}
               >Suivante
             </Text>
-            {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
-          </View> 
-        </TouchableOpacity>
+              {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
+            </View>
+          </TouchableOpacity>
         </View>
         <Text
-          style={{
-            marginTop: 10,
-            marginBottom: 10,
-            textAlign: "center",
-            fontSize: 20,
-            fontWeight: "bold",
-            color: "#d6363e"
-          }}
+          style={styles.responseTitle}
         >
           Réponses
         </Text>
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse}/> : 
-        <View style={{ paddingTop:10, paddingLeft: 15, paddingRight: 15 }}>
-          <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
-        </View>}
-       
+        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse} /> :
+          <View style={styles.connectionButtonContainer}>
+            <Button title="Connectez vous pour répondre" buttonStyle={styles.button} />
+          </View>}
+
         <FooterComponent drawerNav={this.props.navigation} />
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
@@ -160,12 +126,46 @@ class QuestionScreen extends React.Component {
     );
   }
   addResponse(newResponse) {
-		console.log("TCL: addResponse -> newResponse", newResponse)
-    
+    console.log("TCL: addResponse -> newResponse", newResponse)
+
   }
   onLoadCallback = () => {
     console.log("loaded");
   };
 }
+const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: lightGreyColor
+  },
 
+  connectionButtonContainer: {
+    paddingTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+
+  },
+  button: {
+    backgroundColor: primaryColor
+  },
+  navigationContainer: {
+    padding: 15,
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  responseTitle: {
+    marginTop: 10,
+    marginBottom: 10,
+    textAlign: "center",
+    fontSize: titleFontSize,
+    fontWeight: "bold",
+    color: primaryColor
+  },
+  navigationText: {
+    fontFamily: regularFontFamily,
+    fontSize: subtitleFontSize,
+    color: primaryColor,
+    textAlign: "right",
+    paddingRight: 5
+  }
+})
 export default QuestionScreen;
