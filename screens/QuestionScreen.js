@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View, StyleSheet } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
@@ -11,7 +11,7 @@ import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent
 
 
 
-import { primaryColor, lightGreyColor,regularFontFamily,titleFontSize,subtitleFontSize } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor } from "../helpers/styleGuidelines";
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -105,7 +105,14 @@ class QuestionScreen extends React.Component {
           </TouchableOpacity>
         </View>
         <Text
-          style={styles.responseTitle}
+          style={{
+            marginTop: 10,
+            marginBottom: 10,
+            textAlign: "center",
+            fontSize: 20,
+            fontWeight: "bold",
+            color: "#d6363e"
+          }}
         >
           Réponses
         </Text>
@@ -132,39 +139,5 @@ class QuestionScreen extends React.Component {
     console.log("loaded");
   };
 }
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: lightGreyColor
-  },
 
-  connectionButtonContainer: {
-    paddingTop: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-
-  },
-  button: {
-    backgroundColor: primaryColor
-  },
-  navigationContainer: {
-    padding: 15,
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  responseTitle: {
-    marginTop: 10,
-    marginBottom: 10,
-    textAlign: "center",
-    fontSize: titleFontSize,
-    fontWeight: "bold",
-    color: primaryColor
-  },
-  navigationText: {
-    fontFamily: regularFontFamily,
-    fontSize: subtitleFontSize,
-    color: primaryColor,
-    textAlign: "right",
-    paddingRight: 5
-  }
-})
 export default QuestionScreen;

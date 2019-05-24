@@ -72,8 +72,8 @@ export default class Inscription extends React.Component {
     }).then(() => {
       this.props.navigation.navigate('Connexion')
     }).catch((error) => {
-        console.error(error)
-      });
+      console.error(error)
+    });
   }
 
 
@@ -98,13 +98,13 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ name: e });
                   }}
-  
+
                 />
                 <View style={styles.dropdown}>
                   <Dropdown
                     label="Quelle est votre fabrique Simplon ?"
                     data={this.state.fabrics}
-                    onChangeText={itemValue => {this.setState({ fabric_id: itemValue })}}
+                    onChangeText={itemValue => { this.setState({ fabric_id: itemValue }) }}
                   />
                 </View>
                 <TextInput
@@ -113,7 +113,7 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ email: e });
                   }}
-  
+
                 />
                 <TextInput
                   placeholder="Mot de passe"
@@ -122,7 +122,7 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ password: e });
                   }}
-  
+
                 />
                 <TextInput
                   placeholder="Répéter le mot de passe"
@@ -131,7 +131,7 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ confirm_password: e });
                   }}
-  
+
                 />
                 <View style={styles.checkBox}>
                   <Text style={{ lineHeight: 30, marginRight: 10 }}>
