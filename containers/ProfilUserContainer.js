@@ -1,10 +1,11 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Profil from "../components/ProfilUser";
-import {  } from "../actions/statistique";
+import { getProfileUser } from "../actions/profileUserAction";
 
 const mapStateToProps = state => {
   return {
+    getProfile:getProfileUser
   };
 };
 

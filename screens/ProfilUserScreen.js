@@ -18,7 +18,7 @@ class ProfilUserScreen extends React.Component {
                 drawerNav={this.props.navigation}
                 title="Simplon-Exchange"
             />
-            <Profil />
+            <Profil/>
             </>
         );
     }
