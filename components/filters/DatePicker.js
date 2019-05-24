@@ -61,13 +61,19 @@ export default class DateTimePickerTester extends Component {
     return (
       <>
         {/* <Text>{JSON.stringify(this.state.DateTimeStart)}</Text> */}
-        <Text>{this.props.StartDateFilter}</Text>
+        <View style={styles.containers}>
+        <Text>Début:<Text style={styles.text}>{this.props.StartDateFilter}</Text></Text>        
+        </View>
         <View style={styles.buttonStyle}>
           <Button
             color={greyColor}
             padding="20"
             title=" Date de début" onPress={() => this.showDateTimePicker('start')} />
         </View>
+        <View style={styles.containers}>
+        <Text>Fin: <Text style={styles.text}>{this.props.EndDateFilter}</Text></Text>
+        </View>
+        
         <View style={styles.buttonStyle}>
           <Button
             color={greyColor}
@@ -90,7 +96,9 @@ export default class DateTimePickerTester extends Component {
   }
 }
 const styles = StyleSheet.create({
-  container: { marginTop: 20 },
+  container: { marginTop: 20,    
+  },
+  containers: {marginLeft:20  },
   buttonStyle: {
     backgroundColor: greyColor,
     color: whiteColor,

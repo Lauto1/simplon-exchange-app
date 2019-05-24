@@ -73,7 +73,7 @@ class HeaderComponent extends Component {
           </TouchableOpacity>
 
           <View style={{
-            marginLeft: 40
+            marginLeft: 30
           }}>
             <Icon
               name="menu"
