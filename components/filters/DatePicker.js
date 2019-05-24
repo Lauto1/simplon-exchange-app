@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import { greyColor, primaryColor, boldFontFamily, } from "../../helpers/styleGuidelines";
+import { whiteColor, greyColor, } from "../../helpers/styleGuidelines";
 
- 
 export default class DateTimePickerTester extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isDateTimePickerStartVisible: false,
       isDateTimePickerEndVisible: false,
-      DateTimeStart:'',
-      DateTimeEnd:'',
+      DateTimeStart: '',
+      DateTimeEnd: '',
 
     };
   }
- 
+
   showDateTimePicker = (param) => {
     console.log('bouton:', param)
-    if(param==="start"){
-    this.setState({ isDateTimePickerStartVisible: true });
+    if (param === "start") {
+      this.setState({ isDateTimePickerStartVisible: true });
 
-    }else if(param==="end"){
+    } else if (param === "end") {
       this.setState({ isDateTimePickerEndVisible: true });
     }
   };
@@ -29,20 +28,20 @@ export default class DateTimePickerTester extends Component {
   showDateTimePickerEnd = () => {
     this.setState({ isDateTimePickerVisible: true });
   };
- 
+
   hideDateTimePicker = () => {
     this.setState({ isDateTimePickerStartVisible: false });
     this.setState({ isDateTimePickerEndVisible: false });
   };
- 
+
   handleDatePickedStart = date => {
     //console.log("A date has been picked: ", date);
 
     console.log(JSON.stringify(date))
-      this.setState({ DateTimeStart: date });
+    this.setState({ DateTimeStart: date });
 
-      this.props.actions.setDatePickedStart(date)
-     // console.log('date de début'+this.state.DateTimeStart)
+    this.props.actions.setDatePickedStart(date)
+    // console.log('date de début'+this.state.DateTimeStart)
     this.hideDateTimePicker();
   };
 
@@ -50,47 +49,42 @@ export default class DateTimePickerTester extends Component {
     //console.log("A date has been picked: ", date);
 
     console.log(date)
-      this.setState({ DateTimeEnd: date });
-      this.props.actions.setDatePickedEnd(date)
+    this.setState({ DateTimeEnd: date });
+    this.props.actions.setDatePickedEnd(date)
 
-   //   console.log('date de fin'+this.state.DateTimeEnd)
+    //   console.log('date de fin'+this.state.DateTimeEnd)
     this.hideDateTimePicker();
   };
- 
+
   render() {
     const colors = [primaryColor];
     return (
       <>
-      
-      <View style={styles.container02}>
-            <Text>Debut:</Text><Text style={styles.text}>{this.props.StartDateFilter} </Text>
-            <Text>Fin:</Text><Text style={styles.text}>{this.props.EndDateFilter} </Text>
-      </View>
-      <View style={styles.buttonStyle}>
-      
-        <Button 
-          color="#2F3239"
-          padding="20"
-          title=" Date de début" onPress={()=>this.showDateTimePicker('start')}/>
-
-        <Button               
-          color="#2F3239"
-          padding="20"
-          title=" Date de fin " onPress={()=>this.showDateTimePicker('end')}/>
-
-      </View>
-      
+        {/* <Text>{JSON.stringify(this.state.DateTimeStart)}</Text> */}
+        <Text>{this.props.StartDateFilter}</Text>
+        <View style={styles.buttonStyle}>
+          <Button
+            color={greyColor}
+            padding="20"
+            title=" Date de début" onPress={() => this.showDateTimePicker('start')} />
+        </View>
+        <View style={styles.buttonStyle}>
+          <Button
+            color={greyColor}
+            padding="20"
+            title=" Date de fin " onPress={() => this.showDateTimePicker('end')} />
+        </View>
         <DateTimePicker
           isVisible={this.state.isDateTimePickerStartVisible}
           onConfirm={this.handleDatePickedStart}
           onCancel={this.hideDateTimePicker}
         />
-         <DateTimePicker
+        <DateTimePicker
           isVisible={this.state.isDateTimePickerEndVisible}
           onConfirm={this.handleDatePickedEnd}
           onCancel={this.hideDateTimePicker}
         />
-         
+
       </>
     );
   }
@@ -98,8 +92,8 @@ export default class DateTimePickerTester extends Component {
 const styles = StyleSheet.create({
   container: { marginTop: 20 },
   buttonStyle: {
-    backgroundColor: '#2F3239',
-    color: '#fff',
+    backgroundColor: greyColor,
+    color: whiteColor,
     fontWeight: '600',
     fontSize: 16,
     textAlign: 'center',

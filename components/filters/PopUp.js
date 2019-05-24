@@ -1,60 +1,58 @@
 import React, { Component } from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
-import {CheckBox} from 'react-native-elements';
-import { primaryColor } from "../../helpers/styleGuidelines";
+import { CheckBox } from 'react-native-elements';
+import { whiteColor, greyColor, } from "../../helpers/styleGuidelines";
 
 import DateTimePickerTester from "../../containers/DatePicker";
 
 // Mise en place des states liées au component PopUp
- class PopUp extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            defaultAnimationDialog: false,
-            refreshing: false,
-            NbPosts: 0,
-            NbUsers: 0,
-            NbResponses: 0,
-            checkedNbPosts: false,
-            checkedNbUsers: false,
-            checkedNbResponses: false,
-        }}
-        fetchDataChecked = () => {
-            console.log('test zaim')
-            let checkedData = {'NbPosts':false,'NbUsers':false, 'NbResponses':false }; 
-            let datefilter ={'StartDate':null, 'EndDate':null};
-            let datafilter =[];
-            if (this.state.checkedNbPosts === true) {
-              checkedData.NbPosts= true
-            }        
-            if (this.state.checkedNbUsers === true) {
-              checkedData.NbUsers= true
-            }        
-            if (this.state.checkedNbResponses === true) {
-              checkedData.NbResponses= true
-            }
-            datafilter.push(checkedData);
-            datefilter.StartDate= this.props.StartDateFilter;
-            datefilter.EndDate = this.props.EndDateFilter;
+class PopUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      defaultAnimationDialog: false,
+      refreshing: false,
+      NbPosts: 0,
+      NbUsers: 0,
+      NbResponses: 0,
+      checkedNbPosts: false,
+      checkedNbUsers: false,
+      checkedNbResponses: false,
+    }
+  }
+  fetchDataChecked = () => {
 
-            datafilter.push(datefilter);
+    let checkedData = [];
+    let datafilter = [];
+    if (this.state.checkedNbPosts === true) {
+      checkedData.push('NbPosts')
+    }
+    if (this.state.checkedNbUsers === true) {
+      checkedData.push('NbUsers')
+    }
+    if (this.state.checkedNbResponses === true) {
+      checkedData.push('NbResponses')
+    }
+    datafilter.push(checkedData)
+    let datefilter = [this.props.StartDateFilter, this.props.EndDateFilter]
+    datafilter.push(datefilter)
 
-            console.log(datafilter)
-            // console.log(this.props)
+    console.log(datafilter)
+    console.log(this.props)
 
-            this.props.actions.fetchDataApi(datafilter)
-            
-          };          
-// Afichage de la PopUp et création du bouton
-    render() {
-        return (
+    this.props.actions.fetchDataApi(checkedData)
 
-                <View>         
-                    <DateTimePickerTester 
-                    />
-                    <View>
+  };
+  // Afichage de la PopUp et création du bouton
+  render() {
+    return (
 
-        {/*
+      <View>
+        <DateTimePickerTester
+        />
+        <View>
+
+          {/*
         // Les checkboxs qui permettent d'afficher les statistiques en fonction du type de donnée demander
         */}
           <CheckBox
@@ -83,12 +81,12 @@ import DateTimePickerTester from "../../containers/DatePicker";
           />
         </View>
         <View style={styles.buttonStyle}>
-            <Button
-              onPress={this.fetchDataChecked}
-              title="Rechercher"
-              color="#2F3239"
-            />
-          </View>
+          <Button
+            onPress={this.fetchDataChecked}
+            title="Rechercher"
+            color={greyColor}
+          />
+        </View>
       </View>
     );
   }
@@ -97,16 +95,15 @@ export default PopUp;
 
 
 const styles = StyleSheet.create({
-    container: { marginTop: 20 },
-    buttonStyle: {
-      backgroundColor: '#2F3239',
-      color: '#fff',
-      fontWeight: '600',
-      fontSize: 16,
-      textAlign: 'center',
-      borderRadius: 5,
-      // width: 150,
-      padding: 8,
-      margin: 20
-    }
-  });
+  container: { marginTop: 20 },
+  buttonStyle: {
+    backgroundColor: greyColor,
+    color: whiteColor,
+    fontWeight: '600',
+    fontSize: 16,
+    textAlign: 'center',
+    borderRadius: 5,
+    padding: 8,
+    margin: 20
+  }
+});

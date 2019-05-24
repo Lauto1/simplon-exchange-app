@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontFamily: boldFontFamily,
     fontSize: titleFontSize,
     textAlign: "center",
-    marginTop: 50
+    marginTop: 30
   }
 });
 

@@ -37,8 +37,8 @@ class HeaderComponent extends Component {
             flexDirection: "row"
           }}
         >
-        
-          
+
+
 
           <TouchableOpacity
             onPress={() => {
@@ -53,8 +53,9 @@ class HeaderComponent extends Component {
                 paddingTop: 1,
                 color: primaryColor,
                 fontSize: 20,
-                paddingLeft: 30,
-                fontFamily: regularFontFamily
+                paddingLeft: 65,
+                fontFamily: regularFontFamily,
+                letterSpacing: -2
               }}
             >
               Simplon-Exchange
@@ -70,17 +71,19 @@ class HeaderComponent extends Component {
               .Help
             </Text>
           </TouchableOpacity>
-          
 
-          <Icon
-            name="menu"
-            color={whiteColor}
-            size={30}
-            onPress={() => {
-              this.props.navigation.toggleDrawer();
-            }}
-          />
-        
+          <View style={{
+            marginLeft: 40
+          }}>
+            <Icon
+              name="menu"
+              color={whiteColor}
+              size={30}
+              onPress={() => {
+                this.props.navigation.toggleDrawer();
+              }}
+            />
+          </View>
         </View>
       </View>
     );

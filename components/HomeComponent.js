@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
     fontSize: titleFontSize,
     color: whiteColor,
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center",
+
   },
   welcomeHomeText: {
     fontSize: paragraphFontSize,
