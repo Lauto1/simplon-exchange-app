@@ -1,6 +1,5 @@
-import * as Types from '../constants/actionTypes';
-
 export const updateUserData = (id, username, email, password, new_password = null) => {
+    
     const token = null;
     if (new_password != null) {
         let params = {
@@ -43,9 +42,8 @@ export const updateUserData = (id, username, email, password, new_password = nul
       };
 };
 
-
 export const getUserProfile = (id) => {
-    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI2LCJpc3MiOiJodHRwOi8vZGV2LnNpbXBsb24tZXhjaGFuZ2UuaGVscC9hcGkvbG9naW4iLCJpYXQiOjE1NTg2OTk0NDYsImV4cCI6MTU1ODcwMzA0NiwibmJmIjoxNTU4Njk5NDQ2LCJqdGkiOiJnQkdkaFlKbnBWV3BrelM0In0.mevhiA666HfVWDa4ydd3m_2J6T9ZFtT6F63Dm99SfoY";
+    const token = "eeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI2LCJpc3MiOiJodHRwOi8vZGV2LnNpbXBsb24tZXhjaGFuZ2UuaGVscC9hcGkvbG9naW4iLCJpYXQiOjE1NTg3MDM3MzAsImV4cCI6MTU1ODcwNzMzMCwibmJmIjoxNTU4NzAzNzMwLCJqdGkiOiJka2I2d3NsU096UEFCV1ZFIn0.jrSpxG9PhUn8xpotrEV-bhh-ySq7J7Dvr1IsoULCwSA";
 
     return async dispatch => {
         dispatch(getUserInfomations(id, token));
@@ -70,7 +68,7 @@ const getUserInfomations = (id, token) => {
             
 
             let action = {
-                type: Types.GET_USER_INFO,
+                type: 'GET_USER_INFO',
                 name: response.data.name,
                 email: response.data.email,
                 password: response.data.password,
@@ -99,7 +97,7 @@ const getUserQuestions = (id, token) =>{
         ).then((response) => response.json()).then((response) => {
             console.log('response', response);
             let action = {
-                type: Types.GET_USER_QUESTIONS,
+                type: 'GET_USER_QUESTIONS',
                 questions: response.count
             };
             return action;
@@ -122,7 +120,7 @@ const getUserAnswers = (id, token) => {
         ).then((response) => response.json()).then((response) => {
             console.log('response', response);
             let action = {
-                type: Types.GET_USER_ANSWERS,
+                type: 'GET_USER_ANSWERS',
                 answers: response.count
             };
             return action;
@@ -148,7 +146,7 @@ const getUserValidateAnswers = (id, token) => {
         ).then((response) => response.json()).then((response) => {
             console.log('response', response);
             let action = {
-                type: Types.GET_USER_VALID_ANSWERS,
+                type: 'GET_USER_VALID_ANSWERS',
                 valid_answers : response.count
             };
             return action;
