@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import BugReportComponent from "../components/BugReportComponent";
+import HeaderComponent from "../components/layouts/HeaderComponent";
 
 class BugScreen extends React.Component {
 
