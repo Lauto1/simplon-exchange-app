@@ -80,9 +80,6 @@ class QuestionComponent extends Component {
           onPress={() => { this.props.navigation.navigate("Question", { question: question, index: indexQuestion }) }
           }
         >
-          <View style={{ position: 'absolute', top: "35%", right: 0, left: 0 }}>
-            <ActivityIndicator size="large" color="#D7403E" />
-          </View>
           <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
             <View
               style={{
