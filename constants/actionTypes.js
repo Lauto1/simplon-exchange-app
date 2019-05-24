@@ -9,4 +9,3 @@ export default {
   DELETE_STORAGE: 'DELETE_STORAGE'
 }
 
-
