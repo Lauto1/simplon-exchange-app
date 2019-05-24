@@ -30,7 +30,7 @@ class FactoryTab extends Component {
     render() {
         return (
             <ScrollableTabView  {...this.config} renderTabBar={() => <ScrollableTabBar  />}>
-                {factoryLabels.map((factoryLabel,index)=>(<Text style={styles.Labels} tabLabel={factoryLabel} key={{factoryLabel}+index} >{factoryLabel}</Text>))}
+                {factoryLabels.map((factoryLabel,index)=>(<Text style={styles.Labels} tabLabel={factoryLabel} key={{factoryLabel}+index} ></Text>))}
             </ScrollableTabView>
         )
     }
