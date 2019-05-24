@@ -3,13 +3,17 @@ import {
   createDrawerNavigator,
   createStackNavigator
 } from "react-navigation";
-import BugScreen from "../screens/BugScreen";
 import FaqScreen from "../screens/FaqScreen";
-import VoteScreen from "../screens/VoteScreen";
+import BugStack from "./stack/BugStack";
 import HomeStack from "./stack/HomeStack";
 import LoginStack from "./stack/LoginStack";
+import ProfilUserStack from "./stack/ProfilUserStack";
 import RegisterStack from "./stack/RegisterStack";
 import StatsStack from "./stack/StatsStack";
+
+// definit la connexion pour afficher ou non le profil
+let mockUserAsyncStorage = true; // A modifier à l'arrivée de l'api
+
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
@@ -20,9 +24,14 @@ const DrawerNavigator = createDrawerNavigator({
   Inscription: RegisterStack,
   Connexion: LoginStack,
   Faq: FaqScreen,
-  Bug: BugScreen,
+  Bug: BugStack,
   Statistiques: StatsStack,
-  Vote: VoteScreen
+  Profil: {
+    screen: ProfilUserStack,
+    navigationOptions: {
+      drawerLabel: () => (mockUserAsyncStorage ? "Profil" : null)
+    }
+  }
 });
 
 /**
@@ -30,7 +39,8 @@ const DrawerNavigator = createDrawerNavigator({
  */
 const RootStack = createStackNavigator(
   {
-    Main: DrawerNavigator
+    Main: DrawerNavigator,
+    Home: HomeStack
   },
   {
     mode: "modal",

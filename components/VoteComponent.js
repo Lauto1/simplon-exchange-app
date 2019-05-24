@@ -13,24 +13,21 @@ class Vote extends Component {
       voted: false
     };
   }
-
+  isLoged = false; // à remplacer par verificatin de login
   /**
    * Infos :
    * - Procédure d'incrementation ou de décrémentation du compteur de votes
    * @var String type : correspond au symbole de l'opération attendue, soit "+" ou "-"
    */
   handleVote(type) {
-    if (type == "+") {
+    // if condition checks if ( user is logged ? )
+    if (this.isLoged) {
       this.setState({ vote_score: this.state.vote_score + 1 });
-      console.log(this.state);
       //call action upvote
-    } else if (type == "-") {
-      this.setState({ vote_score: this.state.vote_score - 1 });
-      //call action downvote
-      console.log(this.state);
+    } else {
+      this.props.navigation.navigate("Login");
     }
   }
-
   render() {
     return (
       <View>

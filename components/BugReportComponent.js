@@ -1,9 +1,68 @@
-import { ImagePicker, MailComposer, Permissions } from "expo";
+import { Constants, ImagePicker, MailComposer, Permissions } from "expo";
+import { Platform } from "expo-react-native-adapter";
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Button, KeyboardAvoidingView, Picker, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { blackColor, lightGreyColor, paragraphFontSize, primaryColor, titleFontSize } from "../helpers/styleGuidelines";
+import { Email, Image, Item, renderEmail, Span } from "react-html-email";
+import {
+  Alert,
+  Button,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from "react-native";
+import { Dropdown } from "react-native-material-dropdown";
+import { withNavigation } from "react-navigation";
+import {
+  lightGreyColor,
+  primaryColor,
+  whiteColor,
+  greyColor
+} from "../helpers/styleGuidelines";
+import {
+  dataText,
+  styleMailing,
+  styleMailingData
+} from "../helpers/styleGuidelineTemplateMailing";
+import CustomButton from "./CustomButton";
+
+const pages = [
+  {
+    value: "Acceuil"
+  },
+  {
+    value: "Inscription"
+  },
+  {
+    value: "Connexion"
+  },
+  {
+    value: "Faq"
+  },
+  {
+    value: "Bug"
+  },
+  {
+    value: "Statistiques"
+  },
+  {
+    value: "Graphiques"
+  }
+];
+const categories = [
+  {
+    value: "Catégorie de bug 1"
+  },
+  {
+    value: "Catégorie de bug 2"
+  },
+  {
+    value: "Catégorie de bug 3"
+  }
+];
 
 class BugReportComponent extends Component {
   // On crée notre constructor avec comme paramètre les props du Formulaire
@@ -42,6 +101,16 @@ class BugReportComponent extends Component {
     this.setState({ date: formatedDate });
   }
 
+  model = () => {
+    if (Platform.OS === "ios") {
+      return this.setState({
+        environnement: "iOS v" + Constants.platform.ios.systemVersion
+      });
+    } else if (Platform.OS === "android") {
+      return this.setState({ environnement: "Android" });
+    }
+  };
+
   /**
    * Infos :
    * -Procédure de de formatage de la date
@@ -55,8 +124,24 @@ class BugReportComponent extends Component {
     return value;
   }
 
+  verifyConnexion() {
+    let mockUserAsyncStorage = true; // à remplacer par l'asyncStorage lié à la connexion quand elle aura été faite par l'équipe 1
+
+    if (!mockUserAsyncStorage) {
+      this.props.navigation.navigate("Connexion");
+
+      Alert.alert(
+        "Connectez-vous",
+        "Veuillez vous connecter s'il vous plait",
+        [{ text: "OK", onPress: () => console.log() }],
+        { cancelable: false }
+      );
+    }
+  }
+
   componentDidMount() {
     this.setDate();
+    this.model();
   }
 
   traitment = async () => {
@@ -116,34 +201,213 @@ class BugReportComponent extends Component {
     });
   };
   async sendMail(obj) {
-    // On crée un email avec :
-    MailComposer.composeAsync({
-      // Comme recipient l'obj.mail qui est l'email de la personne
-      recipients: [obj.mail],
-      // En sujet on met la catégories du mail
-      subject: obj.category,
-      // Body contient toutes les informations du mail
-      body:
-        "Mail : " +
-        obj.mail +
-        "\n" +
-        "Environnement : " +
-        obj.environnement +
-        "\n" +
-        "Page : " +
-        obj.page +
-        "\n" +
-        "Date : " +
-        obj.date +
-        "\n" +
-        "Catégories : " +
-        obj.category +
-        "\n" +
-        "Descriptif : " +
-        obj.descriptif +
-        "\n",
-      attachments: [this.state.image]
-    });
+    if (Platform.OS === "ios") {
+      if (this.state.image) {
+        // On crée un email avec :
+        MailComposer.composeAsync({
+          // Comme recipient l'obj.mail qui est l'email de la personne
+          recipients: [obj.mail, "contact@idmkr.io"], //à remplacer par l'adresse mail du support technique
+          // En sujet on met la catégories du mail
+          subject: obj.category,
+          // Body contient toutes les informations du mail
+          body: renderEmail(
+            <Email title="">
+              <br />
+              <br />
+              <Item align="left">
+                <Span>support technique Simplon :</Span>
+                <br />
+                <br />
+                <Span {...styleMailing.date} {...dataText}>
+                  Envoyé le :{" "}
+                </Span>
+                <Span {...styleMailingData.date} {...dataText}>
+                  {this.state.date}
+                </Span>
+                <br />
+                <Span {...styleMailing.environnement} {...dataText}>
+                  Environnement :{" "}
+                </Span>
+                <Span {...styleMailingData.environnement} {...dataText}>
+                  {this.state.environnement}
+                </Span>
+                <br />
+                <Span {...styleMailing.page} {...dataText}>
+                  Page :{" "}
+                </Span>
+                <Span {...styleMailingData.page} {...dataText}>
+                  {this.state.page}
+                </Span>
+                <br />
+                <Span {...styleMailing.categories} {...dataText}>
+                  Catégorie :{" "}
+                </Span>
+                <Span {...styleMailingData.categories} {...dataText}>
+                  {this.state.category}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.descriptif} {...dataText}>
+                  Descriptif :{" "}
+                </Span>
+                <Span {...styleMailingData.descriptif} {...dataText}>
+                  {this.state.descriptif}
+                </Span>
+                <Image
+                  width={500}
+                  height={500}
+                  alt="image Bug"
+                  src={this.state.image}
+                />
+              </Item>
+            </Email>
+          ),
+          isHtml: true
+        });
+      } else {
+        // On crée un email avec :
+        MailComposer.composeAsync({
+          // Comme recipient l'obj.mail qui est l'email de la personne
+          recipients: [obj.mail, "contact@idmkr.io"], //à remplacer par l'adresse mail du support technique
+          // En sujet on met la catégories du mail
+          subject: obj.category,
+          // Body contient toutes les informations du mail
+          body: renderEmail(
+            <Email title="">
+              <br />
+              <br />
+              <Item align="left">
+                <Span>support technique Simplon :</Span>
+                <br />
+                <br />
+                <Span {...styleMailing.date}>Envoyé le : </Span>
+                <Span {...styleMailingData.date}>{this.state.date}</Span>
+                <br />
+                <Span {...styleMailing.environnement}>Environnement : </Span>
+                <Span {...styleMailingData.environnement}>
+                  {this.state.environnement}
+                </Span>
+                <br />
+                <Span {...styleMailing.page}>Page : </Span>
+                <Span {...styleMailingData.page}>{this.state.page}</Span>
+                <br />
+                <Span {...styleMailing.categories}>Catégorie : </Span>
+                <Span {...styleMailingData.categories}>
+                  {this.state.category}
+                </Span>
+                <br />
+                <Span {...styleMailing.descriptif}>Descriptif : </Span>
+                <Span {...styleMailingData.descriptif}>
+                  {this.state.descriptif}
+                </Span>
+              </Item>
+            </Email>
+          ),
+          isHtml: true
+        });
+      }
+    } else {
+      if (this.state.image) {
+        // On crée un email avec :
+        MailComposer.composeAsync({
+          // Comme recipient l'obj.mail qui est l'email de la personne
+          recipients: [obj.mail, "contact@idmkr.io"], //à remplacer par l'adresse mail du support technique
+          // En sujet on met la catégories du mail
+          subject: obj.category,
+          // Body contient toutes les informations du mail
+          body: renderEmail(
+            <Email title="support technique Simplon :">
+              <br />
+              <br />
+              <Item align="left">
+                <Span {...styleMailing.date} {...dataText}>
+                  Envoyé le :{" "}
+                </Span>
+                <Span {...styleMailingData.date} {...dataText}>
+                  {this.state.date}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.environnement} {...dataText}>
+                  Environnement :{" "}
+                </Span>
+                <Span {...styleMailingData.environnement} {...dataText}>
+                  {this.state.environnement}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.page} {...dataText}>
+                  Page :{" "}
+                </Span>
+                <Span {...styleMailingData.page} {...dataText}>
+                  {this.state.page}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.categories} {...dataText}>
+                  Catégorie :{" "}
+                </Span>
+                <Span {...styleMailingData.categories} {...dataText}>
+                  {this.state.category}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.descriptif} {...dataText}>
+                  Descriptif :{" "}
+                </Span>
+                <Span {...styleMailingData.descriptif} {...dataText}>
+                  {this.state.descriptif}
+                </Span>
+              </Item>
+            </Email>
+          ),
+          attachments: [this.state.image],
+          isHtml: true
+        });
+      } else {
+        // On crée un email avec :
+        MailComposer.composeAsync({
+          // Comme recipient l'obj.mail qui est l'email de la personne
+          recipients: [obj.mail, "contact@idmkr.io"], //à remplacer par l'adresse mail du support technique
+          // En sujet on met la catégories du mail
+          subject: obj.category,
+          // Body contient toutes les informations du mail
+          body: renderEmail(
+            <Email title="support technique Simplon :">
+              <br />
+              <br />
+              <Item align="left">
+                <Span {...styleMailing.date}>Envoyé le : </Span>
+                <Span {...styleMailingData.date}>{this.state.date}</Span>
+                <br />
+                <br />
+                <Span {...styleMailing.environnement}>Environnement : </Span>
+                <Span {...styleMailingData.environnement}>
+                  {this.state.environnement}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.page}>Page : </Span>
+                <Span {...styleMailingData.page}>{this.state.page}</Span>
+                <br />
+                <br />
+                <Span {...styleMailing.categories}>Catégorie : </Span>
+                <Span {...styleMailingData.categories}>
+                  {this.state.category}
+                </Span>
+                <br />
+                <br />
+                <Span {...styleMailing.descriptif}>Descriptif : </Span>
+                <Span {...styleMailingData.descriptif}>
+                  {this.state.descriptif}
+                </Span>
+              </Item>
+            </Email>
+          ),
+          isHtml: true
+        });
+      }
+    }
   }
   async uploadImageAsync(uri) {
     // On prépare l'url de l'API
@@ -192,7 +456,7 @@ class BugReportComponent extends Component {
         // set le state avec l'image
         this.setState({
           mail: this.state.mail,
-          environnement: this.state.environnement,
+          // environnement: this.state.environnement,
           page: this.state.page,
           category: this.state.category,
           date: this.state.date,
@@ -205,7 +469,7 @@ class BugReportComponent extends Component {
         // sinon on set le state avec comme valeur pour l'image de ''
         this.setState({
           mail: this.state.mail,
-          environnement: this.state.environnement,
+          // environnement: this.state.environnement,
           page: this.state.page,
           category: this.state.category,
           date: this.state.date,
@@ -220,6 +484,7 @@ class BugReportComponent extends Component {
       return console.error("Votre email doit être valide");
     }
   }
+
   render() {
     // On dit a Formik ou chercher ses valeurs initiaux ici le state du Formulaire
     return (
@@ -229,81 +494,60 @@ class BugReportComponent extends Component {
             style={styles.card}
             behavior="padding"
             enabled
-            keyboardVerticalOffset="10"
-          >
+            keyboardVerticalOffset="10">
             <Text style={styles.title}>Signaler un Bug</Text>
             <View style={styles.line} />
-            <ScrollView style={styles.inputContainer}>
+            <View style={styles.inputContainer}>
               <TextInput
-                placeholder="mail"
+                placeholder="Mail"
                 style={styles.inputText}
                 onChangeText={e => {
                   this.setState({ mail: e });
                 }}
               />
               <Text style={styles.date}>Date : {this.state.date}</Text>
-              <Picker
-                style={styles.select}
-                selectedValue={this.state.environnement}
-                onValueChange={(itemValue, itemIndex) => {
-                  this.setState({ environnement: itemValue });
-                }}
-              >
-                <Picker.Item
-                  label="Environnement"
-                  enabled="false"
-                  color="grey"
-                />
-                <Picker.Item label="Android" value="android" />
-                <Picker.Item label="Ios" value="ios" />
-              </Picker>
-              <Picker
-                style={styles.select}
-                selectedValue={this.state.page}
-                onValueChange={(itemValue, itemIndex) => {
+              <Text style={styles.date}>
+                Environnement: {this.state.environnement}{" "}
+              </Text>
+              <Dropdown
+                label="Page"
+                data={pages}
+                onChangeText={itemValue => {
                   this.setState({ page: itemValue });
                 }}
-              >
-                <Picker.Item label="Page" enabled="false" color="grey" />
-                <Picker.Item label="Page 1" value="page1" />
-                <Picker.Item label="Page 2" value="page2" />
-              </Picker>
-              <Picker
-                style={styles.select}
-                selectedValue={this.state.category}
-                onValueChange={(itemValue, itemIndex) => {
+              />
+              <Dropdown
+                label="Catégories"
+                data={categories}
+                onChangeText={itemValue => {
                   this.setState({ category: itemValue });
                 }}
-              >
-                <Picker.Item label="Catégorie" enabled="false" color="grey" />
-                <Picker.Item label="Catégorie 1" value="category1" />
-                <Picker.Item label="Catégorie 2" value="category2" />
-              </Picker>
+              />
               <TextInput
                 multiline={true}
                 numberOfLines={4}
-                placeholder="descriptif"
-                style={styles.inputText}
+                placeholder="Descriptif"
+                style={styles.textArea}
                 onChangeText={e => {
                   this.setState({ descriptif: e });
                 }}
               />
               <TouchableOpacity
                 style={styles.imageUpload}
-                onPress={() => this.traitment()}
-              >
+                onPress={() => this.traitment()}>
                 <Text style={styles.imageUploadText}>
-                  AJOUTER UNE IMAGE {this.state.uploaded}
+                  Ajouter une image {this.state.uploaded}
                 </Text>
               </TouchableOpacity>
-              <Button
-                title="Soumettre"
-                color={primaryColor}
-                accessibilityLabel="Signalisation d'un disfonctionnement"
-                style={styles.submit}
-                onPress={() => this.verificationUtilisateur()}
+              <CustomButton
+                backgroundColor={primaryColor}
+                title="Envoyer"
+                onPress={() => {
+                  this.verificationUtilisateur();
+                  this.verifyConnexion();
+                }}
               />
-            </ScrollView>
+            </View>
           </KeyboardAvoidingView>
         )}
       </Formik>
@@ -313,15 +557,15 @@ class BugReportComponent extends Component {
 
 BugReportComponent.propTypes = {
   // On vérifie si le type entrée dans mail est un type string et qu'il est requis
-  mail: PropTypes.string.isRequired,
+  mail: PropTypes.string,
   // On vérifie si le type entrée dans environnement est un type string et qu'il est requis
-  environnement: PropTypes.string.isRequired,
+  environnement: PropTypes.string,
   // On vérifie si le type entrée dans page est un type string et qu'il est requis
-  page: PropTypes.string.isRequired,
+  page: PropTypes.string,
   // On vérifie si le type entrée dans date est un type date et qu'il est requis
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string,
   // On vérifie si le type entrée dans descriptif est un type string et qu'il est requis
-  descriptif: PropTypes.string.isRequired,
+  descriptif: PropTypes.string,
   // On vérifie si le type entrée dans image est un type string
   image: PropTypes.string
 };
@@ -338,7 +582,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: primaryColor,
-    fontSize: titleFontSize,
+    fontSize: 30,
     textAlign: "left",
     width: "100%",
     marginTop: 10
@@ -348,7 +592,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   line: {
-    backgroundColor: blackColor,
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
     width: "80%",
     height: 1,
     marginTop: 15,
@@ -362,20 +606,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: lightGreyColor,
     paddingLeft: 5,
-    marginBottom: 20
+    marginBottom: 20,
+    height: Platform.OS === "ios" ? 40 : 40
   },
   select: {
     borderColor: lightGreyColor,
     borderBottomWidth: 1
   },
   textArea: {
-    padding: 2,
-    borderWidth: 2,
-    borderColor: blackColor,
-    borderStyle: "solid"
+    height: Platform.OS === "ios" ? 80 : 80,
+    marginTop: 20,
+    paddingLeft: 5,
+    borderWidth: 1,
+    borderColor: lightGreyColor
   },
   imageUpload: {
-    backgroundColor: primaryColor,
+    backgroundColor: greyColor,
     marginTop: 20,
     marginBottom: 20,
     borderRadius: 2,
@@ -384,13 +630,12 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   imageUploadText: {
-    color: "white",
-    fontSize: paragraphFontSize,
-    fontWeight: "bold"
+    color: whiteColor,
+    fontSize: 15
   },
   submit: {
     width: "80%"
   }
 });
 
-export default BugReportComponent;
+export default withNavigation(BugReportComponent);

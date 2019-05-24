@@ -1,18 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import BugReportComponent from "../components/BugReportComponent";
 import HeaderComponent from "../components/layouts/HeaderComponent";
+import { whiteColor } from "../helpers/styleGuidelines";
 
-class BugScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: props => <HeaderComponent {...props} />
-    };
-  };
+class BugScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    header: props => <HeaderComponent {...props} />
+  });
+
   render() {
     return (
       <View style={styles.container}>
-        <BugReportComponent />
+        <BugReportComponent navigation={this.props.navigation} />
       </View>
     );
   }
@@ -23,7 +23,7 @@ export default BugScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: whiteColor,
     alignItems: "center",
     justifyContent: "center"
   }

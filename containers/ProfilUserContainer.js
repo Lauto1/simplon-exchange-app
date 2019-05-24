@@ -1,22 +1,21 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Statistique from "../components/Statistique";
-import { getNbPost } from "../actions/statistique";
+import Profil from "../components/ProfilUser";
+import {  } from "../actions/statistique";
 
 const mapStateToProps = state => {
   return {
-    NbPosts: state.storeStatistiques.NbPosts
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators({ getNbPost }, dispatch)
+    actions: bindActionCreators({  }, dispatch)
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Statistique);
+)(Profil);
 

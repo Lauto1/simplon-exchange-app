@@ -1,30 +1,62 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import * as faq from "../mock/faq.json";
-import {
-  whiteColor,
-  primaryColor,
-  lightGreyColor,
-  titleFontSize,
-  blackColor,
-  greyColor,
-  subtitleFontSize
-} from "../helpers/styleGuidelines";
+import {faq} from "../helpers/faq.js";
+import { lightGreyColor, primaryColor, whiteColor, darkGreyColor, blackColor } from "../helpers/styleGuidelines"
+import Accordion from 'react-native-collapsible/Accordion'
+
+const section = faq;
 
 class FaqComponent extends React.Component {
-  //permet de maper chaque question/reponse
-  Faq() {
-    return faq.faq.map(function(r, i) {
-      return (
-        <View style={styles.cart} key={i}>
-          <View style={styles.questionView}>
-            <Text style={styles.question}>{r.question}</Text>
-          </View>
-          <Text style={styles.answer}>{r.answer}</Text>
-        </View>
-      );
-    });
+  constructor(props) {
+    super(props)
+    this.state = {
+      isCollapsed: true,
+      activeSections: [],
+      updateSections: ''
+    }
   }
+
+  toggle() {
+    return this.setState({
+      isCollapsed: !isCollapsed
+    })
+  }
+
+  _updateSections = activeSections => {
+    this.setState({ activeSections });
+  };
+
+  _renderHeader = section => {
+      return (
+        <View style={styles.questionView}>
+          <Text style={styles.question}>{section.question}</Text>
+        </View>
+      )
+    }
+
+  _renderContent = section => {
+      return (
+        <Text style={styles.answer}>{section.answer}</Text>
+      )
+  }
+
+
+
+  //permet de maper chaque question/reponse
+  Faq(state) {
+    return (
+      <View style={styles.cart}>
+        <Accordion
+          sections={section}
+          activeSections={state.activeSections}
+          renderHeader={this._renderHeader}
+          renderContent={this._renderContent}
+          onChange={this._updateSections}
+        />
+      </View>
+    );
+  }
+
 
   //affiche chaque question/reponse
   render() {
@@ -33,7 +65,7 @@ class FaqComponent extends React.Component {
         <View style={styles.titleView}>
           <Text style={styles.title}>Foire aux questions</Text>
         </View>
-        {this.Faq()}
+        {this.Faq(this.state)}
       </ScrollView>
     );
   }
@@ -41,7 +73,7 @@ class FaqComponent extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f3f3f3",
+    backgroundColor: lightGreyColor,
     paddingLeft: 24,
     paddingRight: 24
   },
@@ -53,7 +85,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   title: {
-    fontSize: titleFontSize,
+    fontSize: 22,
     fontWeight: "400",
     color: primaryColor,
     textAlign: "center"
@@ -72,20 +104,21 @@ const styles = StyleSheet.create({
   questionView: {
     paddingTop: 8,
     paddingBottom: 16,
-    borderBottomColor: greyColor,
+    borderBottomColor: lightGreyColor,
     borderBottomWidth: 1
   },
   question: {
     color: primaryColor,
     textAlign: "justify",
     fontWeight: "700",
-    fontSize: subtitleFontSize
+    fontSize: 16
   },
   answer: {
-    color: greyColor,
+    color: darkGreyColor,
     paddingVertical: 16,
     paddingHorizontal: 8
   }
 });
+
 
 export default FaqComponent;

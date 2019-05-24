@@ -1,4 +1,4 @@
-import types from "../constants/actionTypes";
+import * as types from "../constants/actionTypes";
 
 export const fetchUserVotes = () => {
   return async dispatch => {
