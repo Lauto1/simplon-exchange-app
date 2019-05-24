@@ -15,6 +15,8 @@ import {
 } from "../helpers/styleGuidelines";
 import Vote from "./VoteComponent";
 
+import Vote from './VoteComponent';
+
 class QuestionComponent extends Component {
 
   onPressQuestion() {
