@@ -21,7 +21,7 @@ class AnwserComponent extends Component {
               }}
             >
               <Icon name="sort-up" type="font-awesome"/>
-              <Text style={{ fontSize: 20 }}>{answer.upvote}</Text>
+              <Text style={{ fontSize: 20 }}>{answer.views}</Text>
             </View>
 
             <View style={{ flex: 1, padding: 15 }}>
@@ -32,7 +32,7 @@ class AnwserComponent extends Component {
                 }}
               >
                 <Text style={{ fontSize: 16, fontFamily: "firacodebold" }}>
-                  {answer.author}
+                  {answer.user.name}
                 </Text>
                 <Text
                   style={{
@@ -52,7 +52,7 @@ class AnwserComponent extends Component {
                     fontStyle: "italic"
                   }}
                 >
-                  {answer.date}
+                  {answer.created_at}
                 </Text>
               </View>
               <Text
@@ -66,7 +66,7 @@ class AnwserComponent extends Component {
                   marginTop: 8
                 }}
               >
-                {answer.content}
+                {answer.description}
               </Text>
 
               <View

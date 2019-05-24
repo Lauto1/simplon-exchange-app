@@ -4,18 +4,19 @@ import { Card, Icon } from "react-native-elements";
 import { primaryColor, blackColor, secondaryTextColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily, subtitleFontSize } from "../helpers/styleGuidelines";
 
 class QuestionComponent extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false
+      showLoader: false,
+      currentQuestion: null
     }
   }
-  showLoader = () => {
-    this.setState({ isLoading: true });
-  };
-  hideLoader = () => {
-    this.setState({ isLoading: false });
-  };
+  componentWillMount() {
+
+  }
+  showLoader = () => { this.setState({ showLoader: true }); };
+  hideLoader = () => { this.setState({ showLoader: false }); };
 
   onPressQuestion() {
     console.log("onPressQuestion");
@@ -49,37 +50,60 @@ class QuestionComponent extends Component {
   }
   render() {
     const { question } = this.props;
+
     const { terms } = this.props
+    const { indexQuestion } = this.props;
+    console.log("question", question);
+
+
+    //console.log("index inside",indexQuestion,"index inside");
 
     return (
-      <View>
+      <TouchableOpacity
+        onPress={() => { this.props.navigation.navigate("Question", { question: question, index: indexQuestion }) }
+        }
+      >
+        <View style={{ position: 'absolute', top: "35%", right: 0, left: 0 }}>
+          <ActivityIndicator size="large" color="#D7403E" />
+        </View>
+        <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
+          <View
+            style={{
+              flexDirection: "row"
+            }}
+          >
+            <View style={styles.view}>
+              <Icon name="sort-up" type="font-awesome" />
+              <Text style={styles.textUpVote}>{question.views}</Text>
+            </View>
 
-        <TouchableOpacity
-          onPress={() => {
-            this.showLoader(); this.props.navigation.navigate("Question", { question: question })
-          }}>
-          <View style={{ position: "absolute", top: "35%", left: "50%" }}>
-            <ActivityIndicator animating={this.state.isLoading} style={{ size: "large", color: "#D7403E" }} />
-          </View>
-          <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
+            <View style={{ flex: 1, padding: 15 }}>
+              <Text style={styles.title}>{question.title}</Text>
 
-            <View
-              style={{
-                flexDirection: "row"
-              }}
-            >
-              <View style={styles.view}>
-                <Icon name="sort-up" type="font-awesome" />
-                <Text style={styles.textUpVote}>{question.upvote}</Text>
+              <View style={styles.infosPostBox}>
+                <Text style={styles.date}>{question.created_at}</Text>
+                <Text style={styles.par}>par</Text>
+                <Text style={styles.author}>{question.user.name}</Text>
               </View>
 
-              <View style={{ flex: 1, padding: 15 }}>
-                <Text style={styles.title}>{question.title}</Text>
+              {this.props.showContent && (
+                <Text style={styles.questionContent}>{question.description}</Text>
+              )}
 
-                <View style={styles.infosPostBox}>
-                  <Text style={styles.date}>{question.date}</Text>
-                  <Text style={styles.par}>par</Text>
-                  <Text style={styles.author}>{question.author}</Text>
+              <View style={styles.boxTags}>
+                <View style={{ flexDirection: "row", alignContent: "center" }}>
+                  <Icon
+                    size={18}
+                    name="comment"
+                    type="font-awesome"
+                    color="#171b22"
+                  />
+                  <Text style={styles.answerNumber}>
+                    {question.answers.length}
+                  </Text>
+                </View>
+                <View style={styles.factoryBox}>
+                  <Text style={styles.factoryText}>{question.factory}</Text>
                 </View>
 
                 {this.props.showContent && (
@@ -118,10 +142,12 @@ class QuestionComponent extends Component {
                 </View>
               </View>
             </View>
+          </View>);
           </Card>
-        </TouchableOpacity>
+      </TouchableOpacity>
 
-      </View>);
+
+    )
   }
 }
 const styles = StyleSheet.create({
