@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import Question from "../containers/Question";
@@ -12,12 +12,12 @@ class HomeComponent extends React.Component {
   state = {
     questions: [],
     showScrollToTop: false,
-    showContent:false,
-    navigationIndex:false
+    showContent: false,
+    navigationIndex: false
   };
-  navigateByIndex = (index)=> {
-    console.log("question Screen",index);
-    this.setState({navigationIndex:index});
+  navigateByIndex = (index) => {
+    console.log("question Screen", index);
+    this.setState({ navigationIndex: index });
   }
   componentDidMount() {
     this.props.actions.fetchQuestions().then(questions => {
@@ -57,21 +57,20 @@ class HomeComponent extends React.Component {
       let multipleTerms = terms.split(" ");
       multipleTerms.forEach(term => {
         for (var i = 0; i < questions.length; i++) {
-          let whiteSpace = term.length >=1 &&term !=" "
-          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
+          let whiteSpace = term.length >= 1 && term != " "
+          if (whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].description.toLowerCase().toString().includes(term.toLowerCase().toString())) {
             const found = filteredQuestions.some(el => el.id === questions[i].id);
-                questions[i].showContent = true;
+            questions[i].showContent = true;
             if (!found) filteredQuestions.push(questions[i]);
           }
         }
       })
-      
+
     } else {
-      filteredQuestions = questions.map(question=> 
-        { 
-          question.showContent = false;
-          return question
-        });
+      filteredQuestions = questions.map(question => {
+        question.showContent = false;
+        return question
+      });
     }
     return filteredQuestions;
   }
@@ -79,6 +78,8 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
+
+
     const terms = this.props.currentSearch;
     return (
       <View style={styles.view}>
@@ -102,16 +103,17 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
+            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions}
+              style={styles.search} />
 
           </View>
-          {this.searchQuestions(terms, questions).map((question,i) => (
-            <Question  terms={terms}
+          {this.searchQuestions(terms, questions).map((question, i) => (
+            <Question terms={terms}
               navigation={this.props.navigation}
               showContent={question.showContent}
               key={question.id}
               question={question}
-              indexQuestion={i} 
+              indexQuestion={i}
             />
           ))}
           <StatsComponent questions={questions} />

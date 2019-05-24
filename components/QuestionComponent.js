@@ -1,29 +1,13 @@
 import React, { Component } from "react";
 import { Text, TouchableOpacity, View, ActivityIndicator, StyleSheet } from "react-native";
 import { Card, Icon } from "react-native-elements";
-import {
-  paragraphFontSize,
-  boldFontFamily,
-  darkGreyColor,
-  greyColor,
-  whiteColor,
-  lightGreyColor,
-  primaryColor,
-  secondaryTextColor,
-  regularFontFamily,
-  subtitleFontSize,
-  titleFontSize,
-  blackColor
-} from "../helpers/styleGuidelines";
-
+import { primaryColor, lightGreyColor, blackColor, secondaryTextColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily, subtitleFontSize } from "../helpers/styleGuidelines";
 
 class QuestionComponent extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      showLoader: false,
-      currentQuestion: null
+      isLoading: false
     }
   }
   componentWillMount() {
@@ -35,6 +19,7 @@ class QuestionComponent extends Component {
   onPressQuestion() {
     console.log("onPressQuestion");
     const { navigation: navigate } = this.props;
+    this.showLoader();
     () => navigate("Question");
   }
   //test hightlight word "not 100% functionnal"
@@ -142,7 +127,6 @@ class QuestionComponent extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   view: {
     backgroundColor: "#f3f3f3",

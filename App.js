@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Font } from "expo";
-import { Text } from "react-native";
 import Navigator from "./navigation/navigator";
 import { Provider } from "react-redux";
 import store from "./store";
 import { Amplitude } from "expo";
 import { analyticsAPIKey } from "./example.config";
+import Loader from "./components/Loader";
 
 export default class App extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class App extends Component {
   }
   render() {
     if (this.state.AppLoading) {
-      return <Text>Loading....</Text>;
+      return <Loader />;
     } else {
       return (
         <Provider store={store}>

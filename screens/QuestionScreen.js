@@ -19,21 +19,21 @@ class QuestionScreen extends React.Component {
     this.state = {
       contentToDisplay: "hello QuestionScreen",
       showScrollToTop: false,
-      connected:true,
-      currentQuestion:null,
+      connected: true,
+      currentQuestion: null,
       navigationIndex: null,
-      currentQuestion:null
+      currentQuestion: null
     };
-    
+
   }
-  componentWillMount(){
-    const navigateQuestion = this.props.navigation.getParam("navigateQuestion","no data");
+  componentWillMount() {
+    const navigateQuestion = this.props.navigation.getParam("navigateQuestion", "no data");
     const state = this.props.navigation.getParam("state", null);
-    const index = this.props.navigation.getParam("index","no-data");
-    this.setState({navigateByIndex:index});
+    const index = this.props.navigation.getParam("index", "no-data");
+    this.setState({ navigateByIndex: index });
   }
-  componentDidMount(){
-   
+  componentDidMount() {
+
   }
   static navigationOptions = ({ navigation }) => {
     return {
@@ -58,32 +58,32 @@ class QuestionScreen extends React.Component {
     }
   };
 
-  
-  navigateByIndex = (index)=> {
-    console.log("question Screen",index);
-    this.setState({navigationIndex:index});
+
+  navigateByIndex = (index) => {
+    console.log("question Screen", index);
+    this.setState({ navigationIndex: index });
   }
-   
+
   render() {
 
     const question = this.props.navigation.getParam("question", "no Data");
-    const index = this.props.navigation.getParam("index","no-data");
+    const index = this.props.navigation.getParam("index", "no-data");
     //console.log('question.state.params.index',this.props.navigation.state.params);
-    
-    console.log("this.props.index",index,"this.props");
-    
-    
-    
+
+    console.log("this.props.index", index, "this.props");
+
+
+
     //console.log('questionNav', question);
 
     //console.log('this.propsNav', this.props.navigation);
-    
+
     //console.log('this.state',this.state);
-    
-    
+
+
     const answers = question.answers;
     //console.log('answerss', answers);
-    
+
     const { showScrollToTop } = this.state;
     return (
       <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6" }} ref="scrollView"
@@ -110,26 +110,26 @@ class QuestionScreen extends React.Component {
             }}
               >Précédente
             </Text>
-            {/* </TouchableOpacity> */}
+              {/* </TouchableOpacity> */}
             </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => {this.setState({navigationIndex:++index});console.log("goForward")}}> 
-          <View  style={{
-                flexDirection:"row",
-                justifyContent:"flex-end"
-              }}> 
-            <Text style={{ 
-              fontFamily: "firacode", 
-              fontSize: 16,
-              color: "#d6363e",
-              textAlign: "right",
-              paddingRight: 5
-             }}
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => { this.setState({ navigationIndex: ++index }); console.log("goForward") }}>
+            <View style={{
+              flexDirection: "row",
+              justifyContent: "flex-end"
+            }}>
+              <Text style={{
+                fontFamily: "firacode",
+                fontSize: 16,
+                color: "#d6363e",
+                textAlign: "right",
+                paddingRight: 5
+              }}
               >Suivante
             </Text>
-            {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
-          </View> 
-        </TouchableOpacity>
+              {/* <Icon name="angle-double-right" type="font-awesome" color="#d6363e"/> */}
+            </View>
+          </TouchableOpacity>
         </View>
         <Text
           style={{
@@ -146,11 +146,11 @@ class QuestionScreen extends React.Component {
         {answers.map(answer => (
           <AnwserComponent key={answer.id} answer={answer} />
         ))}
-        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse}/> : 
-        <View style={{ paddingTop:10, paddingLeft: 15, paddingRight: 15 }}>
-          <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e"}} />
-        </View>}
-       
+        {this.state.connected ? <AnwserFormComponent newResponse={this.addResponse} /> :
+          <View style={{ paddingTop: 10, paddingLeft: 15, paddingRight: 15 }}>
+            <Button title="Connectez vous pour répondre" buttonStyle={{ backgroundColor: "#d6363e" }} />
+          </View>}
+
         <FooterComponent drawerNav={this.props.navigation} />
         {showScrollToTop && (
           <ScrollToTopButtonComponent onPress={this.onScrollTop} />
@@ -159,8 +159,8 @@ class QuestionScreen extends React.Component {
     );
   }
   addResponse(newResponse) {
-		console.log("TCL: addResponse -> newResponse", newResponse)
-    
+    console.log("TCL: addResponse -> newResponse", newResponse)
+
   }
   onLoadCallback = () => {
     console.log("loaded");
