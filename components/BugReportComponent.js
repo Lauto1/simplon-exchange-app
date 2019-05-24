@@ -79,24 +79,7 @@ class BugReportComponent extends Component {
     return value;
   }
 
-  componentWillMount() {
-    let mockUserAsyncStorage = true; // à remplacer par l'asyncStorage lié à la connexion quand elle aura été faite par l'équipe 1
-
-    if (!mockUserAsyncStorage) {
-      this.props.navigation.navigate('Connexion');
-
-      Alert.alert(
-        'Connectez-vous',
-        'Veuillez vous connecter s\'il vous plait',
-        [
-          { text: 'OK', onPress: () => console.log() }
-        ],
-        { cancelable: false }
-      );
-    }
-  }
-
-  componentWillMount() {
+  verifyConnexion() {
     let mockUserAsyncStorage = true; // à remplacer par l'asyncStorage lié à la connexion quand elle aura été faite par l'équipe 1
 
     if (!mockUserAsyncStorage) {
@@ -348,14 +331,6 @@ async uploadImageAsync(uri) {
   }
 
   render() {
-    const environments = [
-      {
-        value: "Android"
-      },
-      {
-        value: "Ios"
-      }
-    ];
     const pages = [
       {
         value: "Acceuil"
@@ -449,7 +424,7 @@ async uploadImageAsync(uri) {
                 color="#d6363e"
                 accessibilityLabel="Signalisation d'un disfonctionnement"
                 style={styles.submit}
-                onPress={() => this.verificationUtilisateur()}
+                onPress={() => {this.verificationUtilisateur(); this.verifyConnexion() }}
               />
             </View>
           </KeyboardAvoidingView>
