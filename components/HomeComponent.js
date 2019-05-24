@@ -6,7 +6,15 @@ import Question from "../containers/Question";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
+import {
+  primaryColor,
+  lightGreyColor,
+  boldFontFamily,
+  whiteColor,
+  titleFontSize,
+  paragraphFontSize,
+  regularFontFamily
+} from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
@@ -64,14 +72,12 @@ class HomeComponent extends React.Component {
             if (!found) filteredQuestions.push(questions[i]);
           }
         }
-      })
-      
+      });
     } else {
-      filteredQuestions = questions.map(question=> 
-        { 
-          question.showContent = false;
-          return question
-        });
+      filteredQuestions = questions.map(question => {
+        question.showContent = false;
+        return question;
+      });
     }
     return filteredQuestions;
   }
@@ -104,8 +110,10 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
-
+            <SearchbarComponent
+              searchQuestions={this.props.actions.searchQuestions}
+              style={styles.search}
+            />
           </View>
           {this.searchQuestions(terms, questions).map((question,i) => (
             <Question  terms={terms}
@@ -153,6 +161,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   welcomeHomeText: {
+    fontFamily: regularFontFamily,
     textAlign: "center",
     color: whiteColor,
     fontSize: paragraphFontSize

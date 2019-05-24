@@ -4,6 +4,7 @@ import FaqScreen from "../../screens/FaqScreen";
 import HomeScreen from "../../screens/HomeScreen";
 import QuestionScreen from "../../screens/QuestionScreen";
 import VoteScreen from "../../screens/VoteScreen";
+import AskQuestionScreen from "../../screens/AskQuestionScreen";
 
 /**
  * Creation d'un Stack Navigator à partir d'un Screen https://reactnavigation.org/docs/en/stack-navigator.html
@@ -13,14 +14,15 @@ const HomeStack = createStackNavigator({
   Question: QuestionScreen,
   Faq: FaqScreen,
   Bug: BugScreen,
-  Vote: VoteScreen
+  Vote: VoteScreen,
+  askQuestion: AskQuestionScreen
 });
 /**
  * Nom du label affiché dans le menu
  */
 HomeStack.navigationOptions = {
-    tabBarLabel: 'Accueil',
-    drawerLabel: 'Accueil'
+  tabBarLabel: "Accueil",
+  drawerLabel: "Accueil"
 };
 
 export default HomeStack;
