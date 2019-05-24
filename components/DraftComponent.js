@@ -32,7 +32,7 @@ class DraftComponent extends Component {
             </KeyboardAvoidingView>
         );
     }
-    onTextChange() {
+    postResponse() {
         let response = {
             "id": "93",
             "user": { "name": "falseAuthor" },
@@ -41,6 +41,10 @@ class DraftComponent extends Component {
             "description": this.state.text,
             "created_at": "09/10/2019"
         }
+        /**
+         * Get user here and post anwser
+         * this.props.addResponse(response) ?
+         */ 
         //this.props.newResponse(response)
     }
     getText(text) {
