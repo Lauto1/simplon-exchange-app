@@ -11,7 +11,7 @@ class DraftComponent extends Component {
         super(props);
         this.state = {
             contentToDisplay: "hello world",
-            text: "Entrez votre Réponse"
+            text: ""
         };
     }
     render() {
@@ -19,18 +19,18 @@ class DraftComponent extends Component {
             <ScrollView style={{ flex: 1 }}><TextInput multiline={true}
                 numberOfLines={8}
                 onChangeText={(text) => this.getText(text)}
-                value={this.state.text} />
-                <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange(this.state.text) }}></Button>
+                value={this.state.text} placeholder="Entrez votre réponse" />
+                <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
                 </ScrollView>
         );
     }
-    onTextChange(text) {
+    onTextChange() {
         let response = {
             "id": "93",
             "user": { "name": "falseAuthor" },
             "points": 77,
             "views": 0,
-            "description": text,
+            "description": this.state.text,
             "created_at": "09/10/2019"
         }
         //this.props.newResponse(response)

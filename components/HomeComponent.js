@@ -58,7 +58,7 @@ class HomeComponent extends React.Component {
       multipleTerms.forEach(term => {
         for (var i = 0; i < questions.length; i++) {
           let whiteSpace = term.length >=1 &&term !=" "
-          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
+          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].description.toLowerCase().toString().includes(term.toLowerCase().toString())) {
             const found = filteredQuestions.some(el => el.id === questions[i].id);
                 questions[i].showContent = true;
             if (!found) filteredQuestions.push(questions[i]);
@@ -79,6 +79,8 @@ class HomeComponent extends React.Component {
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
+    
+    
     const terms = this.props.currentSearch;
     return (
       <View style={styles.view}>
