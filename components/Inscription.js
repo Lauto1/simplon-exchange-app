@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
-import { KeyboardAvoidingView } from 'react-native';
+import { KeyboardAvoidingView } from "react-native";
 import {
   Button,
   StyleSheet,
@@ -11,15 +11,49 @@ import {
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 import {
+  lightGreyColor,
   primaryColor,
-  blackColor,
   titleFontSize,
-  whiteColor,
-  lightGreyColor
+  whiteColor
 } from "../helpers/styleGuidelines";
 
-export default class Inscription extends React.Component {
+const fabriks = [
+  {
+    value: "Roanne"
+  },
+  {
+    value: "Rodez"
+  },
+  {
+    value: "Cahors"
+  },
+  {
+    value: "Saint-Gaudens"
+  },
+  {
+    value: "Toulouse"
+  },
+  {
+    value: "Grenoble"
+  },
+  {
+    value: "Vénissieux"
+  },
+  {
+    value: "Villeurbanne"
+  },
+  {
+    value: "Chambéry"
+  },
+  {
+    value: "Annemasse"
+  },
+  {
+    value: "Montpellier"
+  }
+];
 
+export default class Inscription extends React.Component {
   _API = "http://dev.simplon-exchange.help/api/";
 
   constructor(props) {
@@ -33,57 +67,59 @@ export default class Inscription extends React.Component {
       notif: false,
       fabrics: []
     };
-    this.getFabrics()
+    this.getFabrics();
   }
 
   getFabrics() {
-    fetch(this._API + 'anon/fabrics', {
-      method: 'GET',
+    fetch(this._API + "anon/fabrics", {
+      method: "GET",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
-    }).then((response) => {
-      return response.json();
-    }).then((data) => {
-      data = data.data.map(item => {
-        return {
-          value: item.id,
-          label: item.name
-        }
+    })
+      .then(response => {
+        return response.json();
       })
-      return this.setState({ fabrics: data })
-    }).catch((error) => {
-      console.error(error)
-    });
-  }
-
-  handleSubmit() {
-    fetch(this._API + 'register', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this.state),
-    }).then((response) => {
-      console.log(response)
-    }).then(() => {
-      this.props.navigation.navigate('Connexion')
-    }).catch((error) => {
-        console.error(error)
+      .then(data => {
+        data = data.data.map(item => {
+          return {
+            value: item.id,
+            label: item.name
+          };
+        });
+        return this.setState({ fabrics: data });
+      })
+      .catch(error => {
+        console.error(error);
       });
   }
 
-
+  handleSubmit() {
+    fetch(this._API + "register", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(response => {
+        console.log(response);
+      })
+      .then(() => {
+        this.props.navigation.navigate("Connexion");
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
   render() {
     return (
       <KeyboardAvoidingView behavior="position" enabled>
         <View>
-          <Formik
-            initialValues={this.state}
-          >
+          <Formik initialValues={this.state}>
             {() => (
               <View style={styles.form}>
                 <TextInput
@@ -97,13 +133,14 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ name: e });
                   }}
-  
                 />
                 <View style={styles.dropdown}>
                   <Dropdown
                     label="Quelle est votre fabrique Simplon ?"
                     data={this.state.fabrics}
-                    onChangeText={itemValue => {this.setState({ fabric_id: itemValue })}}
+                    onChangeText={itemValue => {
+                      this.setState({ fabric_id: itemValue });
+                    }}
                   />
                 </View>
                 <TextInput
@@ -112,7 +149,6 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ email: e });
                   }}
-  
                 />
                 <TextInput
                   placeholder="Mot de passe"
@@ -121,7 +157,6 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ password: e });
                   }}
-  
                 />
                 <TextInput
                   placeholder="Répéter le mot de passe"
@@ -130,7 +165,6 @@ export default class Inscription extends React.Component {
                   onChangeText={e => {
                     this.setState({ confirm_password: e });
                   }}
-  
                 />
                 <View style={styles.checkBox}>
                   <Text style={{ lineHeight: 30, marginRight: 10 }}>
