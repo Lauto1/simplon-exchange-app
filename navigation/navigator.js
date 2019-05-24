@@ -11,6 +11,7 @@ import HomeStack from "./stack/HomeStack";
 import LoginStack from "./stack/LoginStack";
 import RegisterStack from "./stack/RegisterStack";
 import StatsStack from "./stack/StatsStack";
+import ContactScreen from "../screens/ContactScreen";
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
@@ -24,7 +25,8 @@ const DrawerNavigator = createDrawerNavigator({
   Bug: BugScreen,
   Statistiques: StatsStack,
   Graphiques: GraphStack,
-  Vote: VoteScreen
+  Vote: VoteScreen,
+  Contact: ContactScreen
 },{
   drawerPosition: 'right',
 });
