@@ -20,11 +20,11 @@ class DraftComponent extends Component {
                 numberOfLines={8}
                 onChangeText={(text) => this.getText(text)}
                 value={this.state.text} placeholder="Entrez votre réponse" />
-                <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
+                <Button color={primaryColor} title="Répondre" onPress={() => { this.postResponse() }}></Button>
                 </ScrollView>
         );
     }
-    onTextChange() {
+    postResponse() {
         let response = {
             "id": "93",
             "user": { "name": "falseAuthor" },
@@ -33,6 +33,10 @@ class DraftComponent extends Component {
             "description": this.state.text,
             "created_at": "09/10/2019"
         }
+        /**
+         * Get user here and post anwser
+         * this.props.addResponse(response) ?
+         */ 
         //this.props.newResponse(response)
     }
     getText(text) {
