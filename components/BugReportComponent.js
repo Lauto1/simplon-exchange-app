@@ -7,7 +7,6 @@ import { styleMailing, dataText, styleMailingData } from '../helpers/styleGuidel
 import {
   Button,
   KeyboardAvoidingView,
-  Picker,
   StyleSheet,
   Text,
   TextInput,
