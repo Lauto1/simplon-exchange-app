@@ -7,7 +7,7 @@ class AskQuestionScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       header: props => <HeaderComponent {...props} title="Simplon-Exchange" />,
-      drawerLabel: 'Posez une question'
+      drawerLabel: 'Poser une question'
     };
   };
 
