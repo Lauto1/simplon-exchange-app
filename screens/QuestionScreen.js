@@ -65,7 +65,7 @@ class QuestionScreen extends React.Component {
   }
 
   render() {
-
+    
     const question = this.props.navigation.getParam("question", "no Data");
     const index = this.props.navigation.getParam("index", "no-data");
     const answers = question.answers;

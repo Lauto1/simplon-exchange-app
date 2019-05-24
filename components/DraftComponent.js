@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from "react-native";
 import { primaryColor, regularFontFamily, secondaryTextColor } from "../helpers/styleGuidelines";
-
+import CustomButton from "../components/CustomButton"
 //   import {KeyboardAvoidingView} from 'react-native';
 //import getRNDraftJSBlocks from 'react-native-draftjs-render';
 
@@ -27,9 +27,10 @@ class DraftComponent extends Component {
                         Ecrire la description de votre problème en entrant tous les
                         détails possibles qui en permettront la résolution.
                     </Text> : null}
-                    <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
+                    <CustomButton title="Répondre" onPress={() => { this.onTextChange() }} backgroundColor={primaryColor}  />
                 </View>               
             </KeyboardAvoidingView>
+            
         );
     }
     postResponse() {
