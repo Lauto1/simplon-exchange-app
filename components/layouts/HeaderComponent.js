@@ -21,7 +21,7 @@ class HeaderComponent extends React.Component {
       <View>
         <View style={{ backgroundColor: "#000", height: 24 }} />
         <Text style={styles.preHeader}>
-          ⇐ Hey Simplonnien.ne ! Rejoins-nous vites
+          ⇐ Hey Simplonnien.ne ! Rejoins-nous vite
         </Text>
 
         <View style={styles.view}>

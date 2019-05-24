@@ -1,13 +1,14 @@
 import { Formik } from "formik";
 import React from "react";
-import { KeyboardAvoidingView } from 'react-native';
+// import { KeyboardAvoidingView } from 'react-native';
 import {
   Button,
   StyleSheet,
   Switch,
   Text,
   TextInput,
-  View
+  View,
+  KeyboardAvoidingView
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 import {
