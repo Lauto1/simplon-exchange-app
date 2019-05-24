@@ -97,7 +97,6 @@ class QuestionScreen extends React.Component {
         }}>
           <View  style={{
                 flexDirection:"row",
-                borderWidth: 2
               }}>
           {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
           {/* <TouchableOpacity onPress={this.goToNext()}> */}
