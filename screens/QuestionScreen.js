@@ -72,7 +72,7 @@ class QuestionScreen extends React.Component {
     const { showScrollToTop } = this.state;
     return (
       <ScrollView contentContainerStyle={styles.scrollView} ref="scrollView"
-        onScroll={this.onScroll} >
+        onScroll={this.onScroll} scrollEventThrottle="16">
 
         <Question navigateByIndex={this.navigateByIndex} navigation={this.props.navigation} index={index} question={question} showContent={true} />
         <View style={styles.navigationContainer}>

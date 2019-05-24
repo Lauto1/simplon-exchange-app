@@ -87,7 +87,7 @@ class HomeComponent extends React.Component {
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
-          onScroll={this.onScroll}
+          onScroll={this.onScroll} scrollEventThrottle="16"
         >
           <View style={styles.welcomeHome}>
             <Text style={styles.welcomeTitle}>

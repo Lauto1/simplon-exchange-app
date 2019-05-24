@@ -48,6 +48,7 @@ class DraftComponent extends Component {
 
 const styles = StyleSheet.create({ 
     textInput: {
+        minHeight:250,
         padding: 10
     }
 })
