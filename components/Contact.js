@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     color: whiteColor,
     fontSize: paragraphFontSize,
     fontFamily: regularFontFamily,
-    paddingBottom: 20
   }
 });
 
