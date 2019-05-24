@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   Alert,
   Button,
-  TextInput
+  TextInput,
+  Picker
 } from "react-native";
 import { Card, Icon, Input } from "react-native-elements";
 import {
@@ -29,13 +30,22 @@ class QuestionFormComponent extends Component {
     super(props);
     this.state = {
       contentToDisplay: "hello world",
-      response: ""
+      response: "",
+      test: "",
+      category: "",
+      categories: []
     };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        categories: ["PHP", "MySQL", "NodeJS", "C#", "Python", "Ruby"]
+      });
+    }, 1000);
   }
   render() {
     return (
       <View style={styles.view}>
-        <View style={{ height: 120, backgroundColor: blackColor }} />
         <Card containerStyle={styles.cardStyle}>
           <View style={styles.column}>
             <Text style={styles.titleText}>Posez votre question</Text>
@@ -63,8 +73,33 @@ class QuestionFormComponent extends Component {
                   Choisir un titre approprié et explicite est la première étape
                 </Text>
               </View>
+              <View>
+                <Text style={styles.backgroundBlack}>
+                  Catégories <Text style={{ color: primaryColor }}>*</Text>
+                </Text>
+                <View style={styles.boxy}>
+                  <Picker
+                    selectedValue={this.state.category}
+                    onValueChange={category => this.setState({ category })}
+                    style={{ padding: 0, margin: 0, color: secondaryTextColor }}
+                  >
+                    <Picker.Item label="Choisissez une catégorie..." value="" />
+                    {this.state.categories.map(category => (
+                      <Picker.Item
+                        key={category}
+                        label={category}
+                        value={category}
+                      />
+                    ))}
+                  </Picker>
+                </View>
+                <Text style={styles.subInput}>
+                  Choisir de manière pertinente la catégorie, ne pas tout ranger
+                  dans other !
+                </Text>
+              </View>
               <View style={{ flex: 1 }}>
-                <Text style={{ marginBottom: 5 }}>
+                <Text style={{ marginBottom: 5, marginTop: 10 }}>
                   Détails
                   <Text style={{ color: primaryColor }}> *</Text>
                 </Text>
@@ -128,6 +163,15 @@ const styles = StyleSheet.create({
     fontFamily: boldFontFamily,
     color: primaryColor
   },
+  boxy: {
+    fontFamily: regularFontFamily,
+    borderWidth: 1,
+    borderColor: "#dedede",
+    borderRadius: 5,
+    marginVertical: 5,
+    padding: 0
+  },
+
   infosBox: {
     flex: 1,
     flexDirection: "column",
@@ -150,7 +194,7 @@ const styles = StyleSheet.create({
   },
 
   inputBar: {
-    padding: 0,
+    padding: 10,
     marginVertical: 5,
     fontFamily: "firacode",
     backgroundColor: "#FFFFFF",

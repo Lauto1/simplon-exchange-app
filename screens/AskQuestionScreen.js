@@ -16,6 +16,7 @@ class AskQuestionScreen extends React.Component {
       <ScrollView contentContainerStyle={{ backgroundColor: "#dee2e6" }}>
         <QuestionFormComponent />
       </ScrollView>
+      
     );
   }
 }
