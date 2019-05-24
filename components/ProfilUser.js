@@ -29,12 +29,12 @@ class Profil extends Component {
   }
 
   render() {
+    console.log(this.props.action);
     return (
       <ScrollView>
         <View style={styles.container}>
           <View style={[styles.header, styles.cart]}>
             <View>
-              <Image
                 style={styles.avatar}
                 source={require('../assets/logo72.png')}
               />
@@ -57,7 +57,7 @@ class Profil extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => {}}
+              onPress={() => {this.props.getProfile}}
             >
               <Text style={styles.btnText}>Mettre à jour</Text>
             </TouchableOpacity>
