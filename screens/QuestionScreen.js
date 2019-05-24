@@ -68,22 +68,7 @@ class QuestionScreen extends React.Component {
 
     const question = this.props.navigation.getParam("question", "no Data");
     const index = this.props.navigation.getParam("index", "no-data");
-    //console.log('question.state.params.index',this.props.navigation.state.params);
-
-    console.log("this.props.index", index, "this.props");
-
-
-
-    //console.log('questionNav', question);
-
-    //console.log('this.propsNav', this.props.navigation);
-
-    //console.log('this.state',this.state);
-
-
     const answers = question.answers;
-    //console.log('answerss', answers);
-
     const { showScrollToTop } = this.state;
     return (
       <ScrollView contentContainerStyle={styles.scrollView} ref="scrollView"

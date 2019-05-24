@@ -1,6 +1,15 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import * as faq from "../mock/faq.json";
+import {
+  whiteColor,
+  primaryColor,
+  lightGreyColor,
+  titleFontSize,
+  blackColor,
+  greyColor,
+  subtitleFontSize
+} from "../helpers/styleGuidelines";
 
 class FaqComponent extends React.Component {
   //permet de maper chaque question/reponse
@@ -44,16 +53,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   title: {
-    fontSize: 22,
+    fontSize: titleFontSize,
     fontWeight: "400",
-    color: "#d6363e",
+    color: primaryColor,
     textAlign: "center"
   },
   cart: {
-    backgroundColor: "#fff",
+    backgroundColor: whiteColor,
     marginVertical: 8,
     borderRadius: 4,
-    shadowColor: "#000",
+    shadowColor: blackColor,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -63,17 +72,17 @@ const styles = StyleSheet.create({
   questionView: {
     paddingTop: 8,
     paddingBottom: 16,
-    borderBottomColor: "#ccc",
+    borderBottomColor: greyColor,
     borderBottomWidth: 1
   },
   question: {
-    color: "#d6363e",
+    color: primaryColor,
     textAlign: "justify",
     fontWeight: "700",
-    fontSize: 16
+    fontSize: subtitleFontSize
   },
   answer: {
-    color: "#2f323f",
+    color: greyColor,
     paddingVertical: 16,
     paddingHorizontal: 8
   }

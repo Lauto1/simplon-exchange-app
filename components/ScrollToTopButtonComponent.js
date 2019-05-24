@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { primaryColor, titleFontSize, whiteColor } from "../helpers/styleGuidelines";
 
 class ScrollToTopButtonComponent extends React.Component {
   /**composant Boutton scroll vers le haut */
@@ -17,8 +18,8 @@ class ScrollToTopButtonComponent extends React.Component {
         }}
       >
         <Button
-          buttonStyle={{ backgroundColor: "#d5363e" }}
-          icon={<Icon name="chevron-up" size={20} color="white" />}
+          buttonStyle={{ backgroundColor: primaryColor }}
+          icon={<Icon name="chevron-up" size={titleFontSize} color={whiteColor} />}
           onPress={onPress}
         />
       </View>
