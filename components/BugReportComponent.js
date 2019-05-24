@@ -2,16 +2,8 @@ import { ImagePicker, MailComposer, Permissions } from "expo";
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {
-  Button,
-  KeyboardAvoidingView,
-  Picker,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { Button, KeyboardAvoidingView, Picker, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { blackColor, lightGreyColor, paragraphFontSize, primaryColor, titleFontSize } from "../helpers/styleGuidelines";
 
 class BugReportComponent extends Component {
   // On crée notre constructor avec comme paramètre les props du Formulaire
@@ -241,7 +233,7 @@ class BugReportComponent extends Component {
           >
             <Text style={styles.title}>Signaler un Bug</Text>
             <View style={styles.line} />
-            <View style={styles.inputContainer}>
+            <ScrollView style={styles.inputContainer}>
               <TextInput
                 placeholder="mail"
                 style={styles.inputText}
@@ -306,12 +298,12 @@ class BugReportComponent extends Component {
               </TouchableOpacity>
               <Button
                 title="Soumettre"
-                color="#d6363e"
+                color={primaryColor}
                 accessibilityLabel="Signalisation d'un disfonctionnement"
                 style={styles.submit}
                 onPress={() => this.verificationUtilisateur()}
               />
-            </View>
+            </ScrollView>
           </KeyboardAvoidingView>
         )}
       </Formik>
@@ -340,17 +332,13 @@ const styles = StyleSheet.create({
     width: "90%",
     borderRadius: 3,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
     padding: 8,
     flexDirection: "column",
     alignItems: "center"
   },
   title: {
-    color: "#d6363e",
-    fontSize: 30,
+    color: primaryColor,
+    fontSize: titleFontSize,
     textAlign: "left",
     width: "100%",
     marginTop: 10
@@ -360,7 +348,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   line: {
-    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    backgroundColor: blackColor,
     width: "80%",
     height: 1,
     marginTop: 15,
@@ -372,36 +360,32 @@ const styles = StyleSheet.create({
   },
   inputText: {
     borderWidth: 1,
-    borderColor: "lightgrey",
+    borderColor: lightGreyColor,
     paddingLeft: 5,
     marginBottom: 20
   },
   select: {
-    borderColor: "lightgrey",
+    borderColor: lightGreyColor,
     borderBottomWidth: 1
   },
   textArea: {
     padding: 2,
     borderWidth: 2,
-    borderColor: "black",
+    borderColor: blackColor,
     borderStyle: "solid"
   },
   imageUpload: {
-    backgroundColor: "#d6363e",
+    backgroundColor: primaryColor,
     marginTop: 20,
     marginBottom: 20,
     borderRadius: 2,
     padding: 8,
     flexDirection: "row",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2
+    justifyContent: "center"
   },
   imageUploadText: {
     color: "white",
-    fontSize: 15,
+    fontSize: paragraphFontSize,
     fontWeight: "bold"
   },
   submit: {

@@ -7,8 +7,6 @@ import BugScreen from "../screens/BugScreen";
 import FaqScreen from "../screens/FaqScreen";
 import VoteScreen from "../screens/VoteScreen";
 import AskQuestionScreen from "../screens/AskQuestionScreen";
-
-import GraphStack from "./stack/GraphStack";
 import HomeStack from "./stack/HomeStack";
 import LoginStack from "./stack/LoginStack";
 import RegisterStack from "./stack/RegisterStack";
