@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Image } from 'react-native';
 
 const Loader = () => {
     return (
         <View style={styles.loaderContainer}>
-            <Image source={require("../assets/loader.gif")} />
+            <ActivityIndicator size="large" color="#D7403E" />
         </View>
     )
 };
