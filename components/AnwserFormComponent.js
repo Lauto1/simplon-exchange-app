@@ -21,12 +21,12 @@ class AnwserFormComponent extends Component {
                     >
                         <View style={styles.column}>
                             <Text style={styles.responseText}  >Répondre</Text>
-                            
+
                             <View  >
-                            
-                               <DraftComponent/>
+
+                                <DraftComponent />
                             </View>
-                        
+
                         </View>
                     </View>
                 </Card>
@@ -34,7 +34,7 @@ class AnwserFormComponent extends Component {
 
         );
     }
-   
+
 }
 
 const styles = StyleSheet.create({

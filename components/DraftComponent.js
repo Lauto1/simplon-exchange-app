@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert, Button, ScrollView, TextInput } from "react-native";
-import { Card, Icon } from "react-native-elements";
-import { primaryColor, lightGreyColor, boldFontFamily, titleFontSize } from "../helpers/styleGuidelines";
+import { Button, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from "react-native";
+import { primaryColor, regularFontFamily, secondaryTextColor } from "../helpers/styleGuidelines";
+
+//   import {KeyboardAvoidingView} from 'react-native';
 //import getRNDraftJSBlocks from 'react-native-draftjs-render';
 
 /**TODO Changer le text input par un editeur editeur wysiwyg */
@@ -16,15 +17,22 @@ class DraftComponent extends Component {
     }
     render() {
         return (
-            <ScrollView style={{ flex: 1 }}><TextInput multiline={true} style={styles.textInput}
-                numberOfLines={8}
-                onChangeText={(text) => this.getText(text)}
-                value={this.state.text} placeholder="Entrez votre réponse" />
-                <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
-                </ScrollView>
+            <KeyboardAvoidingView behavior="position" enabled>
+                <View>
+                    <TextInput multiline={true} style={styles.textInput}
+                        numberOfLines={8}
+                        onChangeText={(text) => this.getText(text)}
+                        value={this.state.text} placeholder="Entrez votre réponse" />
+                        {this.props.showSubInput ? <Text style={styles.subInput}>
+                        Ecrire la description de votre problème en entrant tous les
+                        détails possibles qui en permettront la résolution.
+                    </Text> : null}
+                    <Button color={primaryColor} title="Répondre" onPress={() => { this.onTextChange() }}></Button>
+                </View>               
+            </KeyboardAvoidingView>
         );
     }
-    onTextChange() {
+    postResponse() {
         let response = {
             "id": "93",
             "user": { "name": "falseAuthor" },
@@ -33,6 +41,10 @@ class DraftComponent extends Component {
             "description": this.state.text,
             "created_at": "09/10/2019"
         }
+        /**
+         * Get user here and post anwser
+         * this.props.addResponse(response) ?
+         */ 
         //this.props.newResponse(response)
     }
     getText(text) {
@@ -48,7 +60,13 @@ class DraftComponent extends Component {
 
 const styles = StyleSheet.create({ 
     textInput: {
+        minHeight:250,
         padding: 10
+    },
+    subInput: {
+        fontFamily: regularFontFamily,
+        fontSize: 12,
+        color: secondaryTextColor
     }
 })
 

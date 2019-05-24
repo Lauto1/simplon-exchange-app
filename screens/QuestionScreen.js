@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View, StyleSheet } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View,StyleSheet } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import AnwserComponent from "../components/AnwserComponent";
 import FooterComponent from "../components/layouts/FooterComponent";
@@ -11,7 +11,7 @@ import ScrollToTopButtonComponent from "../components/ScrollToTopButtonComponent
 
 
 
-import { primaryColor, lightGreyColor,regularFontFamily,titleFontSize,subtitleFontSize } from "../helpers/styleGuidelines";
+import { primaryColor, lightGreyColor,titleFontSize,regularFontFamily,subtitleFontSize } from "../helpers/styleGuidelines";
 
 class QuestionScreen extends React.Component {
   constructor(props) {
@@ -72,7 +72,7 @@ class QuestionScreen extends React.Component {
     const { showScrollToTop } = this.state;
     return (
       <ScrollView contentContainerStyle={styles.scrollView} ref="scrollView"
-        onScroll={this.onScroll} >
+        onScroll={this.onScroll} scrollEventThrottle="16">
 
         <Question navigateByIndex={this.navigateByIndex} navigation={this.props.navigation} index={index} question={question} showContent={true} />
         <View style={styles.navigationContainer}>
@@ -83,7 +83,6 @@ class QuestionScreen extends React.Component {
             }}>
             <View style={{
               flexDirection: "row",
-              borderWidth: 2
             }}>
               {/* <Icon name="angle-double-left" type="font-awesome" color="#d6363e"/> */}
               {/* <TouchableOpacity onPress={this.goToNext()}> */}
@@ -168,4 +167,5 @@ const styles = StyleSheet.create({
     paddingRight: 5
   }
 })
+
 export default QuestionScreen;

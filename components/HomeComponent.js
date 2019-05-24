@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
@@ -7,13 +7,14 @@ import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
 import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
-
+import FactoryTab from "./FactoryTab"
 class HomeComponent extends React.Component {
   state = {
     questions: [],
     showScrollToTop: false,
     showContent:false,
-    navigationIndex:false
+    navigationIndex:false,
+    currentFactory:null
   };
   navigateByIndex = (index)=> {
     console.log("question Screen",index);
@@ -21,7 +22,7 @@ class HomeComponent extends React.Component {
   }
   componentDidMount() {
     this.props.actions.fetchQuestions().then(questions => {
-      //console.log(questions, "promise");
+      this.setState({questions})
     });
 
     // Il faudra récupérer les questions via l'API quand elle sera prête, par exemple:
@@ -51,6 +52,9 @@ class HomeComponent extends React.Component {
       this.setState({ showScrollToTop: false });
     }
   };
+  /**
+   * Recherche dans les question sur le titre et la description
+   */
   searchQuestions(terms = null, questions) {
     let filteredQuestions = [];
     if (terms != null && terms != "" && terms.length >= 2) {
@@ -64,18 +68,36 @@ class HomeComponent extends React.Component {
             if (!found) filteredQuestions.push(questions[i]);
           }
         }
-      })
-      
+      });
     } else {
-      filteredQuestions = questions.map(question=> 
-        { 
-          question.showContent = false;
-          return question
-        });
+      filteredQuestions = questions.map(question => {
+        question.showContent = false;
+        return question;
+      });
     }
     return filteredQuestions;
   }
-
+  /**
+   * récupere l'onglet courrant sur la page d'accueil
+   */
+  getFactory = (factory,id)=> {
+    console.log("factory",factory,"id",id);
+    if (factory !="Simplon") {
+      this.setState({currentFactory:factory})
+    } else {
+      this.setState({currentFactory:null})
+    }
+  }
+  /**
+   * Trie les question en fonction de la ville
+   */
+  searchByFactory = (questions) => {
+    if (this.state.currentFactory) {
+      questions = questions.filter(question=> question.factory === this.state.currentFactory);
+    }
+    return questions;
+    
+  }
   render() {
     const { showScrollToTop } = this.state;
     const questions = this.props.questions;
@@ -87,7 +109,7 @@ class HomeComponent extends React.Component {
         <ScrollView
           style={styles.contentContainer}
           ref="scrollView"
-          onScroll={this.onScroll}
+          onScroll={this.onScroll} scrollEventThrottle="16"
         >
           <View style={styles.welcomeHome}>
             <Text style={styles.welcomeTitle}>
@@ -104,10 +126,13 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
-
+            <SearchbarComponent
+              searchQuestions={this.props.actions.searchQuestions}
+              style={styles.search}
+            />
           </View>
-          {this.searchQuestions(terms, questions).map((question,i) => (
+          <FactoryTab searchByFactory={this.getFactory}/>
+          {this.searchByFactory(this.searchQuestions(terms, questions)).map((question,i) => (
             <Question  terms={terms}
               navigation={this.props.navigation}
               showContent={question.showContent}
@@ -153,6 +178,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   welcomeHomeText: {
+    fontFamily: regularFontFamily,
     textAlign: "center",
     color: whiteColor,
     fontSize: paragraphFontSize
