@@ -109,7 +109,7 @@ class QuestionComponent extends Component {
                     size={18}
                     name="comment"
                     type="font-awesome"
-                    color="#171b22"
+                    color={blackColor}
                   />
                   <Text style={styles.answerNumber}>
                     {question.answers.length}
@@ -128,7 +128,7 @@ class QuestionComponent extends Component {
                     size={18}
                     name="tag"
                     type="font-awesome"
-                    color="#171b22"
+                    color={blackColor}
                   />
                   <Text style={styles.tagText}>{question.tag}</Text>
                 </View>
