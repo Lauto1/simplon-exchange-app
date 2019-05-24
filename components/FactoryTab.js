@@ -5,7 +5,7 @@ import {regularFontFamily,darkGreyColor, primaryColor, lightGreyColor, boldFontF
 import ScrollableTabView,{ScrollableTabBar} from "react-native-scrollable-tab-view"
 
 /**TODO Changer le text input par un editeur editeur wysiwyg */
-const factoryLabels = ["Simplon","Roanne","Rodez","Carbonne","Toulouse","Vénissieux","Villeurbanne","Chambéry","Annemasse","Montpellier","Palmiers"];
+const factoryLabels = ["Simplon","Roanne","Rodez","Carbonne","Toulouse","Grenoble","Vénissieux","Villeurbanne","Chambéry","Annemasse","Montpellier","Palmiers"];
 class FactoryTab extends Component {
     config ={
         style:{
