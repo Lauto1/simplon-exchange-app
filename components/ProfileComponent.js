@@ -16,18 +16,21 @@ class ProfileComponent extends Component {
         }
     }
 
-    componentDidMount()
+    componentWillMount()
     {
-        console.log('porooooooooops',this.props);
+        let user = this.props.props.user;
+        this.props.props.actions.getUserProfile(26);
+        this.setState({username : user.name, email : user.email, password : user.password });
     }
 
     updateUser()
     {
-        console.log(this.state);
+        console.log('update',this.state);
     }
 
     render()
     {
+        console.log(this.props.props.user);
         return (
             <View>
                 <Text>Nom</Text>

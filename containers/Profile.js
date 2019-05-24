@@ -4,9 +4,7 @@ import { updateUserData, getUserProfile } from './../actions/user';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = (state) => {
-
-    console.log('profilContaier',state);
-    return {user : state};
+    return {user : state.userProfile};
 }
 
 const mapDispatchToProps = dispatch => {

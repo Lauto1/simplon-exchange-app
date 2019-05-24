@@ -45,52 +45,114 @@ export const updateUserData = (id, username, email, password, new_password = nul
 
 
 export const getUserProfile = (id) => {
-            let name = null;
-            let email = null;
-            let password = null;
-            let is_admin = null;
-            let remember_token = null;
-            let fabric_id = null;
-            let questions = null;
-            let answers = null;
-            let valid_answers = null;
+    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI2LCJpc3MiOiJodHRwOi8vZGV2LnNpbXBsb24tZXhjaGFuZ2UuaGVscC9hcGkvbG9naW4iLCJpYXQiOjE1NTg2OTk0NDYsImV4cCI6MTU1ODcwMzA0NiwibmJmIjoxNTU4Njk5NDQ2LCJqdGkiOiJnQkdkaFlKbnBWV3BrelM0In0.mevhiA666HfVWDa4ydd3m_2J6T9ZFtT6F63Dm99SfoY";
 
     return async dispatch => {
-        await fetch(
-          "http://dev.simplon-exchange.help/api/users/"+id+"?token="+token, params
-        ).then((response) => {
-            console.log('response', response);
-            
-             name = name;
-             email = email;
-             password = password;
-             is_admin = is_admin;
-             remember_token = remember_token;
-             fabric_id = fabric_id;
-        });
-
-        await fetch(
-            "http://dev.simplon-exchange.help/api/users/"+id+"?token="+token, params
-          ).then((response) => {
-              console.log('response', response);
-              
-              questions = response.data.questions;
-              answers = response.data.answers;
-              valid_answers = response.data.valid_answers;
-          });
-
-        let action = {
-            type : Types.GET_USER_INFO, 
-            name: name,
-            email: email,
-            password: password,
-            is_admin: is_admin,
-            remember_token: remember_token,
-            fabric_id: fabric_id,
-            questions : questions,
-            answers : answers,
-            valid_answers: valid_answers
-        };
-        return action;
-      };
+        dispatch(getUserInfomations(id, token));
+        dispatch(getUserQuestions(id, token));
+        dispatch(getUserAnswers(id, token));
+        dispatch(getUserValidateAnswers(id, token));
+      }
 };
+
+const getUserInfomations = (id, token) => {
+    return async () => {
+        await fetch(
+            "http://dev.simplon-exchange.help/api/users/" + id + "?token=" + token,
+            {
+                dataType: 'json',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+        ).then((response)=>response.json()).then((response) => {
+            
+
+            let action = {
+                type: Types.GET_USER_INFO,
+                name: response.data.name,
+                email: response.data.email,
+                password: response.data.password,
+                is_admin: response.data.is_admin,
+                remember_token: response.data.remember_token,
+                fabric_id: response.data.fabric_id
+            };
+            console.log('action getuserinfo', response.data);
+            return action;
+        });
+    }
+    
+}
+
+const getUserQuestions = (id, token) =>{
+    return async () => {
+        await fetch(
+            "http://dev.simplon-exchange.help/api/questions/count/" + id + "?token=" + token, 
+            {
+                dataType: 'json',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+        ).then((response) => response.json()).then((response) => {
+            console.log('response', response);
+            let action = {
+                type: Types.GET_USER_QUESTIONS,
+                questions: response.count
+            };
+            return action;
+        });
+    }
+ 
+}
+
+const getUserAnswers = (id, token) => {
+    return async () => {
+        await fetch(
+            "http://dev.simplon-exchange.help/api/answers/count/" + id + "?token=" + token,
+            {
+                dataType: 'json',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+        ).then((response) => response.json()).then((response) => {
+            console.log('response', response);
+            let action = {
+                type: Types.GET_USER_ANSWERS,
+                answers: response.count
+            };
+            return action;
+        });
+    }
+
+
+   
+    
+}
+
+const getUserValidateAnswers = (id, token) => {
+    return async () => {
+        await fetch(
+            "http://dev.simplon-exchange.help/api/answers/count/selected/" + id + "?token=" + token,
+            {
+                dataType: 'json',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+        ).then((response) => response.json()).then((response) => {
+            console.log('response', response);
+            let action = {
+                type: Types.GET_USER_VALID_ANSWERS,
+                valid_answers : response.count
+            };
+            return action;
+        });
+    }
+    
+}

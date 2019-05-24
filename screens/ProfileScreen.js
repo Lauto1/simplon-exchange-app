@@ -7,7 +7,7 @@ export default class ProfileScreen extends Component {
   render() {
     return (
       <View>
-          <ProfileComponent/>
+          <ProfileComponent props={this.props}/>
       </View>
     )
   }
