@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import { whiteColor, greyColor, } from "../../helpers/styleGuidelines";
+import { whiteColor, greyColor, primaryColor, boldFontFamily } from "../../helpers/styleGuidelines";
 
 export default class DateTimePickerTester extends Component {
   constructor(props) {
