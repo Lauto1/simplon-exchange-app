@@ -1,26 +1,15 @@
 import React from "react";
-import Profil from "../containers/ProfilUserContainer";
-import { View, Text } from 'react-native';
 import HeaderComponent from "../components/layouts/HeaderComponent";
-import FooterComponent from '../components/layouts/FooterComponent';
+import Profil from "../containers/ProfilUserContainer";
 
 class ProfilUserScreen extends React.Component {
-
-    static navigationOptions = ({ navigation }) => {
-        return {
-            header: null,
-        };
-    }
-    render() {
-        return (
-            <>
-            <HeaderComponent 
-                drawerNav={this.props.navigation}
-                title="Simplon-Exchange"
-            />
-            <Profil />
-            </>
-        );
-    }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: props => <HeaderComponent {...props} />
+    };
+  };
+  render() {
+    return <Profil navigation={this.props.navigation} />;
+  }
 }
 export default ProfilUserScreen;

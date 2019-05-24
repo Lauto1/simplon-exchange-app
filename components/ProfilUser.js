@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+  Image
+} from "react-native";
 import FooterComponent from "./layouts/FooterComponent";
 import HeaderComponent from "./layouts/HeaderComponent";
 import {
@@ -18,9 +25,9 @@ class Profil extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: 'Paul',
-      fabric: 'Venissieux',
-      mail: 'user@mail.com',
+      userName: "Paul",
+      fabric: "Venissieux",
+      mail: "user@mail.com",
       nb_questions: 12,
       nb_answers: 35,
       nb_valid_answers: 35,
@@ -36,7 +43,7 @@ class Profil extends Component {
             <View>
               <Image
                 style={styles.avatar}
-                source={require('../assets/logo72.png')}
+                source={require("../assets/logo72.png")}
               />
             </View>
             <View style={styles.userData}>
@@ -49,16 +56,10 @@ class Profil extends Component {
               <Text style={styles.h2}>Mon profil</Text>
             </View>
             <Text style={styles.text}>Mail : {this.state.mail}</Text>
-            <TouchableOpacity
-              style={styles.buttonPwd}
-              onPress={() => {}}
-            >
+            <TouchableOpacity style={styles.buttonPwd} onPress={() => {}}>
               <Text style={styles.btnText}>Changer de mot de passe</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {}}
-            >
+            <TouchableOpacity style={styles.button} onPress={() => {}}>
               <Text style={styles.btnText}>Mettre à jour</Text>
             </TouchableOpacity>
           </View>
@@ -94,16 +95,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: lightGreyColor,
+    backgroundColor: lightGreyColor
   },
   cart: {
     backgroundColor: whiteColor,
     padding: 12,
-    borderRadius: 3,
+    borderRadius: 3
   },
   header: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     margin: 3
   },
   avatar: {
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
   buttonPwd: {
     backgroundColor: greyColor,
     textAlign: "center",
-    width: '100%',
+    width: "100%",
     height: 34,
     borderRadius: 4,
     flexDirection: "column",
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: primaryColor,
     textAlign: "center",
-    width: '100%',
+    width: "100%",
     height: 34,
     borderRadius: 4,
     flexDirection: "column",
@@ -147,21 +148,21 @@ const styles = StyleSheet.create({
     margin: 5
   },
   inLine: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderBottomWidth : 1,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
     borderBottomColor: lightGreyColor,
     marginBottom: 12,
     paddingBottom: 12
   },
   cartitle: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomWidth : 1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottomWidth: 1,
     borderBottomColor: lightGreyColor,
-    marginBottom: 12,
+    marginBottom: 12
   },
   h2: {
     fontSize: titleFontSize,
