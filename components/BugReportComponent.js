@@ -3,7 +3,6 @@ import {Formik} from "formik";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Email, Item, Span, Image,renderEmail } from 'react-html-email';
-import { Platform } from 'react-native';
 import { styleMailing, dataText, styleMailingData } from '../helpers/styleGuidelineTemplateMailing';
 import {
   Button,
@@ -14,8 +13,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Alert,
-  Platform
+  Alert
 } from "react-native";
 import { withNavigation } from 'react-navigation';
 import { Dropdown } from "react-native-material-dropdown";
