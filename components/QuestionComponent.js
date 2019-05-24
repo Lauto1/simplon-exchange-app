@@ -13,9 +13,7 @@ import {
   blackColor,
   whiteColor
 } from "../helpers/styleGuidelines";
-import Vote from "./VoteComponent";
-
-import Vote from './VoteComponent';
+import Vote from "../containers/VoteContainer";
 
 class QuestionComponent extends Component {
 

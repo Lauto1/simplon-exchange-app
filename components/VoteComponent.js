@@ -13,7 +13,6 @@ class Vote extends Component {
       voted: false
     };
   }
-  isLoged = false; // à remplacer par verificatin de login
   /**
    * Infos :
    * - Procédure d'incrementation ou de décrémentation du compteur de votes
@@ -21,7 +20,7 @@ class Vote extends Component {
    */
   handleVote(type) {
     // if condition checks if ( user is logged ? )
-    if (this.isLoged) {
+    if (this.props.storage.token) {
       this.setState({ vote_score: this.state.vote_score + 1 });
       //call action upvote
     } else {
