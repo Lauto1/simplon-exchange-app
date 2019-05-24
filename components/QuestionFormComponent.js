@@ -22,7 +22,8 @@ import {
   whiteColor,
   blackColor,
   secondaryTextColor,
-  regularFontFamily
+  regularFontFamily,
+  paragraphFontSize
 } from "../helpers/styleGuidelines";
 
 class QuestionFormComponent extends Component {
@@ -51,19 +52,19 @@ class QuestionFormComponent extends Component {
             <Text style={styles.titleText}>Posez votre question</Text>
 
             <View style={styles.infosBox}>
-              <Text>
+              <Text style={styles.text}>
                 La précision et la rapidité de la réponse passe par une question
                 correctement posée. Votre titre doit être explicite, votre
                 question pas globale mais spécifique.
               </Text>
               <Text />
-              <Text>
+              <Text style={styles.text}>
                 Si vous faites face à un bug, copiez le code nécessaire à la
                 résolution.
               </Text>
 
               <View style={styles.inputBox}>
-                <Text style={styles.backgroundBlack}>
+                <Text style={styles.preInput}>
                   Intitulé de la question{" "}
                   <Text style={{ color: primaryColor }}>*</Text>
                 </Text>
@@ -73,15 +74,19 @@ class QuestionFormComponent extends Component {
                   Choisir un titre approprié et explicite est la première étape
                 </Text>
               </View>
-              <View>
-                <Text style={styles.backgroundBlack}>
+              <View style={{ marginBottom: 10 }}>
+                <Text style={styles.preInput}>
                   Catégories <Text style={{ color: primaryColor }}>*</Text>
                 </Text>
                 <View style={styles.boxy}>
                   <Picker
                     selectedValue={this.state.category}
                     onValueChange={category => this.setState({ category })}
-                    style={{ padding: 0, margin: 0, color: secondaryTextColor }}
+                    itemStyle={{
+                      padding: 0,
+                      margin: 0,
+                      color: secondaryTextColor
+                    }}
                   >
                     <Picker.Item label="Choisissez une catégorie..." value="" />
                     {this.state.categories.map(category => (
@@ -99,7 +104,7 @@ class QuestionFormComponent extends Component {
                 </Text>
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={{ marginBottom: 5, marginTop: 10 }}>
+                <Text style={styles.preInput}>
                   Détails
                   <Text style={{ color: primaryColor }}> *</Text>
                 </Text>
@@ -142,6 +147,11 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1
   },
+
+  text: {
+    fontFamily: regularFontFamily
+  },
+
   view: {
     flex: 1,
     backgroundColor: lightGreyColor
@@ -164,7 +174,7 @@ const styles = StyleSheet.create({
     color: primaryColor
   },
   boxy: {
-    fontFamily: regularFontFamily,
+    //fontFamily: regularFontFamily,
     borderWidth: 1,
     borderColor: "#dedede",
     borderRadius: 5,
@@ -174,9 +184,10 @@ const styles = StyleSheet.create({
 
   infosBox: {
     flex: 1,
+    fontFamily: regularFontFamily,
+    fontSize: paragraphFontSize,
     flexDirection: "column",
     justifyContent: "space-between",
-    fontFamily: regularFontFamily,
     borderTopColor: "#dedede",
     borderTopWidth: 1,
     paddingVertical: 15,
@@ -189,6 +200,7 @@ const styles = StyleSheet.create({
   },
 
   subInput: {
+    fontFamily: regularFontFamily,
     fontSize: 12,
     color: secondaryTextColor
   },
@@ -207,7 +219,8 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5,
     minWidth: 150
   },
-  backgroundBlack: {
+  preInput: {
+    fontFamily: regularFontFamily,
     color: blackColor
     //margin: 10
   }

@@ -6,13 +6,21 @@ import QuestionComponent from "./QuestionComponent";
 import ScrollToTopButtonComponent from "./ScrollToTopButtonComponent";
 import StatsComponent from "./StatsComponent";
 import SearchbarComponent from "./SearchbarComponent";
-import { primaryColor, lightGreyColor, boldFontFamily, whiteColor, titleFontSize, paragraphFontSize, regularFontFamily } from "../helpers/styleGuidelines";
+import {
+  primaryColor,
+  lightGreyColor,
+  boldFontFamily,
+  whiteColor,
+  titleFontSize,
+  paragraphFontSize,
+  regularFontFamily
+} from "../helpers/styleGuidelines";
 
 class HomeComponent extends React.Component {
   state = {
     questions: [],
     showScrollToTop: false,
-    showContent:false
+    showContent: false
   };
 
   componentDidMount() {
@@ -53,21 +61,32 @@ class HomeComponent extends React.Component {
       let multipleTerms = terms.split(" ");
       multipleTerms.forEach(term => {
         for (var i = 0; i < questions.length; i++) {
-          let whiteSpace = term.length >=1 &&term !=" "
-          if ( whiteSpace && questions[i].title.toLowerCase().toString().includes(term.toLowerCase().toString()) || whiteSpace && questions[i].content.toLowerCase().toString().includes(term.toLowerCase().toString())) {
-            const found = filteredQuestions.some(el => el.id === questions[i].id);
-                questions[i].showContent = true;
+          let whiteSpace = term.length >= 1 && term != " ";
+          if (
+            (whiteSpace &&
+              questions[i].title
+                .toLowerCase()
+                .toString()
+                .includes(term.toLowerCase().toString())) ||
+            (whiteSpace &&
+              questions[i].content
+                .toLowerCase()
+                .toString()
+                .includes(term.toLowerCase().toString()))
+          ) {
+            const found = filteredQuestions.some(
+              el => el.id === questions[i].id
+            );
+            questions[i].showContent = true;
             if (!found) filteredQuestions.push(questions[i]);
           }
         }
-      })
-      
+      });
     } else {
-      filteredQuestions = questions.map(question=> 
-        { 
-          question.showContent = false;
-          return question
-        });
+      filteredQuestions = questions.map(question => {
+        question.showContent = false;
+        return question;
+      });
     }
     return filteredQuestions;
   }
@@ -98,11 +117,14 @@ class HomeComponent extends React.Component {
             <Text style={styles.welcomeSousTitle}>
               N'attend plus, pose ta question dès maintenant !
             </Text>
-            <SearchbarComponent searchQuestions={this.props.actions.searchQuestions} style={styles.search} />
-
+            <SearchbarComponent
+              searchQuestions={this.props.actions.searchQuestions}
+              style={styles.search}
+            />
           </View>
           {this.searchQuestions(terms, questions).map(question => (
-            <QuestionComponent terms={terms}
+            <QuestionComponent
+              terms={terms}
               navigation={this.props.navigation}
               showContent={question.showContent}
               key={question.id}
@@ -146,6 +168,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   welcomeHomeText: {
+    fontFamily: regularFontFamily,
     textAlign: "center",
     color: whiteColor,
     fontSize: paragraphFontSize
