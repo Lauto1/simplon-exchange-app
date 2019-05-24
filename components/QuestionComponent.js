@@ -73,38 +73,48 @@ class QuestionComponent extends Component {
                 <Text style={styles.textUpVote}>{question.upvote}</Text>
               </View>
 
-              {this.props.showContent && (
-                <Text style={styles.questionContent}>{question.description}</Text>
-              )}
+              <View style={{ flex: 1, padding: 15 }}>
+                <Text style={styles.title}>{question.title}</Text>
 
-              <View style={styles.boxTags}>
-                <View style={{ flexDirection: "row", alignContent: "center" }}>
-                  <Icon
-                    size={18}
-                    name="comment"
-                    type="font-awesome"
-                    color={blackColor}
-                  />
-                  <Text style={styles.answerNumber}>
-                    {question.answers.length}
-                  </Text>
-                </View>
-                <View style={styles.factoryBox}>
-                  <Text style={styles.factoryText}>{question.factory}</Text>
+                <View style={styles.infosPostBox}>
+                  <Text style={styles.date}>{question.date}</Text>
+                  <Text style={styles.par}>par</Text>
+                  <Text style={styles.author}>{question.author}</Text>
                 </View>
 
-                <View
-                  style={{
-                    flexDirection: "row"
-                  }}
-                >
-                  <Icon
-                    size={18}
-                    name="tag"
-                    type="font-awesome"
-                    color={blackColor}
-                  />
-                  <Text style={styles.tagText}>{question.tag}</Text>
+                {this.props.showContent && (
+                  <Text style={styles.questionContent}>{question.content}</Text>
+                )}
+
+                <View style={styles.boxTags}>
+                  <View style={{ flexDirection: "row", alignContent: "center" }}>
+                    <Icon
+                      size={18}
+                      name="comment"
+                      type="font-awesome"
+                      color="#171b22"
+                    />
+                    <Text style={styles.answerNumber}>
+                      {question.answers.length}
+                    </Text>
+                  </View>
+                  <View style={styles.factoryBox}>
+                    <Text style={styles.factoryText}>{question.factory}</Text>
+                  </View>
+
+                  <View
+                    style={{
+                      flexDirection: "row"
+                    }}
+                  >
+                    <Icon
+                      size={18}
+                      name="tag"
+                      type="font-awesome"
+                      color="#171b22"
+                    />
+                    <Text style={styles.tagText}>{question.tag}</Text>
+                  </View>
                 </View>
               </View>
             </View>

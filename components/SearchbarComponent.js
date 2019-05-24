@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { SearchBar, Button, Icon } from 'react-native-elements';
 import {
     blackColor,
@@ -28,7 +28,7 @@ class SearchbarComponent extends Component {
     render() {
         const { search } = this.state;
         return (
-            <View style={{ paddingVertical: 0 }}>
+            <KeyboardAvoidingView behavior="position" enabled>
                 <SearchBar style={styles.searchBar}
                     searchIcon={() =>
                         <Icon name='pencil'
@@ -49,7 +49,7 @@ class SearchbarComponent extends Component {
                     onChangeText={this.updateSearch}
                     value={search}
                 />
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
