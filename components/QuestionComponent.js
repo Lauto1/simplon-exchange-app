@@ -50,28 +50,17 @@ class QuestionComponent extends Component {
   }
   render() {
     const { question } = this.props;
-
     const { terms } = this.props
     const { indexQuestion } = this.props;
     console.log("question", question);
-
-
     //console.log("index inside",indexQuestion,"index inside");
-
     return (
-      <TouchableOpacity
-        onPress={() => { this.props.navigation.navigate("Question", { question: question, index: indexQuestion }) }
-        }
-      >
+      <TouchableOpacity onPress={() => { this.props.navigation.navigate("Question", { question: question, index: indexQuestion }) }}>
         <View style={{ position: 'absolute', top: "35%", right: 0, left: 0 }}>
           <ActivityIndicator size="large" color="#D7403E" />
         </View>
         <Card containerStyle={{ borderRadius: 3, margin: 8, padding: 0 }}>
-          <View
-            style={{
-              flexDirection: "row"
-            }}
-          >
+          <View style={{ flexDirection: "row" }}>
             <View style={styles.view}>
               <Icon name="sort-up" type="font-awesome" />
               <Text style={styles.textUpVote}>{question.views}</Text>
@@ -92,12 +81,7 @@ class QuestionComponent extends Component {
 
               <View style={styles.boxTags}>
                 <View style={{ flexDirection: "row", alignContent: "center" }}>
-                  <Icon
-                    size={18}
-                    name="comment"
-                    type="font-awesome"
-                    color="#171b22"
-                  />
+                  <Icon size={18} name="comment" type="font-awesome" color="#171b22" />
                   <Text style={styles.answerNumber}>
                     {question.answers.length}
                   </Text>
