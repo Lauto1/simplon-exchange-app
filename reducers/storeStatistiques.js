@@ -39,14 +39,14 @@ export const storeStatistiques = (state = initialState, action) => {
             console.log(action.DatePickedEnd)
             return {                
                 ...state,
-                EndDateFilter: 23
+                EndDateFilter: action.DatePickedEnd
             };
         case types.ADD_START_DATE_FILTER:
-        console.log(action.DatePickedStart)
+        console.log("33333333333",action.DatePickedStart)
             
             return {                
                 ...state,
-                StartDateFilter: 24
+                StartDateFilter: action.DatePickedStart
             };
         default:
             return state;

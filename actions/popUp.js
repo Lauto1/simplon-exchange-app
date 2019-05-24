@@ -1,4 +1,5 @@
 import * as types from "../constants/actionTypes";
+import moment from "moment";
 
 export const fetchDataApi = (checkedData) => {
     return async dispatch => {
@@ -10,20 +11,20 @@ export const fetchDataApi = (checkedData) => {
         
      dispatch(addNbPosts(data.NbPosts));
      dispatch(addNbResponses(data.NbResponses));
-     dispatch(addNbUsers(data.NbUsers));  
-     
+     dispatch(addNbUsers(data.NbUsers));      
         // dispatch(toggleLoader(false));
     }
   };
-
   export const setDatePickedStart = (DatePickedStart)=>(
-    console.log('date de debut'), 
-    DatePickedStart = JSON.stringify(DatePickedStart),  
-    {type: types.ADD_START_DATE_FILTER, DatePickedStart});
+    console.log('date de debut'),
+    DatePickedStart =  moment(DatePickedStart).format('DD/MM/YYYY'),
+    console.log(DatePickedStart),    
+    {type: types.ADD_START_DATE_FILTER, DatePickedStart}
+    );
 
   export const setDatePickedEnd = (DatePickedEnd)=>(
-        console.log('date de finzzzz:'),
-        DatePickedEnd =JSON.stringify(DatePickedEnd), 
+        console.log('date de fin:'),
+        DatePickedEnd =  moment(DatePickedEnd).format('DD/MM/YYYY'),
         console.log(DatePickedEnd),
         {type: types.ADD_END_DATE_FILTER, DatePickedEnd});  
 

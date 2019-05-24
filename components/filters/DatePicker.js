@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 import DateTimePicker from "react-native-modal-datetime-picker";
+import { greyColor, primaryColor, boldFontFamily, } from "../../helpers/styleGuidelines";
+
  
 export default class DateTimePickerTester extends Component {
   constructor(props) {
@@ -56,20 +58,28 @@ export default class DateTimePickerTester extends Component {
   };
  
   render() {
+    const colors = [primaryColor];
     return (
       <>
-      {/* <Text>{JSON.stringify(this.state.DateTimeStart)}</Text> */}
+      
+      <View style={styles.container02}>
+            <Text>Debut:</Text><Text style={styles.text}>{this.props.StartDateFilter} </Text>
+            <Text>Fin:</Text><Text style={styles.text}>{this.props.EndDateFilter} </Text>
+      </View>
       <View style={styles.buttonStyle}>
-      <Text>{ this.props.StartDateFilter }</Text>
+      
         <Button 
           color="#2F3239"
           padding="20"
-          title=" Date de début" onPress={()=>this.showDateTimePicker('start')} />
-        <Button      
+          title=" Date de début" onPress={()=>this.showDateTimePicker('start')}/>
+
+        <Button               
           color="#2F3239"
           padding="20"
-          title=" Date de fin " onPress={()=>this.showDateTimePicker('end')} />
-        </View>
+          title=" Date de fin " onPress={()=>this.showDateTimePicker('end')}/>
+
+      </View>
+      
         <DateTimePicker
           isVisible={this.state.isDateTimePickerStartVisible}
           onConfirm={this.handleDatePickedStart}
@@ -96,6 +106,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     // width: 150,
     padding: 8,
-    margin: 20
+    margin: 20,
+  },
+  text: {
+    color: primaryColor,
+    fontFamily: boldFontFamily,
+  },
+  container02: {
+    marginTop: 20,
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around'
+
   }
 });

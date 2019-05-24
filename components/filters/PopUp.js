@@ -20,26 +20,29 @@ import DateTimePickerTester from "../../containers/DatePicker";
             checkedNbResponses: false,
         }}
         fetchDataChecked = () => {
-
-            let checkedData = []; 
-            let datafilter = [];    
+            console.log('test zaim')
+            let checkedData = {'NbPosts':false,'NbUsers':false, 'NbResponses':false }; 
+            let datefilter ={'StartDate':null, 'EndDate':null};
+            let datafilter =[];
             if (this.state.checkedNbPosts === true) {
-              checkedData.push('NbPosts')
+              checkedData.NbPosts= true
             }        
             if (this.state.checkedNbUsers === true) {
-              checkedData.push('NbUsers')
+              checkedData.NbUsers= true
             }        
             if (this.state.checkedNbResponses === true) {
-              checkedData.push('NbResponses')
+              checkedData.NbResponses= true
             }
-            datafilter.push(checkedData)
-            let datefilter =[this.props.StartDateFilter,this.props.EndDateFilter]
-            datafilter.push(datefilter)
+            datafilter.push(checkedData);
+            datefilter.StartDate= this.props.StartDateFilter;
+            datefilter.EndDate = this.props.EndDateFilter;
+
+            datafilter.push(datefilter);
 
             console.log(datafilter)
-            console.log(this.props)
+            // console.log(this.props)
 
-            this.props.actions.fetchDataApi(checkedData)
+            this.props.actions.fetchDataApi(datafilter)
             
           };          
 // Afichage de la PopUp et création du bouton
@@ -77,12 +80,6 @@ import DateTimePickerTester from "../../containers/DatePicker";
                 checkedNbResponses: !this.state.checkedNbResponses
               })
             }
-          />
-
-          <Button
-            onPress={this.fetchDataChecked}
-            title="Rechercher"
-            color={primaryColor}
           />
         </View>
         <View style={styles.buttonStyle}>

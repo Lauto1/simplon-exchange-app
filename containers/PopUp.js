@@ -6,7 +6,9 @@ const mapStateToProps = state => {
   return {
     NbPosts: state.storeStatistiques.NbPosts,
     NbUtilisateurs: state.storeStatistiques.NbUtilisateurs,
-    NbResponses: state.storeStatistiques.NbResponses,    
+    NbResponses: state.storeStatistiques.NbResponses,
+    StartDateFilter: state.storeStatistiques.StartDateFilter,
+    EndDateFilter: state.storeStatistiques.EndDateFilter,    
   };
 };
 
