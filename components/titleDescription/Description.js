@@ -5,7 +5,7 @@ import { greyColor, subtitleFontSize } from "../../helpers/styleGuidelines";
 const Description = props => {
   return (
     <Text style={styles.description}>
-      Statistiques sur le nombre d'utilisateurs,de postes et de réponses sur une
+      Statistiques sur le nombre d'utilisateurs, de postes et de réponses sur une
       période donnée
     </Text>
   );

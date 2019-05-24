@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
-import { SearchBar, Button, Icon } from 'react-native-elements';
+import { StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { SearchBar, Icon } from 'react-native-elements';
 import {
     blackColor,
     whiteColor,
