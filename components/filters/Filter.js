@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
+import { primaryColor, whiteColor } from "../../helpers/styleGuidelines";
 
-class filter extends Component {
+class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -42,7 +43,7 @@ class filter extends Component {
             ]}
             previousTitle="Précedent"
             nextTitle="Suivant"
-            selectedDayColor="#d6363e"
+            selectedDayColor={primaryColor}
             allowRangeSelection={true}
           />
 
@@ -59,9 +60,9 @@ class filter extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: whiteColor,
     marginTop: 100
   }
 });
 
-export default filter;
+export default Filter;
