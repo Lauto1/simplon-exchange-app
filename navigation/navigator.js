@@ -7,6 +7,11 @@ import FaqScreen from "../screens/FaqScreen";
 import BugScreen from "../screens/BugScreen";
 import StatsStack from "./stack/StatsStack";
 import ProfilUserScreen from "../screens/ProfilUserScreen";
+
+// definit la connexion pour afficher ou non le profil
+let mockUserAsyncStorage = true ; // A modifier à l'arrivée de l'api
+
+
 /**
  * Creation d'un Drawer navigator a partir des stacks  https://reactnavigation.org/docs/en/drawer-navigator.html
  * Vous pouvez ajouter votre stack ici pour afficher votre page dans le menu drawer
@@ -19,7 +24,7 @@ const DrawerNavigator = createDrawerNavigator({
     Faq: FaqScreen,
     Bug: BugScreen,
     Statistiques: StatsStack,
-    Profil: ProfilUserScreen,
+    Profil: {screen: ProfilUserScreen, navigationOptions: {drawerLabel: ()=> mockUserAsyncStorage? "Profil" : null}}, 
   }
 );
 
